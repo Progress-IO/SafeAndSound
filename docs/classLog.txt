@@ -1,0 +1,3 @@
+Clase 31 - 08 - 2017
+Se hicieron 2 Mocks - ups detallando el registro y el inicio de sesión
+Se configuro el archivo database.yml
