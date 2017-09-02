@@ -22,7 +22,10 @@ test:
 
 production:
   # <<: *default
-  adapter: postgresql
-  database: posgres_db
   encoding: unicode
-  pool: 50
+  adapter: postgresql
+  database: d9qgs0qt43equp
+  host: "ec2-54-83-48-188.compute-1.amazonaws.com"
+  username: syxesoboatbdxn
+  password: "08cf7cb6051c2ad0240e5301557c4f0574a29d032c1ba8b8577ac22193965643"
+  port: 5432
