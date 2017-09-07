@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   end
 
   #** Seguro esta linea creará conflicto, borren esta linea para asignar la verdadera landing page 
-  root 'users#index' # REEMPLAZAR POR RUTA DE LANDING PAGE
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'landing_page/contact'
   get "contact" => "landing_page#contact", as: "contact"
+  
+  get "login" => "users#new", as: "login"
   root 'landing_page#index'
 end
