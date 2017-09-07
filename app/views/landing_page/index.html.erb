@@ -1,0 +1,114 @@
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="#">
+    <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
+      <img src="<%= asset_path('logo.png') %>" class="mylogo">
+</a>
+      <ul class="right hide-on-med-and-down force_black">
+        
+        <li><%= link_to "Inicio", root_path, class: ""  %></li>
+        <li><a href="#">Log in</a></li>
+        <li><a href="#">Sing up</a></li>
+        <li><%= link_to "Contact us", contact_path, class: ""  %></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><%= link_to "Inicio", root_path, class: ""  %></li>
+        <li><a href="#">Log in</a></li>
+        <li><a href="#">Sing up</a></li>
+        <li><%= link_to "Contact us", contact_path, class: ""  %></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center" style="color: #455a64 ">Safe & Sound</h1>
+
+        <div class="row center">
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light  blue-grey darken-1">Get Started</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="<%= asset_path('mapa.png') %>" alt=""></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Calcula tu ruta mas segura</h5>
+
+            <p class="light">Con S&S puedes planear tu viaje en Transmilenio, SITP, carro, bicicleta, o incluso a pie, tomando los caminos más seguros, y evitando zonas peligrosas reportadas por los mismos usuarios.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Mira y reporta crímenes en tiempo real</h5>
+
+            <p class="light">Aporta a la comunidad reportando hechos inusuales o potencialmente peligrosos en la zona en la que te encuentras. Mira los reportes de crímenes y también como estos son ejecutados.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Mira los consejos y notificaciones de las autoridades</h5>
+
+            <p class="light">Puedes estar al tanto de las actualizaciones que la policía hace, como por ejemplo, una zona iluminada, o un punto en el que se encuentra un policía vigilando.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Disfruta de la ciudad tranquilamente.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="<%= asset_path('bog_1.jpg') %>" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>About Us</h4>
+          <p class="left-align light"></p>En safe and sound procuramos dar lo mejor que tenemos para lograr el bienestar y la segurida de quienes mas queremos, somos un grupo de desarrolladores, muy interesados en crear herramientas tecnologicas al servicio de la comunidad</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Una solución para tu seguridad</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="<%= asset_path('bog_2.jpg') %>" alt="Unsplashed background img 3"></div>
+  </div>
