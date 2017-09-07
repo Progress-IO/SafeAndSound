@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get 'landing_page/contact'
   get "contact" => "landing_page#contact", as: "contact"
   
-  get "login" => "users#new", as: "login"
+  get "auth/login" => "users#new", as: "login"
   root 'landing_page#index'
 end
