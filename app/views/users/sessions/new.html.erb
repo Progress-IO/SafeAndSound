@@ -36,32 +36,37 @@
     <div class="container">
       <h1 class="header center" style="color: #455a64 ">Log in</h1>
       <div class="row">
-        <div class="col s12 m4 offset-m4 l4 offset-l4" style="color: #455a64">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="input-field" >
-              <i class="material-icons prefix">email</i>
-              <%= f.label :email, {:style => "color: #455a64"} %>
-              <%= f.email_field :email %>
-            </div>
+        <div class="col s12 m6 offset-m3 l6 offset-l3" style="color: #455a64">
+          <div class="card white center">
+            <div class="card-content center">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="input-field" >
+                  <i class="material-icons prefix">email</i>
+                  <%= f.label :email, {:style => "color: #455a64"} %>
+                  <%= f.email_field :email %>
+                </div>
 
-            <div class="input-field">
-              <i class="material-icons prefix">lock</i>
-              <%= f.label :password, {:style => "color: #455a64"} %>
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
+                <div class="input-field">
+                  <i class="material-icons prefix">lock</i>
+                  <%= f.label :password, {:style => "color: #455a64"} %>
+                  <%= f.password_field :password, autocomplete: "off" %>
+                </div>
 
-            <% if devise_mapping.rememberable? -%>
-              <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me,{:style => "color: #455a64"} %>
-              </div>
-            <% end -%>
+                <% if devise_mapping.rememberable? -%>
+                  <div class="field">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me,{:style => "color: #455a64"} %>
+                  </div>
+                <% end -%>
 
-            <div class="actions btn-large waves-effect waves-light blue-grey darken-1" style="margin: 10px">
-              <%= f.submit "Log in" %>
-            </div>
-          <% end %>
-          <%= render "users/shared/links" %>
+                <div class="actions btn-large waves-effect waves-light blue-grey darken-1" style="margin: 10px">
+                  <%= f.submit "Log in" %>
+                </div>
+              <% end %>
+          </div>
+
+          <%= render "users/shared/links", {:style => "margin: 10px"} %>
+          <br />
         </div>
       </div>
     </div>
