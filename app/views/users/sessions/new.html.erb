@@ -39,12 +39,14 @@
         <div class="col s12 m4 offset-m4 l4 offset-l4" style="color: #455a64">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="input-field" >
-              <%= f.label :email, {:style => "color: #455a64"} %><br />
-              <%= f.email_field :email, autofocus: true %>
+              <i class="material-icons prefix">email</i>
+              <%= f.label :email, {:style => "color: #455a64"} %>
+              <%= f.email_field :email %>
             </div>
 
             <div class="input-field">
-              <%= f.label :password, {:style => "color: #455a64"} %><br />
+              <i class="material-icons prefix">lock</i>
+              <%= f.label :password, {:style => "color: #455a64"} %>
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
 

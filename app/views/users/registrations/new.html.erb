@@ -1,29 +1,77 @@
-<h2>Sign up</h2>
+<nav class="white" role="navigation">
+   <div class="nav-wrapper container">
+     <!--<a href="#"><img src="/assets/images/logo.png" alt="" class="mylogo"></a>-->
+     <img src="<%= asset_path('logo.png') %>" class="mylogo">
+     <ul class="right hide-on-med-and-down force_black">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+       <li><%= link_to "Inicio", root_path, class: ""  %></li>
+      <li ><%= link_to "Log in", login_path, class: ""  %></li>
+       <li class="active"><a href="#">Sign up</a></li>
+       <li><%= link_to "Contact us", contact_path, class: ""  %></li>
+     </ul>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+     <ul id="nav-mobile" class="side-nav">
+       <li><a href="#">About us</a></li>
+       <li><a href="#">Contact</a></li>
+     </ul>
+     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+   </div>
+ </nav>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <title>Safe & Sound</title>
+ <!--<h1>Safe & Sound</h1>-->
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ <!-- Materialize -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+ <script src="js/init.js"></script>
+
+ <!-- CSS  -->
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+
+<div id="index-banner" class="parallax-container" style="line-height: 1">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <h1 class="header center" style="color: #455a64 ">Sign up</h1>
+      <div class="row">
+        <div class="col s12 m4 offset-m4 l4 offset-l4" style="color: #455a64">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="input-field">
+              <i class="material-icons prefix">email</i>
+              <%= f.label :email, {:style => "color: #455a64"}  %>
+              <%= f.email_field :email %>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">lock_outline</i>
+              <%= f.label :password, {:style => "color: #455a64"}  %>
+              <!--<% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />-->
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">lock</i>
+              <%= f.label :password_confirmation, {:style => "color: #455a64"}  %>
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+
+            <div class="actions btn-large waves-effect waves-light blue-grey darken-1" style="margin: 10px">
+              <%= f.submit "Sign up" %>
+            </div>
+          <% end %>
+
+          <%= render "users/shared/links" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+  <div class="parallax"><img src="<%= asset_path('mapa.png') %>" alt=""></div>
+</div>
