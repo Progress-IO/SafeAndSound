@@ -2,9 +2,12 @@
     <div class="nav-wrapper container">
       <!--<a href="#"><img src="/assets/images/logo.png" alt="" class="mylogo"></a>-->
       <img src="<%= asset_path('logo.png') %>" class="mylogo">
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Contact</a></li>
+      <ul class="right hide-on-med-and-down force_black">
+
+        <li><%= link_to "Inicio", root_path, class: ""  %></li>
+       <li class="active"><%= link_to "Log in", login_path, class: ""  %></li>
+        <li><a href="#">Sign up</a></li>
+        <li><%= link_to "Contact us", contact_path, class: ""  %></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
@@ -19,39 +22,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Safe & Sound</title>
   <!--<h1>Safe & Sound</h1>-->
-  <h2>Log in USER</h2>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="js/init.js"></script>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
+<div id="index-banner" class="parallax-container" style="line-height: 1">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <h1 class="header center" style="color: #455a64 ">Log in</h1>
+      <div class="row">
+        <div class="col s12 m4 offset-m4 l4 offset-l4" style="color: #455a64">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="input-field" >
+              <%= f.label :email, {:style => "color: #455a64"} %><br />
+              <%= f.email_field :email, autofocus: true %>
+            </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+            <div class="input-field">
+              <%= f.label :password, {:style => "color: #455a64"} %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+            <% if devise_mapping.rememberable? -%>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me,{:style => "color: #455a64"} %>
+              </div>
+            <% end -%>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+            <div class="actions btn-large waves-effect waves-light blue-grey darken-1" style="margin: 10px">
+              <%= f.submit "Log in" %>
+            </div>
+          <% end %>
+          <%= render "users/shared/links" %>
+        </div>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="js/init.js"></script>
-    
-<%= render "users/shared/links" %>
+  <div class="parallax"><img src="<%= asset_path('mapa.png') %>" alt=""></div>
+</div>
