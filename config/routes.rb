@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get "contact" => "landing_page#contact", as: "contact"
   
   get "auth/login" => "users#new", as: "login"
+  #**auth/register/sign_up
   root 'landing_page#index'
 end
