@@ -3,17 +3,19 @@ Rails.application.routes.draw do
   resources :admins
   devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
   resources :users
-  
+
   devise_scope :user do
     get 'auth/sign_in', to: 'devise/sessions#new'
+    get 'auth/registration', to: 'devise/registrations#new'
   end
 
-  #** Seguro esta linea creará conflicto, borren esta linea para asignar la verdadera landing page 
-  
+  #** Seguro esta linea creará conflicto, borren esta linea para asignar la verdadera landing page
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'landing_page/contact'
   get "contact" => "landing_page#contact", as: "contact"
-  
-  get "auth/login" => "users#new", as: "login"
+
+  get "auth/login" => "users/sessions#new", as: "login"
+  get "auth/registration" => "user/registrations#new", as: "register"
   root 'landing_page#index'
 end
