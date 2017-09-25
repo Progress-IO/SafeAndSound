@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'auth/sign_in', to: 'devise/sessions#new'
     get 'auth/registration', to: 'devise/registrations#new'
+    get 'auth/sign_out', to: 'devise/sessions#destroy'
   end
 
   #** Seguro esta linea creará conflicto, borren esta linea para asignar la verdadera landing page

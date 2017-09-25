@@ -5,10 +5,13 @@
       <img src="<%= asset_path('logo.png') %>" class="mylogo">
 </a>
       <ul class="right hide-on-med-and-down force_black">
-
         <li class="active"><%= link_to "Inicio", root_path, class: ""  %></li>
-       <li><%= link_to "Log in", login_path, class: ""  %></li>
-        <li><a href="#">Sign up</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Log out", auth_sign_out_path, class: ""  %></li>
+        <% else %>
+          <li><%= link_to "Log in", login_path, class: ""  %></li>
+          <li><%= link_to "Sign up", register_path, class: "" %></li>
+        <% end %>
         <li><%= link_to "Contact us", contact_path, class: ""  %></li>
       </ul>
 
