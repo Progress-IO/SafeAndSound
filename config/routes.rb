@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins
   resources :admins
-  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
+  devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks"},  path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
+
   resources :users
 
   devise_scope :user do
