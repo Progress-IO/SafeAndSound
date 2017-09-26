@@ -34,7 +34,11 @@ gem 'devise'
 # gem 'capistrano-rails', group: :development
 
 gem 'omniauth-facebook'
-
+#añadido materialize
+gem 'materialize-sass'
+#añadidio jquery
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
 group :production do
   gem 'pg'
 end
