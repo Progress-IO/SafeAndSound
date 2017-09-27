@@ -23,6 +23,34 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+       <p><%= link_to  root_path do %></p>
+    <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
+      <img src="<%= asset_path('logo.png') %>" class="mylogo">
+      </a>
+  <% end %>
+      
+      <ul class="right hide-on-med-and-down">
+       
+        <% if user_signed_in? %>
+          <li><%= link_to "Log out", auth_sign_out_path, class: ""  %></li>
+        <% else %>
+          <li><%= link_to "Log in", login_path, class: ""  %></li>
+          <li><%= link_to "Sign up", register_path, class: "" %></li>
+        <% end %>
+        <li class="active"><%= link_to "Contact us", contact_path, class: ""  %></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><%= link_to "Inicio", root_path, class: ""  %></li>
+        <li><a href="#">Log in</a></li>
+        <li><a href="#">Sing up</a></li>
+        <li><%= link_to "Contact us", contact_path, class: ""  %></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
     <%= yield %>
     
       <!-- JS -->
