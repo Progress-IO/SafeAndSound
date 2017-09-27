@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
 
 
-  <h4><%= @discussion.headline %></h4>
-
-
-<p>
-  <%= @discussion.content %>
+  <h4 class="bordered"><%= @discussion.headline %></h4>
   
-</p>
+  <h6>Escrito por: <b><%=@discussion.user.email %></b>  </h6>
 
+<div class="card-panel teal lighten-5">
+    <p >
+      <%= @discussion.content %>
+      
+    </p>
+</div>
 <p><i><%= @discussion.created_at.strftime("%e %b %Y %H:%M:%S%p")%></i></p>
 <%=render 'disqus'%>
 
