@@ -15,9 +15,6 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @hash = Gmaps4rails.build_markers(@reports) do |report, marker|
-      marker.lat report.latitude
-      marker.lng report.longitude
     end
   end
 

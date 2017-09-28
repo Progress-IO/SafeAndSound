@@ -1,10 +1,15 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /reports
   # GET /reports.json
   def index
     @reports = Report.all
+    @hash = Gmaps4rails.build_markers(@reports) do |report, marker|
+      marker.lat report.latitude
+      marker.lng report.longitude
+    end
   end
 
   # GET /reports/1
@@ -14,7 +19,9 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
+    # _layout "test"
     @report = Report.new
+   
   end
 
   # GET /reports/1/edit
