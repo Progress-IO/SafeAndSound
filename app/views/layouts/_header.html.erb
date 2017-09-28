@@ -13,9 +13,9 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-    
+
   </head>
   <body>
 
@@ -37,7 +37,10 @@
           <li><%= link_to "Log in", login_path, class: ""  %></li>
           <li><%= link_to "Sign up", register_path, class: "" %></li>
         <% end %>
-        <li ><%= link_to "Forum", discussions_path, class: ""  %></li>
+
+        <% if user_signed_in? %>
+            <li ><%= link_to "Forum", discussions_path, class: ""  %></li>
+        <% end %>
         <li ><%= link_to "Contact us", contact_path, class: ""  %></li>
       </ul>
 
