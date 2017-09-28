@@ -1,15 +1,16 @@
 
 <script>
- $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
-  });
-</script>
+    $("#btn-location").click(function(){
+        var crime_lng, crime_lat;
+        crime_lng = crime_marker.getPosition().lng();
+        crime_lat = crime_marker.getPosition().lat();
 
+        $("#report_latitude").val(crime_lat);
+        $("#report_longitude").val(crime_lng);
+
+    });
+
+</script>
 <%= form_with(model: report, local: true) do |form| %>
   <% if report.errors.any? %>
     <div id="error_explanation">
@@ -37,15 +38,15 @@
   </div>
 
 
-  <!-- <div class="field">
+  <div class="field">
     <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :report_latitude %>
+    <%= form.text_field :latitude, id: :report_latitude, readonly: true %>
   </div>
 
   <div class="field">
     <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :report_longitude %>
-  </div> -->
+    <%= form.text_field :longitude, id: :report_longitude, readonly: true%>
+  </div>
 
   <div class="field">
     <%= form.label :address %>
