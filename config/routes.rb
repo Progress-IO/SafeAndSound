@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :reports
   get 'user_panel/index'
 
+  resources :discussions
   devise_for :admins
   resources :admins
   devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks"},  path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
