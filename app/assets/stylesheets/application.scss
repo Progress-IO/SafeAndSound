@@ -20,7 +20,7 @@
     
 }
 
-.pagination a, .pagination em,, .pagination span {
+.pagination a, .pagination em,, .pagination span , .bontonnormal{
     color: black;
     float: left;
     padding: 8px 16px;
@@ -31,7 +31,7 @@
     border-radius: 5px;
 }
 
-.pagination a.active,.pagination span {
+.pagination a.active,.pagination span{
     background-color: #26a69a;
     color: white;
     border: 1px solid #26a69a;
@@ -41,6 +41,16 @@
     color: white;
     border: 1px solid #26a69a;
 }
+
+.bontonnormal {
+    background: #5290ed;
+    color: white;
+}
+
+.bontonnormal:hover {
+    background: #74a1c6;
+}
+
 
 .pagination span {
     background-color: #ddd;
