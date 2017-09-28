@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :reports
-  get 'user_panel/index'
+  # get 'user_panel/index'
+  get '/users_panel' =>'user_panel#index', :as => :user_panel
 
   resources :discussions
   devise_for :admins
@@ -19,9 +20,13 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'landing_page/contact'
+  # get 'panel', to: 'user_panel/index'
+
   get "contact" => "landing_page#contact", as: "contact"
 
   get "auth/login" => "users/sessions#new", as: "login"
   get "auth/registration" => "user/registrations#new", as: "register"
+  get 'reports/index'
+
   root 'landing_page#index'
 end
