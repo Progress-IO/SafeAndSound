@@ -42,6 +42,10 @@
             <li ><%= link_to "Forum", discussions_path, class: ""  %></li>
         <% end %>
         <li ><%= link_to "Contact us", contact_path, class: ""  %></li>
+
+        <% if user_signed_in? %>
+        <li style="color: #5db6fc"> Welcome, <%= current_user.email %></li>
+        <% end %>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
@@ -49,6 +53,8 @@
         <li><a href="#">Log in</a></li>
         <li><a href="#">Sing up</a></li>
         <li><%= link_to "Contact us", contact_path, class: ""  %></li>
+
+
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
