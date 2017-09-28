@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reports
   get 'user_panel/index'
 
   devise_for :admins
@@ -23,5 +24,7 @@ Rails.application.routes.draw do
 
   get "auth/login" => "users/sessions#new", as: "login"
   get "auth/registration" => "user/registrations#new", as: "register"
+  get 'reports/index'
+
   root 'landing_page#index'
 end

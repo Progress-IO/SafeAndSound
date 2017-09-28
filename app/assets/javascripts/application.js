@@ -13,5 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= require_tree 
 //= require materialize-sprockets
+//= require underscore
+//= require gmaps/google

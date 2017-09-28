@@ -1,0 +1,62 @@
+
+<script>
+ $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+</script>
+
+<%= form_with(model: report, local: true) do |form| %>
+  <% if report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo, id: :report_tipo %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :report_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :report_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :report_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_field :details, id: :report_details %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+ 
+ 
