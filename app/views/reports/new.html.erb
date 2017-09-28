@@ -1,5 +1,9 @@
-<h1>New Report</h1>
+<div class="container">
+    <h1>Create a new report</h1>
 
-<%= render 'form', report: @report %>
+    <%= render 'form', report: @report %>
+    <div class="custom_margin">
+        <%= link_to 'Back', user_panel_path, class: "btn btn-small" %>
+    </div>
 
-<%= link_to 'Back', reports_path %>
+</div>
