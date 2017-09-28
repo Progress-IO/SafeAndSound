@@ -29,4 +29,12 @@ Rails.application.routes.draw do
   get 'reports/index'
 
   root 'landing_page#index'
+  
+  # User_panel redirect
+  get "/user_panel" => 'user_panel#index', as: :user_root
+
+  namespace :user do
+    root "user_panel#index"
+  end
+
 end
