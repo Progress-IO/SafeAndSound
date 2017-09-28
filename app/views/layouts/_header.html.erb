@@ -13,9 +13,9 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-    
+
   </head>
   <body>
 
@@ -23,11 +23,19 @@
     <p class="alert"><%= alert %></p> -->
     <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-       <p><%= link_to  root_path do %></p>
+
+            <% if user_signed_in? %>
+            <a src= '<%= user_panel_url%>' >  <img src="<%= asset_path('logo.png') %>" class="mylogo"></a>
+            <% else %>
+            <a src= '<%= root_url %>' >  <img src="<%= asset_path('logo.png') %>" class="mylogo"></a>
+            <% end %>
+
+         
+      
     <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
-      <img src="<%= asset_path('logo.png') %>" class="mylogo">
-      </a>
-  <% end %>
+     
+    
+  
 
       <ul class="right hide-on-med-and-down">
 
@@ -37,7 +45,10 @@
           <li><%= link_to "Log in", login_path, class: ""  %></li>
           <li><%= link_to "Sign up", register_path, class: "" %></li>
         <% end %>
-        <li ><%= link_to "Forum", discussions_path, class: ""  %></li>
+
+        <% if user_signed_in? %>
+            <li ><%= link_to "Forum", discussions_path, class: ""  %></li>
+        <% end %>
         <li ><%= link_to "Contact us", contact_path, class: ""  %></li>
       </ul>
 

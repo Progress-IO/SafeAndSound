@@ -1,19 +1,20 @@
+<div class="container">
 
 <div class="container">
   <h4 class="bordered"><%= @discussion.headline %></h4>
-  
+
   <h6>Escrito por: <b><%=@discussion.user.email %></b>  </h6>
+
+  <div class="card-panel teal lighten-5">
+      <p >
+        <%= @discussion.content.html_safe  %>
+        
+      </p>
+  </div>
+  <p><i><%= @discussion.created_at.strftime("%e %b %Y %H:%M:%S%p")%></i></p>
+  <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
+  <%= link_to 'Back', discussions_path %>
+  <%=render 'disqus'%>
   
-<div class="card-panel teal lighten-5">
-    <p >
-      <%= @discussion.content.html_safe  %>
-      
-    </p>
-</div>
-<p><i><%= @discussion.created_at.strftime("%e %b %Y %H:%M:%S%p")%></i></p>
-<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-<%= link_to 'Back', discussions_path %>
-<%=render 'disqus'%>
-
-
-</div>
+  
+  </div>
