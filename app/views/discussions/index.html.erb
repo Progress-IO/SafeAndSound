@@ -28,10 +28,10 @@
         <td><%= discussion.user.email %></td>
         <td><i><%= discussion.created_at %></i></td>
       <!--  <td></td>-->
-        <td><%= link_to 'Show', discussion, class: "btn blue-grey"%></td>
+        <td><%= link_to 'Show', discussion, class: "bontonnormal"%></td>
         <% if user_signed_in? %>
-        <td><%= link_to 'Edit', edit_discussion_path(discussion), class: "btn blue-grey" %></td>
-        <td><%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn blue-grey" %></td>
+        <td><%= link_to 'Edit', edit_discussion_path(discussion), class: "bontonnormal" %></td>
+        <td><%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
         <% end %>
       </tr>
   
