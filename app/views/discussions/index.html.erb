@@ -1,3 +1,11 @@
+
+<script>jQuery(document).ready(function($) {
+  $(".clickable-row").click(function() {
+  window.location = $(this).data("href");
+  });
+}); </script>
+
+
 <p id="notice"><%= notice %></p>
 <div>
 <h1>Discussions</h1><%= link_to 'New Discussion', new_discussion_path, class:"waves-effect waves-light btn" %>
@@ -14,11 +22,11 @@
 
   <tbody>
     <% @discussions.each do |discussion| %>
-      
-      <tr>
+     
+      <tr >
         <td><%= discussion.headline%></td>
         <td><%= discussion.user.email %></td>
-        <td><%= discussion.created_at %></td>
+        <td><i><%= discussion.created_at %></i></td>
       <!--  <td></td>-->
         <td><%= link_to 'Show', discussion%></td>
         <% if user_signed_in? %>
@@ -26,7 +34,7 @@
         <td><%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
-      
+  
     <% end %>
   </tbody>
 </table>
