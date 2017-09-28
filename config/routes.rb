@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   get "auth/login" => "users/sessions#new", as: "login"
   get "auth/registration" => "user/registrations#new", as: "register"
   get 'reports/index'
+
   root 'landing_page#index'
 end

@@ -11,14 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :fecha %>
-    <%= form.datetime_select :fecha, id: :report_fecha %>
-  </div>
+  
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type, id: :report_type %>
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo, id: :report_tipo %>
+  </div>
+
+<div class="field">
+    <%= form.label :fecha %>
+    <%= form.datetime_select :fecha, id: :report_fecha %>
   </div>
 
   <div class="field">
