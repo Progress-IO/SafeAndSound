@@ -1,66 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    
-    <title>Safe and Sound</title>
+<%= render "layouts/header" %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "style.css" %>
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
-    <%# <%= javascript_include_tag "init.js" %> 
-
-
-    
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  </head>
-
-  <body>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-       <p><%= link_to  root_path do %></p>
-    <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
-      <img src="<%= asset_path('logo.png') %>" class="mylogo">
-      </a>
-  <% end %>
-      
-      <ul class="right hide-on-med-and-down">
-       
-        <% if user_signed_in? %>
-          <li><%= link_to "Log out", auth_sign_out_path, class: ""  %></li>
-        <% else %>
-          <li><%= link_to "Log in", login_path, class: ""  %></li>
-          <li><%= link_to "Sign up", register_path, class: "" %></li>
-        <% end %>
-        <li class="active"><%= link_to "Contact us", contact_path, class: ""  %></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><%= link_to "Inicio", root_path, class: ""  %></li>
-        <li><a href="#">Log in</a></li>
-        <li><a href="#">Sing up</a></li>
-        <li><%= link_to "Contact us", contact_path, class: ""  %></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
     <%= yield %>
-    
-      <!-- JS -->
-    <!-- jQuery -->
-    <%# <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- Materialize -->
 
-    <%# <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> %> 
-<%= javascript_include_tag "init.js" %> 
-    
+    <%= javascript_include_tag "init.js" %>
 
   </body>
-</html
+</html>
