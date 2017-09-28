@@ -1,2 +1,29 @@
-<h1>UserPanel#index</h1>
-<p>Find me in app/views/user_panel/index.html.erb</p>
+<div class="row noborder_row" id="id-user-panel">
+    <div class="col s4 m2 nomargin_col nav-panel">
+        <!-- <div class="btn left waves-light grey darken-3">CREAR REPORTE</div>
+        <div class="btn left waves-light grey darken-3">CREAR REPORTE</div>
+        <div class="btn left waves-light grey darken-3">CREAR REPORTE</div>
+        <div class="btn left waves-light grey darken-3">CREAR REPORTE</div>
+        <div class="btn left waves-light grey darken-3">CREAR REPORTE</div>
+        <div class="btn left waves-light grey darken-3">CREAR REPORTE</div> -->
+
+    <script>
+        $("#mybtn").on('click', function(){
+            $("#id-user-panel").hide();
+            // $(this).show();
+        });
+
+    </script>
+
+    <ul>
+        <li><a href=""><strong><i class="material-icons tiny">priority_high</i>   REPORTAR CRIMEN</strong></a></li>
+        <li><a href=""><strong><i class="material-icons tiny">visibility</i>  REPORTAR GRUPO</strong></a></li>
+        <li><a href=""><strong><i class="material-icons tiny">subdirectory_arrow_right</i>  CALCULAR RUTA</strong></a></li>
+        <li><a href=""><strong><i class="material-icons tiny">storage</i>  FILTRAR CRIMENES</strong></a></li>
+        <li><a href=""><strong><i class="material-icons tiny">trending_up</i>  ESTADÍSTICAS</strong></a></li>
+    </ul>
+
+    <div class="btn btn-floating pulse blue-grey darken-1 right" id="mybtn"></div>
+
+    </div>
+</div>
