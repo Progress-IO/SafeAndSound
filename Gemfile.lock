@@ -73,8 +73,10 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     hashie (3.5.6)
     i18n (0.8.6)
     jbuilder (2.7.0)
@@ -222,6 +224,8 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

@@ -39,6 +39,10 @@ gem 'materialize-sass'
 #añadidio jquery
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+#gema de google maps
+gem 'gmaps4rails'
+#gema de geocoder
+gem 'geocoder'
 group :production do
   gem 'pg'
 end
