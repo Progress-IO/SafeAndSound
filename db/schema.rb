@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20170927205211) do
+=======
 ActiveRecord::Schema.define(version: 20170928032607) do
+>>>>>>> f9aae037f7cbcbb36aa0ff9f7aa9762401268053
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -41,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170928032607) do
 
   create_table "reports", force: :cascade do |t|
     t.datetime "fecha"
-    t.string "tipo"
+    t.string "type"
     t.float "latitude"
     t.float "longitude"
     t.string "address"
