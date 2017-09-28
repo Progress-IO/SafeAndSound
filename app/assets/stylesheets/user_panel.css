@@ -1,0 +1,47 @@
+/*User panel*/
+.noborder_row {
+    border: 0 !important;
+    margin-bottom: 0 !important;
+    overflow: none !important;
+}
+.nomargin_col{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nav-panel {
+    background-color: #25282b;
+    height: 88vh;
+}
+
+.nav-panel li {
+    padding-left: 25px;
+    margin: auto;
+    height: 50px;
+
+}
+
+.nav-panel li a {
+    color: #ffffff !important;
+}
+
+.nav-panel li a:hover{
+    color: #5ea8ff !important;
+}
+
+.nav-panel li:first-child{
+    margin-top: 20px;
+}
+
+.mytest{
+    color: #799c0c;
+}
+
+.collection-item {
+    background-color: #25282b !important;
+    color: #ffffff !important;
+}
+
+.collection_item:hover {
+
+}

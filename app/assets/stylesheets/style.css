@@ -66,3 +66,11 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+html, body {
+    height: 100%;
+}
+
+.custom_margin {
+    margin: 10px;
+}

@@ -1,2 +1,66 @@
-<h1>UserPanel#index</h1>
-<p>Find me in app/views/user_panel/index.html.erb</p>
+    <%= render "layouts/init-map"%>
+<div class="row noborder_row" id="id-user-panel">
+    <div class="col s4 m2 nomargin_col nav-panel">
+
+
+    <ul>
+        <li><a href=" <%= new_report_path %>"><strong><i class="material-icons tiny">priority_high</i>   REPORTAR CRIMEN</strong></a></li>
+
+        <li><a href=""><strong><i class="material-icons tiny">visibility</i>  REPORTAR GRUPO</strong></a></li>
+        <li><a href=""><strong><i class="material-icons tiny">subdirectory_arrow_right</i>  CALCULAR RUTA</strong></a></li>
+        <li><a href=""><strong><i class="material-icons tiny">storage</i>  FILTRAR CRIMENES</strong></a></li>
+        <li><a href=""><strong><i class="material-icons tiny">trending_up</i>  ESTADÍSTICAS</strong></a></li>
+    </ul>
+
+    <div class="btn btn-floating pulse blue-grey darken-1 right" id="mybtn"></div>
+
+    </div>
+
+    <div class="col m10 nomargin_col">
+
+      <div id="map" style='width: auto; height: 89vh;'></div>
+
+    </div>
+</div>
+<p>
+    Hola
+    <% @temp.each do |casa|%>
+
+    <%= casa.details%>
+    <%end%>
+</p>
+
+
+<script>
+    var xmark;
+
+
+    // var Parse = require('parse');
+    "<% @temp.each do | report | %>"
+        var xlat = "<%= report.latitude %>" ;
+        var xlng = "<%= report.longitude %> ";
+
+        var xlat = parseFloat(xlat);
+        var xlng = parseFloat(xlng);
+        console.log(xlat);
+        console.log(xlng);
+        var loc_crime = {lat: xlat, lng: xlng};
+
+        var description = "<%= report.details %>";
+
+        console.log(loc_crime);
+        // addMarkernod(loc_crime, description);
+
+        xmark = new google.maps.Marker({
+            position: loc_crime,
+            map: map
+            // icon: "<%= image_url("robbery")%>"
+        });
+
+
+    "<% end %>"
+
+
+
+</script>
+<%= render "layouts/map-actions"%>

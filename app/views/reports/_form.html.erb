@@ -1,3 +1,16 @@
+
+<script>
+    $("#btn-location").click(function(){
+        var crime_lng, crime_lat;
+        crime_lng = crime_marker.getPosition().lng();
+        crime_lat = crime_marker.getPosition().lat();
+
+        $("#report_latitude").val(crime_lat);
+        $("#report_longitude").val(crime_lng);
+
+    });
+
+</script>
 <%= form_with(model: report, local: true) do |form| %>
   <% if report.errors.any? %>
     <div id="error_explanation">
@@ -11,24 +24,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :fecha %>
-    <%= form.datetime_select :fecha, id: :report_fecha %>
-  </div>
+
+
+  <!-- <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo, id: :report_tipo %>
+  </div> -->
+
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type, id: :report_type %>
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo %>
   </div>
+
 
   <div class="field">
     <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :report_latitude %>
+    <%= form.text_field :latitude, id: :report_latitude, readonly: true %>
   </div>
 
   <div class="field">
     <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :report_longitude %>
+    <%= form.text_field :longitude, id: :report_longitude, readonly: true%>
   </div>
 
   <div class="field">
@@ -42,6 +59,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn' %>
   </div>
 <% end %>

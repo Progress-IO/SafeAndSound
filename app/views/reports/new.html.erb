@@ -1,5 +1,37 @@
-<h1>New Report</h1>
+<div class="container">
+    <h1>Create a new report</h1>
 
-<%= render 'form', report: @report %>
 
-<%= link_to 'Back', reports_path %>
+    <button class="btn custom_margin" id="btnaddmarker"> Add marker </button>
+
+    <script>
+
+        var bogota = {lat: 4.624335, lng: -74.063644};
+        var crime_marker;
+
+
+        $("#btnaddmarker").click(function(){
+            addMarker(bogota);
+
+            $(this).fadeOut(500);
+
+        });
+
+
+    </script>
+
+
+    <div id="map" style="width: auto; height: 50vh;" class="custom_margin"></div>
+
+    <button id="btn-location" class="btn custom_margin" style="float: right; clear:both;" >Add location</button>
+
+    <%= render 'form', report: @report %>
+    <div class="custom_margin">
+        <%= link_to 'Back', user_panel_path, class: "btn btn-small" %>
+    </div>
+
+</div>
+
+
+<%= render "layouts/init-map"%>
+<%= render "layouts/map-actions"%>
