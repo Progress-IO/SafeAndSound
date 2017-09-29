@@ -28,30 +28,31 @@
 
 
     // var Parse = require('parse');
-    "<% @temp.each do | report | %>"
-        var xlat = "<%= report.latitude %>" ;
-        var xlng = "<%= report.longitude %> ";
+    <% if defined? report %>
+      "<% @temp.each do | report | %>"
+          var xlat = "<%= report.latitude %>" ;
+          var xlng = "<%= report.longitude %> ";
 
-        var xlat = parseFloat(xlat);
-        var xlng = parseFloat(xlng);
-        console.log(xlat);
-        console.log(xlng);
-        var loc_crime = {lat: xlat, lng: xlng};
+          var xlat = parseFloat(xlat);
+          var xlng = parseFloat(xlng);
+          console.log(xlat);
+          console.log(xlng);
+          var loc_crime = {lat: xlat, lng: xlng};
 
-        var description = "<%= report.details %>";
+          var description = "<%= report.details %>";
 
-        console.log(loc_crime);
-        // addMarkernod(loc_crime, description);
+          console.log(loc_crime);
+          // addMarkernod(loc_crime, description);
 
-        xmark = new google.maps.Marker({
-            position: loc_crime,
-            map: map
-            // icon: "<%= image_url("robbery")%>"
-        });
+          xmark = new google.maps.Marker({
+              position: loc_crime,
+              map: map
+              // icon: "<%= image_url("robbery")%>"
+          });
 
 
     "<% end %>"
-
+    <% end %>
 
 
 </script>
