@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170927205211) do
-=======
-ActiveRecord::Schema.define(version: 20170928032607) do
->>>>>>> f9aae037f7cbcbb36aa0ff9f7aa9762401268053
+ActiveRecord::Schema.define(version: 20170923183225) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -41,17 +37,6 @@ ActiveRecord::Schema.define(version: 20170928032607) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
-  end
-
-  create_table "reports", force: :cascade do |t|
-    t.datetime "fecha"
-    t.string "type"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "address"
-    t.string "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
