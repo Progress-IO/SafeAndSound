@@ -45,6 +45,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 #gema faker 
 gem 'faker'
+gem 'as-duration', '~> 0.1.0'
 group :production do
   gem 'pg'
 end

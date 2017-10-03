@@ -16,3 +16,14 @@
         
     }])
 end
+
+100.times do 
+    Discussion.create([{
+        headline: Faker::Lorem.word,
+        content:  Faker::Lorem.paragraph,
+        created_at: Faker::Time.between(2.days.ago, Date.today, :all),
+        user_id: 1
+        
+    }])
+    
+end
