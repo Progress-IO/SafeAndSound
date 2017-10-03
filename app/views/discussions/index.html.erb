@@ -29,7 +29,8 @@
       <tr >
         <td><%= discussion.headline%></td>
         <td><%= discussion.user.email %></td>
-        <td><i><%= discussion.created_at %></i></td>
+        
+        <td><i><%= discussion.created_at.strftime ("%A, %d %b %Y %l:%M %p") %></i></td>
       <!--  <td></td>-->
         <td><%= link_to 'Show', discussion, class: "bontonnormal"%></td>
         <% if user_signed_in? %>
