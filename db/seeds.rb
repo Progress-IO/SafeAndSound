@@ -9,10 +9,12 @@
     Report.create([{
         fecha: Faker::Date.between(100.days.ago, Date.today),
         tipo: "Robo",
-        latitude:Faker::Number.between(4.4635, 4.89747),
-        longitude:Faker::Number.between(4.4635, 4.89747),
-        address:
-        details:
+        latitude: Faker::Address.latitude,
+        longitude: Faker::Address.longitude,
+        address: Faker::Address.street_name,
+        details: Faker::Lorem.paragraphs
         
     }])
+    
+    
 end
