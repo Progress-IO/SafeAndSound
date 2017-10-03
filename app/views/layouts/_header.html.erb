@@ -24,11 +24,17 @@
     <nav class="white" role="navigation">
     <div class="nav-wrapper container">
 
-          <p><%= link_to  root_path do %></p>
- +    <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
- +      <img src="<%= asset_path('logo.png') %>" class="mylogo">
- +      </a>
- +  <% end %>
+            
+             <p><%= link_to  root_path do %></p>
+     +    <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
+     +      <img src="<%= asset_path('logo.png') %>" class="mylogo">
+     +      </a>
+     +                                <% end %>
+            
+            
+           
+
+
          
       
     <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
