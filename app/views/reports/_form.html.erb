@@ -1,64 +1,72 @@
+<%= javascript_include_tag "materialize_init.js" %>
+  <%= form_with(model: report, local: true) do |form| %>
+    <% if report.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
 
-<script>
-    $("#btn-location").click(function(){
-        var crime_lng, crime_lat;
-        crime_lng = crime_marker.getPosition().lng();
-        crime_lat = crime_marker.getPosition().lat();
-
-        $("#report_latitude").val(crime_lat);
-        $("#report_longitude").val(crime_lng);
-
-    });
-
-</script>
-<%= form_with(model: report, local: true) do |form| %>
-  <% if report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
-
-      <ul>
-      <% report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <ul>
+          <% report.errors.full_messages.each do |message| %>
+            <li>
+              <%= message %>
+            </li>
+            <% end %>
+        </ul>
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
 
-  <!-- <div class="field">
-    <%= form.label :tipo %>
-    <%= form.text_field :tipo, id: :report_tipo %>
-  </div> -->
+        <div class="input">
+          <%= form.label :tipo %>
+            <%= form.select(:tipo, options_for_select([["Robo violento","Robo violento"],["Asesinato","Asesinato"],["Raponazo","Raponazo"],["Estafa","Estafa"]]) ) %>
+        </div>
 
+        <div class="field">
+          <%= form.label "Dia" %>
+            <%= form.text_field :fecha, class: "datepicker"%>
+        </div>
 
-  <div class="field">
-    <%= form.label :tipo %>
-    <%= form.text_field :tipo %>
-  </div>
+        <div class="field">
+          <%= form.label "Hora" %>
+            <%= form.text_field :fecha, class: "timepicker"%>
+        </div>
 
+        <div class="field">
+          <%= form.label :latitude %>
+            <%= form.text_field :latitude, id: :report_latitude, readonly: true %>
+        </div>
 
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :report_latitude, readonly: true %>
-  </div>
+        <div class="field">
+          <%= form.label :longitude %>
+            <%= form.text_field :longitude, id: :report_longitude, readonly: true%>
+        </div>
 
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :report_longitude, readonly: true%>
-  </div>
+        <div class="field">
+          <%= form.label :address %>
+            <%= form.text_field :address, id: :report_address %>
+        </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :report_address %>
-  </div>
+        <div class="field">
+          <%= form.label :details %>
+            <%= form.text_field :details, id: :report_details %>
+        </div>
 
-  <div class="field">
-    <%= form.label :details %>
-    <%= form.text_field :details, id: :report_details %>
-  </div>
+        <div class="field">
+          <%= form.label :image %>
+            <div class="file-field input-field">
+              <div class="btn green">
+                <span>Adjuntar archivo</span>
+                <%= form.file_field :image %>
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+        </div>
 
-  <div class="actions">
-    <%= form.submit class: 'btn' %>
-  </div>
-<% end %>
+       
+        <div class="actions">
+          <%= form.submit class: 'btn' %>
+        </div>
+        <% end %>

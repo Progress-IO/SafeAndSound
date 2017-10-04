@@ -39,10 +39,10 @@ gem 'materialize-sass'
 #añadidio jquery
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-#gema de google maps
-gem 'gmaps4rails'
-#gema de geocoder
-gem 'geocoder'
+#gema para poder subir archivos
+
+gem "paperclip", "~> 5.0.0"
+
 group :production do
   gem 'pg'
 end

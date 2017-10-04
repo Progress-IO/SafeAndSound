@@ -16,7 +16,7 @@
 //= require_tree 
 //= require materialize-sprockets
 //= require underscore
-//= require gmaps/google
+
 
 document.addEventListener("turbolinks:load", function() {
     tinymce.remove();
