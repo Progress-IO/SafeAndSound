@@ -9,6 +9,7 @@
 
 
 
+
 100.times do 
     Discussion.create([{
         headline: Faker::Lorem.word,
@@ -17,5 +18,19 @@
         user_id: 1
         
     }])
+end
+
+100.times do
+    Report.create([{
+        fecha: Faker::Date.between(100.days.ago, Date.today),
+        tipo: "Robo",
+        latitude: Faker::Address.latitude,
+        longitude: Faker::Address.longitude,
+        address: Faker::Address.street_name,
+        details: Faker::Lorem.paragraphs
+        
+    }])
     
+    
+
 end
