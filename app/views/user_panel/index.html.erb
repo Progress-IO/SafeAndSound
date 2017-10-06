@@ -1,4 +1,5 @@
-    <%= render "layouts/init-map"%>
+
+
 <div class="row noborder_row" id="id-user-panel">
     <div class="col s4 m2 nomargin_col nav-panel">
 
@@ -23,37 +24,44 @@
     </div>
 </div>
 
+<h1> Reportes </h1>
+<% @temp.each do | report | %>
+<p> <%= report.latitude %> </p>
+<% end %>
+
+<%= render "layouts/init-map"%>
+
+
 <script>
+
+    function addMarker(location) {
+        console.log("Encontre", location);
+
+        crime_marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          icon: "<%= image_url("robbery")%>",
+          draggable: true
+      });
+    }
+
+
     var xmark;
+    var xlat, xlng;
+    var loc_crime;
+    <% @temp.each do | report | %>
+          xlat = "<%= report.latitude %>" ;
+          xlng = "<%= report.longitude %> ";
 
-
-    // var Parse = require('parse');
-    <% if defined? report %>
-      "<% @temp.each do | report | %>"
-          var xlat = "<%= report.latitude %>" ;
-          var xlng = "<%= report.longitude %> ";
-
-          var xlat = parseFloat(xlat);
-          var xlng = parseFloat(xlng);
+          xlat = parseFloat(xlat);
+          xlng = parseFloat(xlng);
           console.log(xlat);
           console.log(xlng);
-          var loc_crime = {lat: xlat, lng: xlng};
+          loc_crime = {lat: xlat, lng: xlng};
 
-          var description = "<%= report.details %>";
+        addMarker(loc_crime);
 
-          console.log(loc_crime);
-          // addMarkernod(loc_crime, description);
-
-          xmark = new google.maps.Marker({
-              position: loc_crime,
-              map: map
-              // icon: "<%= image_url("robbery")%>"
-          });
-
-
-    "<% end %>"
     <% end %>
 
-
 </script>
-<%= render "layouts/map-actions"%>
+<%= render "layouts/map-actions" %>
