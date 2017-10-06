@@ -43,6 +43,8 @@ gem 'jquery-turbolinks'
 gem 'gmaps4rails'
 #gema de geocoder
 gem 'geocoder'
+#gema faker 
+gem 'faker'
 group :production do
   gem 'pg'
 end

@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+100.times do
+    Report.create([{
+        fecha: Faker::Date.between(100.days.ago, Date.today),
+        tipo: "Robo",
+        latitude: Faker::Address.latitude,
+        longitude: Faker::Address.longitude,
+        address: Faker::Address.street_name,
+        details: Faker::Lorem.paragraphs
+        
+    }])
+    
+    
+end
