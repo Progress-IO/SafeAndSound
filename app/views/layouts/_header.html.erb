@@ -26,17 +26,19 @@
 
             
              <p><%= link_to  root_path do %></p>
-     +    <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
-     +      <img src="<%= asset_path('logo.png') %>" class="mylogo">
-     +      </a>
-     +                                <% end %>
+         <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
+           <img src="<%= asset_path('logo.png') %>" class="mylogo">
+           </a>
+                                    <% end %>
             
             
            
 
          
       
-    <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
+    <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">
+    <i class="material-icons md-dark">exit_to_app</i>
+    -->
      
     
   
@@ -44,16 +46,16 @@
       <ul class="right hide-on-med-and-down">
 
         <% if user_signed_in? %>
-          <li><%= link_to "Log out", auth_sign_out_path, class: ""  %></li>
+          <li class = "right"><%= link_to "Log out", auth_sign_out_path ,class:"" %>  </li>
         <% else %>
-          <li><%= link_to "Log in", login_path, class: ""  %></li>
-          <li><%= link_to "Sign up", register_path, class: "" %></li>
+          <li class = "right"><%= link_to "Log in", login_path, class: ""  %></li>
+          <li class = "right"><%= link_to "Sign up", register_path, class: "" %></li>
         <% end %>
 
         <% if user_signed_in? %>
-            <li ><%= link_to "Forum", discussions_path, class: ""  %></li>
+            <li class = "left" ><%= link_to "Forum", discussions_path, class: ""  %></li>
         <% end %>
-        <li ><%= link_to "Contact us", contact_path, class: ""  %></li>
+        <li class = "left"><%= link_to "Contact us", contact_path, class: ""  %></li>
 
         <% if user_signed_in? %>
         <li style="color: #5db6fc"> Welcome, <%= current_user.email %></li>
