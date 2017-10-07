@@ -1,27 +1,26 @@
 .link_menu {
-    transition: 0.9s;
     padding-left: 10px;
     padding-top: 4px;
     vertical-align: top;
-    display: inline-block;
+    display: none;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     font-family: Ubuntu;
     height: 100%;
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
 .side_bar {
     position: absolute;
     background-color: #070a14;
-    height: 100vh;
+    height: 90.5vh;
     width: 80px;
     border-right: 2px solid #b5b4be;
     transition: 0.5s ease;
@@ -48,7 +47,7 @@ body {
     padding: 10px 0 0 20px;
 }
 
-.side_bar ul li:hover, .side_bar ul li:active {
+.side_bar ul li:hover {
     background-color: #13161f;
     border-left: 4px #628fff solid;
     padding-left: 16px;
@@ -60,7 +59,18 @@ body {
 }
 
 .main {
-    position: absolute;
+    overflow: hidden;
     margin-left: 80px;
     transition: 0.5s;
+    height: 90.5vh;
+}
+
+.link_menu_toggle {
+    display: none;
+}
+
+.test {
+    background-color: green;
+    width: 100%;
+    height: 100%;
 }
