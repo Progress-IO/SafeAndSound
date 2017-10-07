@@ -1,37 +1,19 @@
+<%= javascript_include_tag "g_maps/gm_report-new" %>
+
 <div class="container">
     <h1>Create a new report</h1>
 
 
     <button class="btn custom_margin" id="btnaddmarker"> Add marker </button>
 
-    <script>
+    <div id="map" class="map_report" class="custom_margin"></div>
 
-        var bogota = {lat: 4.624335, lng: -74.063644};
-        var crime_marker;
-
-
-        $("#btnaddmarker").click(function(){
-            addMarker(bogota);
-
-            $(this).fadeOut(500);
-
-        });
-
-
-    </script>
-
-
-    <div id="map" style="width: auto; height: 50vh;" class="custom_margin"></div>
-
-    <button id="btn-location" class="btn custom_margin" style="float: right; clear:both;" >Add location</button>
-
+    <button id="btn-location" class="btn custom_margin" style="float: right; display:block;" >Add location</button>
     <%= render 'form', report: @report %>
-    <div class="custom_margin">
-        <%= link_to 'Back', user_panel_path, class: "btn btn-small" %>
-    </div>
+    <%= link_to 'Back', user_panel_path, class: "btn btn-small" %>
+
 
 </div>
 
 
-<%= render "layouts/init-map"%>
 <%= render "layouts/map-actions"%>

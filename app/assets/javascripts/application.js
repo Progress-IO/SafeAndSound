@@ -12,11 +12,9 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require turbolinks
-//= require_tree 
+//= require_directory .
 //= require materialize-sprockets
 //= require underscore
-//= require gmaps/google
 
 document.addEventListener("turbolinks:load", function() {
     tinymce.remove();

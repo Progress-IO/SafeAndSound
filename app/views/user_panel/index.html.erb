@@ -1,8 +1,7 @@
+<!-- <%= javascript_include_tag "g_maps/gm_user-panel" %> -->
 
-
-<div class="row noborder_row" id="id-user-panel">
+<!-- <div class="row noborder_row" id="id-user-panel">
     <div class="col s4 m2 nomargin_col nav-panel">
-
 
     <ul>
         <li><a href=" <%= new_report_path %>"><strong><i class="material-icons tiny">priority_high</i>   REPORTAR CRIMEN</strong></a></li>
@@ -22,46 +21,40 @@
       <div id="map" style='width: auto; height: 89vh;'></div>
 
     </div>
+
+</div> -->
+
+<div class="side_bar">
+    <ul>
+        <li id="expand"><i class="small material-icons" id="expand_icon">navigate_next</i></I></li>
+        <li> <a href=""><i class="small material-icons">directions</i><div class="link_menu">CALCULAR RUTA</div></a> </li>
+        <li> <a href=""><i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div></a> </li>
+        <li> <a href=""><i class="small material-icons">filter_list</i><div class="link_menu">FILTRAR</div></a> </li>
+        <li> <a href=""><i class="small material-icons">trending_up</i><div class="link_menu">ESTADISTICAS</div></a> </li>
+        <li> <a href=""><i class="small material-icons">tune</i><div class="link_menu">AJUSTES</div></a> </li>
+    </ul>
 </div>
 
-<h1> Reportes </h1>
-<% @temp.each do | report | %>
-<p> <%= report.latitude %> </p>
-<% end %>
+<div class="main">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
 
-<%= render "layouts/init-map"%>
+<!-- <div id="map" style='width: auto; height: 89vh;'></div> -->
 
-
+<!-- Generacion del mapa con todos los reportes hechos -->
 <script>
-
-    function addMarker(location) {
-        console.log("Encontre", location);
-
-        crime_marker = new google.maps.Marker({
-          position: location,
-          map: map,
-          icon: "<%= image_url("robbery")%>",
-          draggable: true
-      });
-    }
-
-
-    var xmark;
     var xlat, xlng;
     var loc_crime;
+    var data = [];
+
     <% @temp.each do | report | %>
           xlat = "<%= report.latitude %>" ;
           xlng = "<%= report.longitude %> ";
-
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          console.log(xlat);
-          console.log(xlng);
-          loc_crime = {lat: xlat, lng: xlng};
-
-        addMarker(loc_crime);
-
+          tuple = [xlat, xlng];
+          data.push(tuple);
     <% end %>
-
 </script>
-<%= render "layouts/map-actions" %>
+
+<!-- <%= render "layouts/map-actions"%> -->

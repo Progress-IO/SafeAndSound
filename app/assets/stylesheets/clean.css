@@ -1,4 +1,4 @@
-.reset-this {
+/*.reset-this {
     animation : none;
     animation-delay : 0;
     animation-direction : normal;
@@ -150,13 +150,13 @@
     /* basic modern patch */
     all: initial;
     all: unset;
-}
+}*/
 
 /* basic modern patch */
 
-#reset-this-root {
+/*#reset-this-root {
     all: initial;
     * {
         all: unset;
     }
-}
+}*/
