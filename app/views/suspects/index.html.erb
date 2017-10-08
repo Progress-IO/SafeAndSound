@@ -11,6 +11,7 @@
       <th>Longitude</th>
       <th>Address</th>
       <th>Details</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +25,11 @@
         <td><%= suspect.longitude %></td>
         <td><%= suspect.address %></td>
         <td><%= suspect.details %></td>
+        <td>
+          <% if !suspect.images[0].nil? %>
+          <img src="<%=asset_path( suspect.images[0] )%>">
+          <%end %>
+        </td>
         <td><%= link_to 'Show', suspect %></td>
         <td><%= link_to 'Edit', edit_suspect_path(suspect) %></td>
         <td><%= link_to 'Destroy', suspect, method: :delete, data: { confirm: 'Are you sure?' } %></td>

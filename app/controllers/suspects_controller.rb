@@ -69,6 +69,6 @@ class SuspectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def suspect_params
-      params.require(:suspect).permit(:nombre, :fecha, :latitude, :longitude, :address, :details)
+      params.require(:suspect).permit(:nombre, :fecha, :latitude, :longitude, :address, :details, {images: []})
     end
 end

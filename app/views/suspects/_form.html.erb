@@ -1,15 +1,5 @@
 <%= form_with(model: suspect, local: true) do |form| %>
-  <% if suspect.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(suspect.errors.count, "error") %> prohibited this suspect from being saved:</h2>
-
-      <ul>
-      <% suspect.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+ 
 
   <div class="field">
     <%= form.label :nombre %>
@@ -46,7 +36,36 @@
     <%= form.text_field :details, id: :suspect_details %>
   </div>
 
+  <div class="field">
+    <%= form.label :images %>
+      <div class="file-field input-field">
+        <div class="btn green">
+          <span>Adjuntar archivo</span>
+          <%= form.file_field :images, multiple: true %>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>
+
+<!-- Manejo de errores -->
+<% if suspect.errors.any? %>
+<div id="error_explanation">
+  <p>
+   Hubo un error en el creacion del reporte:</p>
+
+  <ul>
+    <% suspect.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+      <% end %>
+  </ul>
+</div>
 <% end %>
