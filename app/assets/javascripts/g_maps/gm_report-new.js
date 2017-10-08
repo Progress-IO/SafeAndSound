@@ -29,4 +29,15 @@ function initMap() {
       addMarker(bogota, img_marker_robbery);
       $(this).fadeOut(500);
   });
+
+  $("#btn-location").click(function(){
+      var crime_lng, crime_lat;
+      crime_lng = crime_marker.getPosition().lng();
+      crime_lat = crime_marker.getPosition().lat();
+
+      $("#report_latitude").val(crime_lat);
+      $("#report_longitude").val(crime_lng);
+
+  });
+
 }

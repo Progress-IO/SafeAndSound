@@ -21,4 +21,4 @@ Rails.application.config.assets.precompile += %w( g_maps/gm_user-panel.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_report-new.js )
 
 # Fuentes
-Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+# Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/

@@ -1,15 +1,5 @@
 <%= javascript_include_tag "g_maps/gm_user-panel" %>
-
-<div class="side_bar">
-    <ul>
-        <li id="expand"><i class="small material-icons" id="expand_icon">navigate_next</i></I></li>
-        <li> <a href=""><i class="small material-icons">directions</i><div class="link_menu">CALCULAR RUTA</div></a> </li>
-        <li> <a href=""><i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div></a> </li>
-        <li> <a href=""><i class="small material-icons">filter_list</i><div class="link_menu">FILTRAR</div></a> </li>
-        <li> <a href=""><i class="small material-icons">trending_up</i><div class="link_menu">ESTADISTICAS</div></a> </li>
-        <li> <a href=""><i class="small material-icons">tune</i><div class="link_menu">AJUSTES</div></a> </li>
-    </ul>
-</div>
+<%= render "layouts/user-panel" %>
 
 <div class="main">
     <div id="map" class="map_user-panel"></div>

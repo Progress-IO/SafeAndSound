@@ -42,7 +42,6 @@ body {
     position: relative;
     list-style: none;
     height: 50px;
-    background-color: #070a14;
     color: white;
     padding: 10px 0 0 20px;
 }
@@ -54,15 +53,27 @@ body {
     cursor: pointer;
 }
 
+.li_active {
+    background-color: #13161f;
+    border-left: 4px #628fff solid;
+    padding-left: 16px;
+    cursor: pointer;
+}
+
 .side_bar_toggle {
     width: 200px;
 }
 
 .main {
+    margin-top: 3px;
     overflow: hidden;
     margin-left: 80px;
     transition: 0.5s;
     height: 90.5vh;
+}
+
+.content {
+    overflow: scroll;
 }
 
 .link_menu_toggle {
