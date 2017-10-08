@@ -2,6 +2,7 @@ Rails.application.routes.draw do
     resources :reports
     # get 'user_panel/index'
     get '/users_panel' =>'user_panel#index', :as => :user_panel
+    get '/users_panel/report' =>'user_panel#report', :as => :report_type
 
     resources :discussions
     devise_for :admins

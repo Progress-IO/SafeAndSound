@@ -4,4 +4,8 @@ class UserPanelController < ApplicationController
       puts "Hello asdasdaosdkaosdk"
       puts @temps
   end
+
+  def report
+      
+  end
 end
