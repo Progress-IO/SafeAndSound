@@ -10,14 +10,16 @@
 <script>
     var xlat, xlng;
     var loc_crime;
+    var details;
     var data = [];
 
     <% @temp.each do | report | %>
           xlat = "<%= report.latitude %>" ;
           xlng = "<%= report.longitude %> ";
+          details = "<%= report.details %> ";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng];
+          tuple = [xlat, xlng, details];
           data.push(tuple);
     <% end %>
 </script>
