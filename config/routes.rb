@@ -1,40 +1,38 @@
 Rails.application.routes.draw do
-  resources :reports
-  # get 'user_panel/index'
-  get '/users_panel' =>'user_panel#index', :as => :user_panel
+    resources :reports
+    # get 'user_panel/index'
+    get '/users_panel' =>'user_panel#index', :as => :user_panel
 
-  resources :discussions
-  devise_for :admins
-  resources :admins
-  devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks"},  path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
+    resources :discussions
+    devise_for :admins
+    resources :admins
+    devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks"},  path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
 
-  resources :users
+    resources :users
 
-  devise_scope :user do
+    devise_scope :user do
     get 'auth/sign_in', to: 'devise/sessions#new'
     get 'auth/registration', to: 'devise/registrations#new'
     get 'auth/sign_out', to: 'devise/sessions#destroy'
-  end
+    end
 
-  #** Seguro esta linea creará conflicto, borren esta linea para asignar la verdadera landing page
+    #** Seguro esta linea creará conflicto, borren esta linea para asignar la verdadera landing page
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'landing_page/contact'
-  # get 'panel', to: 'user_panel/index'
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "contact" => "landing_page#contact", as: "contact"
+    get "landing_page/contact", as: "contact"
 
-  get "auth/login" => "users/sessions#new", as: "login"
-  get "auth/registration" => "user/registrations#new", as: "register"
-  get 'reports/index'
+    get "auth/login" => "users/sessions#new", as: "login"
+    get "auth/registration" => "user/registrations#new", as: "register"
+    get 'reports/index'
 
-  root 'landing_page#index'
-  
-  # User_panel redirect
-  get "/user_panel" => 'user_panel#index', as: :user_root
 
-  namespace :user do
+    # User_panel redirect
+    get "/user_panel" => 'user_panel#index', as: :user_root
+
+    namespace :user do
     root "user_panel#index"
-  end
+    end
 
+    root 'landing_page#index'
 end

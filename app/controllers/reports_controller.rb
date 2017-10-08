@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  
+
 
   # GET /reports
   # GET /reports.json
@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
   def new
     # _layout "test"
     @report = Report.new
-   
+
   end
 
   # GET /reports/1/edit

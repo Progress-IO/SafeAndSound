@@ -1,10 +1,9 @@
 <%= render "layouts/header" %>
-    
+<%= render "layouts/load-assets" %>
+
     <%= yield %>
 
     <%= javascript_include_tag "init.js" %>
 
-
-<%= render "layouts/map-actions" %>
   </body>
 </html>
