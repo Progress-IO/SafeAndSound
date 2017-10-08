@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :suspects
     resources :reports
     # get 'user_panel/index'
     get '/users_panel' =>'user_panel#index', :as => :user_panel

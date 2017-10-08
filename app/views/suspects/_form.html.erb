@@ -1,0 +1,52 @@
+<%= form_with(model: suspect, local: true) do |form| %>
+  <% if suspect.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(suspect.errors.count, "error") %> prohibited this suspect from being saved:</h2>
+
+      <ul>
+      <% suspect.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :suspect_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.text_field :fecha, class: "datepicker" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Hora" %>
+    <%= form.text_field :fecha, class: "timepicker" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :suspect_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :suspect_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :suspect_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_field :details, id: :suspect_details %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
