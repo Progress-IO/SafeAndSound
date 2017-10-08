@@ -30,6 +30,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  errors:
-    messages:
-      extension_whitelist_error: "No se pueden subir archivos de la extensión %{extension}. Las extensiones prohibidas son: %{prohibited_types}"
+  hello: "Hello world"

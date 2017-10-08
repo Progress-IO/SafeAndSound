@@ -41,8 +41,9 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 #gema para poder subir archivos
 
-gem "paperclip", "~> 5.0.0"
-
+gem 'carrierwave', '~> 1.0'
+#gema para manejar errores de carrierwave
+gem 'carrierwave-i18n'
 group :production do
   gem 'pg'
 end
