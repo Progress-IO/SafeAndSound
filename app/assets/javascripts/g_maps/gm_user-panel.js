@@ -2,7 +2,7 @@ var map;
 var bogota = {lat: 4.624335, lng: -74.063644};
 var infowindow;
 
-function addMarker(location, image) {
+function addMarker(location, image, details) {
     var crime_marker;
     crime_marker = new google.maps.Marker({
         position: location,
@@ -14,7 +14,7 @@ function addMarker(location, image) {
 
     google.maps.event.addListener(crime_marker, 'click', function() {
        map.setCenter(crime_marker.getPosition());
-       infowindow.setContent("Probando...");
+       infowindow.setContent(details);
        infowindow.open(map, crime_marker);
     });
 }
@@ -33,7 +33,7 @@ function initMap() {
 function showMarkers(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_robbery);
+        addMarker(loc_crime, img_marker_robbery, data[i][2]);
     }
 }
 
