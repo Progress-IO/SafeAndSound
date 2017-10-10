@@ -1,0 +1,11 @@
+<%= render 'layouts/user-panel' %>
+
+<div class="main content">
+    <div class="container">
+        <h1>New route</h1>
+
+        <%= render 'form', route: @route %>
+
+        <%= link_to 'Back', routes_path %>
+    </div>
+</div>

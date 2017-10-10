@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008230814) do
+ActiveRecord::Schema.define(version: 20171010054355) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(version: 20171008230814) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.string "images"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.float "origin_latitude"
+    t.float "origin_longitude"
+    t.float "destination_latitude"
+    t.float "destination_longitude"
+    t.datetime "date"
+    t.string "route"
+    t.string "mode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "suspects", force: :cascade do |t|
