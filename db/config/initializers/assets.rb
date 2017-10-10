@@ -21,6 +21,6 @@ Rails.application.config.assets.precompile += %w( materialize_init.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_user-panel.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_report-new.js )
 
-Rails.application.config.assets.precompile += ['*.js', '*.css']
+
 # Fuentes
 # Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
