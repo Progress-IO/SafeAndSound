@@ -48,6 +48,8 @@ gem 'carrierwave-i18n'
 gem "mini_magick"
 #Gema para almacenar uploads en la nube
 gem 'fog-aws'
+#gema para fechas
+gem 'time_splitter'
 group :production do
   gem 'pg'
 end
