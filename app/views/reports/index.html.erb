@@ -43,7 +43,7 @@
           </td>
           <td>
             <% if !report.images[0].nil? %>
-              <img src="<%=asset_path( report.images[0] )%>">
+            <img src="<%=asset_path( report.images[0].large.url )%>">
               <%end %>
             </td>
             <td><%= link_to 'Show', report %></td>

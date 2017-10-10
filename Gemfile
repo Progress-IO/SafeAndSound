@@ -44,6 +44,10 @@ gem 'jquery-turbolinks'
 gem 'carrierwave', '~> 1.0'
 #gema para manejar errores de carrierwave
 gem 'carrierwave-i18n'
+#Minimagick para carriwerwave
+gem "mini_magick"
+#Gema para almacenar uploads en la nube
+gem 'fog-aws'
 group :production do
   gem 'pg'
 end
