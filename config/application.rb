@@ -21,5 +21,7 @@ module SafeAndSound
 
     # Agregar fuente UBUNTU
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    config.assets.precompile = %w(*.js *.coffee *.scss *.png *.jpg *.jpeg *.gif *.ico *.eot *.svg *.ttf *.woff)
   end
 end
