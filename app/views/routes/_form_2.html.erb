@@ -26,12 +26,35 @@
   <div class="general">
       <div class="btn-container">
           <h4>Using markers</h4>
+          <div class="switch">
+              <label>
+              Off
+              <input type="checkbox">
+              <span class="lever"></span>
+              On
+              </label>
+          </div>
+
+
+        <script>
+
+            $(".switch").on("change", function(){
+                if($('.switch').prop('checked')){
+                    console.log("YES");
+                }else{
+                    console.log("NO");
+                }
+            });
+
+            // console.log("GOT: ", $(".switch label .lever").val());
+        </script>
           <div id="start_marker" class="btn-f btn orange">Start marker</div>
           <div id="finish_marker" class="btn-f btn orange">Finish marker</div>
       </div>
 
       <div class="btn-container">
         <div class="input-field">
+
             <label for="origin_adress">Origin adress</label>
             <input id="origin_adress" type="text">
         </div>
