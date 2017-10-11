@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/users_panel/report' =>'user_panel#report', :as => :report_type
     get '/users_panel' =>'user_panel#index', :as => :user_panel
     get "landing_page/contact", as: "contact"
+    get 'reports' => 'reports#index', :as => :reports_list;
     root 'landing_page#index'
     
     authenticate :user do
