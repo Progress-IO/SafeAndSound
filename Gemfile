@@ -52,7 +52,8 @@ gem 'carrierwave-aws'
  gem 'time_splitter'
 #Gema para ayudar a ocultar llaves secretillas
 gem 'figaro'
-
+#Gema para generar datos aleatorios
+gem 'faker'
 group :production do
   gem 'pg'
   gem 'rails_12factor'

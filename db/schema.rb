@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20171008230814) do
 
   create_table "reports", force: :cascade do |t|
     t.datetime "fecha"
-    t.string "tipo"
+    t.string "type"
     t.float "latitude"
     t.float "longitude"
     t.string "address"

@@ -5,3 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+
+
+100.times do 
+    Discussion.create([{
+        headline: Faker::Lorem.word,
+        content:  Faker::Lorem.paragraph,
+        created_at: Faker::Time.between(2.days.ago, Date.today, :all),
+        user_id: 1
+        
+    }])
+end
+
+100.times do
+    Report.create([{
+        fecha: Faker::Date.between(100.days.ago, Date.today),
+        tipo: "Robo",
+        latitude: Faker::Address.latitude,
+        longitude: Faker::Address.longitude,
+        address: Faker::Address.street_name,
+        details: Faker::Lorem.paragraphs
+        
+    }])
+    
+    
+
+end
