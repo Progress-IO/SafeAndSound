@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :routes
-  resources :suspects
+    resources :routes
+    resources :suspects
     resources :reports
     # get 'user_panel/index'
     get '/users_panel' =>'user_panel#index', :as => :user_panel
@@ -14,14 +14,11 @@ Rails.application.routes.draw do
     resources :users
 
     devise_scope :user do
-    get 'auth/sign_in', to: 'devise/sessions#new'
-    get 'auth/registration', to: 'devise/registrations#new'
-    get 'auth/sign_out', to: 'devise/sessions#destroy'
+        get 'auth/sign_in', to: 'devise/sessions#new'
+        get 'auth/registration', to: 'devise/registrations#new'
+        get 'auth/sign_out', to: 'devise/sessions#destroy'
     end
 
-    #** Seguro esta linea creará conflicto, borren esta linea para asignar la verdadera landing page
-
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
     get "landing_page/contact", as: "contact"
 
@@ -34,7 +31,7 @@ Rails.application.routes.draw do
     get "/user_panel" => 'user_panel#index', as: :user_root
 
     namespace :user do
-    root "user_panel#index"
+        root "user_panel#index"
     end
 
     root 'landing_page#index'
