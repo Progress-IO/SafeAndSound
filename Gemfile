@@ -49,9 +49,9 @@ gem "mini_magick"
 #Gema para almacenar uploads en la nube
 gem 'fog-aws'
 #gema para fechas
-# gem 'time_splitter'
+ gem 'time_splitter'
 
-gem 'sass-rails', '~> 5.0'
+
 group :production do
   gem 'pg'
 end
