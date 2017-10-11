@@ -47,10 +47,11 @@ gem 'carrierwave-i18n'
 #Minimagick para carriwerwave
 gem "mini_magick"
 #Gema para almacenar uploads en la nube
-gem 'fog-aws'
+gem 'carrierwave-aws'
 #gema para fechas
  gem 'time_splitter'
-
+#Gema para ayudar a ocultar llaves secretillas
+gem 'figaro'
 
 group :production do
   gem 'pg'
