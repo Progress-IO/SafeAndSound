@@ -1,5 +1,5 @@
 <%= form_with(model: suspect, local: true) do |form| %>
- 
+
 
   <div class="field">
     <%= form.label :nombre %>
@@ -20,7 +20,7 @@
     <%= form.label :latitude %>
     <%= form.text_field :latitude, id: :suspect_latitude %>
   </div>
-
+    
   <div class="field">
     <%= form.label :longitude %>
     <%= form.text_field :longitude, id: :suspect_longitude %>
