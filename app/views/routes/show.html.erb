@@ -1,39 +1,57 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/user-panel' %>
+<%= javascript_include_tag "g_maps/gm_route-show" %>
 
-<p>
-  <strong>Origin latitude:</strong>
-  <%= @route.origin_latitude %>
-</p>
+<div class="main content">
+    <div class="container">
+        <p id="notice" style="color:green"><%= notice %></p>
 
-<p>
-  <strong>Origin longitude:</strong>
-  <%= @route.origin_longitude %>
-</p>
+        <h1><%= @route.route%></h1>
+        <div id="map" class="map_report" class="custom_margin"></div>
 
-<p>
-  <strong>Destination latitude:</strong>
-  <%= @route.destination_latitude %>
-</p>
+        <!-- <p>
+          <strong>Origin latitude:</strong>
+          <%= @route.origin_latitude %>
+        </p>
 
-<p>
-  <strong>Destination longitude:</strong>
-  <%= @route.destination_longitude %>
-</p>
+        <p>
+          <strong>Origin longitude:</strong>
+          <%= @route.origin_longitude %>
+        </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @route.date %>
-</p>
+        <p>
+          <strong>Destination latitude:</strong>
+          <%= @route.destination_latitude %>
+        </p>
 
-<p>
-  <strong>Route:</strong>
-  <%= @route.route %>
-</p>
+        <p>
+          <strong>Destination longitude:</strong>
+          <%= @route.destination_longitude %>
+        </p> -->
 
-<p>
-  <strong>Mode:</strong>
-  <%= @route.mode %>
-</p>
+        <p>
+          <strong>Date:</strong>
+          <%= @route.date.to_date %>
+        </p>
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+        <p>
+          <strong>Mode:</strong>
+          <%= @route.mode %>
+        </p>
+
+        <%= link_to 'Edit', edit_route_path(@route), class: "btn"%> |
+        <%= link_to 'My routes', routes_path, class: "btn" %>
+
+    </div>
+</div>
+
+<script>
+    var og_lat = <%= @route.origin_latitude %>;
+    var og_lng = <%= @route.origin_longitude %>;
+
+    var fn_lat = <%= @route.destination_latitude %>;
+    var fn_lng = <%= @route.destination_longitude %>;
+
+    var mode = "<%= @route.mode %>";
+</script>
+
+<%= render "layouts/map-actions" %>

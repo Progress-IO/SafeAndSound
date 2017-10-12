@@ -26,7 +26,7 @@ function initMap() {
       m_finish = addMarker(bogota2, img_marker_finish, "<strong> End of route </strong>");
   });
 
-  $("#calc_route").on("click", function(){
+  $("#calc_route_1").on("click", function(){
         var st, fn;
         var mode = $("#route_mode").val();
       if(typeof m_start != 'undefined' && typeof m_finish != 'undefined'){
@@ -38,23 +38,41 @@ function initMap() {
 
           $("#route_destination_latitude").val(m_finish.getPosition().lat());
           $("#route_destination_longitude").val(m_finish.getPosition().lng());
-
           calculateAndDisplayRoute(directionsService, directionsDisplay, st, fn, mode);
       }
+  });
 
+  $("#calc_route_2").on("click", function(){
+      var st, fn;
+      var mode = $("#route_mode").val();
 
+      if($("#origin_address").val() == "" || $("#origin_address").val() == undefined){
+          Materialize.toast("Origin address isn't set", 4000, 'orange rounded');
+      }
 
-        console.log($("#origin_adress").val());
-        console.log($("#destination_adress").val());
+      if($("#destination_address").val() == "" || $("#origin_address").val() == undefined){
+          Materialize.toast("Destination address isn't set", 4000, 'orange rounded');
+      }
 
+      if($("#origin_address").val() != "" && $("#destination_address").val() != "" && $("#destination_address").val() != undefined && $("#origin_address").val() != undefined){
+          //   Clear all markers
 
-        geocodeAddress(geocoder, map, $("#origin_adress").val(), function(mydata){
-            st = getMarkerLocation(mydata);
-            geocodeAddress(geocoder, map, $("#destination_adress").val(), function(xdata){
-                fn = getMarkerLocation(xdata);
-                calculateAndDisplayRoute(directionsService, directionsDisplay, st, fn, mode);
-            });
-        });
+          geocodeAddress(geocoder, map, $("#origin_address").val(), true,function(mydata){
+              st = getMarkerLocation(mydata);
+              geocodeAddress(geocoder, map, $("#destination_address").val(), false,function(xdata){
+                  fn = getMarkerLocation(xdata);
+                  calculateAndDisplayRoute(directionsService, directionsDisplay, st, fn, mode);
+
+                  $("#route_origin_latitude").val(mydata.getPosition().lat());
+                  $("#route_origin_longitude").val(mydata.getPosition().lng());
+
+                  $("#route_destination_latitude").val(xdata.getPosition().lat());
+                  $("#route_destination_longitude").val(xdata.getPosition().lng());
+
+              });
+          });
+      }
+
 
   });
 
@@ -100,19 +118,20 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
  });
  }
 
-function geocodeAddress(geocoder, resultsMap, address, callback) {
+function geocodeAddress(geocoder, resultsMap, address, first, callback) {
     var gmarker;
     geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
       resultsMap.setCenter(results[0].geometry.location);
       gmarker = new google.maps.Marker({
         map: resultsMap,
-        position: results[0].geometry.location
+        position: results[0].geometry.location,
+        icon: first ? img_marker_start : img_marker_finish
       });
 
       callback(gmarker);
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+      Materialize.toast('Geocode was not successful for the following reason: ' + status, 4000, 'red rounded');
     }
   });
 
