@@ -41,7 +41,6 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-<<<<<<< HEAD
     aws-partitions (1.25.0)
     aws-sdk-core (3.6.0)
       aws-partitions (~> 1.0)
@@ -55,9 +54,6 @@ GEM
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.0)
     aws-sigv4 (1.0.2)
-=======
-    as-duration (0.1.1)
->>>>>>> faker
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -259,7 +255,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  as-duration (~> 0.1.0)
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.0)
@@ -267,13 +262,8 @@ DEPENDENCIES
   carrierwave-i18n
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
-  figaro
-=======
   faker
-  geocoder
-  gmaps4rails
->>>>>>> faker
+  figaro
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

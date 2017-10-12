@@ -20,14 +20,29 @@
     }])
 end
 
-100.times do
+50.times do
     Report.create([{
         fecha: Faker::Date.between(100.days.ago, Date.today),
         tipo: "Robo",
-        latitude: Faker::Address.latitude,
-        longitude: Faker::Address.longitude,
+        latitude: Faker::Number.between(4.5091, 4.8091),
+        longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,
         details: Faker::Lorem.paragraphs
+        
+    }])
+    
+    
+
+end
+
+50.times do
+    Suspect.create([{
+        fecha: Faker::Date.between(100.days.ago, Date.today),
+        latitude: Faker::Number.between(4.5091, 4.8091),
+        longitude: Faker::Number.between(-74.077, -74.377),
+        address: Faker::Address.street_name,
+        details: Faker::Lorem.paragraphs
+       
         
     }])
     

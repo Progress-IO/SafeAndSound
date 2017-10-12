@@ -12,6 +12,7 @@
     var loc_crime;
     var details;
     var data = [];
+    var data_susp = [];
 
     <% @temp.each do | report | %>
           xlat = "<%= report.latitude %>" ;
@@ -21,6 +22,16 @@
           xlng = parseFloat(xlng);
           tuple = [xlat, xlng, details];
           data.push(tuple);
+    <% end %>
+
+    <% @suspect_temp.each do | suspect | %>
+          xlat = "<%= suspect.latitude %>" ;
+          xlng = "<%= suspect.longitude %> ";
+          details = "<%= suspect.details %> ";
+          xlat = parseFloat(xlat);
+          xlng = parseFloat(xlng);
+          tuple = [xlat, xlng, details];
+          data_susp.push(tuple);
     <% end %>
 </script>
 

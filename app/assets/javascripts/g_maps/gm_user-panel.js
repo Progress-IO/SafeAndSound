@@ -27,6 +27,7 @@ function initMap() {
   });
 
     showMarkers(data);
+    showMarkers_susp(data_susp);
 
 }
 
@@ -34,6 +35,13 @@ function showMarkers(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
         addMarker(loc_crime, img_marker_robbery, data[i][2]);
+    }
+}
+
+function showMarkers_susp(data){
+    for(var i = 0; i < data.length; i++){
+        loc_crime = {lat: data[i][0], lng: data[i][1]};
+        addMarker(loc_crime, img_marker_suspect, data[i][2]);
     }
 }
 

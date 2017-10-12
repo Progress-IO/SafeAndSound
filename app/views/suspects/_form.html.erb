@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :suspect_latitude %>
+    <%= form.text_field :latitude, id: :suspect_latitude , readonly: true %>
   </div>
 
   <div class="field">
     <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :suspect_longitude %>
+    <%= form.text_field :longitude, id: :suspect_longitude , readonly: true %>
   </div>
 
   <div class="field">
@@ -50,7 +50,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn' %>
   </div>
 <% end %>
 
