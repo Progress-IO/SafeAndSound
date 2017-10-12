@@ -4,7 +4,8 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.all
+    @routes = current_user.routes
+    # @routes = Route.all
   end
 
   # GET /routes/1
@@ -19,12 +20,14 @@ class RoutesController < ApplicationController
 
   # GET /routes/1/edit
   def edit
+     redirect_to action: "index"
   end
 
   # POST /routes
   # POST /routes.json
   def create
-    @route = Route.new(route_params)
+    # @route = Route.new(route_params)
+    @route = current_user.routes.new(route_params)
 
     respond_to do |format|
       if @route.save

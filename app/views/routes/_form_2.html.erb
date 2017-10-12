@@ -24,47 +24,37 @@
   </div>
 
   <div class="general">
+
       <div class="btn-container">
-          <h4>Using markers</h4>
-          <div class="switch">
-              <label>
-              Off
-              <input type="checkbox">
-              <span class="lever"></span>
-              On
-              </label>
-          </div>
+
+        <div class="c2">
+            <div id="start_marker" class="btn-f btn orange">Start marker</div>
+            <!-- <div id="mk_start" class="s_green"></div> -->
+        </div>
+
+        <div class="c2">
+            <div id="finish_marker" class="btn-f btn orange">Finish marker</div>
+            <!-- <div id="mk_finish" class="s_green"></div> -->
+        </div>
 
 
-        <script>
+        <div class="c2">
+            <div id="calc_route_1" class="btn btn-f red" style="margin-top:20%">Calculate</div>
+        </div>
 
-            $(".switch").on("change", function(){
-                if($('.switch').prop('checked')){
-                    console.log("YES");
-                }else{
-                    console.log("NO");
-                }
-            });
-
-            // console.log("GOT: ", $(".switch label .lever").val());
-        </script>
-          <div id="start_marker" class="btn-f btn orange">Start marker</div>
-          <div id="finish_marker" class="btn-f btn orange">Finish marker</div>
       </div>
 
       <div class="btn-container">
         <div class="input-field">
-
-            <label for="origin_adress">Origin adress</label>
-            <input id="origin_adress" type="text">
+            <label for="origin_address">Origin adress</label>
+            <input id="origin_address" type="text">
         </div>
 
         <div class="input-field">
-            <label for="destination_adress">Destination adress</label>
-            <input id="destination_adress" type="text">
+            <label for="destination_address">Destination adress</label>
+            <input id="destination_address" type="text">
         </div>
-
-        <div id="calc_route" class="btn-f btn red">Calculate route</div>
+        <div id="calc_route_2" class="btn-f btn red">Calculate route</div>
 
       </div>
   </div>
@@ -105,6 +95,8 @@
   </div> -->
 
   <div class="actions">
+    <%= link_to 'My routes', routes_path, class: "btn"%> |
     <%= form.submit class: "btn" %>
+
   </div>
 <% end %>
