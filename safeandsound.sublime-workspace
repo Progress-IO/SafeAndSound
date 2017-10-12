@@ -1,0 +1,314 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"heap",
+				"heap_sort"
+			],
+			[
+				"B",
+				"BATTERY_VALUE"
+			],
+			[
+				"pro",
+				"proxyConnection"
+			],
+			[
+				"ipT",
+				"ipTale"
+			],
+			[
+				"ipH",
+				"ipHead"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/FilesConfOfmendez/MyPython (1).sublime-build",
+					""
+				],
+				[
+					"Packages/User/FilesConfOfmendez/MyPython (1).sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/FilesConfOfmendez/MyPython.sublime-build",
+					""
+				],
+				[
+					"Packages/User/FilesConfOfmendez/MyPython.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/FilesConfOfmendez/groovy.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/FilesConfOfmendez/MyPython (1).sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 261.0,
+		"history":
+		[
+			"sublime.log_input(True)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/ofmendez/DataDocs/Work/Ubuntu/SafeAndSound"
+	],
+	"file_history":
+	[
+		"/home/ofmendez/.gitconfig",
+		"/home/ofmendez/untitled.sh",
+		"/home/ofmendez/Downloads/input.in",
+		"/media/ofmendez/E6D8AAACD8AA7A87/Users/OFMendez/Documents/Work/Ubuntu/ProxyScript/proxyTerminal.sh",
+		"/etc/wgetrc",
+		"/media/ofmendez/E6D8AAACD8AA7A87/Users/OFMendez/Documents/Work/Ubuntu/ScriptProxy/proxyTerminal.sh",
+		"/media/ofmendez/E6D8AAACD8AA7A87/Users/OFMendez/Documents/Work/Ubuntu/ANTLR/Ejemplos/Hello/Hello.g4",
+		"/media/ofmendez/E6D8AAACD8AA7A87/Users/OFMendez/Documents/Work/Ubuntu/ANTLR/Ejemplos/Hello/Test.java",
+		"/media/ofmendez/E6D8AAACD8AA7A87/Users/OFMendez/Documents/Work/Ubuntu/ANTLR/Ejemplos/Hello/HelloBaseListener.java",
+		"/media/ofmendez/E6D8AAACD8AA7A87/Users/OFMendez/Documents/Work/Ubuntu/SafeAndSound/db/schema.rb",
+		"/home/ofmendez/Desktop/gramaticaOLD",
+		"/home/ofmendez/Downloads/ejemplos-parser/out00.txt",
+		"/home/ofmendez/Desktop/gramaticaNEW",
+		"/home/ofmendez/Desktop/untitled",
+		"/home/ofmendez/Downloads/ejemplos-parser/in04.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in03.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in02.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in01.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in00.txt",
+		"/etc/xdg/autostart/a11y-profile-manager-indicator-autostart.desktop",
+		"/etc/xdg/autostart/at-spi-dbus-bus.desktop",
+		"/etc/xdg/autostart/deja-dup-monitor.desktop",
+		"/etc/xdg/autostart/gnome-keyring-pkcs11.desktop",
+		"/etc/xdg/autostart/gnome-keyring-secrets.desktop",
+		"/etc/xdg/autostart/gnome-keyring-ssh.desktop",
+		"/etc/xdg/autostart/gnome-screensaver.desktop",
+		"/etc/xdg/autostart/gnome-software-service.desktop",
+		"/etc/xdg/autostart/zeitgeist-datahub.desktop",
+		"/etc/xdg/autostart/gnome-user-share-obexpush.desktop",
+		"/etc/xdg/autostart/vino-server.desktop",
+		"/etc/xdg/autostart/user-dirs-update-gtk.desktop",
+		"/etc/xdg/autostart/gnome-user-share-webdav.desktop",
+		"/etc/xdg/autostart/gsettings-data-convert.desktop",
+		"/etc/xdg/autostart/update-notifier.desktop",
+		"/etc/xdg/autostart/unity-settings-daemon.desktop",
+		"/etc/xdg/autostart/unity-fallback-mount-helper.desktop",
+		"/etc/xdg/autostart/pulseaudio.desktop",
+		"/etc/xdg/autostart/print-applet.desktop",
+		"/etc/xdg/autostart/polkit-gnome-authentication-agent-1.desktop",
+		"/etc/xdg/autostart/orca-autostart.desktop",
+		"/etc/xdg/autostart/onboard-autostart.desktop",
+		"/etc/xdg/autostart/nm-applet.desktop",
+		"/etc/xdg/autostart/nautilus-autostart.desktop",
+		"/etc/xdg/autostart/indicator-sound.desktop",
+		"/etc/xdg/autostart/indicator-session.desktop",
+		"/etc/xdg/autostart/indicator-printers.desktop",
+		"/etc/xdg/autostart/indicator-power.desktop",
+		"/etc/xdg/autostart/indicator-messages.desktop",
+		"/etc/xdg/autostart/indicator-keyboard.desktop",
+		"/etc/xdg/autostart/indicator-datetime.desktop",
+		"/etc/xdg/autostart/indicator-bluetooth.desktop",
+		"/etc/xdg/autostart/indicator-application.desktop",
+		"/etc/fstab",
+		"/home/ofmendez/Downloads/ejemplos-parser/in10.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in09.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in05.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in06.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in07.txt",
+		"/home/ofmendez/Downloads/ejemplos-parser/in08.txt",
+		"/home/ofmendez/Downloads/untitled.py",
+		"/home/ofmendez/Downloads/peliculas.txt",
+		"/home/ofmendez/.config/myControlBattery.sh",
+		"/var/log/syslog",
+		"/home/ofmendez/.zshrc",
+		"/home/ofmendez/.dbus/Xdbus",
+		"/home/ofmendez/.bundle/config",
+		"/media/ofmendez/E6D8AAACD8AA7A87/Users/OFMendez/Documents/Work/Ubuntu/SafeAndSound/Gemfile",
+		"/sys/class/power_supply/BAT0/present",
+		"/sys/class/power_supply/BAT0/power_now",
+		"/sys/class/power_supply/BAT0/energy_full",
+		"/sys/class/power_supply/BAT0/cycle_count",
+		"/sys/class/power_supply/BAT0/status",
+		"/sys/class/power_supply/BAT0/capacity_level",
+		"/home/ofmendez/Downloads/smartgit/bin/smartgit.sh",
+		"/home/ofmendez/DataDocs/Work/Ubuntu/SafeAndSound/Gemfile",
+		"/home/ofmendez/SafeAndSound/Gemfile",
+		"/etc/apt/apt.conf",
+		"/home/ofmendez/.ssh/config",
+		"/home/ofmendez/.ssh/known_hosts",
+		"/home/ofmendez/.ssh/id_rsa.pub",
+		"/media/ofmendez/E6D8AAACD8AA7A87/Users/OFMendez/Documents/Work/Ubuntu/proxyTerminal.sh",
+		"/home/ofmendez/DataDocs/Work/Ubuntu/proxyTerminal.sh",
+		"/home/ofmendez/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/ofmendez/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/ofmendez/.config/sublime-text-3/Packages/User/Default (Windows).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 218.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "safeandsound.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 209.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

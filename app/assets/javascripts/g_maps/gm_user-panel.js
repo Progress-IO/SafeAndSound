@@ -45,7 +45,6 @@ function showMarkers(data){
         addMarker(loc_crime, img_marker_robbery, data[i][2]);
     }
 }
-<<<<<<< HEAD
 
 function showMarkers_susp(data){
     for(var i = 0; i < data.length; i++){
@@ -59,5 +58,3 @@ function showMarkers_susp(data){
 //     $(this).fadeOut(500);
 //
 // });
-=======
->>>>>>> 1434c308e3509c382e71b96e481e1341d1a862e5
