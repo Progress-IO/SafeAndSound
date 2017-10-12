@@ -41,7 +41,7 @@
             <td>
                 <%= report.address %>
             </td>
-            <td class="details_content">
+            <td class="xdetails_content">
                 <%= report.details %>
             </td>
             <td>
@@ -61,8 +61,10 @@
 
         <script>
             $(function(){
-                $(".details_content").text( $(this).text().substring(0, 300) + "..." );
-                console.log("hi mom");
+
+                $(".xdetails_content").each(function(){
+                    $(this).text($(this).text().substring(0, 130) + "...");
+                });
             });
         </script>
     </tbody>
