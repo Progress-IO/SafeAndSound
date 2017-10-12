@@ -1,0 +1,16 @@
+<%= javascript_include_tag "g_maps/gm_route" %>
+<%= render 'layouts/user-panel' %>
+
+<div class="main content">
+    <div class="container">
+
+        <h1>New route</h1>
+        <div id="map" class="map_report"></div>
+        <div class="route_error"></div>
+
+        <%= render 'form_2', route: @route %>
+        <%= link_to 'Back', routes_path %>
+
+    </div>
+</div>
+<%= render "layouts/map-actions"%>

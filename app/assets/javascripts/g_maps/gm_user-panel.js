@@ -14,7 +14,15 @@ function addMarker(location, image, details) {
 
     google.maps.event.addListener(crime_marker, 'click', function() {
        map.setCenter(crime_marker.getPosition());
-       infowindow.setContent(details);
+
+       var pdetails = "<strong> Details: </strong>" + details;
+
+       if( details.length == 1 ){
+           console.log("In!");
+           pdetails = pdetails + "   <i> No info available </i>   ";
+       }
+
+       infowindow.setContent(pdetails);
        infowindow.open(map, crime_marker);
     });
 }
@@ -37,6 +45,7 @@ function showMarkers(data){
         addMarker(loc_crime, img_marker_robbery, data[i][2]);
     }
 }
+<<<<<<< HEAD
 
 function showMarkers_susp(data){
     for(var i = 0; i < data.length; i++){
@@ -50,3 +59,5 @@ function showMarkers_susp(data){
 //     $(this).fadeOut(500);
 //
 // });
+=======
+>>>>>>> 1434c308e3509c382e71b96e481e1341d1a862e5

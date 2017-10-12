@@ -1,6 +1,6 @@
 <%= javascript_include_tag "materialize_init.js" %>
   <%= form_with(model: report, local: true) do |form| %>
-   
+
 
 
 
@@ -20,13 +20,13 @@
         </div>
 
         <div class="field">
-          <%= form.label :latitude %>
-            <%= form.text_field :latitude, id: :report_latitude, readonly: true %>
+          <%= form.label :latitude, style: "display:none" %>
+            <%= form.text_field :latitude, id: :report_latitude, readonly: true, style: "display:none"%>
         </div>
 
         <div class="field">
-          <%= form.label :longitude %>
-            <%= form.text_field :longitude, id: :report_longitude, readonly: true%>
+          <%= form.label :longitude, style: "display:none" %>
+            <%= form.text_field :longitude, id: :report_longitude, readonly: true, style: "display:none"%>
         </div>
 
         <div class="field">
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-       
+
         <div class="actions">
           <%= form.submit class: 'btn' %>
         </div>
@@ -62,7 +62,7 @@
         <div id="error_explanation">
           <p>
            Hubo un error en el creacion del reporte:</p>
-  
+
           <ul>
             <% report.errors.full_messages.each do |message| %>
               <li>
