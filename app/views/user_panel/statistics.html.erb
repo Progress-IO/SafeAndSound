@@ -4,9 +4,12 @@
     <div class="container">
         <h1>Statistics</h1>
         <canvas id="myChart" class="chart_canvas"></canvas>
+        <canvas id="canvas2" class="chart_canvas"></canvas>
         <script>
         var ctx = document.getElementById("myChart");
         var myData = {};
+        var myRData = {};
+        var mySData = {};
         var max_val = 0;
 
         <% @report.each do | r |%>
@@ -14,6 +17,24 @@
                 myData["<%= r.tipo %>"] += 1;
             }else{
                 myData["<%= r.tipo %>"] = 1;
+            }
+
+            // console.log("M", <%= r.fecha.to_date.strftime("%MMMM/%DD/%YYYY") %>);
+
+            if("<%= r.fecha.to_date %>" in myRData){
+                myRData["<%= r.fecha.to_date %>"] += 1;
+            }else{
+                myRData["<%= r.fecha.to_date %>"] = 1;
+            }
+
+
+        <% end %>
+
+        <% @suspect.each do | s |%>
+            if("<%= s.fecha %>" in mySData){
+                mySData["<%= s.fecha.to_date %>"] += 1;
+            }else{
+                mySData["<%= s.fecha.to_date %>"] = 1;
             }
         <% end %>
 
@@ -29,7 +50,19 @@
             calcData.push(myData[key]);
         }
 
-        console.log("MAXIMUS", max_val);
+        var calcSData = [];
+        var calcRData = [];
+
+        for(key in mySData){
+            calcSData.push(key);
+        }
+
+        for(key in myRData){
+            calcRData.push(key);
+        }
+
+        console.log("Data: ", calcRData);
+        console.log("Data: ", calcSData);
 
         var myChart = new Chart(ctx, {
             type: 'horizontalBar',
@@ -76,11 +109,88 @@
         });
 
 
-
-
-
         // Second graph
-        
+        var color = Chart.helpers.color;
+        var config = {
+            type: 'line',
+            data: {
+                labels: [ calcSData
+                ],
+                datasets: [{
+                    label: "Crime reports",
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    fill: true,
+                    data: calcSData
+
+                }, {
+                    label: "Suspect report",
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    fill: true,
+                    data:
+                        calcRData
+                }
+                // {
+                //     label: "Dataset with point data",
+                //     backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
+                //     borderColor: window.chartColors.green,
+                //     fill: false,
+                //     data: [{
+                //         x: newDateString(0),
+                //         y: randomScalingFactor()
+                //     }, {
+                //         x: newDateString(5),
+                //         y: randomScalingFactor()
+                //     }, {
+                //         x: newDateString(7),
+                //         y: randomScalingFactor()
+                //     }, {
+                //         x: newDateString(15),
+                //         y: randomScalingFactor()
+                //     }],
+                // }
+            ]
+            },
+            options: {
+                title:{
+                    text: "Chart.js Time Scale"
+                },
+                scales: {
+                    xAxes: [{
+                        // type: "time",
+                        // time: {
+                        //     format: timeFormat,
+                        //     // round: 'day'
+                        //     tooltipFormat: 'll HH:mm'
+                        // },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date'
+                        }
+                    }, ],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'value'
+                        }
+                    }]
+                },
+            }
+        };
+
+        // window.onload = function() {
+        //     var ctx = document.getElementById("canvas").getContext("2d");
+        //     window.myLine = new Chart(ctx, config);
+        //
+        // };
+
+        window.onload = function() {
+            var ctx2 = document.getElementById("canvas2").getContext("2d");
+            window.myLine = new Chart(ctx2, config);
+
+        };
+
         </script>
 
     </div>
