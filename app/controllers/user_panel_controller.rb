@@ -7,6 +7,10 @@ class UserPanelController < ApplicationController
   end
 
   def report
-      
+
+  end
+
+  def statistics
+      @report = Report.all
   end
 end

@@ -15,6 +15,7 @@
 //= require_directory .
 //= require materialize-sprockets
 //= require underscore
+//= require Chart.min
 
 
 document.addEventListener("turbolinks:load", function() {
