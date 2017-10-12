@@ -41,12 +41,12 @@
             <td>
                 <%= report.address %>
             </td>
-            <td>
+            <td class="details_content">
                 <%= report.details %>
             </td>
             <td>
                 <% if !report.images[0].nil? %>
-                <img src="<%=asset_path( report.images[0] )%>">
+                    <img src="<%=asset_path( report.images[0] )%>" class="img_prev">
                 <%end %>
             </td>
             <td><%= link_to 'Show', report, class: "bontonnormal" %></td>
@@ -58,6 +58,13 @@
             </td>
         </tr>
         <% end %>
+
+        <script>
+            $(function(){
+                $(".details_content").text( $(this).text().substring(0, 300) + "..." );
+                console.log("hi mom");
+            });
+        </script>
     </tbody>
 </table>
 
