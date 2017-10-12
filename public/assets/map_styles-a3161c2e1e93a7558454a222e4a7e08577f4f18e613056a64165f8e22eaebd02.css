@@ -1,0 +1,21 @@
+/* line 1, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/map_styles.sass */
+.map_report {
+  transition: 0.8s;
+  height: 60vh;
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+
+/* line 7, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/map_styles.sass */
+.map_user-panel {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* line 11, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/map_styles.sass */
+h1 {
+  font-family: Ubuntu;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  font-size: 30px !important;
+}

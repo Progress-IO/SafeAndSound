@@ -1,0 +1,21 @@
+<%= javascript_include_tag "g_maps/gm_suspect-new" %>
+<%= render 'layouts/user-panel' %>
+    <div class="main content">
+
+        <div class="container">
+            <h1>New Suspect</h1>
+
+            <button class="btn custom_margin" id="btnaddmarker"> Add marker </button>
+
+            <div id="map" class="map_report" class="custom_margin"></div>
+
+            <button id="btn-location" class="btn custom_margin" style="float: right; display:block;" >Add location</button>
+
+            <%= render 'form', suspect: @suspect %>
+            <%= link_to 'Back', user_panel_path, class: "btn btn-small" %>
+        </div>
+
+
+        <%= render "layouts/map-actions"%>
+
+    </div>

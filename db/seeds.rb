@@ -8,29 +8,44 @@
 
 
 
-
-
-100.times do 
+100.times do
     Discussion.create([{
         headline: Faker::Lorem.word,
         content:  Faker::Lorem.paragraph,
         created_at: Faker::Time.between(2.days.ago, Date.today, :all),
         user_id: 1
-        
+
     }])
 end
 
-100.times do
+types = ["Robo violento", "Asesinato", "Estafa", "Raponazo"]
+
+50.times do
     Report.create([{
         fecha: Faker::Date.between(100.days.ago, Date.today),
-        tipo: "Robo",
-        latitude: Faker::Address.latitude,
-        longitude: Faker::Address.longitude,
+        tipo: types[rand(types.size)],
+        latitude: Faker::Number.between(4.5091, 4.8091),
+        longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,
         details: Faker::Lorem.paragraphs
-        
+
     }])
-    
-    
+
+
+
+end
+
+50.times do
+    Suspect.create([{
+        fecha: Faker::Date.between(100.days.ago, Date.today),
+        latitude: Faker::Number.between(4.5091, 4.8091),
+        longitude: Faker::Number.between(-74.077, -74.377),
+        address: Faker::Address.street_name,
+        details: Faker::Lorem.paragraphs
+
+
+    }])
+
+
 
 end

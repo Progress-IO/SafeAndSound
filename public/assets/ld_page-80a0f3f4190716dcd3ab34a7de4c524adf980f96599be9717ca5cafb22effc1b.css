@@ -1,0 +1,108 @@
+/* line 10, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.link_menu {
+  padding-left: 10px;
+  padding-top: 4px;
+  vertical-align: top;
+  display: none;
+}
+
+/* line 16, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: Ubuntu;
+  height: 100%;
+}
+
+/* line 23, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+* {
+  box-sizing: border-box !important;
+}
+
+/* line 27, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar {
+  position: absolute;
+  background-color: #070a14;
+  height: 90.5vh;
+  width: 80px;
+  border-right: 2px solid #b5b4be;
+  transition: 0.5s ease;
+}
+/* line 36, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar a {
+  color: white;
+}
+/* line 39, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar ul {
+  box-sizing: border-box;
+  float: left;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+/* line 45, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar ul li {
+  position: relative;
+  list-style: none;
+  height: 50px;
+  color: white;
+  padding: 10px 0 0 20px;
+}
+/* line 56, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar ul li:hover {
+  background-color: #13161f;
+  border-left: 4px #628fff solid;
+  padding-left: 16px;
+  cursor: pointer;
+}
+
+/* line 63, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.li_active {
+  background-color: #13161f;
+  border-left: 4px #628fff solid;
+  padding-left: 16px;
+  cursor: pointer;
+}
+
+/* line 69, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar_toggle {
+  width: 200px;
+}
+
+/* line 72, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.main {
+  margin-top: 3px;
+  overflow: hidden;
+  margin-left: 80px;
+  transition: 0.5s;
+  height: 90.5vh;
+}
+
+/* line 81, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.content {
+  overflow: scroll;
+}
+
+/* line 84, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.link_menu_toggle {
+  display: none;
+}
+
+/* line 87, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.test {
+  background-color: green;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 92, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.img_card {
+  max-width: 80% !important;
+  opacity: 1;
+}
+/* line 95, /home/spenas/Documentos/progressio/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.img_card:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
