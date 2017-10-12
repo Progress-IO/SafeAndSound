@@ -1,43 +1,49 @@
-<p id="notice"><%= notice %></p>
+<%= render "layouts/user-panel" %>
+<div class="main content">
+    <div class="container">
+        <p id="notice"><%= notice %></p>
 
-<h1>Suspects</h1>
+        <h1>Suspects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Fecha</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Address</th>
-      <th>Details</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <table>
+          <thead>
+            <tr>
+              <!-- <th>Nombre</th> -->
+              <th>Fecha</th>
+              <!-- <th>Latitude</th>
+              <th>Longitude</th> -->
+              <th>Address</th>
+              <th>Details</th>
+              <th>Image</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @suspects.each do |suspect| %>
-      <tr>
-        <td><%= suspect.nombre %></td>
-        <td><%= suspect.fecha %></td>
-        <td><%= suspect.latitude %></td>
-        <td><%= suspect.longitude %></td>
-        <td><%= suspect.address %></td>
-        <td><%= suspect.details %></td>
-        <td>
-          <% if !suspect.images[0].nil? %>
-          <img src="<%=asset_path( suspect.images[0] )%>">
-          <%end %>
-        </td>
-        <td><%= link_to 'Show', suspect %></td>
-        <td><%= link_to 'Edit', edit_suspect_path(suspect) %></td>
-        <td><%= link_to 'Destroy', suspect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @suspects.each do |suspect| %>
+              <tr>
+                <!-- <td><%= suspect.nombre %></td> -->
+                <td><%= suspect.fecha.to_date %></td>
+                <!-- <td><%= suspect.latitude %></td>
+                <td><%= suspect.longitude %></td> -->
+                <td><%= suspect.address %></td>
+                <td class="xdetails_content"><%= suspect.details %></td>
+                <td>
+                  <% if !suspect.images[0].nil? %>
+                  <img src="<%=asset_path( suspect.images[0] )%>">
+                  <%end %>
+                </td>
+                <td><%= link_to 'Show', suspect, class: "bontonnormal" %></td>
+                <td><%= link_to 'Edit', edit_suspect_path(suspect), class: "bontonnormal" %></td>
+                <td><%= link_to 'Destroy', suspect, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-<br>
+        <br>
 
-<%= link_to 'New Suspect', new_suspect_path %>
+        <%= link_to 'New Suspect', new_suspect_path %>
+
+    </div>
+</div>

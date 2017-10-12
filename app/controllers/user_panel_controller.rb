@@ -12,5 +12,6 @@ class UserPanelController < ApplicationController
 
   def statistics
       @report = Report.all
+      @suspect = Suspect.all
   end
 end
