@@ -46,14 +46,14 @@
       <ul class="right hide-on-med-and-down">
 
         <% if user_signed_in? %>
-          <li class = "right"><%= link_to "Log out", auth_sign_out_path ,class:"" %>  </li>
+          <li class = "right "><%= link_to "Log Out", auth_sign_out_path ,class:"" %><i class="material-icons">power_settings_new</i> </li>
         <% else %>
           <li class = "right"><%= link_to "Log in", login_path, class: ""  %></li>
           <li class = "right"><%= link_to "Sign up", register_path, class: "" %></li>
         <% end %>
 
         <% if user_signed_in? %>
-            <li class = "left" ><%= link_to "Forum", discussions_path, class: ""  %></li>
+            <li class = "left " ><%= link_to "Forum", discussions_path, class: ""  %></li>
         <% end %>
         <li class = "left"><%= link_to "Contact us", contact_path, class: ""  %></li>
 
