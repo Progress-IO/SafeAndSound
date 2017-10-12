@@ -15,7 +15,7 @@
               <th>Creation Date</th>
               <th>Route</th>
               <th>Mode</th>
-              <th colspan="3"></th>
+              <th colspan="2"></th>
             </tr>
           </thead>
 
@@ -26,11 +26,11 @@
                 <td><%= route.origin_longitude %></td>
                 <td><%= route.destination_latitude %></td>
                 <td><%= route.destination_longitude %></td> -->
-                <td><%= route.date %></td>
+                <td><%= route.date.to_date %></td>
                 <td><%= route.route %></td>
                 <td><%= route.mode %></td>
                 <td><%= link_to 'Show', route, class: "bontonnormal" %></td>
-                <td><%= link_to 'Edit', edit_route_path(route), class: "bontonnormal" %></td>
+                <!-- <td><%= link_to 'Edit', edit_route_path(route), class: "bontonnormal" %></td> -->
                 <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
               </tr>
             <% end %>

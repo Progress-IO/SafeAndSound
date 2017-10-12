@@ -20,6 +20,7 @@ class RoutesController < ApplicationController
 
   # GET /routes/1/edit
   def edit
+     redirect_to action: "index"
   end
 
   # POST /routes
