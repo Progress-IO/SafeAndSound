@@ -6,10 +6,6 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     @reports = Report.all
-    @hash = Gmaps4rails.build_markers(@reports) do |report, marker|
-      marker.lat report.latitude
-      marker.lng report.longitude
-    end
   end
 
   # GET /reports/1
@@ -21,7 +17,7 @@ class ReportsController < ApplicationController
   def new
     # _layout "test"
     @report = Report.new
-   
+
   end
 
   # GET /reports/1/edit
@@ -76,6 +72,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details)
+      params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []})
     end
 end

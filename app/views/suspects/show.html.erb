@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @suspect.nombre %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @suspect.fecha %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @suspect.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @suspect.longitude %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @suspect.address %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @suspect.details %>
+</p>
+
+<%= link_to 'Edit', edit_suspect_path(@suspect) %> |
+<%= link_to 'Back', suspects_path %>

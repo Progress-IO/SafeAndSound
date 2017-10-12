@@ -1,59 +1,38 @@
-    <%= render "layouts/init-map"%>
-<div class="row noborder_row" id="id-user-panel">
-    <div class="col s4 m2 nomargin_col nav-panel">
+<%= javascript_include_tag "g_maps/gm_user-panel" %>
+<%= render "layouts/user-panel" %>
 
-
-    <ul>
-        <li><a href=" <%= new_report_path %>"><strong><i class="material-icons tiny">priority_high</i>   REPORTAR CRIMEN</strong></a></li>
-
-        <li><a href=""><strong><i class="material-icons tiny">visibility</i>  REPORTAR GRUPO</strong></a></li>
-        <li><a href=""><strong><i class="material-icons tiny">subdirectory_arrow_right</i>  CALCULAR RUTA</strong></a></li>
-        <li><a href=""><strong><i class="material-icons tiny">storage</i>  FILTRAR CRIMENES</strong></a></li>
-        <li><a href=""><strong><i class="material-icons tiny">trending_up</i>  ESTADÍSTICAS</strong></a></li>
-    </ul>
-
-    <div class="btn btn-floating pulse blue-grey darken-1 right" id="mybtn"></div>
-
-    </div>
-
-    <div class="col m10 nomargin_col">
-
-      <div id="map" style='width: auto; height: 89vh;'></div>
-
-    </div>
+<div class="main">
+    <div id="map" class="map_user-panel"></div>
 </div>
 
+
+<!-- Generacion del mapa con todos los reportes hechos -->
 <script>
-    var xmark;
+    var xlat, xlng;
+    var loc_crime;
+    var details;
+    var data = [];
+    var data_susp = [];
 
-
-    // var Parse = require('parse');
-    <% if defined? report %>
-      "<% @temp.each do | report | %>"
-          var xlat = "<%= report.latitude %>" ;
-          var xlng = "<%= report.longitude %> ";
-
-          var xlat = parseFloat(xlat);
-          var xlng = parseFloat(xlng);
-          console.log(xlat);
-          console.log(xlng);
-          var loc_crime = {lat: xlat, lng: xlng};
-
-          var description = "<%= report.details %>";
-
-          console.log(loc_crime);
-          // addMarkernod(loc_crime, description);
-
-          xmark = new google.maps.Marker({
-              position: loc_crime,
-              map: map
-              // icon: "<%= image_url("robbery")%>"
-          });
-
-
-    "<% end %>"
+    <% @temp.each do | report | %>
+          xlat = "<%= report.latitude %>" ;
+          xlng = "<%= report.longitude %> ";
+          details = "<%= report.details %> ";
+          xlat = parseFloat(xlat);
+          xlng = parseFloat(xlng);
+          tuple = [xlat, xlng, details];
+          data.push(tuple);
     <% end %>
 
-
+    <% @suspect_temp.each do | suspect | %>
+          xlat = "<%= suspect.latitude %>" ;
+          xlng = "<%= suspect.longitude %> ";
+          details = "<%= suspect.details %> ";
+          xlat = parseFloat(xlat);
+          xlng = parseFloat(xlng);
+          tuple = [xlat, xlng, details];
+          data_susp.push(tuple);
+    <% end %>
 </script>
+
 <%= render "layouts/map-actions"%>

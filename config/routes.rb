@@ -1,40 +1,37 @@
 Rails.application.routes.draw do
-  resources :reports
-  # get 'user_panel/index'
-  get '/users_panel' =>'user_panel#index', :as => :user_panel
+    # devise_for :admins
+    # resources :admins
+    # resources :users
 
-  resources :discussions
-  devise_for :admins
-  resources :admins
-  devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks"},  path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
+    # get 'user_panel/index'
+    devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks"},  path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
+    get '/users_panel/report' =>'user_panel#report', :as => :report_type
+    get "landing_page/contact", as: "contact"
+    get 'reports' => 'reports#index', :as => :reports_list;
+    root 'landing_page#index'
 
-  resources :users
+    authenticate :user do
+        resources :routes
+        resources :suspects
+        resources :reports
+        resources :discussions
+        get '/users_panel' =>'user_panel#index', :as => :user_panel
+        get 'reports/index'
+        get "/user_panel" => 'user_panel#index', as: :user_root
+        get '/users_panel/statistics' =>'user_panel#statistics', :as => :statistics
+    end
 
-  devise_scope :user do
-    get 'auth/sign_in', to: 'devise/sessions#new'
-    get 'auth/registration', to: 'devise/registrations#new'
-    get 'auth/sign_out', to: 'devise/sessions#destroy'
-  end
+    namespace :user do
+        root "user_panel#index"
+    end
 
-  #** Seguro esta linea creará conflicto, borren esta linea para asignar la verdadera landing page
+    devise_scope :user do
+        get 'auth/sign_in', to: 'devise/sessions#new'
+        get 'auth/registration', to: 'devise/registrations#new'
+        get 'auth/sign_out', to: 'devise/sessions#destroy'
+    end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'landing_page/contact'
-  # get 'panel', to: 'user_panel/index'
-
-  get "contact" => "landing_page#contact", as: "contact"
-
-  get "auth/login" => "users/sessions#new", as: "login"
-  get "auth/registration" => "user/registrations#new", as: "register"
-  get 'reports/index'
-
-  root 'landing_page#index'
-  
-  # User_panel redirect
-  get "/user_panel" => 'user_panel#index', as: :user_root
-
-  namespace :user do
-    root "user_panel#index"
-  end
+    get "auth/login" => "users/sessions#new", as: "login"
+    get "auth/registration" => "user/registrations#new", as: "register"
 
 end
