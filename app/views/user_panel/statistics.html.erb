@@ -3,7 +3,10 @@
 <div class="main content">
     <div class="container">
         <h1>Statistics</h1>
+
+        <h5>Reporte de crimenes</h5>
         <canvas id="myChart" class="chart_canvas"></canvas>
+        <h5>Reporte de crimenes vs Reporte de sospechosos</h5>
         <canvas id="canvas2" class="chart_canvas"></canvas>
         <script>
         var ctx = document.getElementById("myChart");
@@ -61,15 +64,32 @@
             calcRData.push(key);
         }
 
-        console.log("Data: ", calcRData);
-        console.log("Data: ", calcSData);
+        var combination = calcSData.concat(calcRData);
 
-        var combination = calcSData + calcRData;
         var unique = combination.filter(function(elem, index, self){
             return index == self.indexOf(elem);
         })
 
-        console.log("C: ", unique);
+
+        var data_suspect = [];
+        var data_crime   = [];
+
+        for(var i = 0; i < unique.length; i++){
+            if(unique[i] in mySData){
+                data_suspect.push(mySData[ unique[i] ]);
+            }else{
+                data_suspect.push(0);
+            }
+
+            if(unique[i] in myRData){
+                data_crime.push(myRData[ unique[i] ]);
+            }else{
+                data_crime.push(0);
+            }
+        }
+
+        console.log("Suspect:", data_suspect);
+        console.log("Crime:", data_crime);
 
         var myChart = new Chart(ctx, {
             type: 'horizontalBar',
@@ -121,56 +141,28 @@
         var config = {
             type: 'line',
             data: {
-                labels: [ calcSData
-                ],
+                labels: unique,
                 datasets: [{
                     label: "Crime reports",
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255,99,132,1)',
                     fill: true,
-                    data: calcSData
+                    data: data_crime
 
                 }, {
                     label: "Suspect report",
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     fill: true,
-                    data:
-                        calcRData
-                }
-                // {
-                //     label: "Dataset with point data",
-                //     backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
-                //     borderColor: window.chartColors.green,
-                //     fill: false,
-                //     data: [{
-                //         x: newDateString(0),
-                //         y: randomScalingFactor()
-                //     }, {
-                //         x: newDateString(5),
-                //         y: randomScalingFactor()
-                //     }, {
-                //         x: newDateString(7),
-                //         y: randomScalingFactor()
-                //     }, {
-                //         x: newDateString(15),
-                //         y: randomScalingFactor()
-                //     }],
-                // }
-            ]
+                    data: data_suspect
+                }]
             },
             options: {
                 title:{
-                    text: "Chart.js Time Scale"
+                    text: "Suspects vs Crimes"
                 },
                 scales: {
                     xAxes: [{
-                        // type: "time",
-                        // time: {
-                        //     format: timeFormat,
-                        //     // round: 'day'
-                        //     tooltipFormat: 'll HH:mm'
-                        // },
                         scaleLabel: {
                             display: true,
                             labelString: 'Date'
