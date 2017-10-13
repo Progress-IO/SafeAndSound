@@ -1,0 +1,204 @@
+<%= render "layouts/user-panel"%>
+
+<div class="main content">
+    <div class="container">
+        <h1>Statistics</h1>
+        <canvas id="myChart" class="chart_canvas"></canvas>
+        <canvas id="canvas2" class="chart_canvas"></canvas>
+        <script>
+        var ctx = document.getElementById("myChart");
+        var myData = {};
+        var myRData = {};
+        var mySData = {};
+        var max_val = 0;
+
+        <% @report.each do | r |%>
+            if( "<%= r.tipo %>" in myData){
+                myData["<%= r.tipo %>"] += 1;
+            }else{
+                myData["<%= r.tipo %>"] = 1;
+            }
+
+            // console.log("M", <%= r.fecha.to_date.strftime("%MMMM/%DD/%YYYY") %>);
+
+            if("<%= r.fecha.to_date %>" in myRData){
+                myRData["<%= r.fecha.to_date %>"] += 1;
+            }else{
+                myRData["<%= r.fecha.to_date %>"] = 1;
+            }
+
+
+        <% end %>
+
+        <% @suspect.each do | s |%>
+            if("<%= s.fecha %>" in mySData){
+                mySData["<%= s.fecha.to_date %>"] += 1;
+            }else{
+                mySData["<%= s.fecha.to_date %>"] = 1;
+            }
+        <% end %>
+
+        var calcData = [];
+        var calcLabels = [];
+
+        for(key in myData){
+
+            if(myData[key] > max_val){
+                max_val = myData[key];
+            }
+            calcLabels.push(key);
+            calcData.push(myData[key]);
+        }
+
+        var calcSData = [];
+        var calcRData = [];
+
+        for(key in mySData){
+            calcSData.push(key);
+        }
+
+        for(key in myRData){
+            calcRData.push(key);
+        }
+
+        console.log("Data: ", calcRData);
+        console.log("Data: ", calcSData);
+
+        var combination = calcSData + calcRData;
+        var unique = combination.filter(function(elem, index, self){
+            return index == self.indexOf(elem);
+        })
+
+        console.log("C: ", unique);
+
+        var myChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: calcLabels,
+                datasets: [{
+                    label: "Crimenes",
+                    data: calcData,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }],
+
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            max: max_val
+                        }
+                    }]
+                }
+            }
+        });
+
+
+        // Second graph
+        var color = Chart.helpers.color;
+        var config = {
+            type: 'line',
+            data: {
+                labels: [ calcSData
+                ],
+                datasets: [{
+                    label: "Crime reports",
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    fill: true,
+                    data: calcSData
+
+                }, {
+                    label: "Suspect report",
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    fill: true,
+                    data:
+                        calcRData
+                }
+                // {
+                //     label: "Dataset with point data",
+                //     backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
+                //     borderColor: window.chartColors.green,
+                //     fill: false,
+                //     data: [{
+                //         x: newDateString(0),
+                //         y: randomScalingFactor()
+                //     }, {
+                //         x: newDateString(5),
+                //         y: randomScalingFactor()
+                //     }, {
+                //         x: newDateString(7),
+                //         y: randomScalingFactor()
+                //     }, {
+                //         x: newDateString(15),
+                //         y: randomScalingFactor()
+                //     }],
+                // }
+            ]
+            },
+            options: {
+                title:{
+                    text: "Chart.js Time Scale"
+                },
+                scales: {
+                    xAxes: [{
+                        // type: "time",
+                        // time: {
+                        //     format: timeFormat,
+                        //     // round: 'day'
+                        //     tooltipFormat: 'll HH:mm'
+                        // },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date'
+                        }
+                    }, ],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'value'
+                        }
+                    }]
+                },
+            }
+        };
+
+        // window.onload = function() {
+        //     var ctx = document.getElementById("canvas").getContext("2d");
+        //     window.myLine = new Chart(ctx, config);
+        //
+        // };
+
+        window.onload = function() {
+            var ctx2 = document.getElementById("canvas2").getContext("2d");
+            window.myLine = new Chart(ctx2, config);
+
+        };
+
+        </script>
+
+    </div>
+</div>
