@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -39,12 +39,28 @@ gem 'materialize-sass'
 #añadidio jquery
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-#gema de google maps
-gem 'gmaps4rails'
-#gema de geocoder
-gem 'geocoder'
+#gema para poder subir archivos
+
+gem 'carrierwave', '~> 1.0'
+#gema para manejar errores de carrierwave
+gem 'carrierwave-i18n'
+#Minimagick para carriwerwave
+gem "mini_magick"
+#Gema para almacenar uploads en la nube
+gem 'carrierwave-aws'
+#gema para fechas
+ gem 'time_splitter'
+#Gema para ayudar a ocultar llaves secretillas
+gem 'figaro'
+#Gema para generar datos aleatorios
+gem 'faker'
+
+# Para representacion de datos
+gem 'chart-js-rails'
+
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do

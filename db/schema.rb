@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927205211) do
+ActiveRecord::Schema.define(version: 20171012021047) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -41,13 +41,44 @@ ActiveRecord::Schema.define(version: 20170927205211) do
 
   create_table "reports", force: :cascade do |t|
     t.datetime "fecha"
-    t.string "type"
+    t.string "tipo"
     t.float "latitude"
     t.float "longitude"
     t.string "address"
     t.string "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "images"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.float "origin_latitude"
+    t.float "origin_longitude"
+    t.float "destination_latitude"
+    t.float "destination_longitude"
+    t.datetime "date"
+    t.string "route"
+    t.string "mode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_routes_on_user_id"
+  end
+
+  create_table "suspects", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "fecha"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.string "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "images"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,58 @@
+<%= form_with(model: route, local: true) do |form| %>
+  <% if route.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+      <ul>
+      <% route.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :origin_latitude %>
+    <%= form.text_field :origin_latitude, id: :route_origin_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :origin_longitude %>
+    <%= form.text_field :origin_longitude, id: :route_origin_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destination_latitude %>
+    <%= form.text_field :destination_latitude, id: :route_destination_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destination_longitude %>
+    <%= form.text_field :destination_longitude, id: :route_destination_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.text_field :date, id: :route_date, class: "datepicker", value: Date.current %>
+  </div>
+
+  <!-- <div class="field">
+    <%= form.label :hour %>
+    <%= form.text_field :date, id: :route_date, class: "timepicker", value: Time.now %>
+  </div> -->
+
+  <div class="field">
+    <%= form.label :route %>
+    <%= form.text_field :route, id: :route_route %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mode %>
+    <%= form.select(:mode, options_for_select([["DRIVING","DRIVING"],["BICYCLING","BICYCLING"],["TRANSIT","TRANSIT"],["WALKING","WALKING"]]) ) %>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn" %>
+  </div>
+<% end %>

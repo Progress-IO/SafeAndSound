@@ -1,0 +1,102 @@
+<%= form_with(model: route, local: true) do |form| %>
+  <% if route.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+      <ul>
+      <% route.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+   <div class="" style="margin-top: 20px"></div>
+   <div class="field">
+     <%= form.label :"Route name" %>
+     <%= form.text_field :route, id: :route_route %>
+   </div>
+
+  <div class="field">
+    <%= form.label :mode %>
+    <%= form.select(:mode, ([["CAR", "DRIVING"], ["BUS", "TRANSIT"], ["BIKE", "BICYCLING"], ["WALKING", "WALKING"]]), {}, { :id => 'route_mode' }) %>
+  </div>
+
+  <div class="general">
+
+      <div class="btn-container">
+
+        <div class="c2">
+            <div id="start_marker" class="btn-f btn orange">Start marker</div>
+            <!-- <div id="mk_start" class="s_green"></div> -->
+        </div>
+
+        <div class="c2">
+            <div id="finish_marker" class="btn-f btn orange">Finish marker</div>
+            <!-- <div id="mk_finish" class="s_green"></div> -->
+        </div>
+
+
+        <div class="c2">
+            <div id="calc_route_1" class="btn btn-f red" style="margin-top:20%">Calculate</div>
+        </div>
+
+      </div>
+
+      <div class="btn-container">
+        <div class="input-field">
+            <label for="origin_address">Origin adress</label>
+            <input id="origin_address" type="text">
+        </div>
+
+        <div class="input-field">
+            <label for="destination_address">Destination adress</label>
+            <input id="destination_address" type="text">
+        </div>
+        <div id="calc_route_2" class="btn-f btn red">Calculate route</div>
+
+      </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :origin_latitude, style: "display: none;" %>
+    <%= form.text_field :origin_latitude, id: :route_origin_latitude, style: "display: none;" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :origin_longitude, style: "display: none;" %>
+    <%= form.text_field :origin_longitude, id: :route_origin_longitude, style: "display: none;" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destination_latitude, style: "display: none;" %>
+    <%= form.text_field :destination_latitude, id: :route_destination_latitude, style: "display: none;" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destination_longitude, style: "display: none;" %>
+    <%= form.text_field :destination_longitude, id: :route_destination_longitude, style: "display: none;" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date, style: "display: none;" %>
+    <%= form.text_field :date, id: :route_date, class: "datepicker", value: Date.current, style: "display: none;" %>
+  </div>
+
+  <!-- <div class="field">
+    <%= form.label :hour %>
+    <%= form.text_field :date, id: :route_date, class: "timepicker", value: Time.now %>
+  </div> -->
+
+  <!-- <div class="field">
+    <%= form.label :"Route name" %>
+    <%= form.text_field :route, id: :route_route %>
+  </div> -->
+
+  <div class="actions">
+    <%= link_to 'My routes', routes_path, class: "btn"%> |
+    <%= form.submit class: "btn" %>
+
+  </div>
+<% end %>
