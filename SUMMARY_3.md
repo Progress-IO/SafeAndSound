@@ -1,6 +1,7 @@
 #SUMMARY_3
 
 Características conseguidas en este sprint junto con el desarrollador que la realizo:
+
     -Calculo simple de una ruta: _Daniel Rodriguez_
     -Creado seccion de estadisticas _Daniel Rodriguez_
     -Corregir estructura del archivo de rutas: _Fabian Mendez_
