@@ -58,6 +58,10 @@ gem 'material_icons'
 # Para representacion de datos
 gem 'chart-js-rails'
 
+# Pdf generator plugin
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
