@@ -54,7 +54,7 @@ gem 'carrierwave-aws'
 gem 'figaro'
 #Gema para generar datos aleatorios
 gem 'faker'
-
+gem 'material_icons'
 # Para representacion de datos
 gem 'chart-js-rails'
 
