@@ -15,5 +15,13 @@ class UserPanelController < ApplicationController
   def statistics
       @report = Report.all
       @suspect = Suspect.all
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render template: "user_panel/pdf.html.erb",
+          pdf:"pdf",
+          javascript_delay: 5000
+        end
+      end
   end
 end

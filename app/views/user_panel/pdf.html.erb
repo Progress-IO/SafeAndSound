@@ -1,11 +1,9 @@
-<%= render "layouts/user-panel"%>
-
-<div class="main content">
-    <div class="container">
-        <h1>Statistics</h1>
-        <canvas id="myChart" class="chart_canvas"></canvas>
-        <script>
+<%= wicked_pdf_javascript_include_tag "Chart" %>
+<canvas id="myChart" class="chart_canvas"></canvas>
+<script>
         var ctx = document.getElementById("myChart");
+        ctx.canvas.width = 600;
+        ctx.canvas.height = 350;
         var myData = {};
         var max_val = 0;
 
@@ -72,7 +70,7 @@
                         }
                     }]
                 },
-                responsive: false
+                reponsive: false
             }
         });
 
@@ -80,10 +78,7 @@
 
 
 
-        // Second graph
-        
-        </script>
 
-    </div>
-    <a class="btn" href="<%= statistics_path %>.pdf">Descargas como PDF</a>
-</div>
+        </script>
+        <h1>Prueba</h1>
+</html>
