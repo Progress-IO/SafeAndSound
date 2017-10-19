@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook],
-         :authentication_keys =>{email: true, login: false}
+         :authentication_keys =>{email: false, login: true}
 
   has_many :discussions
   has_many :routes
