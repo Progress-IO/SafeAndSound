@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
     # devise_for :admins
-    # resources :admins
-    # resources :users
+    # resources :admins, :except => [:delete]
+    # resources :users, :except => [:delete]
 
     # get 'user_panel/index'
     devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks"},  path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
@@ -11,10 +11,10 @@ Rails.application.routes.draw do
     root 'landing_page#index'
 
     authenticate :user do
-        resources :routes
-        resources :suspects
-        resources :reports
-        resources :discussions
+        resources :routes, :except => [:delete]
+        resources :suspects, :except => [:delete]
+        resources :reports, :except => [:delete]
+        resources :discussions, :except => [:delete]
         get '/users_panel' =>'user_panel#index', :as => :user_panel
         get 'reports/index'
         get "/user_panel" => 'user_panel#index', as: :user_root
