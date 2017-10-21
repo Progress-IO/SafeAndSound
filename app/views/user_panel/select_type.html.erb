@@ -1,0 +1,21 @@
+<%= render "layouts/user-panel" %>
+
+<div class="main content">
+    <div class="container center-align">
+
+        <h4>Seleccione el medio donde se produjo el crimen</h4>
+        <div class="input-field col s12 m10">
+            <select class="icons">
+              <option value="" disabled selected>Seleccione </option>
+              <option value="" data-icon="<%= asset_path('carro_icon.jpg')%>" class="left circle">Carro</option>
+              <option value="" data-icon="<%= asset_path('bicicleta_icon.jpg')%>" class="left circle">Bicicleta</option>
+              <option value="" data-icon="<%= asset_path('peaton_icon.jpg')%>" class="left circle">Peaton</option>
+              <option value="" data-icon="<%= asset_path('sitp_icon.jpg')%>" class="left circle">SITP</option>
+              <option value="" data-icon="<%= asset_path('transmi_icon.jpg')%>" class="left circle">Transmilenio</option>
+              <option value="" data-icon="<%= asset_path('taxi_icon.jpg')%>" class="left circle">Taxi</option>
+
+            </select>
+            <a class="waves-effect waves-light btn-large">Siguiente</a>
+
+    </div>
+</div>
