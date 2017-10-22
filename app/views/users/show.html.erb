@@ -1,19 +1,18 @@
 <p id="notice"><%= notice %></p>
-
-<h1>
-  <strong></strong>
-  <%= @user.username %></h1>
-   <div>
+ 
+  <h1>  <%= @user.username %>  </h1>
+   
   <%=  avatar_for(@user, size: 150)%>
   <div><%= @user.name %></div>  
+  <div style="color: #5db6fc"><%= @user.email %></div>  
   <%if @user.description?%>
    <div><i><%= @user.description %></i></div>  
    <%else %>
-     <div> <i>Add a description to your profile!</i></div>
+     <div> <i>Hola, estoy usando SafeAndSound!</i></div>
   <%end%>
   
   
- </div> 
+ 
 
 
  <% if user_signed_in? && current_user?(@user) %>
