@@ -1,10 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1>
-  <strong>Username:</strong>
-  <%= @user.username %>
-   <%= image_tag @user.avatar.url(:small) if @user.avatar? %>
-</h1>
+  <strong></strong>
+  <%= @user.username %></h1>
+   <div>
+  <%=  avatar_for(@user, size: 150)%>
+  <div><%= @user.name %></div>  
+  <%if @user.description?%>
+   <div><i><%= @user.description %></i></div>  
+   <%else %>
+     <div> <i>Add a description to your profile!</i></div>
+  <%end%>
+  
+  
+ </div> 
+
 
 
 <%= link_to 'Edit', edit_user_path %> |

@@ -10,12 +10,19 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %><!--, id: :user_name-->
+  </div>
 
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %><!--, id: :user_name-->
   </div>
-  
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
     <%= form.file_field :avatar %><!--, id: :user_name-->
   <div class="actions">
     <%= form.submit %>
