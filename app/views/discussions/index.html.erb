@@ -29,12 +29,12 @@
      
       <tr >
         <td><%= discussion.headline%></td>
-        <td><%= discussion.user.email %></td>
+        <td><%= discussion.user.username %></td>
         
         <td><i><%= discussion.created_at.strftime ("%A, %d %b %Y %l:%M %p") %></i></td>
       <!--  <td></td>-->
         <td><%= link_to 'Show', discussion, class: "bontonnormal"%></td>
-        <% if user_signed_in? %>
+        <% if user_signed_in?  && current_user?(discussion.user) %>
         <td><%= link_to 'Edit', edit_discussion_path(discussion), class: "bontonnormal" %></td>
         <td><%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
         <% end %>

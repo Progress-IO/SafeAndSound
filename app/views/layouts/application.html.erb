@@ -1,7 +1,17 @@
 <%= render "layouts/header" %>
 <%= render "layouts/load-assets" %>
+<!-- Importar HTML del panel -->
+<%= render "layouts/user-panel" %>
+<!-- Genera el espacio disponible -->
+<div class="main content">
+    <!-- Opcional: Genera margen en el contenido -->
+    <div class="container">
 
-    <%= yield %>
+        <%= yield %>
+
+    </div>
+</div>
+    
 
     <%= javascript_include_tag "init.js" %>
 

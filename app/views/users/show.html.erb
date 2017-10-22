@@ -16,6 +16,7 @@
  </div> 
 
 
-
+ <% if user_signed_in? && current_user?(@user) %>
 <%= link_to 'Edit', edit_user_path %> |
-<%= link_to 'Back', user_path %>
+ <%end%>
+<%= link_to 'Back', root_url %>
