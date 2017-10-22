@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only:[:show, :edit, :update, :destroy]
+ 
+    before_action :check_authorization, only: [:edit, :update]
+     before_action :set_user, only: [ :edit, :update]
   # GET /users
   # GET /users.json
   def index
@@ -10,7 +12,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user= User.find(params[:id])
   end
+  
 
   # GET /users/new
   def new
@@ -63,6 +67,16 @@ class UsersController < ApplicationController
   end
 
   private
+  
+    def check_authorization
+      unless current_user.id == params[:id].to_i
+      redirect_to root_path
+      
+      end
+        
+      
+    end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
