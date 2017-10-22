@@ -3,7 +3,7 @@
 <h1>
   <strong>Username:</strong>
   <%= @user.username %>
- 
+   <%= image_tag @user.avatar.url(:small) if @user.avatar? %>
 </h1>
 
 

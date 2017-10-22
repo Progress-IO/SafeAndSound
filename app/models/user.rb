@@ -49,5 +49,6 @@ validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
         where(conditions.to_hash).first
       end
   end
-    
+     mount_uploader :avatar, ImageUploader
+    serialize :avatar, JSON # If you use SQLite, add this line.
 end
