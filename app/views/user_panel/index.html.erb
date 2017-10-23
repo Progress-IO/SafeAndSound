@@ -13,6 +13,7 @@
     var details;
     var data = [];
     var data_susp = [];
+    var data_transp = [];
 
     <% @temp.each do | report | %>
           xlat = "<%= report.latitude %>" ;
@@ -32,6 +33,16 @@
           xlng = parseFloat(xlng);
           tuple = [xlat, xlng, details];
           data_susp.push(tuple);
+    <% end %>
+
+    <% @transport_temp.each do | transport | %>
+          xlat = "<%= transport.latitude %>" ;
+          xlng = "<%= transport.longitude %> ";
+          details = "<%= transport.detalles %> ";
+          xlat = parseFloat(xlat);
+          xlng = parseFloat(xlng);
+          tuple = [xlat, xlng, details];
+          data_transp.push(tuple);
     <% end %>
 </script>
 
