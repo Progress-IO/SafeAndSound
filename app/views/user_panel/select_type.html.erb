@@ -4,16 +4,16 @@
 <div class="main content">
     <div class="container center-align">
 
-        <h4>Seleccione el medio donde se produjo el crimen</h4>
+        <h4>¿Como se produjo el crimen/incidente?</h4>
         <div class="input-field col s12 m10">
             <select class="icons" id= "selector">
-              <option value="jii" disabled selected>Seleccione </option>
-              <option value="Carro" data-icon="<%= asset_path('carro_icon.jpg')%>" class="left circle">Carro</option>
-              <option value="Bicicleta" data-icon="<%= asset_path('bicicleta_icon.jpg')%>" class="left circle">Bicicleta</option>
-              <option value="Peaton" data-icon="<%= asset_path('peaton_icon.jpg')%>" class="left circle">Peaton</option>
-              <option value="SITP" data-icon="<%= asset_path('sitp_icon.jpg')%>" class="left circle">SITP</option>
-              <option value="Transmilenio" data-icon="<%= asset_path('transmi_icon.jpg')%>" class="left circle">Transmilenio</option>
-              <option value="Taxi" data-icon="<%= asset_path('taxi_icon.jpg')%>" class="left circle">Taxi</option>
+              <option value="" selected>Seleccione </option>
+              <option value="Carro" data-icon="<%= asset_path('carro_icon.jpg')%>" class="left circle">Conduciendo</option>
+              <option value="Bicicleta" data-icon="<%= asset_path('bicicleta_icon.jpg')%>" class="left circle">Andando en bicicleta</option>
+              <option value="Peaton" data-icon="<%= asset_path('peaton_icon.jpg')%>" class="left circle">Caminando</option>
+              <option value="SITP" data-icon="<%= asset_path('sitp_icon.jpg')%>" class="left circle">En un SITP</option>
+              <option value="Transmilenio" data-icon="<%= asset_path('transmi_icon.jpg')%>" class="left circle">En un Transmilenio</option>
+              <option value="Taxi" data-icon="<%= asset_path('taxi_icon.jpg')%>" class="left circle">En un Taxi</option>
 
             </select>
             <a class="waves-effect waves-light btn-large " id= "button_t">Siguiente</a>

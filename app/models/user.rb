@@ -21,4 +21,11 @@ class User < ApplicationRecord
      # user.skip_confirmation!
     end
   end
+
+  after_create :send_welcome
+
+  def send_welcome 
+    WelcomeMailer.welcome_mailer(self).deliver_now
+  end
+
 end
