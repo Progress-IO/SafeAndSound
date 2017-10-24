@@ -1,3 +1,10 @@
 Clase 31 - 08 - 2017
 Se hicieron 2 Mocks - ups detallando el registro y el inicio de sesión
 Se configuro el archivo database.yml
+
+
+Clase 24 - 10 - 2017
+Luis Guzman: Arreglado link de perfil de usuario.
+Juan David Valencia: Se realizo un query para encontrar usuario
+Daniel Rodriguez: Agregado maṕa de calor y modificaciones a funciones del modelo de reportes
+Santiago Peña: Modificado archivo javascript para sacar datos de google maps API
