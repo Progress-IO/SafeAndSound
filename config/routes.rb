@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "landing_page/contact", as: "contact"
     get 'reports' => 'reports#index', :as => :reports_list;
     root 'landing_page#index'
+    get '/landing_page/find_user' => 'landing_page#find_user', :as => :find_user
 
     authenticate :user do
         resources :routes

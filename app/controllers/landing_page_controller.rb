@@ -6,6 +6,9 @@ class LandingPageController < ApplicationController
   	    
     end
     
+    def find_user
+       @user_found = User.find_by(:email => params[:email_to_found]) 
+    end
     
     def contact
         

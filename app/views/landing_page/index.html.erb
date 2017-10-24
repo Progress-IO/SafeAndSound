@@ -91,3 +91,9 @@
     </div>
     <div class="parallax"><img src="<%= asset_path('bog_2.jpg') %>" alt="Unsplashed background img 3"></div>
   </div>
+
+<%= form_tag(find_user_path, method: "get") do %>
+    <%= label_tag(:email_to_found, "Search for:") %>
+    <%= text_field_tag(:email_to_found) %>
+    <%= submit_tag("Search") %>
+<% end %>
