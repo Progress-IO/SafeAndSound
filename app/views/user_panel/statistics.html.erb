@@ -3,85 +3,14 @@
 <div class="main content">
     <div class="container">
         <h1>Statistics</h1>
-        <canvas id="myChart" class="chart_canvas"></canvas>
-        <script>
-        var ctx = document.getElementById("myChart");
-        var myData = {};
-        var max_val = 0;
 
-        <% @report.each do | r |%>
-            if( "<%= r.tipo %>" in myData){
-                myData["<%= r.tipo %>"] += 1;
-            }else{
-                myData["<%= r.tipo %>"] = 1;
-            }
-        <% end %>
-
-        var calcData = [];
-        var calcLabels = [];
-
-        for(key in myData){
-
-            if(myData[key] > max_val){
-                max_val = myData[key];
-            }
-            calcLabels.push(key);
-            calcData.push(myData[key]);
-        }
-
-        console.log("MAXIMUS", max_val);
-
-        var myChart = new Chart(ctx, {
-            type: 'horizontalBar',
-            data: {
-                labels: calcLabels,
-                datasets: [{
-                    label: "Crimenes",
-                    data: calcData,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }],
-
-                    xAxes: [{
-                        ticks: {
-                            beginAtZero:true,
-                            max: max_val
-                        }
-                    }]
-                }
-            }
-        });
+        <h5>Crime reports</h5>
 
 
+        <canvas id="report_chart"></canvas>
+        <canvas id="suspectReport_chart"></canvas>
 
-
-
-        // Second graph
-        
-        </script>
-
+        <script> var reports = <%= @reports %>; </script>
+        <%= javascript_include_tag "statistics/statistics" %>
     </div>
 </div>
