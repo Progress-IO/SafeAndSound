@@ -5,6 +5,7 @@ class RoutesController < ApplicationController
   # GET /routes.json
   def index
     @routes = current_user.routes
+   
     # @routes = Route.all
   end
 
@@ -16,6 +17,7 @@ class RoutesController < ApplicationController
   # GET /routes/new
   def new
     @route = Route.new
+    @transport = Transport.mi_funcion()
   end
 
   # GET /routes/1/edit

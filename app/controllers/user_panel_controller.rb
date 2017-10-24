@@ -2,11 +2,11 @@ class UserPanelController < ApplicationController
   
   before_action :authenticate_user!
   def index
-      @temp = Report.all
-      @suspect_temp = Suspect.all
-      @transport_temp = Transport.all
-      puts "Hello asdasdaosdkaosdk"
-      puts @temps
+      @temp = Report.show_all
+      @suspect_temp = Suspect.show_all
+      @transport_temp = Transport.show_all 
+     
+      puts @transport_temp
   end
 
   def report
@@ -14,7 +14,7 @@ class UserPanelController < ApplicationController
   end
 
   def statistics
-      @report = Report.all
-      @suspect = Suspect.all
+      @report = Report.show_all
+      @suspect = Suspect.show_all
   end
 end

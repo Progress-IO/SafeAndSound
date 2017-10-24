@@ -52,7 +52,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
     directionsService.route({
         origin: start,
         destination: end,
-        travelMode: mode
+        travelMode: mode,
+        provideRouteAlternatives: true
     }, function(response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
