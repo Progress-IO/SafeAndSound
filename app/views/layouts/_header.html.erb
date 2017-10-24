@@ -28,14 +28,20 @@
 
             
              <%= link_to  root_path do %>
-         <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">-->
+         <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">
+         
+         
+        sudo apt-get update
+        sudo apt-get install imagemagick --fix-missing
+         
+         -->
            <img src="<%= asset_path('logo.png') %>" class="mylogo">
            </a>
                                     <% end %>
             
             
            
-
+      
          
 
 
@@ -54,16 +60,27 @@
         <li class = "left"><%= link_to "Contact us", contact_path, class: ""  %></li>
 
         <% if user_signed_in? %>
-        <li style="color: #5db6fc"> Welcome, <%= current_user.email %></li>
+        <li><%= avatar_for(current_user,size: 35)%></li>
+        <li style="color: #5db6fc">  <%= link_to  current_user.username, current_user, class:"userprofile" %></li>
         <% end %>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><%= link_to "Inicio", root_path, class: ""  %></li>
-        <li><a href="#">Log in</a></li>
-        <li><a href="#">Sing up</a></li>
-        <li><%= link_to "Contact us", contact_path, class: ""  %></li>
+       
+        <% if user_signed_in? %>
+          <li class = " "><%= link_to "Log Out", auth_sign_out_path, method: :delete ,class:"" %></li>
+        <% else %>
+          <li class = ""><%= link_to "Log in", login_path, class: ""  %></li>
+          <li class = ""><%= link_to "Sign up", register_path, class: "" %></li>
+        <% end %>
 
+        <% if user_signed_in? %>
+            <li class = " " ><%= link_to "Forum", discussions_path, class: ""  %></li>
+            <li style="color: #5db6fc"> <%= avatar_for(current_user,size: 35) %> <%= link_to current_user.username, current_user, class:"userprofile" %></li>
+        <% end %>
+        <li class = ""><%= link_to "Contact us", contact_path, class: ""  %></li>
+
+       
 
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
