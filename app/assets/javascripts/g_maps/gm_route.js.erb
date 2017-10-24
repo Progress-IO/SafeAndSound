@@ -127,15 +127,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
             for (var i = 0; i < ruta1.legs[0].steps.length; i++) {
                 var opcion1 = ruta1.legs[0].steps[i];
                     console.log("legs", opcion1);
-
                     if("transit" in opcion1)
                         window.extractRoute = opcion1.transit.line["short_name"];
-
             }
+            
 
             console.log("Linea: ", window.extractRoute);
-            //   var json = JSON.parse(response)
-            //   console.log(json["summary"])
+           
             directionsDisplay.setDirections(response);
         } else {
             var base = "<i class=\"material-icons tiny\">error</i><strong>  Error: </strong>   ";

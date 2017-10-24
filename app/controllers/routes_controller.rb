@@ -17,7 +17,7 @@ class RoutesController < ApplicationController
   # GET /routes/new
   def new
     @route = Route.new
-    @transport = Transport.mi_funcion()
+  
   end
 
   # GET /routes/1/edit
@@ -76,4 +76,8 @@ class RoutesController < ApplicationController
     def route_params
       params.require(:route).permit(:origin_latitude, :origin_longitude, :destination_latitude, :destination_longitude, :date, :route, :mode)
     end
+
+
+    def 
+
 end
