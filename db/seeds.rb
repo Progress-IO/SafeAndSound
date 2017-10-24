@@ -35,9 +35,9 @@ types = ["Robo violento", "Asesinato", "Estafa", "Raponazo"]
 
 end
 
-50.times do
+80.times do
     Suspect.create([{
-        fecha: Faker::Date.between(100.days.ago, Date.today),
+        fecha: Faker::Date.between(70.days.ago, Date.today),
         latitude: Faker::Number.between(4.5091, 4.8091),
         longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,

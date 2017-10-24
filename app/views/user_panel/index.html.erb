@@ -1,7 +1,11 @@
-<%= javascript_include_tag "g_maps/gm_user-panel" %>
 <%= render "layouts/user-panel" %>
 
 <div class="main">
+    <div id="floating-panel">
+        <button class="btn activation" id="#heatMap_report" onclick="toggleHeatmap()">Report heatmap</button>
+        <button class="btn activation" id="#heatMap_radius" onclick="changeRadius()">Radius</button>
+        <button class="btn activation" id="#heatMap_gradient" onclick="changeGradient()">Color</button>
+    </div>
     <div id="map" class="map_user-panel"></div>
 </div>
 
@@ -46,4 +50,6 @@
     <% end %>
 </script>
 
+
 <%= render "layouts/map-actions"%>
+<%= javascript_include_tag "g_maps/gm_user-panel" %>
