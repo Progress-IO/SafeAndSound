@@ -1,0 +1,47 @@
+<div class="main content">
+  <div class="container">
+
+    <p id="notice">
+      <%= notice %>
+    </p>
+
+    <p>
+      <strong>Fecha:</strong>
+      <%= @transport.fecha %>
+    </p>
+
+    <p>
+      <strong>Tipo:</strong>
+      <%= @transport.tipo %>
+    </p>
+
+   
+
+  
+
+    <p>
+      <strong>Detalles:</strong>
+      <%= @transport.detalles %>
+    </p>
+
+   
+
+    <p>
+      <strong>Address:</strong>
+      <%= @transport.address %>
+    </p>
+
+    <p>
+      <strong>Tipo transp:</strong>
+      <%= @transport.tipo_transp %>
+    </p>
+
+    <p>
+      <strong>Images:</strong>
+      <%= @transport.images %>
+    </p>
+
+    <%= link_to 'Edit', edit_transport_path(@transport) %> |
+      <%= link_to 'Back', transports_path %>
+  </div>
+</div>

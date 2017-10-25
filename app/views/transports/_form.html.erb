@@ -1,0 +1,81 @@
+<%= javascript_include_tag "materialize_init.js" %>
+<%= form_with(model: transport, local: true) do |form| %>
+ 
+
+ 
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.select(:tipo, options_for_select([["Raponazo","Raponazo"],["Cosquilleo","Cosquilleo"],["Atraco a mano armada","Atraco a mano armada"],["Engaño","Engaño"],["Paseo millonario","Paseo millonario"]]) ) %>
+  </div>
+
+  
+  <div class="field">
+    <%= form.label :dia %>
+    <%= form.text_field :dia, id: :transport_dia , class: "datepicker"%>
+  </div>
+
+  <div class="field">
+      <%= form.label :hora %>
+      <%= form.text_field :hora, id: :transport_hora, class: "timepicker" %>
+    </div>
+  
+
+  <div class="field">
+    <%= form.label :detalles %>
+    <%= form.text_field :detalles, id: :transport_detalles %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude , style: "display:none"%>
+    <%= form.text_field :longitude, id: :transport_longitude , style: "display:none"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude , style: "display:none"%>
+    <%= form.text_field :latitude, id: :transport_latitude , style: "display:none"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :transport_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_transp , style: "display:none"%>
+    <%= form.text_field :tipo_transp, id: :transport_tipo_transp , style: "display:none"%>
+  </div>
+
+  
+
+  
+
+  <div class="field">
+      <%= form.label :images %>
+      <div class="file-field input-field">
+          <div class="btn green">
+              <span>Adjuntar archivo</span>
+              <%= form.file_field :images, multiple: true %>
+          </div>
+          <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+          </div>
+      </div>
+  </div>
+
+  <div class="actions">
+      <%= form.submit class: "btn"%>
+    </div>
+
+  <% if transport.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(transport.errors.count, "error") %> prohibited this transport from being saved:</h2>
+
+    <ul>
+    <% transport.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% end %>

@@ -24,11 +24,16 @@ class ReportsController < ApplicationController
   def edit
   end
 
+  
+
   # POST /reports
   # POST /reports.json
   def create
     @report = Report.new(report_params)
-
+    s_dia = report_params[:dia].split(' ')
+    s_hora = report_params[:hora].split(':')
+    @fecha_aux = DateTime.new(s_dia[2].to_i, Date::MONTHNAMES.index(s_dia[1].delete(',')), s_dia[0].to_i, s_hora[0].to_i, s_hora[1].to_i, 0, Time.zone.name)
+    @report.update_attributes(:fecha => @fecha_aux)
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
@@ -64,6 +69,8 @@ class ReportsController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_report
@@ -72,6 +79,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []})
+      params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []},:dia ,:hora)
     end
 end

@@ -36,4 +36,11 @@ $(document).ready(function(){
 
     });
 
+    $(function(){
+        $(".activation").on("click", function(){
+            $(this).toggleClass("ac_red");
+        });
+    });
+
+    
 });

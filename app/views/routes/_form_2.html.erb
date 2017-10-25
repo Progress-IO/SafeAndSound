@@ -84,6 +84,11 @@
     <%= form.text_field :date, id: :route_date, class: "datepicker", value: Date.current, style: "display: none;" %>
   </div>
 
+<div class="field">
+    <%= form.label :response, style: "display: none;"%>
+    <%= form.text_field :response, id: :response, style: "display: none;"%>
+</div>
+
   <!-- <div class="field">
     <%= form.label :hour %>
     <%= form.text_field :date, id: :route_date, class: "timepicker", value: Time.now %>

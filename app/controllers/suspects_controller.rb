@@ -25,7 +25,10 @@ class SuspectsController < ApplicationController
   # POST /suspects.json
   def create
     @suspect = Suspect.new(suspect_params)
-
+    s_dia = suspect_params[:dia].split(' ')
+    s_hora = suspect_params[:hora].split(':')
+    @fecha_aux = DateTime.new(s_dia[2].to_i, Date::MONTHNAMES.index(s_dia[1].delete(',')), s_dia[0].to_i, s_hora[0].to_i, s_hora[1].to_i, 0, Time.zone.name)
+    @suspect.update_attributes(:fecha => @fecha_aux)
     respond_to do |format|
       if @suspect.save
         format.html { redirect_to @suspect, notice: 'Suspect was successfully created.' }
@@ -69,6 +72,6 @@ class SuspectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def suspect_params
-      params.require(:suspect).permit(:nombre, :fecha, :latitude, :longitude, :address, :details, {images: []})
+      params.require(:suspect).permit(:nombre, :fecha, :latitude, :longitude, :address, :details, {images: []}, :dia, :hora)
     end
 end
