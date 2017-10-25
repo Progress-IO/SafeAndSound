@@ -50,12 +50,22 @@ var ctx_report = $("#report_chart")[0].getContext("2d");
 var ctx_suspectReport = $("#suspectReport_chart")[0].getContext("2d");
 
 var report_values = [];
+var report_c_values = []
+var suspect_c_values = []
+var reportVsSuspect_Keys = [];
+
 for(key in reports){
     report_values.push(reports[key]);
 }
 
+for(key in report_c){
+    report_c_values.push(report_c[key]);
+    suspect_c_values.push(suspect_c[key]);
+    reportVsSuspect_Keys.push(key.split(" ")[0]);
+}
+
+
 var report_colors = gFillColors(report_values.length);
-console.log("Colors", report_colors);
 
 var report_chart = new Chart(ctx_report,{
     type: 'bar',
@@ -80,9 +90,58 @@ var report_chart = new Chart(ctx_report,{
     }
 });
 
-// var suspectReport_chart = new Chart(ctx_suspectReport, {
-//     type: 'line',
-//     data: {
-//         labels:
-//     }
-//
+
+var suspectReport_chart = new Chart(ctx_suspectReport, {
+    type: 'line',
+    data: {
+        labels: reportVsSuspect_Keys,
+        datasets: [
+            {
+                label: "Report",
+                data: report_c_values,
+                backgroundColor: "rgba(32, 137, 209, 0.65)",
+                borderColor: "#007bcf",
+                borderWidth: 1,
+                fillOpacity: .3
+            },
+            {
+                label: "Suspect",
+                data: suspect_c_values,
+                backgroundColor: "rgba(195, 40, 40, 0.65)",
+                borderColor: "#c30000",
+                borderWidth: 1,
+                fillOpacity: .3
+            }
+        ]
+    },
+    options:{
+        backgroundColor: {
+            fill: "transparent"
+        }
+    }
+});
+
+$("#filter_svsr").on("change", function(){
+    var data = $("#filter_svsr").val();
+    var report_c_values = []
+    var suspect_c_values = []
+    var reportVsSuspect_Keys = [];
+
+    var i = 0;
+    for(key in report_c){
+        report_c_values.push(report_c[key]);
+        suspect_c_values.push(suspect_c[key]);
+        reportVsSuspect_Keys.push(key.split(" ")[0]);
+
+
+        i++;
+        if(i == data) break;
+    }
+
+    suspectReport_chart.data.labels = reportVsSuspect_Keys;
+    suspectReport_chart.data.datasets[0].data = report_c_values;
+    suspectReport_chart.data.datasets[1].data = suspect_c_values;
+
+    suspectReport_chart.update();
+
+});

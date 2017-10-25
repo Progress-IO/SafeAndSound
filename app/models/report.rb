@@ -2,11 +2,6 @@ class Report < ApplicationRecord
     mount_uploaders :images, ImageUploader
     serialize :images, JSON # If you use SQLite, add this line.
 
-<<<<<<< HEAD
-   
-
-    
-=======
     def self.alsdaoskdad
         @reports = {}
         @report_freq = {}
@@ -32,23 +27,18 @@ class Report < ApplicationRecord
         return @suspect_freq
     end
 
-    def self.ReportSuspect_freq
+    def self.reportSuspect_freq
         report_freq = {}
         suspect_freq = {}
-        report_types = Report.select(:tipo).distinct
         report_dates = Report.select(:fecha).distinct.order(:fecha)
         suspect_dates = Suspect.select(:fecha).distinct.order(:fecha)
 
         report_dates.each do | date |
             report_freq[ date[:fecha] ] = Report.where(fecha: date[:fecha]).count
+            suspect_freq[ date[:fecha] ] = Suspect.where(fecha: date[:fecha]).count
         end
 
-        suspect_dates.each do | date |
-            suspect_dates[ date[:fecha] ] = Suspect.where(fecha: data[:fecha].count)
-        end
-
-        
-
+        return report_freq, suspect_freq
     end
 
     def self.type_reportCount
@@ -61,6 +51,5 @@ class Report < ApplicationRecord
 
         return reports
     end
->>>>>>> sprint-3
 
 end

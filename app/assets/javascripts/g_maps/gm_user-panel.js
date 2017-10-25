@@ -98,7 +98,6 @@ function showMarkers_susp(data){
         addMarker(loc_crime, img_marker_suspect, data[i][2]);
     }
 }
-<<<<<<< HEAD
 
 function showMarkers_transp(data){
     for(var i = 0; i < data.length; i++){
@@ -112,5 +111,3 @@ function showMarkers_transp(data){
 //     $(this).fadeOut(500);
 //
 // });
-=======
->>>>>>> sprint-3
