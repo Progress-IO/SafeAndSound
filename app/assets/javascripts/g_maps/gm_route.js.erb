@@ -48,6 +48,9 @@ function initMap() {
             $("#route_destination_latitude").val(m_finish.getPosition().lat());
             $("#route_destination_longitude").val(m_finish.getPosition().lng());
             calculateAndDisplayRoute(directionsService, directionsDisplay, st, fn, mode);
+
+
+
         }
     });
 
@@ -71,6 +74,8 @@ function initMap() {
                 geocodeAddress(geocoder, map, $("#destination_address").val(), false, function (xdata) {
                     fn = getMarkerLocation(xdata);
                     calculateAndDisplayRoute(directionsService, directionsDisplay, st, fn, mode);
+
+
 
                     $("#route_origin_latitude").val(mydata.getPosition().lat());
                     $("#route_origin_longitude").val(mydata.getPosition().lng());
@@ -119,21 +124,33 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
         provideRouteAlternatives: true
     }, function (response, status) {
         if (status == 'OK') {
+            //Se sacan los valores de las rutas que sugiere de la API de google maps 
+            var apiRoutes  = {}; //Diccionario para almacenar los valores de las rutas
+            var rutas = response.routes;
+            //console.log(response);
+            //Se miran todas las rutas sugeridas
+            for (var k = 0; k < rutas.length ; k++) {
+                var auxRoute = {};//Diccionario auxiliar para almacenar los valores de cada ruta
+                var cont = 0;
+                //Se miran los pasos de cada ruta
+                for(var i = 0; i < rutas[k].legs[0].steps.length; i++) {
+                    var opcion = rutas[k].legs[0].steps[i];
+                    //Si el step es de transporte que lo almacene en el diccionario auxiliar
+                    if("transit" in opcion) {
+                         auxRoute[cont] = opcion.transit.line["short_name"];
+                         console.log("auxrut",auxRoute);
+                         //Se mete en un diccionario auxiliar por si la ruta sugiere transbordos
+                        cont = cont + 1;
+                    }    
+                    
+                apiRoutes[k] = auxRoute;
 
-            // console.log("Rta", response);
-            var ruta1 = response.routes[0];
-            // console.log("hola",window.extractRoute);
-
-            for (var i = 0; i < ruta1.legs[0].steps.length; i++) {
-                var opcion1 = ruta1.legs[0].steps[i];
-                    console.log("legs", opcion1);
-                    if("transit" in opcion1)
-                        window.extractRoute = opcion1.transit.line["short_name"];
             }
-            
 
-            console.log("Linea: ", window.extractRoute);
-           
+            console.log("apiRoutes",apiRoutes);
+            
+            var insecureRoutes = {};
+            //  securityTransportRoutes(extract_route);
             directionsDisplay.setDirections(response);
         } else {
             var base = "<i class=\"material-icons tiny\">error</i><strong>  Error: </strong>   ";
@@ -141,6 +158,18 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
             Materialize.toast(base + status, 4000, 'red rounded');
         }
     });
+}
+
+function securityTransportRoutes(route) {
+    
+    for(var i = 0; i < transportRoutes.length ; i++) {
+        if (transportRoutes[i].id_route == route) {
+            console.log("Num ruta",transportRoutes[i].id_route);
+        }
+
+    }
+
+
 }
 
 function geocodeAddress(geocoder, resultsMap, address, first, callback) {

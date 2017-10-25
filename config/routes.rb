@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         get "/user_panel" => 'user_panel#index', as: :user_root
         get '/users_panel/statistics' =>'user_panel#statistics', :as => :statistics
         get '/users_panel/report/select_report' => 'user_panel#select_type', :as => :report_mode
+        post '/routes/transport_routes' => 'routes#transport_routes' , :as => :get_routes
     end
 
     namespace :user do

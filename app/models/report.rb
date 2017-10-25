@@ -4,8 +4,5 @@ class Report < ApplicationRecord
     def self.show_all
         return Report.all
     end
-   
-
-    
-
+       
 end

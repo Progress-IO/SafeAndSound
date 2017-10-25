@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+  # respond_to :html , :js
   before_action :set_route, only: [:show, :edit, :update, :destroy]
 
   # GET /routes
@@ -17,6 +18,7 @@ class RoutesController < ApplicationController
   # GET /routes/new
   def new
     @route = Route.new
+    @transport_routes = Transport.all.to_json.html_safe
   
   end
 
@@ -78,6 +80,6 @@ class RoutesController < ApplicationController
     end
 
 
-    def 
+   
 
 end

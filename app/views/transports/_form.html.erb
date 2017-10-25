@@ -46,7 +46,16 @@
     <%= form.text_field :tipo_transp, id: :transport_tipo_transp , style: "display:none"%>
   </div>
 
-  
+  <!-- <div class="field">
+    <%= form.label "Numero de la ruta" %>
+    <%= form.select(:tipo, options_for_select([["Raponazo","Raponazo"],["Cosquilleo","Cosquilleo"],["Atraco a mano armada","Atraco a mano armada"],["Engaño","Engaño"],["Paseo millonario","Paseo millonario"]]) ) %>
+  </div> -->
+
+  <div class="field">
+    <%= form.label "Numero de ruta" %>
+    <%= form.text_field :id_route, id: :transport_id_route %>
+  </div>
+
 
   
 
