@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   has_many :discussions
   has_many :routes
-  
-  
+
+
   def login=(login)
     @login = login
   end
@@ -17,7 +17,7 @@ class User < ApplicationRecord
   def login
     @login || self.username || self.email
   end
-    
+
     validates :username,
   :presence => true,
   :uniqueness => {
@@ -26,9 +26,9 @@ class User < ApplicationRecord
 
 # Only allow letter, number, underscore and punctuation.
 validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-    
-   
-    
+
+
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
      user.email = auth.info.email
@@ -40,25 +40,22 @@ validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
      # user.skip_confirmation!
     end
   end
-<<<<<<< HEAD
 
   after_create :send_welcome
 
-  def send_welcome 
+  def send_welcome
     WelcomeMailer.welcome_mailer(self).deliver_now
   end
 
-=======
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
       if login = conditions.delete(:login)
          where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
-       
+
       elsif conditions.has_key?(:username) || conditions.has_key?(:email)
         where(conditions.to_hash).first
       end
   end
      mount_uploader :avatar, ImageUploader
     serialize :avatar, JSON # If you use SQLite, add this line.
->>>>>>> 8a509b4cc8d279bfcb0bbd7561347513395ab6a0
 end

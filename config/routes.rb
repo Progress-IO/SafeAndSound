@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
       # devise_for :admins
     # resources :admins
     # resources :users
@@ -7,33 +7,21 @@ Rails.application.routes.draw do
     # get 'user_panel/index'
     devise_for :users,:controllers => {:omniauth_callbacks => "users/omniauth_callbacks"},  path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
     get '/users_panel/report' =>'user_panel#report', :as => :report_type
-    
+
     get "landing_page/contact", as: "contact"
     get 'reports' => 'reports#index', :as => :reports_list;
-    
+
     root 'landing_page#index'
-    
-    
-     resources :users, except:[:destroy] 
-    
+
+
+     resources :users, except:[:destroy]
+
     authenticate :user do
         resources :routes
         resources :suspects
         resources :reports
         resources :discussions
-<<<<<<< HEAD
         resources :transports
-=======
-       
-        
-       # get '/users/:id'  => 'users#show', :as => :user
-       
-       # get '/users/:id/edit' => 'users#edit' , :as => :edit_user
-    #patch '/users/:id/edit' => 'users#update' 
-    #    put '/users/:id/update' => 'users#update'
-        #get '/users/:id'  => 'users#show', :as => :profile
-       
->>>>>>> 8a509b4cc8d279bfcb0bbd7561347513395ab6a0
         get '/users_panel' =>'user_panel#index', :as => :user_panel
         get 'reports/index'
         get "/user_panel" => 'user_panel#index', as: :user_root
@@ -41,18 +29,18 @@ Rails.application.routes.draw do
         get '/users_panel/report/select_report' => 'user_panel#select_type', :as => :report_mode
     end
 
-    
+
 
     namespace :user do
         root "user_panel#index"
-        
-       
+
+
     end
 
     devise_scope :user do
         get 'auth/sign_in', to: 'devise/sessions#new'
         get 'auth/registration', to: 'devise/registrations#new'
-        
+
         delete 'auth/sign_out', to: 'devise/sessions#destroy'
     end
 
