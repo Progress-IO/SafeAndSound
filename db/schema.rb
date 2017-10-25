@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171024223241) do
+=======
+ActiveRecord::Schema.define(version: 20171022032034) do
+>>>>>>> 8a509b4cc8d279bfcb0bbd7561347513395ab6a0
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -105,8 +109,12 @@ ActiveRecord::Schema.define(version: 20171024223241) do
     t.string "last_sign_in_ip"
     t.string "provider"
     t.string "uid"
+    t.string "username"
+    t.string "avatar"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

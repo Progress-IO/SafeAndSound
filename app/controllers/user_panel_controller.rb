@@ -1,4 +1,5 @@
 class UserPanelController < ApplicationController
+<<<<<<< HEAD
 
     before_action :authenticate_user!
     def index
@@ -53,4 +54,26 @@ class UserPanelController < ApplicationController
         @suspect_c = @suspect_c.to_json.html_safe
 
     end
+=======
+  
+  before_action :authenticate_user!
+  def index
+      @temp = Report.all
+      @suspect_temp = Suspect.all
+      puts "Hello asdasdaosdkaosdk"
+      puts @temps
+  end
+
+  def report
+
+  end
+  
+  def statistics
+      @report = Report.all
+      @suspect = Suspect.all
+  end
+  
+  
+    
+>>>>>>> 8a509b4cc8d279bfcb0bbd7561347513395ab6a0
 end

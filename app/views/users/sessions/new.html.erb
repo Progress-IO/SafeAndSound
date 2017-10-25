@@ -22,9 +22,9 @@
             <div class="card-content center">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <div class="input-field" >
-                  <i class="material-icons prefix">email</i>
-                  <%= f.label :email, {:style => "color: #455a64"} %>
-                  <%= f.email_field :email %>
+                  <i class="material-icons prefix">person</i>
+                  <%= f.label :login, {:style => "color: #455a64"} %>
+                  <%= f.text_field :login %>
                 </div>
 
                 <div class="input-field">
