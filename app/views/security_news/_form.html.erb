@@ -1,0 +1,67 @@
+<%= javascript_include_tag "materialize_init.js" %>
+<%= form_with(model: novelty, local: true) do |form| %>
+
+
+
+<div class="input">
+    <%= form.label :tipo %>
+</div>
+
+<div class="field">
+    <%= form.label "Dia" %>
+    <%= form.text_field :dia, class: "datepicker"%>
+</div>
+
+<div class="field">
+    <%= form.label :latitude, style: "display:none" %>
+    <%= form.text_field :latitude, id: :novelty_latitude, readonly: true, style: "display:none"%>
+</div>
+
+<div class="field">
+    <%= form.label :longitude, style: "display:none" %>
+    <%= form.text_field :longitude, id: :novelty_longitude, readonly: true, style: "display:none"%>
+</div>
+
+<div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :novelty_address %>
+</div>
+
+<div class="field">
+    <%= form.label :details %>
+    <%= form.text_field :details, id: :novelty_details %>
+</div>
+
+<div class="field">
+    <%= form.label :images %>
+    <div class="file-field input-field">
+        <div class="btn green">
+            <span>Adjuntar archivo</span>
+            <%= form.file_field :images, multiple: true %>
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+        </div>
+    </div>
+</div>
+
+
+<div class="actions">
+    <%= form.submit class: 'btn' %>
+</div>
+<% end %>
+<!-- Manejo de errores -->
+<% if novelty.errors.any? %>
+<div id="error_explanation">
+    <p>
+    Error with new novelty:</p>
+
+    <ul>
+        <% novelty.errors.full_messages.each do |message| %>
+        <li>
+            <%= message %>
+        </li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
