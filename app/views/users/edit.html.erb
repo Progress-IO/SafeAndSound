@@ -1,6 +1,10 @@
-<h1>Editing User</h1>
+<%= render "layouts/user-panel" %>
+<div class="content main">
+    <div class="container">
+        <h1>User settings</h1>
 
-<%= render 'form', user: @user %>
+        <%= render 'form', user: @user %>
+        <%= link_to 'Back', user_path, class: "btn", style: "margin-top:10px"%>
 
-
-<%= link_to 'Back', user_path %>
+    </div>
+</div>

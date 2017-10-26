@@ -1,3 +1,4 @@
+var response_routes = [];
 window.response;
 var map;
 var bogota = {lat: 4.624335, lng: -74.063644};
@@ -111,23 +112,33 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
         provideRouteAlternatives: true
     }, function(response, status) {
         window.response = response;
-        console.log("Rta", response);
 
         if (status == 'OK') {
+            var idx_safestRoute = safestRoute(response);
+            console.log("Calculated safest: " + idx_safestRoute);
 
-            // directionsDisplay.setDirections(response);
+            if(response_routes.length != 0){
+                for (var i = 0; i < response_routes.length; i++) {
+                    response_routes[i].setMap(null);
+                }
+                response_routes = [];
+            }
+
             for (var i = 0, len = response.routes.length; i < len; i++) {
-                new google.maps.DirectionsRenderer({
-                    suppressMarkers: true,
-                    polylineOptions: {
-                        strokeColor: i == len - 1 ? "green": "red",
-                        strokeOpacity: 0.7,
-                        strokeWeight: 5
-                    },
-                    map: map,
-                    directions: response,
-                    routeIndex: i
-                });
+                response_routes.push(
+                    new google.maps.DirectionsRenderer({
+                        suppressMarkers: true,
+                        polylineOptions: {
+                            strokeColor: i == idx_safestRoute ? "green": "red",
+                            strokeOpacity: 0.7,
+                            strokeWeight: 5
+                        },
+                        map: map,
+                        directions: response,
+                        routeIndex: i
+                    })
+                )
+
             }
 
             $("#response").val(JSON.stringify(response));
@@ -158,6 +169,42 @@ function geocodeAddress(geocoder, resultsMap, address, first, callback) {
     });
 
 }
+
+function safestRoute(response){
+    var nroutes = response.routes.length;
+    var best_route = 0;
+    var total_route = 0;
+    var max_value = Number.NEGATIVE_INFINITY;
+
+
+    console.log("Number of routes: " + nroutes);
+    for(var i = 0; i < nroutes; i++){
+
+        if( undefined !== response.routes[i].overview_path){
+            for(var j = 0; j < response.routes[i].overview_path.length; j++){
+                var lat = response.routes[i].overview_path[j].lat();
+                var lng = response.routes[i].overview_path[j].lng();
+
+                for(var k = 0; k < report_positions.length; k++){
+                    // console.log(report_positions[k]);
+                    total_route += Math.abs(report_positions[k]["lat"] - lat);
+                    total_route += Math.abs(report_positions[k]["lng"] - lng);
+                }
+            }
+        }
+
+
+        console.log("Best calc: " /+ total_route);
+        if(total_route > max_value){
+            max_value = total_route;
+            best_route = i;
+        }
+    }
+
+
+    return best_route;
+}
+
 
 $("#calc_route").click(function() {
     $('html,body').animate({

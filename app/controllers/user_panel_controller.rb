@@ -13,7 +13,6 @@ class UserPanelController < ApplicationController
     end
 
     def statistics
-
         @reports = Report.type_reportCount
         @reports = @reports.to_json.html_safe
 
@@ -21,5 +20,11 @@ class UserPanelController < ApplicationController
         @report_c = @report_c.to_json.html_safe
         @suspect_c = @suspect_c.to_json.html_safe
 
+    end
+
+    def view_all
+        @reports = current_user.reports
+        @suspects = current_user.suspects
+        @routes = current_user.routes
     end
 end

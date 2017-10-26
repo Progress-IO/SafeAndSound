@@ -21,10 +21,10 @@
   </div>
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :text_field %>
   </div>
-    <%= form.file_field :avatar %><!--, id: :user_name-->
+    <%= form.file_field :avatar, class: "green"%><!--, id: :user_name-->
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn", style: "margin-top: 10px" %>
   </div>
 <% end %>

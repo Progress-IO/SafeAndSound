@@ -16,6 +16,9 @@ class RoutesController < ApplicationController
   # GET /routes/new
   def new
     @route = Route.new
+    @reports_position = Route.Reports_position.to_json.html_safe
+
+    puts "My reports: ", @reports_position
   end
 
   # GET /routes/1/edit
