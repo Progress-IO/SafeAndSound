@@ -6,7 +6,7 @@ Funcionalidades y trabajos hechos por cada desarrollador
 
  ### Juan David Valencia
  
- ### Luis Guzman Avellaneda
+ ### Luis Guzmán Avellaneda
  
  Añadido perfil de usuario, login con username y avatar.
  
