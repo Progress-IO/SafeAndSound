@@ -13,5 +13,9 @@ Funcionalidades y trabajos hechos por cada desarrollador
  ###  Santiago Peña Sanabria
  
  ### Oscar Fabián Mendez
+
+Creación de reportes de novedades de seguridad.
+
+ Creación de modulo policía para habilitar reporte de novedades de seguridad por parte de usuarios con rol de policía
  
  ### Daniel Rodríguez Meza
