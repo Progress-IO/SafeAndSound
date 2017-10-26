@@ -40,9 +40,9 @@ function initMap() {
     showMarkers_transp(data_transp);
 
     heatmap = new google.maps.visualization.HeatmapLayer({
-      data: getPoints(data),
-      map: map,
-      radius: 50
+        data: getPoints(data),
+        map: map,
+        radius: 50
     });
 
 }
@@ -105,9 +105,3 @@ function showMarkers_transp(data){
         addMarker(loc_crime, img_marker_bus, data[i][2]);
     }
 }
-
-// $("#btnaddmarker").click(function(){
-//     addMarker(bogota, img_marker_robbery);
-//     $(this).fadeOut(500);
-//
-// });

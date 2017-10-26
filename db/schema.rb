@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024223241) do
+ActiveRecord::Schema.define(version: 20171025220632) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20171024223241) do
     t.string "images"
     t.date "dia"
     t.time "hora"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
 # Could not dump table "routes" because of following StandardError
@@ -72,6 +74,8 @@ ActiveRecord::Schema.define(version: 20171024223241) do
     t.string "images"
     t.date "dia"
     t.time "hora"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_suspects_on_user_id"
   end
 
   create_table "transports", force: :cascade do |t|

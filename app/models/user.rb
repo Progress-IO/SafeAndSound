@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :discussions
   has_many :routes
+  has_many :reports
+  has_many :suspects
 
 
   def login=(login)
