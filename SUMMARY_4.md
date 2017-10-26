@@ -8,6 +8,8 @@ Funcionalidades y trabajos hechos por cada desarrollador
  
  ### Luis Guzman Avellaneda
  
+ Añadido perfil de usuario, username y avatar.
+ 
  ###  Santiago Peña Sanabria
  
  ### Oscar Fabián Mendez
