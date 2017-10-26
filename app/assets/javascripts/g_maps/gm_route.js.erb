@@ -151,14 +151,36 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
            
             
             var insecureRoutes = securityTransportRoutes(apiRoutes);
+
             console.log("nost", insecureRoutes);
             // directionsDisplay.setDirections(response);
+            for (var i = 0, len = response.routes.length; i < len; i++) {
             new google.maps.DirectionsRenderer({
                 map: map,
                 directions: response,
-                routeIndex: insecureRoutes[0][0],
-                suppressMarkers: true
+                routeIndex: i,
+                suppressMarkers: true,
+                polylineOptions: {
+                    strokeColor: i == insecureRoutes[0][0] ? "green": "grey",
+                    strokeOpacity: 0.7,
+                    strokeWeight: 5
+                },
               });
+            }
+
+            //   for (var i = 0, len = response.routes.length; i < len; i++) {
+            //     new google.maps.DirectionsRenderer({
+            //         suppressMarkers: true,
+            //         polylineOptions: {
+            //             strokeColor: i == len - 1 ? "green": "red",
+            //             strokeOpacity: 0.7,
+            //             strokeWeight: 5
+            //         },
+            //         map: map,
+            //         directions: response,
+            //         routeIndex: i
+            //     });
+        //}
         } else {
             var base = "<i class=\"material-icons tiny\">error</i><strong>  Error: </strong>   ";
             status += "  ";
