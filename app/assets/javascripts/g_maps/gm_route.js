@@ -268,6 +268,7 @@ function safestRoute(response) {
             max_value = total_route;
             best_route = i;
         }
+        total_route = 0;
     }
 
     return best_route;
