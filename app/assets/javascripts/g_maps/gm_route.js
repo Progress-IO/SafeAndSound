@@ -1,4 +1,7 @@
 var map;
+var route_markers = [];
+var response_routes = [];
+
 window.extractRoute;
 var bogota = {
     lat: 4.624335,
@@ -25,6 +28,14 @@ function initMap() {
     });
 
     directionsDisplay.setMap(map);
+
+    $("#calc_route_1").click(function(){
+        $(".main").animate({scrollTop: 0}, "slow");
+    });
+
+    $("#calc_route_2").click(function(){
+        $(".main").animate({scrollTop: 0}, "slow");
+    });
 
 
     $("#start_marker").one("click", function () {
@@ -164,7 +175,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                         routeIndex: i,
                         suppressMarkers: true,
                         polylineOptions: {
-                            strokeColor: i == insecureRoutes[0][0] ? "green" : "grey",
+                            strokeColor: i == insecureRoutes[0][0] ? "green" : "red",
                             strokeOpacity: 0.7,
                             strokeWeight: 5
                         },
@@ -201,7 +212,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
 
                 }
 
-                $("#response").val(JSON.stringify(response));
+                $("#response").val(JSON.stringify(response.routes[idx_safestRoute]));
+                $("#route_index").val(idx_safestRoute);
             }
         } else {
             var base = "<i class=\"material-icons tiny\">error</i><strong>  Error: </strong>   ";
@@ -211,30 +223,30 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
     });
 }
 
-function safestRoute(response){
+function safestRoute(response) {
     var nroutes = response.routes.length;
     var best_route = 0;
     var total_route = 0;
     var max_value = Number.NEGATIVE_INFINITY;
 
 
-    if(route_markers.length != 0){
-        for(let i = 0; i < route_markers.length; i++){
+    if (route_markers.length != 0) {
+        for (let i = 0; i < route_markers.length; i++) {
             route_markers[i].setMap(null);
         }
     }
 
 
-    for(var i = 0; i < nroutes; i++){
+    for (var i = 0; i < nroutes; i++) {
 
-        if( undefined !== response.routes[i].overview_path){
+        if (undefined !== response.routes[i].overview_path) {
 
-            for(var j = 0; j < response.routes[i].overview_path.length; j++){
+            for (var j = 0; j < response.routes[i].overview_path.length; j++) {
                 var lat = response.routes[i].overview_path[j].lat();
                 var lng = response.routes[i].overview_path[j].lng();
 
 
-                if((j % Math.floor(response.routes[i].overview_path.length / 3)) == 0 && j != 0 && j != response.routes[i].overview_path.length - 1){
+                if ((j % Math.floor(response.routes[i].overview_path.length / 3)) == 0 && j != 0 && j != response.routes[i].overview_path.length - 1) {
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(lat, lng),
                         label: i + 1 + "",
@@ -244,7 +256,7 @@ function safestRoute(response){
                     route_markers.push(marker);
                 }
 
-                for(var k = 0; k < report_positions.length; k++){
+                for (var k = 0; k < report_positions.length; k++) {
                     total_route += Math.abs(report_positions[k]["lat"] - lat);
                     total_route += Math.abs(report_positions[k]["lng"] - lng);
                 }
@@ -252,7 +264,7 @@ function safestRoute(response){
         }
 
 
-        if(total_route > max_value){
+        if (total_route > max_value) {
             max_value = total_route;
             best_route = i;
         }
@@ -261,27 +273,7 @@ function safestRoute(response){
     return best_route;
 }
 
-function generate_selectors(n){
-    
-        console.log("over here");
-    
-        var $selectDropdown =
-          $("#mySelect")
-            .empty()
-            .html(' ');
-    
-        // add new value
-        var value = "some value";
-        $selectDropdown.append(
-          $("<option></option>")
-            .attr("value",value)
-            .text(value)
-        );
-    
-        $selectDropdown.trigger('contentChanged');
-        $('select').material_select();
-        console.log("After...");
-    }
+
 
 function securityTransportRoutes(routeApi) {
 
@@ -328,12 +320,55 @@ function geocodeAddress(geocoder, resultsMap, address, first, callback) {
             Materialize.toast('Geocode was not successful for the following reason: ' + status, 4000, 'red rounded');
         }
     });
-
 }
 
-$("#calc_route").click(function () {
-    $('html,body').animate({
-            scrollTop: $("#map").offset().top
-        },
-        'slow');
-});
+function generate_selectors(n, best){
+    
+        console.log("over here");
+    
+        var $selectDropdown =
+          $("#mySelect")
+            .empty()
+            .html(' ');
+    
+        // add new value
+    
+        for(var i = 0; i < n; i++){
+            $selectDropdown.append(
+              $("<option></option>")
+                .attr("value",(i))
+                .text((i + 1))
+            );    var $selectDropdown =
+          $("#mySelect")
+            .empty()
+            .html(' ');
+    
+        }
+    
+        $('#mySelect option[value="' + best + '"]').prop('selected', true);
+    
+        // $selectDropdown.trigger('contentChanged');
+        $('select').material_select();
+        // console.log("After...");
+    }
+    
+    $('select').on('contentChanged', function() {
+        console.log("Another...");
+        // re-initialize (update)
+        $(this).material_select();
+    });
+    
+    $("#calc_route").click(function() {
+        $('html,body').animate({
+            scrollTop: $("#map").offset().top},
+            'slow');
+        });
+    
+    // $(function(){
+    //     $('select').materlize_select();
+    // });
+    
+    $("#mySelect").on("change", function(){
+        console.log("Cambio a: ", $("mySelect").value());
+        $("#route_index").val($("mySelect").value());
+    });
