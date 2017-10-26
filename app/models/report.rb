@@ -57,4 +57,8 @@ class Report < ApplicationRecord
         return reports
     end
 
+    def self.show_all
+        return Report.all
+    end
+       
 end
