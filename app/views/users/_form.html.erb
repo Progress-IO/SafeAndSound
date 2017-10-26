@@ -21,9 +21,19 @@
   </div>
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :text_field %>
+    <%= form.text_area :text_field,placeholder:"Tell us something about you!...",  class:"materialize-textarea" %>
   </div>
-    <%= form.file_field :avatar, class: "green"%><!--, id: :user_name-->
+  
+  <div class="field">
+      <label class="btn btn-primary">
+    Change your avatar!
+    <span style="display:none;">
+      <%= form.file_field :avatar, :class=> "green"%>
+    </span>
+      </label>
+  </div>
+  <br></br>
+   <!--, id: :user_name-->
   <div class="actions">
     <%= form.submit class: "btn", style: "margin-top: 10px" %>
   </div>
