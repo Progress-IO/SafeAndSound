@@ -5,6 +5,8 @@
 Funcionalidades y trabajos hechos por cada desarrollador
 
  ### Juan David Valencia
+     - Añadir validaciones para campos de reportes y suspechosos
+     - Agregar PDF viewer
  
  ### Luis Guzmán Avellaneda
  
