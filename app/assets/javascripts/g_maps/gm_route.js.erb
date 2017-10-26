@@ -125,33 +125,40 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
     }, function (response, status) {
         if (status == 'OK') {
             //Se sacan los valores de las rutas que sugiere de la API de google maps 
-            var apiRoutes  = {}; //Diccionario para almacenar los valores de las rutas
+            var apiRoutes = {}; //Diccionario para almacenar los valores de las rutas
             var rutas = response.routes;
             //console.log(response);
             //Se miran todas las rutas sugeridas
-            for (var k = 0; k < rutas.length ; k++) {
-                var auxRoute = {};//Diccionario auxiliar para almacenar los valores de cada ruta
+            for (var k = 0; k < rutas.length; k++) {
+                var auxRoute = {}; //Diccionario auxiliar para almacenar los valores de cada ruta
                 var cont = 0;
-                //Se miran los pasos de cada ruta
-                for(var i = 0; i < rutas[k].legs[0].steps.length; i++) {
+                //Se miran los steps de cada ruta
+                for (var i = 0; i < rutas[k].legs[0].steps.length; i++) {
                     var opcion = rutas[k].legs[0].steps[i];
                     //Si el step es de transporte que lo almacene en el diccionario auxiliar
-                    if("transit" in opcion) {
-                         auxRoute[cont] = opcion.transit.line["short_name"];
-                         console.log("auxrut",auxRoute);
-                         //Se mete en un diccionario auxiliar por si la ruta sugiere transbordos
+                    if ("transit" in opcion) {
+                        auxRoute[cont] = opcion.transit.line["short_name"];
+                        //Se mete en un diccionario auxiliar por si la ruta sugiere transbordos
                         cont = cont + 1;
-                    }    
-                    
+                    }
+                }
+
                 apiRoutes[k] = auxRoute;
 
             }
 
-            console.log("apiRoutes",apiRoutes);
+            console.log("apiRoutes", apiRoutes);    
+           
             
-            var insecureRoutes = {};
-            //  securityTransportRoutes(extract_route);
-            directionsDisplay.setDirections(response);
+            var insecureRoutes = securityTransportRoutes(apiRoutes);
+            console.log("nost", insecureRoutes);
+            // directionsDisplay.setDirections(response);
+            new google.maps.DirectionsRenderer({
+                map: map,
+                directions: response,
+                routeIndex: insecureRoutes[0][0],
+                suppressMarkers: true
+              });
         } else {
             var base = "<i class=\"material-icons tiny\">error</i><strong>  Error: </strong>   ";
             status += "  ";
@@ -160,16 +167,29 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
     });
 }
 
-function securityTransportRoutes(route) {
+function securityTransportRoutes(routeApi) {
     
-    for(var i = 0; i < transportRoutes.length ; i++) {
-        if (transportRoutes[i].id_route == route) {
-            console.log("Num ruta",transportRoutes[i].id_route);
+    var ocurrences = {};
+    var most_safety = [];
+    for(var i = 0; i < Object.keys(routeApi).length ; i++ ) { 
+        var auxRoute = routeApi[i];
+        var count_total = 0;
+        for(var k = 0; k < Object.keys(auxRoute).length; k++){
+            name_route = auxRoute[k];
+            // console.log("Nombre ruta",name_route);
+            if(ocurrences[name_route] == undefined ){
+                var filtrar = transportRoutes.filter(function(x){return x.id_route == name_route});
+                ocurrences[name_route] = filtrar.length;
+            }
+            count_total = count_total + ocurrences[name_route];
         }
-
+        most_safety.push([i,count_total]);
     }
+    most_safety.sort(function(a, b) {
+        return a[1] - b[1];
+    });
 
-
+    return most_safety;
 }
 
 function geocodeAddress(geocoder, resultsMap, address, first, callback) {
