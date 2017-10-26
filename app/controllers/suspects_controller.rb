@@ -26,10 +26,12 @@ class SuspectsController < ApplicationController
     def create
 
         @suspect = current_user.suspects.new(suspect_params)
-        s_dia = suspect_params[:dia].split(' ')
-        s_hora = suspect_params[:hora].split(':')
-        @fecha_aux = DateTime.new(s_dia[2].to_i, Date::MONTHNAMES.index(s_dia[1].delete(',')), s_dia[0].to_i, s_hora[0].to_i, s_hora[1].to_i, 0, Time.zone.name)
-        @suspect.update_attributes(:fecha => @fecha_aux)
+        if @suspect.valid?
+            s_dia = suspect_params[:dia].split(' ')
+            s_hora = suspect_params[:hora].split(':')
+            @fecha_aux = DateTime.new(s_dia[2].to_i, Date::MONTHNAMES.index(s_dia[1].delete(',')), s_dia[0].to_i, s_hora[0].to_i, s_hora[1].to_i, 0, Time.zone.name)
+            @suspect.update_attributes(:fecha => @fecha_aux)
+        end
         respond_to do |format|
             if @suspect.save
                 format.html { redirect_to @suspect, notice: 'Suspect was successfully created.' }
