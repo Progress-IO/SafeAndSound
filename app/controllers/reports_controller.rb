@@ -17,13 +17,11 @@ class ReportsController < ApplicationController
     def new
         # _layout "test"
         @report = Report.new
-
     end
 
     # GET /reports/1/edit
     def edit
     end
-
 
 
     # POST /reports
