@@ -1,0 +1,56 @@
+<%= render "layouts/user-panel" %>
+
+<div class="main content">
+    <div class="container">
+        <p id="notice">
+            <%= notice %>
+        </p>
+        <h1>My Security News</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Address</th>
+                    <th collspan="2">Details</th>
+                    <th collspan="2">Image</th>
+                    <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @novelties.each do |novelty| %>
+                <tr>
+                    <td>
+                        <%= novelty.fecha.to_date unless novelty.fecha.nil?%>
+                    </td>
+                    <td>
+                        <%= novelty.tipo %>
+                    </td>
+                    <td>
+                        <%= novelty.address %>
+                    </td>
+                    <td class="xdetails_content">
+                        <%= novelty.details %>
+                    </td>
+                    <td>
+                        <% if !novelty.images[0].nil? %>
+                        <img src="<%=asset_path( novelty.images[0] )%>" class="img_prev">
+                        <%end %>
+                    </td>
+                    <td><%= link_to 'Show', novelty, class: "bontonnormal" %></td>
+                    <td>
+                        <%= link_to 'Edit', edit_novelty_path(novelty), class: "bontonnormal" %>
+                    </td>
+                    <td>
+                        <%= link_to 'Destroy', novelty, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %>
+                    </td>
+                </tr>
+                <% end %>
+
+            </tbody>
+        </table>
+        <br>
+        <%= link_to 'New Security item', new_novelty_path , class: "btn custom_margin"%>
+    </div>
+</div>

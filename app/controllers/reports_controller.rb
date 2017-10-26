@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
   # GET /reports/1.json
   def show
   end
-
+    
   # GET /reports/new
   def new
     # _layout "test"

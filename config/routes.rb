@@ -19,6 +19,8 @@ Rails.application.routes.draw do
         get 'reports/index'
         get "/user_panel" => 'user_panel#index', as: :user_root
         get '/users_panel/statistics' =>'user_panel#statistics', :as => :statistics
+        get '/security_news'  => 'security_news#index',  :as => :novelties
+        get '/security_news/new'  => 'security_news#new', :as => :new_novelty
     end
 
     namespace :user do
