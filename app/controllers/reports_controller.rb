@@ -31,10 +31,12 @@ class ReportsController < ApplicationController
     def create
         @report = current_user.reports.new(report_params)
         # @report = Report.new(report_params)
-        s_dia = report_params[:dia].split(' ')
-        s_hora = report_params[:hora].split(':')
-        @fecha_aux = DateTime.new(s_dia[2].to_i, Date::MONTHNAMES.index(s_dia[1].delete(',')), s_dia[0].to_i, s_hora[0].to_i, s_hora[1].to_i, 0, Time.zone.name)
-        @report.update_attributes(:fecha => @fecha_aux)
+        if @report.valid?
+            s_dia = report_params[:dia].split(' ')
+            s_hora = report_params[:hora].split(':')
+            @fecha_aux = DateTime.new(s_dia[2].to_i, Date::MONTHNAMES.index(s_dia[1].delete(',')), s_dia[0].to_i, s_hora[0].to_i, s_hora[1].to_i, 0, Time.zone.name)
+            @report.update_attributes(:fecha => @fecha_aux)
+        end
         respond_to do |format|
             if @report.save
                 format.html { redirect_to @report, notice: 'Report was successfully created.' }

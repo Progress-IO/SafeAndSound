@@ -3,6 +3,10 @@ class Report < ApplicationRecord
     serialize :images, JSON # If you use SQLite, add this line.
     belongs_to :user
 
+    # Validating marker
+    validates :latitude, presence: true
+    validates :longitude, presence: { message: "Please add a marker"}
+
     def self.alsdaoskdad
         @reports = {}
         @report_freq = {}
