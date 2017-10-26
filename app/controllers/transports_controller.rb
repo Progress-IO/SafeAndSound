@@ -72,6 +72,6 @@ class TransportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transport_params
-      params.require(:transport).permit(:fecha, :tipo, :hora, :dia, :detalles, :longitude, :latitude, :address, :tipo_transp, { images: []})
+      params.require(:transport).permit(:fecha, :tipo, :hora, :dia, :detalles, :longitude, :latitude, :address, :tipo_transp, :id_route, { images: []})
     end
 end

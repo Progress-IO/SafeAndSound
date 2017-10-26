@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171026064105) do
     t.string "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "id_route"
   end
 
   create_table "users", force: :cascade do |t|
