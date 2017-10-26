@@ -52,6 +52,9 @@
     var fn_lng = <%= @route.destination_longitude %>;
 
     var mode = "<%= @route.mode %>";
+    var x = JSON.parse('<%= @route.response.html_safe %>');
+    //
+    console.log(x);
 </script>
 
 <%= render "layouts/map-actions" %>
