@@ -1,4 +1,7 @@
 var response_routes = [];
+var route_markers = [];
+
+
 window.response;
 var map;
 var bogota = {lat: 4.624335, lng: -74.063644};
@@ -19,6 +22,14 @@ function initMap() {
 
     directionsDisplay.setMap(map);
 
+
+    $("#calc_route_1").click(function(){
+        $(".main").animate({scrollTop: 0}, "slow");
+    });
+
+    $("#calc_route_2").click(function(){
+        $(".main").animate({scrollTop: 0}, "slow");
+    });
 
     $("#start_marker").one("click", function(){
         m_start = addMarker(bogota, img_marker_start, "<strong> Start of route </strong>");
@@ -114,8 +125,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
         window.response = response;
 
         if (status == 'OK') {
+
+            generate_selectors(response.routes.length);
             var idx_safestRoute = safestRoute(response);
-            console.log("Calculated safest: " + idx_safestRoute);
+            console.log("Calculated safest: " + (idx_safestRoute + 1));
 
             if(response_routes.length != 0){
                 for (var i = 0; i < response_routes.length; i++) {
@@ -123,6 +136,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                 }
                 response_routes = [];
             }
+
 
             for (var i = 0, len = response.routes.length; i < len; i++) {
                 response_routes.push(
@@ -156,7 +170,7 @@ function geocodeAddress(geocoder, resultsMap, address, first, callback) {
     geocoder.geocode({'address': address}, function(results, status) {
         if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
-            gmarker = new google.maps.Marker({
+            var gmarker = new google.maps.Marker({
                 map: resultsMap,
                 position: results[0].geometry.location,
                 icon: first ? img_marker_start : img_marker_finish
@@ -177,16 +191,33 @@ function safestRoute(response){
     var max_value = Number.NEGATIVE_INFINITY;
 
 
-    console.log("Number of routes: " + nroutes);
+    if(route_markers.length != 0){
+        for(let i = 0; i < route_markers.length; i++){
+            route_markers[i].setMap(null);
+        }
+    }
+
+
     for(var i = 0; i < nroutes; i++){
 
         if( undefined !== response.routes[i].overview_path){
+
             for(var j = 0; j < response.routes[i].overview_path.length; j++){
                 var lat = response.routes[i].overview_path[j].lat();
                 var lng = response.routes[i].overview_path[j].lng();
 
+
+                if((j % Math.floor(response.routes[i].overview_path.length / 3)) == 0 && j != 0 && j != response.routes[i].overview_path.length - 1){
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(lat, lng),
+                        label: i + 1 + "",
+                        map: map
+                    });
+
+                    route_markers.push(marker);
+                }
+
                 for(var k = 0; k < report_positions.length; k++){
-                    // console.log(report_positions[k]);
                     total_route += Math.abs(report_positions[k]["lat"] - lat);
                     total_route += Math.abs(report_positions[k]["lng"] - lng);
                 }
@@ -194,17 +225,42 @@ function safestRoute(response){
         }
 
 
-        console.log("Best calc: " /+ total_route);
         if(total_route > max_value){
             max_value = total_route;
             best_route = i;
         }
     }
 
-
     return best_route;
 }
 
+function generate_selectors(n){
+
+    console.log("over here");
+
+    var $selectDropdown =
+      $("#mySelect")
+        .empty()
+        .html(' ');
+
+    // add new value
+    var value = "some value";
+    $selectDropdown.append(
+      $("<option></option>")
+        .attr("value",value)
+        .text(value)
+    );
+
+    $selectDropdown.trigger('contentChanged');
+    $('select').material_select();
+    console.log("After...");
+}
+
+$('select').on('contentChanged', function() {
+    console.log("Another...");
+    // re-initialize (update)
+    $(this).material_select();
+});
 
 $("#calc_route").click(function() {
     $('html,body').animate({
