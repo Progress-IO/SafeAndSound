@@ -8,7 +8,7 @@ Funcionalidades y trabajos hechos por cada desarrollador
  
  ### Luis Guzman Avellaneda
  
- Añadido perfil de usuario, username y avatar.
+ Añadido perfil de usuario, login con username y avatar.
  
  ###  Santiago Peña Sanabria
  
