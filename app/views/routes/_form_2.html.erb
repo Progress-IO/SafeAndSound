@@ -12,10 +12,9 @@
   <% end %>
 
 
-   <div class="" style="margin-top: 20px"></div>
    <div class="field">
      <%= form.label :"Route name" %>
-     <%= form.text_field :route, id: :route_route %>
+     <%= form.text_field :route, id: :route_route%>
    </div>
 
   <div class="field">
@@ -44,6 +43,10 @@
 
       </div>
 
+      <div class="field">
+          <%= form.label :route_index, style: "display: none;"%>
+          <%= form.text_field :route_index, id: :route_index, style: "display: none"%>
+      </div>
       <div class="btn-container">
         <div class="input-field">
             <label for="origin_address">Origin adress</label>
@@ -88,6 +91,7 @@
     <%= form.label :response, style: "display: none;"%>
     <%= form.text_field :response, id: :response, style: "display: none;"%>
 </div>
+
 
   <!-- <div class="field">
     <%= form.label :hour %>

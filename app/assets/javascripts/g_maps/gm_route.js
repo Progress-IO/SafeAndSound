@@ -126,8 +126,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
 
         if (status == 'OK') {
 
-            generate_selectors(response.routes.length);
             var idx_safestRoute = safestRoute(response);
+            generate_selectors(response.routes.length, idx_safestRoute + 1);
             console.log("Calculated safest: " + (idx_safestRoute + 1));
 
             if(response_routes.length != 0){
@@ -154,8 +154,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                 )
 
             }
-
-            $("#response").val(JSON.stringify(response));
+-
+            $("#response").val(JSON.stringify(response.routes[idx_safestRoute]));
+            $("#route_index").val(idx_safestRoute);
 
         } else {
             var base = "<i class=\"material-icons tiny\">error</i><strong>  Error: </strong>   ";
@@ -234,7 +235,7 @@ function safestRoute(response){
     return best_route;
 }
 
-function generate_selectors(n){
+function generate_selectors(n, best){
 
     console.log("over here");
 
@@ -244,16 +245,20 @@ function generate_selectors(n){
         .html(' ');
 
     // add new value
-    var value = "some value";
-    $selectDropdown.append(
-      $("<option></option>")
-        .attr("value",value)
-        .text(value)
-    );
 
-    $selectDropdown.trigger('contentChanged');
+    for(var i = 0; i < n; i++){
+        $selectDropdown.append(
+          $("<option></option>")
+            .attr("value",(i))
+            .text((i + 1))
+        );
+    }
+
+    $('#mySelect option[value="' + best + '"]').prop('selected', true);
+
+    // $selectDropdown.trigger('contentChanged');
     $('select').material_select();
-    console.log("After...");
+    // console.log("After...");
 }
 
 $('select').on('contentChanged', function() {
@@ -267,3 +272,12 @@ $("#calc_route").click(function() {
         scrollTop: $("#map").offset().top},
         'slow');
     });
+
+// $(function(){
+//     $('select').materlize_select();
+// });
+
+$("#mySelect").on("change", function(){
+    console.log("Cambio a: ", $("mySelect").value());
+    $("#route_index").val($("mySelect").value());
+});
