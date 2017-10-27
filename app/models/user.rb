@@ -29,7 +29,9 @@ class User < ApplicationRecord
 # Only allow letter, number, underscore and punctuation.
 validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
-
+  def is_police
+    return self.Ispolice
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
