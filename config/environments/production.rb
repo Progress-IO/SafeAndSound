@@ -106,7 +106,8 @@ Rails.application.configure do
       authentication: "plain", 
       # enable_starttls_auto: true, 
       user_name: ENV["G_USERNAME"],
-      password: ENV["G_PASSWORD"]
+      password: ENV["G_PASSWORD"],
+      openssl_verify_mode: 'none'
      }
   
 end
