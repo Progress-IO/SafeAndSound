@@ -5,4 +5,7 @@ class Suspect < ApplicationRecord
     # Validation of marker
     validates :latitude, presence: true
     validates :longitude, presence: { message: "Marker must be added" }
+    def self.show_all
+        return Suspect.all
+    end
 end

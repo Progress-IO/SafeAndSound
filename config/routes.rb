@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         get '/users_panel/statistics' =>'user_panel#statistics', :as => :statistics
         get '/users_panel/view_all' =>'user_panel#view_all', :as => :view_all
         get '/users_panel/report/select_report' => 'user_panel#select_type', :as => :report_mode
+        post '/routes/transport_routes' => 'routes#transport_routes' , :as => :get_routes
         get '/security_news'  => 'security_news#index',  :as => :novelties
         get '/security_news/new'  => 'security_news#new', :as => :new_novelty
     end

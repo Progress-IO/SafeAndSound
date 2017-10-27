@@ -3,8 +3,9 @@ class UserPanelController < ApplicationController
     before_action :authenticate_user!
     def index
 
-        @temp = Report.all
-        @suspect_temp = Suspect.all
+        @temp = Report.show_all
+        @suspect_temp = Suspect.show_all
+        @transport_temp = Transport.show_all
 
     end
 
@@ -19,7 +20,14 @@ class UserPanelController < ApplicationController
         @report_c, @suspect_c = Report.reportSuspect_freq
         @report_c = @report_c.to_json.html_safe
         @suspect_c = @suspect_c.to_json.html_safe
-
+        respond_to do |format|
+            format.html
+            format.pdf do
+              render template: "user_panel/pdf.html.erb",
+              pdf:"pdf",
+              javascript_delay: 500
+            end
+        end
     end
 
     def view_all

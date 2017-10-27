@@ -14,6 +14,7 @@
       <th>Latitude</th>
       <th>Address</th>
       <th>Tipo transp</th>
+      <th>Ruta</th>
       <th>Images</th>
       <th colspan="3"></th>
     </tr>
@@ -31,6 +32,7 @@
         <td><%= transport.latitude %></td>
         <td><%= transport.address %></td>
         <td><%= transport.tipo_transp %></td>
+        <td><%= transport.id_route %></td>
         <td><%= transport.images %></td>
         <td><%= link_to 'Show', transport %></td>
         <td><%= link_to 'Edit', edit_transport_path(transport) %></td>
