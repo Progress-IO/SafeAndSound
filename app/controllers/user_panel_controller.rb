@@ -20,7 +20,14 @@ class UserPanelController < ApplicationController
         @report_c, @suspect_c = Report.reportSuspect_freq
         @report_c = @report_c.to_json.html_safe
         @suspect_c = @suspect_c.to_json.html_safe
-
+        respond_to do |format|
+            format.html
+            format.pdf do
+              render template: "user_panel/pdf.html.erb",
+              pdf:"pdf",
+              javascript_delay: 500
+            end
+        end
     end
 
     def view_all
