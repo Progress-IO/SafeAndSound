@@ -20,20 +20,7 @@ end
 
 types = ["Robo violento", "Asesinato", "Estafa", "Raponazo"]
 
-50.times do
-    Report.create([{
-        fecha: Faker::Date.between(100.days.ago, Date.today),
-        tipo: types[rand(types.size)],
-        latitude: Faker::Number.between(4.5091, 4.8091),
-        longitude: Faker::Number.between(-74.077, -74.377),
-        address: Faker::Address.street_name,
-        details: Faker::Lorem.paragraphs
 
-    }])
-
-
-
-end
 
 80.times do
     Suspect.create([{
@@ -41,8 +28,36 @@ end
         latitude: Faker::Number.between(4.5091, 4.8091),
         longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,
-        details: Faker::Lorem.paragraphs
+        details: Faker::Lorem.paragraphs,
+        user_id: 1
 
+    }])
+
+end
+
+rutas =  ["Z4","Z7","J72","J70","320","18-3","C37", "T11", "399", "T163", "B13","H13","G12","192","SE14","K23","L18","B28","F28","108","107","731","C11","Z12","593"]
+
+50.times do
+    Transport.create([{
+        fecha: Faker::Date.between(70.days.ago, Date.today),
+        latitude: Faker::Number.between(4.5091, 4.8091),
+        longitude: Faker::Number.between(-74.077, -74.377),
+        address: Faker::Address.street_name,
+        detalles: Faker::Lorem.paragraphs,
+        id_route: rutas[rand(rutas.size)]
+
+    }])
+end
+
+50.times do
+    Report.create([{
+        fecha: Faker::Date.between(100.days.ago, Date.today),
+        tipo: types[rand(types.size)],
+        latitude: Faker::Number.between(4.5091, 4.8091),
+        longitude: Faker::Number.between(-74.077, -74.377),
+        address: Faker::Address.street_name,
+        details: Faker::Lorem.paragraphs,
+        user_id: 1
 
     }])
 
