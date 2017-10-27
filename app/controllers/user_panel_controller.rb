@@ -24,7 +24,7 @@ class UserPanelController < ApplicationController
             format.pdf do
               render template: "user_panel/pdf.html.erb",
               pdf:"pdf",
-              javascript_delay: 1000
+              javascript_delay: 500
             end
         end
     end
