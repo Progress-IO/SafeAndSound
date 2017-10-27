@@ -23,6 +23,9 @@ function initMap() {
     addMarker(end, img_marker_finish, "<strong> End of route </strong>");
 
     calculateAndDisplayRoute(directionsService, directionsDisplay, start, end, mode);
+
+
+
 }
 
 function getMarkerLocation(marker){
@@ -52,7 +55,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
     directionsService.route({
         origin: start,
         destination: end,
-        travelMode: mode
+        travelMode: mode,
+        provideRouteAlternatives: true
     }, function(response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);

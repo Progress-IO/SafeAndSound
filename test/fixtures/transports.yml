@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2017-10-20 16:28:29
+  tipo: MyString
+  hora: 2017-10-20 16:28:29
+  dia: 2017-10-20
+  detalles: MyString
+  longitude: 1.5
+  latitude: 1.5
+  address: MyString
+  tipo_transp: MyString
+  images: MyString
+
+two:
+  fecha: 2017-10-20 16:28:29
+  tipo: MyString
+  hora: 2017-10-20 16:28:29
+  dia: 2017-10-20
+  detalles: MyString
+  longitude: 1.5
+  latitude: 1.5
+  address: MyString
+  tipo_transp: MyString
+  images: MyString

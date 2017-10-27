@@ -1,9 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%= render "layouts/user-panel" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="main content">
+    <div class="container">
+        <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <h1>  <%= @user.username %>  </h1>
+
+          <%=  avatar_for(@user, size: 150)%>
+          <div><%= @user.name %></div>
+          <div style="color: #5db6fc"><%= @user.email %></div>
+          <%if @user.description?%>
+           <div><i><%= @user.description %></i></div>
+           <%else %>
+             <div> <i>Hola, estoy usando SafeAndSound!</i></div>
+          <%end%>
+
+
+         <% if user_signed_in? && current_user?(@user) %>
+        <%= link_to 'Edit', edit_user_path, class: "btn" %> |
+         <%end%>
+        <%= link_to 'Back', root_url, class: "btn" %>
+    </div>
+</div>

@@ -21,6 +21,7 @@ Rails.application.config.assets.precompile += %w( materialize_init.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_user-panel.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_report-new.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_suspect-new.js )
+Rails.application.config.assets.precompile += %w( g_maps/gm_transport-new.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_route.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_route-show.js )
 

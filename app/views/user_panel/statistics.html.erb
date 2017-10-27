@@ -3,85 +3,24 @@
 <div class="main content">
     <div class="container">
         <h1>Statistics</h1>
-        <canvas id="myChart" class="chart_canvas"></canvas>
-        <script>
-        var ctx = document.getElementById("myChart");
-        var myData = {};
-        var max_val = 0;
 
-        <% @report.each do | r |%>
-            if( "<%= r.tipo %>" in myData){
-                myData["<%= r.tipo %>"] += 1;
-            }else{
-                myData["<%= r.tipo %>"] = 1;
-            }
-        <% end %>
+        <h5>Crime reports</h5>
 
-        var calcData = [];
-        var calcLabels = [];
+        <canvas id="report_chart"></canvas>
 
-        for(key in myData){
+        <h5>Suspects vs Crimes </h5>
+        <select name="" id="filter_svsr" class="xrange_days">
+            <option value="90">Last 90 days</option>
+            <option value="60">Last 60 days</option>
+            <option value="30">Last 30 days</option>
+        </select>
 
-            if(myData[key] > max_val){
-                max_val = myData[key];
-            }
-            calcLabels.push(key);
-            calcData.push(myData[key]);
-        }
+        <canvas id="suspectReport_chart"></canvas>
 
-        console.log("MAXIMUS", max_val);
+        <script> var reports = <%= @reports %>; </script>
+        <script> var report_c = <%= @report_c %>; </script>
+        <script> var suspect_c = <%= @suspect_c %>; </script>
 
-        var myChart = new Chart(ctx, {
-            type: 'horizontalBar',
-            data: {
-                labels: calcLabels,
-                datasets: [{
-                    label: "Crimenes",
-                    data: calcData,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }],
-
-                    xAxes: [{
-                        ticks: {
-                            beginAtZero:true,
-                            max: max_val
-                        }
-                    }]
-                }
-            }
-        });
-
-
-
-
-
-        // Second graph
-        
-        </script>
-
+        <%= javascript_include_tag "statistics/statistics" %>
     </div>
 </div>

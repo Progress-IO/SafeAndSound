@@ -6,35 +6,30 @@
         <h1>Routes</h1>
 
         <table>
-          <thead>
-            <tr>
-              <!-- <th>Origin latitude</th>
-              <th>Origin longitude</th>
-              <th>Destination latitude</th>
-              <th>Destination longitude</th> -->
-              <th>Creation Date</th>
-              <th>Route</th>
-              <th>Mode</th>
-              <th colspan="2"></th>
-            </tr>
-          </thead>
+            <thead>
+                <tr>
+                    <!-- <th>Origin latitude</th>
+                    <th>Origin longitude</th>
+                    <th>Destination latitude</th>
+                    <th>Destination longitude</th> -->
+                    <th>Creation Date</th>
+                    <th>Route</th>
+                    <th>Mode</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
 
-          <tbody>
-            <% @routes.each do |route| %>
-              <tr>
-                <!-- <td><%= route.origin_latitude %></td>
-                <td><%= route.origin_longitude %></td>
-                <td><%= route.destination_latitude %></td>
-                <td><%= route.destination_longitude %></td> -->
-                <td><%= route.date.to_date %></td>
-                <td><%= route.route %></td>
-                <td><%= route.mode %></td>
-                <td><%= link_to 'Show', route, class: "bontonnormal" %></td>
-                <!-- <td><%= link_to 'Edit', edit_route_path(route), class: "bontonnormal" %></td> -->
-                <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
-              </tr>
-            <% end %>
-          </tbody>
+            <tbody>
+                <% @routes.each do |route| %>
+                <tr>
+                    <td><%= route.date.to_date %></td>
+                    <td><%= route.route %></td>
+                    <td><%= route.mode %></td>
+                    <td><%= link_to 'Show', route, class: "bontonnormal" %></td>
+                    <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
+                </tr>
+                <% end %>
+            </tbody>x
         </table>
 
         <br>

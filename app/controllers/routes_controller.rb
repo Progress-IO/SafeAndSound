@@ -1,10 +1,12 @@
 class RoutesController < ApplicationController
+  # respond_to :html , :js
   before_action :set_route, only: [:show, :edit, :update, :destroy]
 
   # GET /routes
   # GET /routes.json
   def index
     @routes = current_user.routes
+   
     # @routes = Route.all
   end
 
@@ -16,6 +18,11 @@ class RoutesController < ApplicationController
   # GET /routes/new
   def new
     @route = Route.new
+    @reports_position = Route.Reports_position.to_json.html_safe
+
+    puts "My reports: ", @reports_position
+    @transport_routes = Transport.all.to_json.html_safe
+  
   end
 
   # GET /routes/1/edit
@@ -72,6 +79,10 @@ class RoutesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def route_params
-      params.require(:route).permit(:origin_latitude, :origin_longitude, :destination_latitude, :destination_longitude, :date, :route, :mode)
+      params.require(:route).permit(:origin_latitude, :origin_longitude, :destination_latitude, :destination_longitude, :date, :route, :mode, :response, :route_index)
     end
+
+
+   
+
 end

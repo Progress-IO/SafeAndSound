@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025193029) do
+ActiveRecord::Schema.define(version: 20171026064105) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -56,21 +56,12 @@ ActiveRecord::Schema.define(version: 20171025193029) do
     t.string "images"
     t.date "dia"
     t.time "hora"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
-  create_table "routes", force: :cascade do |t|
-    t.float "origin_latitude"
-    t.float "origin_longitude"
-    t.float "destination_latitude"
-    t.float "destination_longitude"
-    t.datetime "date"
-    t.string "route"
-    t.string "mode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_routes_on_user_id"
-  end
+# Could not dump table "routes" because of following StandardError
+#   Unknown type 'json' for column 'response'
 
   create_table "suspects", force: :cascade do |t|
     t.string "nombre"
@@ -84,6 +75,24 @@ ActiveRecord::Schema.define(version: 20171025193029) do
     t.string "images"
     t.date "dia"
     t.time "hora"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_suspects_on_user_id"
+  end
+
+  create_table "transports", force: :cascade do |t|
+    t.datetime "fecha"
+    t.string "tipo"
+    t.time "hora"
+    t.date "dia"
+    t.string "detalles"
+    t.float "longitude"
+    t.float "latitude"
+    t.string "address"
+    t.string "tipo_transp"
+    t.string "images"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "id_route"
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,9 +111,13 @@ ActiveRecord::Schema.define(version: 20171025193029) do
     t.string "last_sign_in_ip"
     t.string "provider"
     t.string "uid"
+    t.string "username"
+    t.string "avatar"
+    t.text "description"
     t.boolean "Ispolice"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
