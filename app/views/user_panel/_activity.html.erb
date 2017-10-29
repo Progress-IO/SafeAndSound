@@ -1,0 +1,98 @@
+<div class="side-nav-report">
+    
+ <ul >
+        <ul>
+        <li class="search ">
+          <div class="search-wrapper card">
+            <input id="search"><i class="material-icons">search</i>
+            <div class="search-results"></div>
+          </div>
+        </li>
+       </ul>
+         
+          <div class="row">
+            <div class="tabsdiv col s12">
+              <ul class="tabs ">
+                <li class="tab col s6 "><a class = "tabreport"  href="#test1"><p>Sospechosos</p> </a></li>
+                <li  class="tab col s6"><a class = "tabreport"  href="#test2"><p>Crimenes</p></a></li>
+               
+              </ul>
+            </div>
+            
+       <div class="cont_elements">     
+            <div id="test1" class="col s12">
+         <div class = "suspect_list">
+          <ul>
+            <% @suspects.each do |suspect| %>
+                  <li>
+                     <div class="card horizontal">
+                          <div class="card-image">
+                             <img src="assets/sospechoso.png">
+                          </div>
+                      <div class="card-stacked">
+                            <div class="card-content">
+                              <p> <%= suspect.details.split.first(7).join(' ')%>...</p>
+                            </div>
+                            <div class="card-action">
+                              <a  href="<%=suspect_path(suspect.id)%>">Ver Reporte</a>
+                            </div>
+                      </div>
+                      <div class = "card-data"> @<%= suspect.user.username%> <br></br>
+                                    <%=time_ago_in_words(suspect.created_at)%>
+                      </div>
+                  </div>
+                </li>
+      <% end %>
+      </ul>
+     </div>       
+           
+            
+        
+            </div>
+            
+            
+            <div id="test2" class="col s12">
+              <div class = "suspect_list">
+                <ul>
+                        <% @reports.each do |report| %>
+                        
+                        <li> <div class="card horizontal">
+                              <div class="card-image">
+                                 <img src="assets/crimen.png">
+                                 <span class="card-title"></span>
+                              </div>
+                              
+                              <div class="card-stacked">
+                                    <div class="card-content">
+                                      <p> <%= if defined?(report.details) then report.details.split.first(7).join(' ')
+                                              else  report.detalles.split.first(7).join(' ')
+                                              end%>
+                                            ...</p>
+                                    </div>
+                                   <div class="card-action">
+                                      <a  href="<%=report_path(report.id)%>">Ver Reporte</a>
+                                    </div>
+                              </div>
+                              <div class = "card-data">
+                                        <div>@<%= if defined?(report.user.username) then report.user.username end%></div>
+                                          <div><%=report.tipo%></div>  
+                                         <div><%=time_ago_in_words(report.created_at)%></div> 
+                                        
+                              </div>
+                           </div>
+                       </li>
+                <% end %>
+                </ul>
+                </div>
+            </div>
+            
+            
+            
+          </div>  
+         
+         
+        
+        
+      </ul>
+    
+ </div>

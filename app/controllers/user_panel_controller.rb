@@ -6,7 +6,9 @@ class UserPanelController < ApplicationController
         @temp = Report.show_all
         @suspect_temp = Suspect.show_all
         @transport_temp = Transport.show_all
-
+        @reports = Report.all+Transport.all
+        @suspects = Suspect.all
+        @routes = Route.all
     end
 
     def report
@@ -35,4 +37,7 @@ class UserPanelController < ApplicationController
         @suspects = current_user.suspects
         @routes = current_user.routes
     end
+    
+    
+   
 end
