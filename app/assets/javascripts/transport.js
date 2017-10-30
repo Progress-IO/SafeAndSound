@@ -1,19 +1,24 @@
 $(document).ready(function(){
 
+    
 
 $("#button_t").click(function(){
-    var item_s = $("select#selector option").filter(":selected").val();
-    console.log(item_s);
-    if (item_s == "Peaton" || item_s == "Carro" || item_s == "Bicicleta")
+     var item_s = $("select#selector option").filter(":selected").val();
+   
+    if (item_s == "peaton" || item_s == "carro" || item_s == "bicicleta")
     {
-        window.location.href="/reports/new";
+       
+        window.location.href="/reports/new"+ "#" + item_s;
     }
     else
     {
-        window.location.href= "/transports/new";
+      
+        window.location.href= "/transports/new"+ "#" + item_s;
     }
 
 });
+
+
 
 
 

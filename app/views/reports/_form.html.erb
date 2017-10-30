@@ -1,7 +1,13 @@
-<%= javascript_include_tag "materialize_init.js" %>
+<%= javascript_include_tag "materialize_init" %>
 <%= form_with(model: report, local: true) do |form| %>
 
 
+<script>
+  $(document).ready(function(){
+        var extract =  window.location.hash.substring(1);
+         document.getElementById("tipo_t").setAttribute('value', extract);
+    });
+</script>
 
 
 <div class="input">
@@ -40,6 +46,12 @@
 </div>
 
 <div class="field">
+    <%= form.text_field :tipo_transp, readonly: true, style: "display:none", id: "tipo_t"  %>
+</div>
+
+
+
+<div class="field">
     <%= form.label :images %>
     <div class="file-field input-field">
         <div class="btn green">
@@ -53,8 +65,9 @@
 </div>
 
 
+
 <div class="actions">
-    <%= form.submit class: 'btn' %>
+    <%= form.submit class: 'btn', id: 'submit' %>
 </div>
 <% end %>
 <!-- Manejo de errores -->

@@ -33,6 +33,11 @@
           <%= @report.details %>
         </p>
 
+        <p>
+          <strong>Details:</strong>
+          <%= @report.tipo_transp %>
+        </p>
+
         <%= link_to 'Edit', edit_report_path(@report), class: "btn custom_margin" %> |
         <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
 
