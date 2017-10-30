@@ -28,6 +28,8 @@
                      <div class="card horizontal">
                           <div class="card-image">
                              <img src="assets/sospechoso.png">
+                             @<%= suspect.user.username%> <br></br>
+                                    <%=time_ago_in_words(suspect.created_at)%>
                           </div>
                       <div class="card-stacked">
                             <div class="card-content">
@@ -37,9 +39,7 @@
                               <a  href="<%=suspect_path(suspect.id)%>">Ver Reporte</a>
                             </div>
                       </div>
-                      <div class = "card-data"> @<%= suspect.user.username%> <br></br>
-                                    <%=time_ago_in_words(suspect.created_at)%>
-                      </div>
+                      
                   </div>
                 </li>
       <% end %>
@@ -60,6 +60,9 @@
                               <div class="card-image">
                                  <img src="assets/crimen.png">
                                  <span class="card-title"></span>
+                                   <div>@<%= if defined?(report.user.username) then report.user.username end%></div>
+                                          <div><%=report.tipo%></div>  
+                                         <div><%=time_ago_in_words(report.created_at)%></div> 
                               </div>
                               
                               <div class="card-stacked">
@@ -73,12 +76,7 @@
                                       <a  href="<%=report_path(report.id)%>">Ver Reporte</a>
                                     </div>
                               </div>
-                              <div class = "card-data">
-                                        <div>@<%= if defined?(report.user.username) then report.user.username end%></div>
-                                          <div><%=report.tipo%></div>  
-                                         <div><%=time_ago_in_words(report.created_at)%></div> 
-                                        
-                              </div>
+                              
                            </div>
                        </li>
                 <% end %>
