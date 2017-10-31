@@ -9,8 +9,10 @@
     <h1>Statistics</h1>
 
     <h5>Crime reports</h5>
-    <svg width="500" height="300" style="border: 1px solid">
+    <svg class="first" width="500" height="300" style="border: 1px solid">
     </svg>
+    <svg class="second" width="500" height="500" style="border: 1px solid">
+    </svg> 
 </div>
 </div>
 <script>
@@ -25,7 +27,7 @@ var keys = d3.keys(reports);
 var color = d3.scaleOrdinal()
 .range(d3.schemeCategory20);
 
-var svg = d3.select("svg"),
+var svg = d3.select("svg.first"),
     margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
@@ -67,7 +69,87 @@ g.selectAll(".bar")
         .attr("y", function(d) { return y(d); })
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height - y(d); });
+
+        var width = 500;
+        var height = 500;
+        var margin = 25;
+        var axisLength = width - 2 * margin;
+        
+        var data1 = [
+          {x: 0, y: 4},
+          {x: 1, y: 9},
+          {x: 2, y: 6},
+          {x: 4, y: 5},
+          {x: 6, y: 7},
+          {x: 7, y: 3},
+          {x: 9, y: 2}
+        ];
+        
+        var data2 = [
+          {x: 0, y: 3},
+          {x: 2, y: 7},
+          {x: 3, y: 4},
+          {x: 4, y: 3},
+          {x: 6, y: 3},
+          {x: 8, y: 4},
+          {x: 9, y: 1}
+        ];
+        
+        var svgContainer = d3.select("svg.second")
+            .attr("width", width)
+            .attr("height", height)
+            .style("border", "1px solid");
+        
+        var xScale = d3.scaleLinear()
+            .domain([0, 10])
+            .range([0, axisLength]);
+        
+        var yScale = d3.scaleLinear()
+            .domain([10, 0])
+            .range([0, axisLength]);
+        
+        var xAxis = d3.axisBottom(xScale);
+        var yAxis = d3.axisLeft(yScale);
+        
+        svgContainer.append("g")
+            .classed("x-axis", true)
+            .attr("transform", function() {
+              return "translate(" + margin + "," + (height - margin) + ")";
+            })
+            .call(xAxis);
+        
+        svgContainer.append("g")
+            .classed("y-axis", true)
+            .attr("transform", function() {
+              return "translate(" + margin + "," + margin + ")";
+            })
+        
+            .call(yAxis);
+        
+        var line = d3.line()
+            .x(function(d) { return xScale(d.x); })
+            .y(function(d) { return yScale(d.y); });
+        
+        svgContainer.append("path")
+            .attr("d", line(data1))
+            .attr("fill", "none")
+            .attr("stroke", "red")
+            .attr("transform", function() {
+              return "translate(" + margin + "," + margin + ")";
+            });
+        
+        svgContainer.append("path")
+            .attr("d", line(data2))
+            .attr("fill", "none")
+            .attr("stroke", "blue")
+            .attr("transform", function() {
+              return "translate(" + margin + "," + margin + ")";
+            });
 </script>
 </body>
 </html>
+
+
+<script> var report_c = {"":1,"2017-07-19 00:00:00 UTC":2,"2017-07-21 00:00:00 UTC":1,"2017-07-22 00:00:00 UTC":1,"2017-07-26 00:00:00 UTC":2,"2017-07-28 00:00:00 UTC":1,"2017-08-01 00:00:00 UTC":2,"2017-08-03 00:00:00 UTC":1,"2017-08-04 00:00:00 UTC":1,"2017-08-05 00:00:00 UTC":2,"2017-08-07 00:00:00 UTC":1,"2017-08-08 00:00:00 UTC":1,"2017-08-10 00:00:00 UTC":1,"2017-08-11 00:00:00 UTC":1,"2017-08-15 00:00:00 UTC":1,"2017-08-16 00:00:00 UTC":1,"2017-08-17 00:00:00 UTC":1,"2017-08-19 00:00:00 UTC":1,"2017-08-20 00:00:00 UTC":2,"2017-08-23 00:00:00 UTC":2,"2017-08-25 00:00:00 UTC":3,"2017-08-27 00:00:00 UTC":3,"2017-08-28 00:00:00 UTC":1,"2017-09-01 00:00:00 UTC":1,"2017-09-02 00:00:00 UTC":1,"2017-09-05 00:00:00 UTC":1,"2017-09-08 00:00:00 UTC":1,"2017-09-09 00:00:00 UTC":1,"2017-09-13 00:00:00 UTC":2,"2017-09-21 00:00:00 UTC":2,"2017-09-24 00:00:00 UTC":1,"2017-09-29 00:00:00 UTC":1,"2017-09-30 00:00:00 UTC":1,"2017-10-09 00:00:00 UTC":1,"2017-10-11 00:00:00 UTC":1,"2017-10-15 00:00:00 UTC":1,"2017-10-19 00:00:00 UTC":1,"2017-10-23 00:00:00 UTC":1,"2017-10-25 00:00:00 UTC":1,"2017-10-27 06:05:00 UTC":1}; </script>
+<script> var suspect_c = {"":0,"2017-07-19 00:00:00 UTC":0,"2017-07-21 00:00:00 UTC":0,"2017-07-22 00:00:00 UTC":0,"2017-07-26 00:00:00 UTC":0,"2017-07-28 00:00:00 UTC":0,"2017-08-01 00:00:00 UTC":0,"2017-08-03 00:00:00 UTC":0,"2017-08-04 00:00:00 UTC":0,"2017-08-05 00:00:00 UTC":0,"2017-08-07 00:00:00 UTC":0,"2017-08-08 00:00:00 UTC":0,"2017-08-10 00:00:00 UTC":0,"2017-08-11 00:00:00 UTC":0,"2017-08-15 00:00:00 UTC":0,"2017-08-16 00:00:00 UTC":1,"2017-08-17 00:00:00 UTC":0,"2017-08-19 00:00:00 UTC":0,"2017-08-20 00:00:00 UTC":0,"2017-08-23 00:00:00 UTC":1,"2017-08-25 00:00:00 UTC":1,"2017-08-27 00:00:00 UTC":2,"2017-08-28 00:00:00 UTC":3,"2017-09-01 00:00:00 UTC":5,"2017-09-02 00:00:00 UTC":0,"2017-09-05 00:00:00 UTC":1,"2017-09-08 00:00:00 UTC":1,"2017-09-09 00:00:00 UTC":1,"2017-09-13 00:00:00 UTC":0,"2017-09-21 00:00:00 UTC":1,"2017-09-24 00:00:00 UTC":1,"2017-09-29 00:00:00 UTC":0,"2017-09-30 00:00:00 UTC":2,"2017-10-09 00:00:00 UTC":1,"2017-10-11 00:00:00 UTC":2,"2017-10-15 00:00:00 UTC":0,"2017-10-19 00:00:00 UTC":1,"2017-10-23 00:00:00 UTC":1,"2017-10-25 00:00:00 UTC":1,"2017-10-27 06:05:00 UTC":0}; </script>
 
