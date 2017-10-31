@@ -126,25 +126,33 @@ g.selectAll(".bar")
         
             .call(yAxis);
         
-        var line = d3.line()
-            .x(function(d) { return xScale(d.x); })
-            .y(function(d) { return yScale(d.y); });
+        d3.selectAll("path.area1,path.area2").remove();
+        
+        area = d3.area()
+          .x(function(d) { return xScale(d.x); })
+          .y0(yScale(0))
+          .y1(function(d) { return yScale(d.y); })
+          .curve(d3.curveCardinal);
         
         svgContainer.append("path")
-            .attr("d", line(data1))
-            .attr("fill", "none")
-            .attr("stroke", "red")
-            .attr("transform", function() {
-              return "translate(" + margin + "," + margin + ")";
-            });
-        
+          .classed("area1", true)
+          .attr("d", area(data1))
+          .attr("fill", "rgba(195, 40, 40, 0.65)")
+          .attr("stroke", "red")
+          .attr("transform", function() {
+            return "translate(" + margin + "," + margin + ")";
+          });
+      
         svgContainer.append("path")
-            .attr("d", line(data2))
-            .attr("fill", "none")
-            .attr("stroke", "blue")
-            .attr("transform", function() {
-              return "translate(" + margin + "," + margin + ")";
-            });
+          .classed("area2", true)
+          .attr("d", area(data2))
+          .attr("fill", "rgba(32, 137, 209, 0.65)")
+          .attr("stroke", "blue")
+          .attr("transform", function() {
+            return "translate(" + margin + "," + margin + ")";
+          });
+          
+         
 </script>
 </body>
 </html>
