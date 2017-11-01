@@ -147,12 +147,36 @@ g.selectAll(".bar")
           .classed("area2", true)
           .attr("d", area(data2))
           .attr("fill", "rgba(32, 137, 209, 0.65)")
-          .attr("stroke", "blue")
+          .attr("stroke", "#007bcf")
           .attr("transform", function() {
             return "translate(" + margin + "," + margin + ")";
           });
           
-         
+          svgContainer.selectAll(".point1")
+          .data(data1)
+          .enter().append("circle")
+            .classed("point1", true)
+            .attr("r", 4)            
+            .attr("fill", "rgba(195, 40, 40, 0.65)")
+            .attr("stroke", "#c30000")
+            .attr("cx", function(d) { return xScale(d.x); })
+            .attr("cy", function(d) { return yScale(d.y); })          
+            .attr("transform", function() {
+                return "translate(" + margin + "," + margin + ")";
+            });
+
+            svgContainer.selectAll(".point2")
+            .data(data2)
+            .enter().append("circle")
+              .classed("point2", true)
+              .attr("r", 4)            
+              .attr("fill", "rgba(32, 137, 209, 0.65)")
+              .attr("stroke", "#007bcf")
+              .attr("cx", function(d) { return xScale(d.x); })
+              .attr("cy", function(d) { return yScale(d.y); })          
+              .attr("transform", function() {
+                  return "translate(" + margin + "," + margin + ")";
+              });
 </script>
 </body>
 </html>
