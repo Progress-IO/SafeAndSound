@@ -1,0 +1,21 @@
+<li> <div class="card horizontal">
+                              <div class="card-image">
+                                 <img src="assets/transport.png">
+                                 <span class="card-title"></span>
+                                   <div>@<%= if defined?( transport.user.username) then transport.user.username end %></div>
+                                          <div><%=transport.tipo%></div>  
+                                         <div><%=time_ago_in_words(transport.created_at)%></div> 
+                              </div>
+                              
+                              <div class="card-stacked">
+                                    <div class="card-content">
+                                      <p> <%=transport.detalles.split.first(7).join(' ')%>
+                                            ...</p>
+                                    </div>
+                                   <div class="card-action">
+                                      <a  href="<%=report_path(transport.id)%>">Ver Reporte</a>
+                                    </div>
+                              </div>
+                              
+                           </div>
+                       </li>

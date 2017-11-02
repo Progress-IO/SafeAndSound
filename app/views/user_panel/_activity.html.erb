@@ -13,77 +13,54 @@
           <div class="row">
             <div class="tabsdiv col s12">
               <ul class="tabs ">
-                <li class="tab col s6 "><a class = "tabreport"  href="#test1"><p>Sospechosos</p> </a></li>
-                <li  class="tab col s6"><a class = "tabreport"  href="#test2"><p>Crimenes</p></a></li>
-               
+                <li class="tab col s4 "><a class = "tabreport"  href="#test1"> <img class ="tabicon"src = <%=asset_path('sospechoso.png')%>></a></a></li>
+                <li  class="tab col s4"><a class = "tabreport"  href="#test2"><img class ="tabicon"src = <%=asset_path('crimen.png')%>></a></a></li>
+               <li  class="tab col s4"><a class = "tabreport"  href="#test3"><img class ="tabicon"src = <%=asset_path('transport.png')%>></a></a></li>
               </ul>
             </div>
             
        <div class="cont_elements">     
             <div id="test1" class="col s12">
          <div class = "suspect_list">
-          <ul>
-            <% @suspects.each do |suspect| %>
-                  <li>
-                     <div class="card horizontal">
-                          <div class="card-image">
-                             <img src="assets/sospechoso.png">
-                             @<%= suspect.user.username%> <br></br>
-                                    <%=time_ago_in_words(suspect.created_at)%>
-                          </div>
-                      <div class="card-stacked">
-                            <div class="card-content">
-                              <p> <%= suspect.details.split.first(7).join(' ')%>...</p>
-                            </div>
-                            <div class="card-action">
-                              <a  href="<%=suspect_path(suspect.id)%>">Ver Reporte</a>
-                            </div>
-                      </div>
-                      
-                  </div>
-                </li>
-      <% end %>
-      </ul>
-     </div>       
+             <div id="suspects">
+                  <%= render @suspects %>
+             </div>
            
-            
+                  
+          <div id="infinite-scrolling">
+                      <%= will_paginate @suspects%>
+               </div>
         
-            </div>
+         </div>
+     </div>
             
             
             <div id="test2" class="col s12">
               <div class = "suspect_list">
-                <ul>
-                        <% @reports.each do |report| %>
-                        
-                        <li> <div class="card horizontal">
-                              <div class="card-image">
-                                 <img src="assets/crimen.png">
-                                 <span class="card-title"></span>
-                                   <div>@<%= if defined?(report.user.username) then report.user.username end%></div>
-                                          <div><%=report.tipo%></div>  
-                                         <div><%=time_ago_in_words(report.created_at)%></div> 
-                              </div>
-                              
-                              <div class="card-stacked">
-                                    <div class="card-content">
-                                      <p> <%= if defined?(report.details) then report.details.split.first(7).join(' ')
-                                              else  report.detalles.split.first(7).join(' ')
-                                              end%>
-                                            ...</p>
-                                    </div>
-                                   <div class="card-action">
-                                      <a  href="<%=report_path(report.id)%>">Ver Reporte</a>
-                                    </div>
-                              </div>
-                              
-                           </div>
-                       </li>
-                <% end %>
-                </ul>
+                   <div id="reports">
+                  <%= render @reports %>
+             </div>
+           
+                  
+          <div id="infinite-scrolling-reports">
+                      <%= will_paginate @reports%>
+               </div>
                 </div>
             </div>
             
+            
+              <div id="test3" class="col s12">
+              <div class = "suspect_list">
+                   <div id="transports">
+                  <%= render @transports %>
+             </div>
+           
+                  
+          <div id="infinite-scrolling-transports">
+                      <%= will_paginate @transports%>
+               </div>
+                </div>
+            </div>
             
             
           </div>  

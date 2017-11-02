@@ -8,4 +8,5 @@ class Suspect < ApplicationRecord
     def self.show_all
         return Suspect.all
     end
+    self.per_page = 10
 end

@@ -1,0 +1,21 @@
+<li> <div class="card horizontal">
+                              <div class="card-image">
+                                 <img src="assets/crimen.png">
+                                 <span class="card-title"></span>
+                                   <div>@<%=  report.user.username %></div>
+                                          <div><%=report.tipo%></div>  
+                                         <div><%=time_ago_in_words(report.created_at)%></div> 
+                              </div>
+                              
+                              <div class="card-stacked">
+                                    <div class="card-content">
+                                      <p> <%=report.details.split.first(7).join(' ')%>
+                                            ...</p>
+                                    </div>
+                                   <div class="card-action">
+                                      <a  href="<%=report_path(report.id)%>">Ver Reporte</a>
+                                    </div>
+                              </div>
+                              
+                           </div>
+                       </li>
