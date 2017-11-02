@@ -107,7 +107,8 @@ var transport_chart = new Chart(ctx_transport, {
         scales: {
             xAxes: [{
                 ticks: {
-                    min: 0
+                    min: 0,
+                    stepSize: 1
                 }
             }]
         }
@@ -192,3 +193,6 @@ $("#filter_svsr").on("change", function(){
     suspectReport_chart.update();
 
 });
+
+console.log("RESULT base 64");
+console.log(ctx_report.canvas.toDataURL());
