@@ -4,6 +4,12 @@
                              <img src="assets/sospechoso.png">
                              @<%= suspect.user.username%> <br></br>
                                     <%=time_ago_in_words(suspect.created_at)%>
+                                    
+                            <div class = "suspectlocation">
+                              <i class="small material-icons" >location_on</i>
+                              <div class="latitude"><%=suspect.latitude%></div>
+                              <div class="longitude"><%=suspect.longitude%></div>
+                            </div>
                           </div>
                       <div class="card-stacked">
                             <div class="card-content">

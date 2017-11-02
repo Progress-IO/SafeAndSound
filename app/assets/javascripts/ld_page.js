@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     $(".main").css("margin-top", margin_top_header);
     $(".main").css("margin-left", margin_left_side);
-    $(".main").css("margin-right", 300);
+    
     $(".link_menu").css("display", "none");
 
     $("#expand").click(function(){
@@ -73,7 +73,9 @@ $(document).ready(function(){
         }
 
 
-    });    
+    }); 
+    
+     
 });
 
 
