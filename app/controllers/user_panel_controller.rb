@@ -18,8 +18,12 @@ class UserPanelController < ApplicationController
         @reports = @reports.to_json.html_safe
 
         @report_c, @suspect_c = Report.reportSuspect_freq
+        @transport_c = Transport.lines_freq
+
         @report_c = @report_c.to_json.html_safe
         @suspect_c = @suspect_c.to_json.html_safe
+        @transport_c = @transport_c.to_json.html_safe
+        
         respond_to do |format|
             format.html
             format.pdf do

@@ -17,11 +17,15 @@
 
         <canvas id="suspectReport_chart"></canvas>
 
+        <h5>Transport, lines reports</h5>
+        <canvas id="transport_chart"></canvas>
+
         <script> var reports = <%= @reports %>; </script>
         <script> var report_c = <%= @report_c %>; </script>
         <script> var suspect_c = <%= @suspect_c %>; </script>
+        <script> var transport_c = <%= @transport_c %>; </script>
 
         <%= javascript_include_tag "statistics/statistics" %>
+        <a class="btn" href="<%= statistics_path %>.pdf">Descargar como PDF</a>
     </div>
-    <a class="btn" href="<%= statistics_path %>.pdf">Descargar como PDF</a>
 </div>

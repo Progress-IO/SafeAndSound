@@ -47,11 +47,15 @@ function gRandom(min, max){
 }
 
 var ctx_report = $("#report_chart")[0].getContext("2d");
+var ctx_transport = $("#transport_chart")[0].getContext("2d");
 var ctx_suspectReport = $("#suspectReport_chart")[0].getContext("2d");
+
 
 var report_values = [];
 var report_c_values = []
-var suspect_c_values = []
+var transport_values = [];
+var suspect_c_values = [];
+
 var reportVsSuspect_Keys = [];
 
 for(key in reports){
@@ -64,8 +68,51 @@ for(key in report_c){
     reportVsSuspect_Keys.push(key.split(" ")[0]);
 }
 
+var arr_transport = [];
+for(key in transport_c){
+    transport_values.push(transport_c[key]);
+    arr_transport.push([key, transport_c[key]]);
+}
+
+function Comparator(a, b) {
+  if (a[1] > b[1]) return -1;
+  if (a[1] < b[1]) return 1;
+  return 0;
+}
+
+arr_transport = arr_transport.sort(Comparator);
+
+var arr_t_keys = [];
+var arr_t_values = [];
+for(var i = 0; i < arr_transport.length; i++){
+    arr_t_keys.push(arr_transport[i][0]);
+    arr_t_values.push(arr_transport[i][1]);
+}
 
 var report_colors = gFillColors(report_values.length);
+
+var transport_chart = new Chart(ctx_transport, {
+    type: 'horizontalBar',
+    data: {
+        labels: arr_t_keys,
+        datasets: [{
+            label: "",
+            data: arr_t_values,
+            backgroundColor: "rgba(34, 81, 198, 0.75)",
+            borderColor: "rgba(34, 81, 198, 1)",
+            borderWidth : 1
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                ticks: {
+                    min: 0
+                }
+            }]
+        }
+    }
+});
 
 var report_chart = new Chart(ctx_report,{
     type: 'bar',

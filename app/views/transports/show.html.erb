@@ -1,3 +1,4 @@
+<%= render "layouts/user-panel" %>
 <div class="main content">
   <div class="container">
 
@@ -15,9 +16,7 @@
       <%= @transport.tipo %>
     </p>
 
-   
 
-  
 
     <p>
       <strong>Detalles:</strong>
@@ -29,7 +28,7 @@
       <%= @transport.tipo_transp %>
     </p>
 
-   
+
 
     <p>
       <strong>Address:</strong>
@@ -42,7 +41,7 @@
       <%= @transport.images %>
     </p>
 
-    <%= link_to 'Edit', edit_transport_path(@transport) %> |
-      <%= link_to 'Back', transports_path %>
+    <%= link_to 'Edit', edit_transport_path(@transport), class: "btn" %> |
+      <%= link_to 'Back', transports_path, class: "btn" %>
   </div>
 </div>
