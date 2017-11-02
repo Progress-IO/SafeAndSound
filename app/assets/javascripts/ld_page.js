@@ -3,11 +3,12 @@ $(document).ready(function(){
     // Agregar margen segun tamanio de header
     var margin_top_header = $(".header").height();
     var margin_left_side = $(".side_bar").width();
-
+    
     var nav_width = 200;
 
     $(".main").css("margin-top", margin_top_header);
     $(".main").css("margin-left", margin_left_side);
+    $(".main").css("margin-right", 300);
     $(".link_menu").css("display", "none");
 
     $("#expand").click(function(){
@@ -41,9 +42,39 @@ $(document).ready(function(){
             $(this).toggleClass("ac_red");
         });
     });
-
     
+    ///////////////////////////////////////////////
+
+     $("#expand_icon2").click(function(){
+
+        $(".side-nav-report").toggleClass(".side-nav-report-toggle");
+
+        if($(".side-nav-report").hasClass(".side-nav-report-toggle")){
+            console.log("going in");
+            margin_left_side = nav_width;
+
+            
+            setTimeout(function() {
+                $("#closeicon").text("close");
+            $(".side-nav-report").css("width", 300);
+                $(".side-nav-report ul").css("display", "block");
+                 $(".main").css("margin-right", 300);
+            }, 300);
+
+        }else{
+            console.log("going out");
+            margin_left_side = 30;
+            $("#closeicon").text("navigate_before");
+
+            $(".side-nav-report").css("width", margin_left_side);
+            $(".side-nav-report ul").css("display", "none");
+            $(".closeicon").css("display", "block");
+            $(".main").css("margin-right", margin_left_side);
+        }
+
+
+    });    
 });
 
 
-     
+ 
