@@ -27,6 +27,13 @@ function hslToRgb(h, s, l){
     return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
 
+function getColor(value){
+    //value from 0 to 1
+    var hue=((1-value)*120);
+    // return ["hsl(",hue,",100%,50%)"].join("");
+    return [hue, 100, 50]
+}
+
 function gFillColors(n_data){
     var inner_colors = [];
     var border_colors = [];
@@ -85,9 +92,39 @@ arr_transport = arr_transport.sort(Comparator);
 var arr_t_keys = [];
 var arr_t_values = [];
 for(var i = 0; i < arr_transport.length; i++){
-    arr_t_keys.push(arr_transport[i][0]);
-    arr_t_values.push(arr_transport[i][1]);
+
+    if(arr_transport[i][1] != 0){
+        arr_t_keys.push(arr_transport[i][0]);
+        arr_t_values.push(arr_transport[i][1]);
+    }
 }
+
+function generateData(arr, keys){
+    let gdata = [];
+    for (var i = 0; i < arr.length; i++) {
+        let gcolor = getColor(1 - ( i / (arr.length)));
+        let icolor = hslToRgb(gcolor[0], gcolor[1], gcolor[2]);
+        let color = "rgb(" + icolor[0] + ", " + icolor[1] + ", " + icolor[2] + ")"
+        gdata.push({
+            label: keys[i],
+            data: [arr[i]],
+            backgroundColor: color
+        });
+    }
+
+    return gdata;
+}
+
+
+// {
+//     label: "",
+//     data: arr_t_values,
+//     backgroundColor: "rgba(34, 81, 198, 0.75)",
+//     borderColor: "rgba(34, 81, 198, 1)",
+//     borderWidth : 1
+// }
+
+console.log(generateData(arr_t_values, arr_t_keys));
 
 var report_colors = gFillColors(report_values.length);
 
@@ -95,13 +132,7 @@ var transport_chart = new Chart(ctx_transport, {
     type: 'horizontalBar',
     data: {
         labels: arr_t_keys,
-        datasets: [{
-            label: "",
-            data: arr_t_values,
-            backgroundColor: "rgba(34, 81, 198, 0.75)",
-            borderColor: "rgba(34, 81, 198, 1)",
-            borderWidth : 1
-        }]
+        datasets: generateData(arr_t_values, arr_t_keys)
     },
     options: {
         scales: {
@@ -193,6 +224,3 @@ $("#filter_svsr").on("change", function(){
     suspectReport_chart.update();
 
 });
-
-console.log("RESULT base 64");
-console.log(ctx_report.canvas.toDataURL());
