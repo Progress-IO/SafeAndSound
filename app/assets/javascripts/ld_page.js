@@ -9,13 +9,16 @@ $(document).ready(function(){
     $(".main").css("margin-top", margin_top_header);
     $(".main").css("margin-left", margin_left_side);
     
+    if($(".side-nav-report").length > 0){$(".main").css("margin-right", 300)};
+    
+    
     $(".link_menu").css("display", "none");
 
     $("#expand").click(function(){
 
         $(".side_bar").toggleClass("side_bar_toggle");
 
-        if($(".side_bar").hasClass("side_bar_toggle")){
+        if ($(".side_bar").hasClass("side_bar_toggle")){
             console.log("going in");
             margin_left_side = nav_width;
 
@@ -49,7 +52,7 @@ $(document).ready(function(){
 
         $(".side-nav-report").toggleClass(".side-nav-report-toggle");
 
-        if($(".side-nav-report").hasClass(".side-nav-report-toggle")){
+        if(!$(".side-nav-report").hasClass(".side-nav-report-toggle")){
             console.log("going in");
             margin_left_side = nav_width;
 
