@@ -2,9 +2,15 @@
                               <div class="card-image">
                                  <img src="assets/transport.png">
                                  <span class="card-title"></span>
-                                   <div>@<%= if defined?( transport.user.username) then transport.user.username end %></div>
-                                          <div><%=transport.tipo%></div>  
-                                         <div><%=time_ago_in_words(transport.created_at)%></div> 
+                                   @<%= if defined?( transport.user.username) then transport.user.username end %>
+                                          <%=transport.tipo%>  
+                                         <%=time_ago_in_words(transport.created_at)%> 
+                                         
+                                    <div class = "location">
+                                      <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
+                                      <div class="latitude"><%=transport.latitude%></div>
+                                      <div class="longitude"><%=transport.longitude%></div>
+                                    </div>
                               </div>
                               
                               <div class="card-stacked">

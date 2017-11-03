@@ -5,8 +5,8 @@
                              @<%= suspect.user.username%> <br></br>
                                     <%=time_ago_in_words(suspect.created_at)%>
                                     
-                            <div class = "suspectlocation">
-                              <i class="small material-icons" >location_on</i>
+                            <div class = "location">
+                              <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
                               <div class="latitude"><%=suspect.latitude%></div>
                               <div class="longitude"><%=suspect.longitude%></div>
                             </div>

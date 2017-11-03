@@ -2,9 +2,14 @@
                               <div class="card-image">
                                  <img src="assets/crimen.png">
                                  <span class="card-title"></span>
-                                   <div>@<%=  report.user.username %></div>
-                                          <div><%=report.tipo%></div>  
-                                         <div><%=time_ago_in_words(report.created_at)%></div> 
+                                   @<%=  report.user.username %>
+                                    <%=report.tipo%>  
+                                    <%=time_ago_in_words(report.created_at)%>
+                                    <div class = "location">
+                                      <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
+                                      <div class="latitude"><%=report.latitude%></div>
+                                      <div class="longitude"><%=report.longitude%></div>
+                                    </div>
                               </div>
                               
                               <div class="card-stacked">

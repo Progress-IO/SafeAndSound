@@ -1,5 +1,5 @@
 $(function(){
-        $(".suspectlocation").on("click", function(){
+        $("#suspects,#reports,#transports").on("click",".location", function(){
             
             var latitude = ($(this).children(".latitude").html());
             var longitude = ($(this ).children(".longitude").html());
