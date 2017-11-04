@@ -3,7 +3,7 @@
                                    <div>
                                     <%=transport.created_at.strftime("%b %e, %l:%M %p")%>
                                   </div>
-                                 <img src="assets/transport.png">
+                                 <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=transport.latitude%>,<%=transport.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
                                  <span class="card-title"></span>
                                          <div>
                                               <%= if defined?( transport.user.username) then transport.user.username end %>

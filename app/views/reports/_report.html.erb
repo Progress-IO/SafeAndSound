@@ -3,15 +3,9 @@
                                    <div>
                                     <%=report.created_at.strftime("%b %e, %l:%M %p")%>
                                    </div>
-                                 <img src="assets/crimen.png">
+                                 <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=report.latitude%>,<%=report.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
                                  <span class="card-title"></span>
-                                  <div>
-                                   <div >
-                                     <%= avatar_for(report.user,size: 35)%>
-                                   </div> 
-                                <%=link_to "@"+report.user.username, user_path(report.user.id)%>
-                                
-                              </div>
+                                 
                                   
                                    <div>
                                        <strong> <%=report.tipo%> </strong>   
@@ -27,6 +21,13 @@
                               
                               <div class="card-stacked">
                                     <div class="card-content">
+                                <div>
+                                   <div >
+                                     <%= avatar_for(report.user,size: 35)%>
+                                   </div> 
+                                <%=link_to "@"+report.user.username, user_path(report.user.id)%>
+                                
+                              </div>
                                       <p> <%=report.details.split.first(7).join(' ')%>
                                             ...</p>
                                     </div>
