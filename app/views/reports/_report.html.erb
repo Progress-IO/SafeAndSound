@@ -1,10 +1,23 @@
 <li> <div class="card horizontal">
                               <div class="card-image">
+                                   <div>
+                                    <%=report.created_at.strftime("%b %e, %l:%M %p")%>
+                                   </div>
                                  <img src="assets/crimen.png">
                                  <span class="card-title"></span>
-                                   @<%=  report.user.username %>
-                                    <%=report.tipo%>  
-                                    <%=time_ago_in_words(report.created_at)%>
+                                  <div>
+                                   <div >
+                                     <%= avatar_for(report.user,size: 35)%>
+                                   </div> 
+                                <%=link_to "@"+report.user.username, user_path(report.user.id)%>
+                                
+                              </div>
+                                  
+                                   <div>
+                                       <strong> <%=report.tipo%> </strong>   
+                                   </div>
+                                     
+                                   
                                     <div class = "location">
                                       <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
                                       <div class="latitude"><%=report.latitude%></div>

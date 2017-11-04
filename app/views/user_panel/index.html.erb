@@ -20,14 +20,16 @@
     var data = [];
     var data_susp = [];
     var data_transp = [];
+    var report_url;
 
     <% @temp.each do | report | %>
           xlat = "<%= report.latitude %>" ;
           xlng = "<%= report.longitude %> ";
           details = "<%= report.details %> ";
+          report_url = "<%=report_path(report.id)%>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details];
+          tuple = [xlat, xlng, details, report_url];
           data.push(tuple);
     <% end %>
 
@@ -35,9 +37,10 @@
           xlat = "<%= suspect.latitude %>" ;
           xlng = "<%= suspect.longitude %> ";
           details = "<%= suspect.details %> ";
+          report_url = "<%=suspect_path(suspect.id)%>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details];
+          tuple = [xlat, xlng, details,report_url];
           data_susp.push(tuple);
     <% end %>
 
@@ -45,9 +48,10 @@
           xlat = "<%= transport.latitude %>" ;
           xlng = "<%= transport.longitude %> ";
           details = "<%= transport.detalles %> ";
+          report_url = "<%=transport_path(transport.id)%>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details];
+          tuple = [xlat, xlng, details,report_url];
           data_transp.push(tuple);
     <% end %>
 

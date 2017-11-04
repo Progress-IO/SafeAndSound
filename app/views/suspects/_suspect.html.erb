@@ -1,9 +1,19 @@
  <li>
                      <div class="card horizontal">
                           <div class="card-image">
+                              <div>
+                                <%=suspect.created_at.strftime("%b %e, %l:%M %p")%>
+                              </div>
                              <img src="assets/sospechoso.png">
-                             @<%= suspect.user.username%> <br></br>
-                                    <%=time_ago_in_words(suspect.created_at)%>
+                              <div>
+                                   <div >
+                                     <%= avatar_for(suspect.user,size: 35)%>
+                                   </div> 
+                                <%=link_to "@"+suspect.user.username, user_path(suspect.user.id)%>
+                                
+                              </div>
+                             
+                                    
                                     
                             <div class = "location">
                               <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>

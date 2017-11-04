@@ -1,10 +1,19 @@
 <li> <div class="card horizontal">
                               <div class="card-image">
+                                   <div>
+                                    <%=transport.created_at.strftime("%b %e, %l:%M %p")%>
+                                  </div>
                                  <img src="assets/transport.png">
                                  <span class="card-title"></span>
-                                   @<%= if defined?( transport.user.username) then transport.user.username end %>
-                                          <%=transport.tipo%>  
-                                         <%=time_ago_in_words(transport.created_at)%> 
+                                         <div>
+                                              <%= if defined?( transport.user.username) then transport.user.username end %>
+                                         </div>
+                                  
+                                           <div>
+                                               <%=transport.tipo%>
+                                           </div>
+                                            
+                                         
                                          
                                     <div class = "location">
                                       <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
@@ -19,7 +28,7 @@
                                             ...</p>
                                     </div>
                                    <div class="card-action">
-                                      <a  href="<%=report_path(transport.id)%>">Ver Reporte</a>
+                                      <a  href="<%=transport_path(transport.id)%>">Ver Reporte</a>
                                     </div>
                               </div>
                               
