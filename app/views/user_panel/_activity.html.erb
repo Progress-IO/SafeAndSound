@@ -21,48 +21,48 @@
  <div id ="listapanel">
         
          
-          <div id = "tabsdiv" class="row ">
+         
            
             
-       <div class="cont_elements">     
-            <div id="test1" class="col s12">
-         <div class = "suspect_list">
-             <div id="suspects">
-                  <%= render @suspects %>
+          <div class="cont_elements">     
+              <div id="test1" class="col s12">
+                 <div class = "suspect_list">
+                     <div id="suspects">
+                          <%= render @suspects %>
+                     </div>
+                   
+                          
+                  <div id="infinite-scrolling-suspects">
+                              <%= will_paginate @suspects, :class =>"paginationsu"%>
+                       </div>
+                
+                 </div>
              </div>
-           
-                  
-          <div id="infinite-scrolling">
-                      <%= will_paginate @suspects%>
-               </div>
-        
-         </div>
-     </div>
             
             
             <div id="test2" class="col s12">
-              <div class = "suspect_list">
+              <div class = "report_list">
                    <div id="reports">
                   <%= render @reports %>
              </div>
            
                   
           <div id="infinite-scrolling-reports">
-                      <%= will_paginate @reports%>
+                      <%= will_paginate @reports, :class =>"paginationre"%>
                </div>
                 </div>
             </div>
             
             
               <div id="test3" class="col s12">
-              <div class = "suspect_list">
+              <div class = "transport_list">
                    <div id="transports">
                   <%= render @transports %>
              </div>
            
                   
           <div id="infinite-scrolling-transports">
-                      <%= will_paginate @transports%>
+                      <%= will_paginate @transports, :class =>"paginationtr"%>
                </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
          
         
         
-      </div>
+     
     
      </div>
  </div>
