@@ -1,6 +1,6 @@
-<li> <div class="card horizontal">
+     <div class="card horizontal">
                               <div class="card-image">
-                                   <div>
+                                   <div class = "report-time">
                                     <%=transport.created_at.strftime("%b %e, %l:%M %p")%>
                                   </div>
                                  <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=transport.latitude%>,<%=transport.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
@@ -17,8 +17,8 @@
                                          
                                     <div class = "location">
                                       <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
-                                      <div class="latitude"><%=transport.latitude%></div>
-                                      <div class="longitude"><%=transport.longitude%></div>
+                                      <span class="latitude"><%=transport.latitude%></span>
+                                      <span class="longitude"><%=transport.longitude%></span>
                                     </div>
                               </div>
                               
@@ -33,4 +33,3 @@
                               </div>
                               
                            </div>
-                       </li>

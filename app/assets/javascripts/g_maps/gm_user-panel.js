@@ -3,6 +3,7 @@ var heatmap;
 var bogota = {lat: 4.624335, lng: -74.063644};
 var infowindow;
 
+
 function addMarker(location, image, details,report_url) {
     var crime_marker;
     crime_marker = new google.maps.Marker({
@@ -10,7 +11,8 @@ function addMarker(location, image, details,report_url) {
         map: map,
         icon: image,
     });
-
+    
+      
     infowindow = new google.maps.InfoWindow();
 
     google.maps.event.addListener(crime_marker, 'click', function() {
@@ -27,6 +29,7 @@ function addMarker(location, image, details,report_url) {
        infowindow.setContent(windowcontent);
        infowindow.open(map, crime_marker);
     });
+  
 }
 
 function initMap() {

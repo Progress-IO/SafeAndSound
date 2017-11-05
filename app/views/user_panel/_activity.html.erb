@@ -1,26 +1,28 @@
 <div class="side-nav-report">
-    <div id="expand_icon2">
+    <span id="expand_icon2">
         
     <a><i class="small material-icons" id = "closeicon">close</i></a>
-    </div>
- <ul id ="listapanel">
-        <ul>
-        <li class="search ">
-          <div class="search-wrapper card">
-            <input id="search"><i class="material-icons">search</i>
-            <div class="search-results"></div>
-          </div>
-        </li>
-       </ul>
+    </span>
+    <div class="row">
+        
          
-          <div class="row">
-            <div class="tabsdiv col s12">
+            
+         
+       
+        <div class="col s12">
               <ul class="tabs ">
                 <li class="tab col s4 "><a class = "tabreport"  href="#test1"> <img class ="tabicon"src = <%=asset_path('sospechoso.png')%>></a></a></li>
                 <li  class="tab col s4"><a class = "tabreport"  href="#test2"><img class ="tabicon"src = <%=asset_path('crimen.png')%>></a></a></li>
                <li  class="tab col s4"><a class = "tabreport"  href="#test3"><img class ="tabicon"src = <%=asset_path('transport.png')%>></a></a></li>
               </ul>
             </div>
+    </div>
+     
+ <div id ="listapanel">
+        
+         
+          <div id = "tabsdiv" class="row ">
+           
             
        <div class="cont_elements">     
             <div id="test1" class="col s12">
@@ -71,7 +73,7 @@
          
         
         
-      </ul>
+      </div>
     
      </div>
  </div>

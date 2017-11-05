@@ -1,7 +1,7 @@
- <li>
+
                      <div class="card horizontal">
                           <div class="card-image">
-                              <div>
+                              <div class = "report-time">
                                 <%=suspect.created_at.strftime("%b %e, %l:%M %p")%>
                               </div>
                            <!--  <img src="assets/sospechoso.png">  -->
@@ -12,8 +12,8 @@
                                     
                             <div class = "location">
                               <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
-                              <div class="latitude"><%=suspect.latitude%></div>
-                              <div class="longitude"><%=suspect.longitude%></div>
+                              <span class="latitude"><%=suspect.latitude%></span>
+                              <span class="longitude"><%=suspect.longitude%></span>
                             </div>
                           </div>
                       <div class="card-stacked">
@@ -33,4 +33,3 @@
                       </div>
                       
                   </div>
-                </li>
