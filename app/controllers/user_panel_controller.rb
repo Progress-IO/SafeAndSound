@@ -6,9 +6,9 @@ class UserPanelController < ApplicationController
         @temp = Report.show_all
         @suspect_temp = Suspect.show_all
         @transport_temp = Transport.show_all
-        @reports = Report.paginate(page: params[:page], per_page: 10).order('created_at DESC')
-        @transports = Transport.paginate(page: params[:page], per_page: 10).order('created_at DESC')
-        @suspects = Suspect.paginate(page: params[:page], per_page: 10).order('created_at DESC')
+        @reports = Report.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+        @transports = Transport.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+        @suspects = Suspect.paginate(page: params[:page], per_page: 5).order('created_at DESC')
         @routes = Route.all
          respond_to do |format|
           format.html
