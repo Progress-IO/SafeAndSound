@@ -60,7 +60,7 @@ $(document).ready(function(){
             setTimeout(function() {
                 $("#closeicon").text("close");
             $(".side-nav-report").css("width", 300);
-                $(".side-nav-report div").css("opacity","");
+                $("#listapanel,.side-nav-report .row ").css("opacity","");
                  $(".main").css("margin-right", 300);
             }, 300);
 
@@ -70,7 +70,7 @@ $(document).ready(function(){
             $("#closeicon").text("navigate_before");
 
             $(".side-nav-report").css("width", margin_left_side);
-            $(".side-nav-report div").css("opacity",0);
+            $("#listapanel,.side-nav-report .row ").css("opacity",0);
            
             $(".main").css("margin-right", margin_left_side);
         }

@@ -1,5 +1,5 @@
 <div class="side-nav-report">
-    <a id="expand_icon2" href="#">
+    <a id="expand_icon2" href = "#map">
         
     <i class="small material-icons" id = "closeicon">close</i>
     </a>
@@ -33,7 +33,7 @@
                    
                           
                   <div id="infinite-scrolling-suspects">
-                              <%= will_paginate @suspects, :class =>"paginationsu"%>
+                              <%= will_paginate @suspects%>
                        </div>
                 
                  </div>
@@ -48,7 +48,7 @@
            
                   
           <div id="infinite-scrolling-reports">
-                      <%= will_paginate @reports, :class =>"paginationre"%>
+                      <%= will_paginate @reports%>
                </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
            
                   
           <div id="infinite-scrolling-transports">
-                      <%= will_paginate @transports, :class =>"paginationtr"%>
+                      <%= will_paginate @transports%>
                </div>
                 </div>
             </div>
