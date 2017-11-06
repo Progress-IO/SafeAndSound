@@ -1,5 +1,6 @@
-$(document).ready(function(){
 
+$(document).ready(function(){
+    
     // Agregar margen segun tamanio de header
     var margin_top_header = $(".header").height();
     var margin_left_side = $(".side_bar").width();
@@ -21,7 +22,7 @@ $(document).ready(function(){
         if ($(".side_bar").hasClass("side_bar_toggle")){
             console.log("going in");
             margin_left_side = nav_width;
-
+           
             $("#expand_icon").text("navigate_before");
             $(".main").css("margin-left", margin_left_side);
             setTimeout(function() {
@@ -32,7 +33,7 @@ $(document).ready(function(){
             console.log("going out");
             margin_left_side = 80;
             $("#expand_icon").text("navigate_next");
-
+            
             $(".main").css("margin-left", margin_left_side);
             $(".link_menu").css("display", "none");
         }
@@ -62,7 +63,13 @@ $(document).ready(function(){
             $(".side-nav-report").css("width", 300);
                 $("#listapanel,.side-nav-report .row ").css("opacity","");
                  $(".main").css("margin-right", 300);
+                
             }, 300);
+             
+             setTimeout(function() {google.maps.event.trigger(map, "resize");
+               
+             },305);
+           
 
         }else{
             console.log("going out");
@@ -73,8 +80,11 @@ $(document).ready(function(){
             $("#listapanel,.side-nav-report .row ").css("opacity",0);
            
             $(".main").css("margin-right", margin_left_side);
-            
-             setTimeout(function() {google.maps.event.trigger(map, "resize");},300);
+             
+             setTimeout(function() {google.maps.event.trigger(map, "resize");
+                                   
+             },305);
+              
         }
 
 
