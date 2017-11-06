@@ -38,15 +38,7 @@
         <%= link_to 'Back', suspects_path %>
         
         
-         <h3>Comentarios:</h3>
-        <% @suspect.comments.each do |comment|%>
-        <div class="divider"></div>
-          <div class="section">
-            <h5> <%=comment.user.username%></h5>
-            <p><%=comment.body%></p>
-          </div>
-        
-        <%end%>
-        
-    </div>
+         <%= render partial: "comments/comment" , locals: {commentable: @suspect}%>
+         <%= render partial: "comments/form" , locals: {commentable: @suspect}%>
+       </div>
 </div>

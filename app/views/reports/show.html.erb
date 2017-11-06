@@ -36,15 +36,9 @@
         <%= link_to 'Edit', edit_report_path(@report), class: "btn custom_margin" %> |
         <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
         
-        <h3>Comentarios:</h3>
-        <% @report.comments.each do |comment|%>
-        <div class="divider"></div>
-          <div class="section">
-            <h5> <%=comment.user.username%></h5>
-            <p><%=comment.body%></p>
-          </div>
         
-        <%end%>
+        <%= render partial: "comments/comment" , locals: {commentable: @report}%>
+        <%= render partial: "comments/form" , locals: {commentable: @report}%>
     </div>
 
 </div>

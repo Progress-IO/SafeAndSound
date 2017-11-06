@@ -1,0 +1,6 @@
+<%= form_for [commentable, Comment.new] do |f| %>
+        <div>
+            <%= f.text_area :body, class: "form-control", placeholder:"Publica un comentario!"%>
+            <%= f.submit class:"btn-flat"%>
+        </div>
+<% end %>

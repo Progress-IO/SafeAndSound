@@ -1,8 +1,10 @@
- <h3>Comments:</h3>
-        <% commentable.comments.each do |comment|%>
-        <div class="divider"></div>
 
-        <div class = "section">
-          <h5><%= comment.body %></h5> 
-        </div>
+<h5>Comentarios:</h5>
+<% commentable.comments.each do |comment|%>
+        <div class="divider"></div>
+          <div class="section">
+            <h6> <%=comment.user.username%></h6>
+            <p><%=comment.body%></p>
+          </div>
+        
         <%end%>
