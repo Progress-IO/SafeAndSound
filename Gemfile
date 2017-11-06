@@ -50,6 +50,7 @@ gem "mini_magick"
 gem 'carrierwave-aws'
 #gema para fechas
  gem 'time_splitter'
+ 
 #Gema para ayudar a ocultar llaves secretillas
 gem 'figaro'
 #Gema para generar datos aleatorios

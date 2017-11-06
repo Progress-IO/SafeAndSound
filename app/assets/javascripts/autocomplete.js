@@ -27,7 +27,7 @@ for (var i = 0; i< only_route.length;i++)
 
 // $('input.autocomplete').autocomplete({
 
-//   source: {
+//   data: {
 //     "Apple": null,
 //     "Microsoft": null,
 //     "Google": 'https://placehold.it/250x250'
@@ -40,7 +40,14 @@ for (var i = 0; i< only_route.length;i++)
 // });
 
 var fakedata = ['test1','test2','test3','test4','ietsanders'];
-$('input.autocomplete').autocomplete({source:fakedata});
+$('input.autocomplete').autocomplete({
+    source:only_route,
+    limit: 10,
+    minLength: 1,
+    onAutocomplete: function(val) {
+        //     // Callback function when value is autcompleted.
+           } 
+});
       
 // $(function () {
 //   $('input.autocomplete').autocomplete({

@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery-ui
-
 //= require_directory .
 //= require materialize-sprockets
 //= require materialize/extras/nouislider

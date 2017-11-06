@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     devise_scope :user do
         get 'auth/sign_in', to: 'devise/sessions#new'
         get 'auth/registration', to: 'devise/registrations#new'
-        delete 'auth/sign_out', to: 'devise/sessions#destroy'
+        get 'auth/sign_out', to: 'devise/sessions#destroy'
     end
 
     get "auth/login" => "users/sessions#new", as: "login"
