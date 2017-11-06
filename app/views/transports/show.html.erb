@@ -15,7 +15,14 @@
       <%= @transport.tipo %>
     </p>
 
-   
+     <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=@transport.latitude%>,<%=@transport.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
+         <div>
+                                   <div >
+                                     <%= avatar_for(@transport.user,size: 35)%>
+                                   </div> 
+                                <%=link_to "@"+@transport.user.username, user_path(@transport.user.id)%>
+                                
+                              </div>
 
   
 
@@ -41,7 +48,7 @@
       <%= @transport.images %>
     </p>
 
-    <%= link_to 'Edit', edit_transport_path(@transport) %> |
-      <%= link_to 'Back', transports_path %>
+    <%= link_to 'Edit', edit_transport_path(@transport), class: "btn custom_margin" %> |
+        <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
   </div>
 </div>

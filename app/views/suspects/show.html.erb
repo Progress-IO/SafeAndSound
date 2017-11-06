@@ -14,15 +14,14 @@
           <%= @suspect.fecha %>
         </p>
 
-        <p>
-          <strong>Latitude:</strong>
-          <%= @suspect.latitude %>
-        </p>
-
-        <p>
-          <strong>Longitude:</strong>
-          <%= @suspect.longitude %>
-        </p>
+       <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=@suspect.latitude%>,<%=@suspect.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
+         <div>
+                                   <div >
+                                     <%= avatar_for(@suspect.user,size: 35)%>
+                                   </div> 
+                                <%=link_to "@"+@suspect.user.username, user_path(@suspect.user.id)%>
+                                
+                              </div>
 
         <p>
           <strong>Address:</strong>
@@ -34,8 +33,8 @@
           <%= @suspect.details %>
         </p>
 
-        <%= link_to 'Edit', edit_suspect_path(@suspect) %> |
-        <%= link_to 'Back', suspects_path %>
+        <%= link_to 'Edit', edit_suspect_path(@suspect) , class: "btn custom_margin" %> |
+        <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
 
     </div>
 </div>

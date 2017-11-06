@@ -12,17 +12,15 @@
           <strong>Tipo:</strong>
           <%= @report.tipo %>
         </p>
-
-        <p>
-          <strong>Latitude:</strong>
-          <%= @report.latitude %>
-        </p>
-
-        <p>
-          <strong>Longitude:</strong>
-          <%= @report.longitude %>
-        </p>
-
+    
+        <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=@report.latitude%>,<%=@report.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
+         <div>
+                                   <div >
+                                     <%= avatar_for(@report.user,size: 35)%>
+                                   </div> 
+                                <%=link_to "@"+@report.user.username, user_path(@report.user.id)%>
+                                
+                              </div>
         <p>
           <strong>Address:</strong>
           <%= @report.address %>
