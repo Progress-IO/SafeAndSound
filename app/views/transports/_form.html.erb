@@ -1,4 +1,5 @@
 <%= javascript_include_tag "materialize_init" %>
+<%= javascript_include_tag "autocomplete" %>
 <%= form_with(model: transport, local: true) do |form| %>
  
 
@@ -56,11 +57,15 @@
     <%= form.select(:tipo, options_for_select([["Raponazo","Raponazo"],["Cosquilleo","Cosquilleo"],["Atraco a mano armada","Atraco a mano armada"],["Engaño","Engaño"],["Paseo millonario","Paseo millonario"]]) ) %>
   </div> -->
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label "Numero de ruta" %>
-    <%= form.text_field :id_route, id: :transport_id_route %>
-  </div>
-
+    <%= form.text_field :id_route, id: "autocomplete-input" ,class: "autocomplete" %>
+  </div> -->
+<div class="input-field col s12">
+          <i class="material-icons prefix">textsms</i>
+          <input type="text" id="autocomplete-input" class="autocomplete">
+          <label for="autocomplete-input">Autocomplete</label>
+        </div>
 
   
 

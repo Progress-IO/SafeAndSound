@@ -11,9 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require rails-ujs
+//= require jquery-ui
+
 //= require_directory .
 //= require materialize-sprockets
+//= require materialize/extras/nouislider
 //= require underscore
 //= require Chart.min
 

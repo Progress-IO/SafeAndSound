@@ -61,7 +61,8 @@ gem 'chart-js-rails'
 # Pdf generator plugin
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
+#Añadir autocomplete
+gem 'jquery-ui-rails'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
