@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026064105) do
+ActiveRecord::Schema.define(version: 20171106165443) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -28,6 +28,26 @@ ActiveRecord::Schema.define(version: 20171026064105) do
     t.string "last_sign_in_ip"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.integer "user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "commontator_threads", force: :cascade do |t|
+    t.string "commontable_type"
+    t.integer "commontable_id"
+    t.datetime "closed_at"
+    t.string "closer_type"
+    t.integer "closer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
   end
 
   create_table "discussions", force: :cascade do |t|

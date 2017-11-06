@@ -43,5 +43,16 @@
 
     <%= link_to 'Edit', edit_transport_path(@transport) %> |
       <%= link_to 'Back', transports_path %>
+      
+       <h3>Comentarios:</h3>
+        <% @transport.comments.each do |comment|%>
+        <div class="divider"></div>
+          <div class="section">
+            <h5> <%=comment.user.username%></h5>
+            <p><%=comment.body%></p>
+          </div>
+        
+        <%end%>
+      
   </div>
 </div>
