@@ -73,6 +73,8 @@ $(document).ready(function(){
             $("#listapanel,.side-nav-report .row ").css("opacity",0);
            
             $(".main").css("margin-right", margin_left_side);
+            
+             setTimeout(function() {google.maps.event.trigger(map, "resize");},300);
         }
 
 
