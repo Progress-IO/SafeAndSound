@@ -36,7 +36,7 @@ class SecurityNewsController < ApplicationController
       end
 
     end
-
+    search_protected_users
 
   end
 
@@ -64,6 +64,32 @@ class SecurityNewsController < ApplicationController
     end
   end
 
+  def search_protected_users
+    @reports = Report.show_all
+    novelty_lon = @security_news.longitude
+    novelty_lat = @security_news.latitude
+    users_chosen = []
+      @reports.each do |report|
+        
+        aux_lon = report.longitude
+        aux_lat = report.latitude
+
+      result = SecurityNews.distanceInKm(novelty_lat , novelty_lon , aux_lat , aux_lon)
+      if result <= 2.5
+        users_chosen.push(report.user_id)
+      end
+
+      end
+      users_chosen.each do |chosen|
+        user_temp = User.find_email(chosen)
+        puts "----------------------"+ user_temp
+      end
+  end
+
+
+  
+
+    
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_security_news
@@ -75,8 +101,5 @@ class SecurityNewsController < ApplicationController
       params.require(:security_news).permit(:tipo, :dia, :latitude, :longitude, :address, :details)
     end
 
-    def search_protected
-
-    end
-
+   
 end
