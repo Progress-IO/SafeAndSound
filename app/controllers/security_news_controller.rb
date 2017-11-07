@@ -75,14 +75,17 @@ class SecurityNewsController < ApplicationController
         aux_lat = report.latitude
 
       result = SecurityNews.distanceInKm(novelty_lat , novelty_lon , aux_lat , aux_lon)
-      if result <= 2.5
-        users_chosen.push(report.user_id)
+        if result <= 2.5
+          users_chosen.push(report.user_id)
+        end
+        # id_novelty = @SecurityNews.id
       end
 
-      end
       users_chosen.each do |chosen|
-        user_temp = User.find_email(chosen)
-        puts "----------------------"+ user_temp
+        user_temp = User.find_username(chosen)
+        email_temp = User.find_email(chosen)
+        puts user_temp + " lñdfjifigf " + email_temp
+        NoveltyMailer.novelty_mailer(email_temp,user_temp ).deliver_now
       end
   end
 
