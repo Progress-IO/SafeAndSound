@@ -1,0 +1,31 @@
+.status_type
+    border: solid 2px
+    border-radius: 10px
+    padding: 5px 5px
+    color: white
+    text-align: center
+    &:hover
+        box-shadow: 0px 3px 10px rgba(#bababa, 0.63)
+        cursor: pointer
+
+.status_type_report
+    @extend .status_type
+
+    border: #911f1f
+    background-color: #bd4545
+
+.status_type_suspect
+    @extend .status_type
+
+    border: #935400
+    background-color: #cf9a24
+
+.simple_button
+    padding: 3px 7px
+    border-radius: 7px
+    background-color: #29bbc4
+    color: white
+    display: inline-block
+    &:hover
+        box-shadow: 0px 3px 6px rgba(#c2c2c2, 0.83)
+        cursor: pointer

@@ -1,0 +1,53 @@
+<%= render "layouts/user-panel" %>
+<%= javascript_include_tag "ajax/status" %>
+
+<div class="main content">
+    <div class="container">
+        <h5>Status</h5>
+
+        <div class="row">
+            <div class="col s4">
+                <label for="first_name">Search keyword in details</label>
+                <input id="search_keyword" type="text">
+            </div>
+            <div class="col s4">
+                <label for="first_name">Keyword in address</label>
+                <input id="address_keyword" type="text">
+            </div>
+            <div class="col s2">
+                <label for="">Sort fields</label>
+                <select name="" id="sort_by">
+                    <option value="fecha">Date</option>
+                    <option value="address">Address</option>
+                    <option value="tipo">Type</option>
+                </select>
+            </div>
+            <div class="col s2">
+                <label for="">Sort order</label>
+                <div class="switch" style="display: inline-block; padding-top: 12px">
+                    <label>
+                        Asc
+                        <input type="checkbox" id="reverse">
+                        <span class="lever"></span>
+                        Des
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Address</th>
+                    <th>Details</th>
+                    <th>Image</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody id="status_body">
+                <%= render partial: "table-status" %>
+            </tbody>
+        </table>
+    </div>
+</div>

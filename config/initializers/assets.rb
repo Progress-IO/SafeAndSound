@@ -24,6 +24,7 @@ Rails.application.config.assets.precompile += %w( g_maps/gm_suspect-new.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_transport-new.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_route.js )
 Rails.application.config.assets.precompile += %w( g_maps/gm_route-show.js )
+Rails.application.config.assets.precompile += %w( pdf/tables.css )
 
 # Fuentes
 # Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/

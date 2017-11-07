@@ -11,6 +11,17 @@ class ReportsController < ApplicationController
     # GET /reports/1
     # GET /reports/1.json
     def show
+        respond_to do |format|
+            format.html
+            format.pdf do
+                render  pdf: "show",
+                :footer => {
+                    :html => {
+                        :template => 'layouts/pdf-footer.html'
+                    }
+                }
+            end
+        end
     end
 
     # GET /reports/new

@@ -13,6 +13,24 @@ class UserPanelController < ApplicationController
 
     end
 
+    def status
+        @r_crimen_suspect = Report.crime_n_suspect
+
+        keyword = params[:data]
+        address = params[:address]
+        sort_by = params[:sort_by]
+        reverse = params[:reverse]
+
+        res = Report.search_keyword(keyword, sort_by, reverse, address)
+
+        respond_to do |format|
+            format.html {render "status"}
+            format.json {render json: res.to_json.html_safe}
+        end
+    end
+
+
+
     def statistics
         @reports = Report.type_reportCount
         @reports = @reports.to_json.html_safe
@@ -23,13 +41,13 @@ class UserPanelController < ApplicationController
         @report_c = @report_c.to_json.html_safe
         @suspect_c = @suspect_c.to_json.html_safe
         @transport_c = @transport_c.to_json.html_safe
-        
+
         respond_to do |format|
             format.html
             format.pdf do
-              render template: "user_panel/pdf.html.erb",
-              pdf:"pdf",
-              javascript_delay: 500
+                render template: "user_panel/pdf.html.erb",
+                pdf:"pdf",
+                javascript_delay: 500
             end
         end
     end

@@ -27,7 +27,7 @@
                                     <td class="xdetails_content"><%= report.details %></td>
                                     <td>
                                         <% if !report.images[0].nil? %>
-                                        <img src="<%=asset_path( report.images[0] )%>">
+                                        <img src="<%=asset_path( report.images[0] )%>" class="img_prev">
                                         <%end %>
                                     </td>
                                     <td><%= link_to 'Show', report, class: "bontonnormal" %></td>
@@ -61,7 +61,7 @@
                                     <td class="xdetails_content"><%= suspect.details %></td>
                                     <td>
                                         <% if !suspect.images[0].nil? %>
-                                        <img src="<%=asset_path( suspect.images[0] )%>">
+                                        <img src="<%=asset_path( suspect.images[0] )%>" class="<img_prev></img_prev>">
                                         <%end %>
                                     </td>
                                     <td><%= link_to 'Show', suspect, class: "bontonnormal" %></td>

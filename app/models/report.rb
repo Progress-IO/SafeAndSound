@@ -32,6 +32,45 @@ class Report < ApplicationRecord
         return @suspect_freq
     end
 
+    def self.crime_n_suspect
+        all = []
+        ra = Report.all
+        rs = Suspect.all
+
+        ra.each do |x|
+            all.push(x)
+        end
+
+        rs.each do |x|
+            all.push(x)
+        end
+
+        all = all.sort_by{ |k|  k[:fecha]}
+
+        return all
+    end
+
+    def self.search_keyword(keyword, sort_by, reverse, address)
+        all = []
+        ra = Report.where("details LIKE '%#{keyword}%' AND address LIKE '%#{address}%'").order(:fecha)
+        rs = Suspect.where("details LIKE '%#{keyword}%' AND address LIKE '%#{address}%'").order(:fecha)
+
+        ra.each do |x|
+            all.push(x)
+        end
+
+        rs.each do |x|
+            all.push(x)
+        end
+
+        if sort_by == "tipo"
+            if reverse == "true" then return all.reverse else return all end
+        end
+
+        if reverse == "true" then return  all.sort_by{ |k|  k[sort_by]}.reverse else return  all.sort_by{ |k|  k[sort_by]} end
+
+    end
+
     def self.reportSuspect_freq
         report_freq = {}
         suspect_freq = {}
@@ -60,5 +99,5 @@ class Report < ApplicationRecord
     def self.show_all
         return Report.all
     end
-       
+
 end

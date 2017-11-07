@@ -7,7 +7,7 @@
         <li> <a href= <%= new_route_path %> ><i class="small material-icons">directions</i><div class="link_menu">CALCULAR RUTA</div></a> </li>
         <li> <a href= <%= report_type_path %> ><i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div></a> </li>
         <li> <a href= <%= view_all_path %> ><i class="small material-icons">visibility</i><div class="link_menu">MI ACTIVIDAD</div></a> </li>
-        <li> <a href="#!"><i class="small material-icons">filter_list</i><div class="link_menu">FILTRAR</div></a> </li>
+        <li> <a href= <%= status_path %> ><i class="small material-icons">filter_list</i><div class="link_menu">FILTRAR</div></a> </li>
         <li> <a href= <%= statistics_path %> ><i class="small material-icons">trending_up</i><div class="link_menu">ESTADISTICAS</div></a> </li>
         <li> <a href=<%= user_path(current_user.id)  %>><i class="small material-icons">tune</i><div class="link_menu">AJUSTES</div></a> </li>
         <% if current_user.is_police %>
