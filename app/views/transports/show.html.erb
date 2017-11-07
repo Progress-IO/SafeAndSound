@@ -48,7 +48,13 @@
       <%= @transport.images %>
     </p>
 
-    <%= link_to 'Edit', edit_transport_path(@transport), class: "btn custom_margin" %> |
+
+    <%= link_to 'Edit', edit_transport_path(@transport, class: "btn custom_margin" %> |
         <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
+      
+       <%= render partial: "comments/comment" %>
+       <%= render partial: "comments/form" %>
+      
+
   </div>
 </div>

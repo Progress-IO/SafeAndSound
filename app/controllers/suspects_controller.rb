@@ -10,6 +10,10 @@ class SuspectsController < ApplicationController
     # GET /suspects/1
     # GET /suspects/1.json
     def show
+        set_suspect
+        @commentable = @suspect
+        @comments = @commentable.comments
+        @comment = Comment.new
     end
 
     # GET /suspects/new

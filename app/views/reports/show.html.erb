@@ -33,7 +33,10 @@
 
         <%= link_to 'Edit', edit_report_path(@report), class: "btn custom_margin" %> |
         <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
-
+        
+        
+        <%= render partial: "comments/comment" , locals: {commentable: @report}%>
+        <%= render partial: "comments/form" , locals: {commentable: @report}%>
     </div>
 
 </div>

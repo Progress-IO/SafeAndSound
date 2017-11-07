@@ -1,0 +1,16 @@
+<div id="comments">
+    
+     <% @comments.each do |comment|%>
+     <div class="divider"></div>
+      <div class="section">
+          <strong> <%=comment.user.username %></strong>
+        <p class="comment">
+            <%= simple_format comment.body%>
+        </p>
+      </div>
+    
+       
+        
+        
+        <%end%>
+</div>

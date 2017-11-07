@@ -10,6 +10,10 @@ class TransportsController < ApplicationController
   # GET /transports/1
   # GET /transports/1.json
   def show
+     set_transport
+        @commentable = @transport
+        @comments = @commentable.comments
+        @comment = Comment.new
   end
 
   # GET /transports/new
