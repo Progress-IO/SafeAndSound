@@ -1,0 +1,2 @@
+class SecurityNews < ApplicationRecord
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :security_news
     # devise_for :admins
     # resources :admins, :except => [:delete]
     # resources :users, :except => [:delete]

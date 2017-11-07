@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030124025) do
+ActiveRecord::Schema.define(version: 20171107151415) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -53,10 +53,6 @@ ActiveRecord::Schema.define(version: 20171030124025) do
     t.string "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.string "images"
     t.date "dia"
     t.time "hora"
@@ -67,6 +63,17 @@ ActiveRecord::Schema.define(version: 20171030124025) do
 
 # Could not dump table "routes" because of following StandardError
 #   Unknown type 'json' for column 'response'
+
+  create_table "security_news", force: :cascade do |t|
+    t.string "tipo"
+    t.date "dia"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.string "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "suspects", force: :cascade do |t|
     t.string "nombre"
