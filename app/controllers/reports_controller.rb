@@ -11,6 +11,10 @@ class ReportsController < ApplicationController
     # GET /reports/1
     # GET /reports/1.json
     def show
+         set_report
+        @commentable = @report
+        @comments = @commentable.comments
+        @comment = Comment.new
     end
 
     # GET /reports/new

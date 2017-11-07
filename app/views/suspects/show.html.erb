@@ -36,9 +36,9 @@
 
         <%= link_to 'Edit', edit_suspect_path(@suspect) %> |
         <%= link_to 'Back', suspects_path %>
+        <!--, locals: {commentable: @suspect}-->
         
-        
-         <%= render partial: "comments/comment" , locals: {commentable: @suspect}%>
-         <%= render partial: "comments/form" , locals: {commentable: @suspect}%>
+         <%= render partial: "comments/comment" %>
+         <%= render partial: "comments/form" %>
        </div>
 </div>

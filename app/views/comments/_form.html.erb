@@ -1,6 +1,21 @@
-<%= form_for [commentable, Comment.new] do |f| %>
-        <div>
-            <%= f.text_area :body, class: "form-control", placeholder:"Publica un comentario!"%>
-            <%= f.submit class:"btn-flat"%>
+
+
+<%=form_for [@commentable,@comment] do |f| %>
+    <% if @comment.errors.any?%>
+        <div class="error_messages">
+            <h2>Corrige los siguientes errores</h2>
+            <ul>
+                <% @comment.errors.full_messages.each do |msg|%>
+                <li> <%= msg %></li>
+                <%end%>
+            </ul>
         </div>
-<% end %>
+    <%end%>
+
+    <div class="field">
+        <%= f.text_area :body, rows: 8, placeholder:"Publica un comentario!"%>
+    </div>
+    <div class="actions">
+       <%= f.submit %> 
+    </div>
+<%end%>    

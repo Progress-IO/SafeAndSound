@@ -44,8 +44,8 @@
     <%= link_to 'Edit', edit_transport_path(@transport) %> |
       <%= link_to 'Back', transports_path %>
       
-       <%= render partial: "comments/comment" , locals: {commentable: @transport}%>
-       <%= render partial: "comments/form" , locals: {commentable: @transport}%>
+       <%= render partial: "comments/comment" %>
+       <%= render partial: "comments/form" %>
       
   </div>
 </div>
