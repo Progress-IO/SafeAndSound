@@ -1,7 +1,7 @@
 <%= javascript_include_tag "materialize_init" %>
 <%= form_with(model: transport, local: true) do |form| %>
- 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<%= javascript_include_tag "autocomplete/autocompletar" %>
  <script>
      $(document).ready(function(){
       var extract =  window.location.hash.substring(1);
@@ -57,11 +57,11 @@
   </div> -->
 
   <div class="field">
-    <%= form.label "Numero de ruta" %>
-    <%= form.text_field :id_route, id: :transport_id_route %>
+    <%= form.label "Numero de ruta", id: "label_auto" %>
+    <%= form.text_field :id_route, id: "autocomplete-input", class: "autocomplete" %>
   </div>
 
-
+  
   
 
   <div class="field">
