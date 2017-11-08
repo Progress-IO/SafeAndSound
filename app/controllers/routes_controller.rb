@@ -1,6 +1,7 @@
 class RoutesController < ApplicationController
   # respond_to :html , :js
   before_action :set_route, only: [:show, :edit, :update, :destroy]
+  before_action :view_admin?
 
   # GET /routes
   # GET /routes.json
@@ -82,7 +83,9 @@ class RoutesController < ApplicationController
       params.require(:route).permit(:origin_latitude, :origin_longitude, :destination_latitude, :destination_longitude, :date, :route, :mode, :response, :route_index)
     end
 
-
+    def view_admin?
+      redirect_to admin_admins_path unless !current_user.Isadmin? 
+    end
    
 
 end

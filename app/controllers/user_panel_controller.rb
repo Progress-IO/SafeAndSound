@@ -1,6 +1,8 @@
 class UserPanelController < ApplicationController
 
     before_action :authenticate_user!
+    before_action :is_user?
+
     def index
 
         @temp = Report.show_all
