@@ -84,7 +84,7 @@ function display_filter(response){
                     info += "<td> </td>";
                 }
                 let url = "/" + type + "/" + response[i]["id"];
-                info += "<td><a class='bontonnormal' href=" + url + ">Show</a></td>";
+                info += "<td><a class='bontonnormal' href=" + url + ">Mostrar</a></td>";
                 info += "</tr>";
             }
         }else{
@@ -94,7 +94,7 @@ function display_filter(response){
                 info += "<td>" + response[i]["route"] + "</td>";
                 info += "<td>" + response[i]["mode"] + "</td>";
                 let url = "/" + type + "/" + response[i]["id"];
-                info += "<td><a class='bontonnormal' href=" + url + ">Show</a></td>";
+                info += "<td><a class='bontonnormal' href=" + url + ">Mostrar</a></td>";
                 info += "</tr>";
             }
         }

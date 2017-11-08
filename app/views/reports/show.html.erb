@@ -5,23 +5,23 @@
         <p id="notice"><%= notice %></p>
 
         <tr>
-            <th>Date</th>
+            <th>Fecha</th>
             <td><%= @report.fecha.to_date %></td>
         </tr>
         <tr>
-            <th>Type</th>
+            <th>Tipo</th>
             <td><%= @report.tipo %></td>
         </tr>
         <tr>
-            <th>Address</th>
+            <th>Dirección</th>
             <td><%= @report.address %></td>
         </tr>
         <tr>
-            <th>Details</th>
+            <th>Detalles</th>
             <td><%= @report.details %></td>
         </tr>
         <tr>
-            <th>Transport type</th>
+            <th>Tipo de transporte</th>
             <td><%= @report.tipo_transp %></td>
         </tr>
     </table>
@@ -33,10 +33,10 @@
         <% end %>
         <% end %>
     </div>
-    <%= link_to 'Edit', edit_report_path(@report), class: "btn custom_margin" %> |
-    <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %> |
+    <%= link_to 'Editar', edit_report_path(@report), class: "btn custom_margin" %> |
+    <%= link_to 'Volver', user_panel_path, class: "btn custom_margin" %> |
 
-    <%= link_to 'PDF', report_path(@report, :format => 'pdf'), class: "btn custom_margin" %>
+    <%= link_to 'Convertir a PDF', report_path(@report, :format => 'pdf'), class: "btn custom_margin" %>
 
 
 </div>

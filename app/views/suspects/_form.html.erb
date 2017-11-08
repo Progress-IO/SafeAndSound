@@ -17,27 +17,27 @@
   </div>
 
   <div class="field">
-    <%= form.label :latitude %>
+    <%= form.label "Latitud" %>
     <%= form.text_field :latitude, id: :suspect_latitude , readonly: true %>
   </div>
     
   <div class="field">
-    <%= form.label :longitude %>
+    <%= form.label "Longitud" %>
     <%= form.text_field :longitude, id: :suspect_longitude , readonly: true %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
+    <%= form.label "Dirección" %>
     <%= form.text_field :address, id: :suspect_address %>
   </div>
 
   <div class="field">
-    <%= form.label :details %>
+    <%= form.label "Detalles" %>
     <%= form.text_field :details, id: :suspect_details %>
   </div>
 
   <div class="field">
-    <%= form.label :images %>
+    <%= form.label "Imágenes" %>
       <div class="file-field input-field">
         <div class="btn green">
           <span>Adjuntar archivo</span>
@@ -50,7 +50,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class: 'btn' %>
+    <%= form.submit "Crear sospechoso",  class: 'btn' %>
   </div>
 <% end %>
 

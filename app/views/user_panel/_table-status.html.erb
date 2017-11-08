@@ -10,9 +10,9 @@
     </td>
     <td>
         <% if clase.instance_of? Report%>
-        <%= link_to (raw("<h6 class='status_type_report'>Crime</h6>")), report_path(clase.id) %>
+        <%= link_to (raw("<h6 class='status_type_report'>Crimen</h6>")), report_path(clase.id) %>
         <% else %>
-        <%= link_to (raw("<h6 class='status_type_suspect'>Suspect</h6>")), suspect_path(clase.id) %>
+        <%= link_to (raw("<h6 class='status_type_suspect'>Sospechoso</h6>")), suspect_path(clase.id) %>
         <% end %>
     </td>
 </tr>

@@ -7,23 +7,23 @@
             <p id="notice"><%= notice %></p>
 
             <tr>
-                <th>Date</th>
+                <th>Fecha</th>
                 <td><%= @suspect.fecha.to_date %></td>
             </tr>
             <tr>
-                <th>Address</th>
+                <th>Dirección</th>
                 <td><%= @suspect.address %></td>
             </tr>
             <tr>
-                <th>Details</th>
+                <th>Detalles</th>
                 <td><%= @suspect.details %></td>
             </tr>
             <tr>
-                <th>Latitude</th>
+                <th>Latitud</th>
                 <td><%= @suspect.latitude %></td>
             </tr>
             <tr>
-                <th>Longitude</th>
+                <th>Longitud</th>
                 <td><%= @suspect.longitude %></td>
             </tr>
         </table>
@@ -36,9 +36,9 @@
             <% end %>
         </div>
 
-        <%= link_to 'Edit', edit_suspect_path(@suspect), class: "btn custom_margin" %> |
-        <%= link_to 'Back', suspects_path, class: "btn custom_margin" %> |
-        <%= link_to 'PDF', suspect_path(@suspect, format: 'pdf'), class: "btn custom_margin" %>
+        <%= link_to 'Editar', edit_suspect_path(@suspect), class: "btn custom_margin" %> |
+        <%= link_to 'Volver', suspects_path, class: "btn custom_margin" %> |
+        <%= link_to 'Convertir a PDF', suspect_path(@suspect, format: 'pdf'), class: "btn custom_margin" %>
 
     </div>
 </div>
