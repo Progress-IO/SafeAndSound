@@ -45,7 +45,9 @@
         <% if user_signed_in? %>
             <li class = "left " ><%= link_to "Foro", discussions_path, class: ""  %></li>
         <% end %>
-        <li class = "left"><%= link_to "Contactenos", contact_path, class: ""  %></li>
+    	<% if !current_user.Isadmin? %>
+        	<li class = "left"><%= link_to "Contactenos", contact_path, class: ""  %></li>
+        <% end %>
 
         <% if user_signed_in? %>
         <li><%= avatar_for(current_user,size: 35)%></li>
