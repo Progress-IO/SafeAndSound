@@ -7,6 +7,15 @@ class Report < ApplicationRecord
     validates :latitude, presence: true
     validates :longitude, presence: { message: "Please add a marker"}
 
+    rails_admin do 
+        list do
+            field :id
+            field :route
+            field :date
+            field :mode
+        end
+    end
+
     def self.alsdaoskdad
         @reports = {}
         @report_freq = {}
@@ -113,4 +122,7 @@ class Report < ApplicationRecord
         return Report.where(" user_id ==  "+User.current_user.id.to_s)
     end
        
+
+
+
 end
