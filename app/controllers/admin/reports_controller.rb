@@ -1,12 +1,12 @@
-class ReportsController < ApplicationController
+class Admin::ReportsController < ApplicationController
     before_action :set_report, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
-    before_action :is_user?
+    before_action :is_admin?
 
     # GET /reports
     # GET /reports.json
     def index
-        @reports = Report.user_reports
+        @reports = Report.show_all
     end
 
     # GET /reports/1
@@ -83,5 +83,4 @@ class ReportsController < ApplicationController
     def report_params
         params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []},:dia ,:hora, :tipo_transp)
     end
-
 end

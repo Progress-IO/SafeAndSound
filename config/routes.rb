@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     namespace :user do
         root "user_panel#index"
     end
+    
+    namespace :admin do
+        resources :reports, :except => [:delete] , :as => :reports
+     end
 
     devise_scope :user do
         get 'auth/sign_in', to: 'devise/sessions#new'

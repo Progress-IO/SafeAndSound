@@ -1,0 +1,61 @@
+<%= render "layouts/admin-panel" %>
+
+<div class="main content">
+    <div class="container">
+        <p id="notice">
+            <%= notice %>
+        </p>
+
+        <h1>All reports</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Address</th>
+                    <th collspan="2">Details</th>
+                    <th collspan="2">Image</th>
+                    <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @reports.each do |report| %>
+                <tr>
+                    <td>
+                        <%= report.fecha.to_date unless report.fecha.nil?%>
+                    </td>
+                    <td>
+                        <%= report.tipo %>
+                    </td>
+   
+        
+            <td>
+                <%= report.address %>
+            </td>
+            <td class="xdetails_content">
+                <%= report.details %>
+            </td>
+            <td>
+                <% if !report.images[0].nil? %>
+                    <img src="<%=asset_path( report.images[0] )%>" class="img_prev">
+                <%end %>
+            </td>
+            <td><%= link_to 'Show', report, class: "bontonnormal" %></td>
+            <td>
+                <%= link_to 'Edit', edit_report_path(report), class: "bontonnormal" %>
+            </td>
+            <td>
+                <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %>
+            </td>
+        </tr>
+        <% end %>
+
+    </tbody>
+</table>
+
+<br>
+
+</div>
+</div>

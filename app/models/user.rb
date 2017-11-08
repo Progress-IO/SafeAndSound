@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :reports
   has_many :suspects
 
+  cattr_accessor :current_user
 
   def login=(login)
     @login = login
@@ -20,11 +21,11 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
-    validates :username,
-  :presence => true,
-  :uniqueness => {
-    :case_sensitive => false
-  } # etc.
+  validates :username,
+            :presence => true,
+            :uniqueness => {
+                :case_sensitive => false
+            } # etc.
 
 # Only allow letter, number, underscore and punctuation.
 validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
