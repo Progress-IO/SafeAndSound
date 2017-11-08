@@ -21,6 +21,7 @@
 /yarn-error.log
 
 .byebug_history
+safeandsound.sublime-workspace
 
 # Ignore application configuration
 /config/application.yml

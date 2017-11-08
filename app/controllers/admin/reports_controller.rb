@@ -1,28 +1,17 @@
-class ReportsController < ApplicationController
+class Admin::ReportsController < ApplicationController
     before_action :set_report, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
-    before_action :is_user?
+    before_action :is_admin?
 
     # GET /reports
     # GET /reports.json
     def index
-        @reports = Report.user_reports
+        @reports = Report.show_all
     end
 
     # GET /reports/1
     # GET /reports/1.json
     def show
-        respond_to do |format|
-            format.html
-            format.pdf do
-                render  pdf: "show",
-                :footer => {
-                    :html => {
-                        :template => 'layouts/pdf-footer.html'
-                    }
-                }
-            end
-        end
     end
 
     # GET /reports/new
@@ -94,5 +83,4 @@ class ReportsController < ApplicationController
     def report_params
         params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []},:dia ,:hora, :tipo_transp)
     end
-
 end
