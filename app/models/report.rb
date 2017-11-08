@@ -50,7 +50,7 @@ class Report < ApplicationRecord
         return all
     end
 
-    def self.search_keyword(keyword, sort_by, reverse, address)
+    def self.search_keyword_with_suspect(keyword, sort_by, reverse, address)
         all = []
         ra = Report.where("details LIKE '%#{keyword}%' AND address LIKE '%#{address}%'").order(:fecha)
         rs = Suspect.where("details LIKE '%#{keyword}%' AND address LIKE '%#{address}%'").order(:fecha)
@@ -69,6 +69,15 @@ class Report < ApplicationRecord
 
         if reverse == "true" then return  all.sort_by{ |k|  k[sort_by]}.reverse else return  all.sort_by{ |k|  k[sort_by]} end
 
+    end
+
+    def self.search_keyword(keyword, sort_by, reverse, address)
+        all = Report.where("details LIKE '%#{keyword}%' AND address LIKE '%#{address}%'").order(:fecha)
+        if reverse == "true" then 
+            return  all.sort_by{ |k|  k[sort_by]}.reverse 
+        else 
+            return  all.sort_by{ |k|  k[sort_by]} 
+        end
     end
 
     def self.reportSuspect_freq
