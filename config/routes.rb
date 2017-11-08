@@ -38,7 +38,8 @@ Rails.application.routes.draw do
     
     namespace :admin do
         resources :reports, :except => [:delete] , :as => :reports
-     end
+        resources :users, :except => [:delete]   , :as => :admins
+    end
 
     devise_scope :user do
         get 'auth/sign_in', to: 'devise/sessions#new'
