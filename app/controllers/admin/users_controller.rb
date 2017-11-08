@@ -29,6 +29,10 @@ class Admin::UsersController < ApplicationController
   def edit
   end
 
+  def cops
+    @users = User.all
+  end
+
   # POST /users
   # POST /users.json
   def create

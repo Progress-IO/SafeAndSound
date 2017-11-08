@@ -36,11 +36,6 @@ Rails.application.routes.draw do
     namespace :user do
         root "user_panel#index"
     end
-    
-    namespace :admin do
-        resources :reports, :except => [:delete] , :as => :reports
-        resources :users, :except => [:delete]   , :as => :admins
-    end
 
     devise_scope :user do
         get 'auth/sign_in', to: 'devise/sessions#new'
@@ -51,4 +46,9 @@ Rails.application.routes.draw do
     get "auth/login" => "users/sessions#new", as: "login"
     get "auth/registration" => "user/registrations#new", as: "register"
 
+    namespace :admin do
+        resources :reports, :except => [:delete] , :as => :reports
+        resources :users, :except => [:delete]   , :as => :admins
+        get '/cops'  => 'users#cops', :as => :show_cops
+    end
 end

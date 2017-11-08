@@ -28,12 +28,14 @@
                                 sudo apt-get update
                                 sudo apt-get install imagemagick --fix-missing
                                  -->
-    <% if current_user.Isadmin? %>
-      <ul class="left hide-on-med-and-down">
-        <li class = "right " >
-           <label><b>ADMINISTRADOR</b></label>
-        </li>
-      </ul>
+    <% if user_signed_in? %>
+      <% if current_user.Isadmin? %>
+        <ul class="left hide-on-med-and-down">
+          <li class = "right " >
+             <label><b>ADMINISTRADOR</b></label>
+          </li>
+        </ul>
+      <% end %>
     <% end %>
     <ul class="right hide-on-med-and-down">
         <% if user_signed_in? %>
@@ -45,8 +47,10 @@
         <% if user_signed_in? %>
             <li class = "left " ><%= link_to "Foro", discussions_path, class: ""  %></li>
         <% end %>
-    	<% if !current_user.Isadmin? %>
-        	<li class = "left"><%= link_to "Contactenos", contact_path, class: ""  %></li>
+        <% if user_signed_in? %>
+          <% if !current_user.Isadmin? %>
+        	 <li class = "left"><%= link_to "Contactenos", contact_path, class: ""  %></li>
+          <% end %>
         <% end %>
 
         <% if user_signed_in? %>
