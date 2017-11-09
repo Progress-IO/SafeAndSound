@@ -25,13 +25,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user?
 
   def is_admin?
-    # check if user is a admin
     redirect_to root_path unless current_user.Isadmin? 
   end
 
   def is_user?
-    # check if user is a admin
-    redirect_to admin_reports_path unless !current_user.Isadmin? 
+    redirect_to admin_reports_path if current_user.Isadmin? 
   end
 
   def set_current_user

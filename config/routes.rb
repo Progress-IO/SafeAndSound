@@ -50,5 +50,6 @@ Rails.application.routes.draw do
         resources :reports, :except => [:delete] , :as => :reports
         resources :users, :except => [:delete]   , :as => :admins
         get '/cops'  => 'users#cops', :as => :show_cops
+        get '/admins'  => 'users#admins', :as => :show_admins
     end
 end
