@@ -9,6 +9,13 @@ class UserPanelController < ApplicationController
 
     end
 
+    def select_type
+        respond_to do |format|
+            format.html
+            format.js
+        end
+    end
+
     def report
         respond_to do |format|
             format.html
