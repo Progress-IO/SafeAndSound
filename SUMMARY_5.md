@@ -5,7 +5,11 @@
 Funcionalidades y trabajos hechos por cada desarrollador
 
  ### Juan David Valencia
-    
+    - Se paso todo a español, para futura implementación de i18n.
+    - Se instaló la gema de rails_admin. Posible panel.
+    - Se paso el flujo de creacion de rutas a modals de materialize.
+    - Se paso flujo de creación de sospechoso a modals de materialize.
+    - Se extendió algoritmo de busqueda a actividades para filtrar.
  
  ### Luis Guzmán Avellaneda
  
