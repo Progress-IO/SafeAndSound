@@ -12,6 +12,7 @@ class SuspectsController < ApplicationController
     def show
         respond_to do |format|
             format.html
+            format.js
             format.pdf do
                 render  pdf: "show",
                 :footer => {
@@ -26,6 +27,10 @@ class SuspectsController < ApplicationController
     # GET /suspects/new
     def new
         @suspect = Suspect.new
+        respond_to do |format|
+            format.html
+            format.js
+        end
     end
 
     # GET /suspects/1/edit

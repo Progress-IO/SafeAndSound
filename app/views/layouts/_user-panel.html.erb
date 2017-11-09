@@ -6,7 +6,7 @@
         <li> <a href= <%= user_panel_path %> ><i class="small material-icons">home</i><div class="link_menu">INICIO</div></a> </li>
         
         <% if current_page?(:controller => 'user_panel', :action => 'index') %>
-            <li id="new_route">
+            <li>
             <%= link_to  new_route_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal1'}  do %> 
                 <i class="small material-icons">directions</i><div class="link_menu">CALCULAR RUTA</div>
             <% end %>
@@ -14,7 +14,15 @@
         <% else %>
             <li> <a href= <%= new_route_path %> ><i class="small material-icons">directions</i><div class="link_menu">CALCULAR RUTA</div></a> </li>
         <% end %>
-        <li> <a href= <%= report_type_path %> ><i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div></a> </li>
+        <% if current_page?(:controller => 'user_panel', :action => 'index') %>
+            <li>
+            <%= link_to report_type_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => "#modal1"} do %>
+                <i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div>
+            <% end %>
+        <% else %>
+            <li> <a href= <%= report_type_path %> ><i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div></a> </li>
+        <% end %>
+        
         <li> <a href= <%= view_all_path %> ><i class="small material-icons">visibility</i><div class="link_menu">MI ACTIVIDAD</div></a> </li>
         <li> <a href= <%= status_path %> ><i class="small material-icons">filter_list</i><div class="link_menu">FILTRAR</div></a> </li>
         <li> <a href= <%= statistics_path %> ><i class="small material-icons">trending_up</i><div class="link_menu">ESTADISTICAS</div></a> </li>

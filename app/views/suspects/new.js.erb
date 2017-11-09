@@ -1,0 +1,15 @@
+
+
+$("#modal1 div.modal-content").html("<%= escape_javascript(render 'suspects/new') %>");
+$('#modal1').modal('open');
+$('.datepicker').pickadate({
+    container: 'body',
+    formatSubmit: 'yyyy-mm-dd'
+  })
+
+  $('.timepicker').pickatime({
+    container: 'body',
+    default: '14:20:00'
+  });
+  
+initMap();
