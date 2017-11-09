@@ -39,17 +39,6 @@ ActiveRecord::Schema.define(version: 20171107003837) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "commontator_threads", force: :cascade do |t|
-    t.string "commontable_type"
-    t.integer "commontable_id"
-    t.datetime "closed_at"
-    t.string "closer_type"
-    t.integer "closer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
-  end
-
   create_table "discussions", force: :cascade do |t|
     t.string "headline"
     t.text "content"

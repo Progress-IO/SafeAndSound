@@ -1,68 +1,60 @@
 <%= render "layouts/user-panel" %>
 <div class="main content">
-  <div class="container">
+    <div class="container">
 
-    <p id="notice">
-      <%= notice %>
-    </p>
+        <table class="striped">
+            <p id="notice"><%= notice %></p>
 
-    <p>
-      <strong>Fecha:</strong>
-      <%= @transport.fecha %>
-    </p>
+            <tr>
+                <th>Fecha</th>
+                <td><%= @transport.fecha.to_date %></td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td><%= @transport.tipo %></td>
+            </tr>
+            <tr>
+                <th>Detalles</th>
+                <td><%= @transport.detalles %></td>
+            </tr>
+            <tr>
+                <th>Tipo de traComentario publicado.
 
-    <p>
-      <strong>Tipo:</strong>
-      <%= @transport.tipo %>
-    </p>
+nsporte</th>
+                <td><%= @transport.tipo_transp %></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><%= @transport.address %></td>
+            </tr>
+            <tr>
+                <th>Images</th>
+                <td><%= @transport.images %></td>
+            </tr>
+        </table>
 
 
-     <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=@transport.latitude%>,<%=@transport.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
+        <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=@transport.latitude%>,<%=@transport.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
         <%if (@transport.user!= nil) then%>
         <div>
-                 <div >
-                       <%= avatar_for(@transport.user,size: 35)%>
-                 </div> 
-                  <%=link_to "@"+@transport.user.username, user_path(@transport.user.id)%>
-         </div>
-         <%end %>       
-  
+            <div>
+                <%= avatar_for(@transport.user,size: 35)%>
+            </div>
+            <%=link_to "@"+@transport.user.username, user_path(@transport.user.id)%>
+        </div>
+        <%end %>
 
 
 
-    <p>
-      <strong>Detalles:</strong>
-      <%= @transport.detalles %>
-    </p>
+        <% if @transport.user!= nil  && current_user?(@transport.user) %>
+        <%= link_to 'Edit', edit_transport_path(@transport), class: "btn custom_margin" %> |
+        <% end %>
+        <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
 
-    <p>
-      <strong>Tipo Transporte:</strong>
-      <%= @transport.tipo_transp %>
-    </p>
+        <%= render "comments/comment" %>
+        <%= render  "comments/form" %>
 
 
 
-    <p>
-      <strong>Address:</strong>
-      <%= @transport.address %>
-    </p>
-
-
-    <p>
-      <strong>Images:</strong>
-      <%= @transport.images %>
-    </p>
-
-
-    <% if @transport.user!= nil  && current_user?(@transport.user) %>
-    <%= link_to 'Edit', edit_transport_path(@transport), class: "btn custom_margin" %> |
-    <% end %>
-   <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
-      
-       <%= render "comments/comment" %>
-       <%= render  "comments/form" %>
-      
-
-
-  </div>
+    </div>
 </div>

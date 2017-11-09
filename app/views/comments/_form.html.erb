@@ -1,5 +1,3 @@
-
-
 <%=form_for [@commentable,@comment] do |f| %>
     <% if @comment.errors.any?%>
         <div class="error_messages">
@@ -13,9 +11,9 @@
     <%end%>
 
     <div class="field">
-        <%= f.text_area :body, rows: 8, placeholder:"Publica un comentario!"%>
+        <%= f.text_area :body, rows: 8, placeholder:"Publica un comentario"%>
     </div>
     <div class="actions">
-       <%= f.submit %> 
+       <%= f.submit class: "btn"%>
     </div>
-<%end%>    
+<%end%>
