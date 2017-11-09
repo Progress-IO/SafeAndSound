@@ -121,7 +121,11 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+<<<<<<< HEAD
     jquery-ui-rails (5.0.5)
+=======
+    jquery-ui-rails (6.0.1)
+>>>>>>> 7760c5ac6f0a6881df125749dd27f1ca1ad33ec7
       railties (>= 3.2.16)
     jwt (1.5.6)
     kaminari (1.1.1)
@@ -312,6 +316,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
   material_icons
   materialize-sass
