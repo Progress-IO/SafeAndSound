@@ -1,13 +1,30 @@
 <%if user_signed_in?%>
-
-<div class="side_bar">
+    <%unless current_user.Isadmin?%>
+        <div class="side_bar">
     <ul>
         <li id="expand"><i class="small material-icons" id="expand_icon">navigate_next</i></I></li>
         <li> <a href= <%= user_panel_path %> ><i class="small material-icons">home</i><div class="link_menu">INICIO</div></a> </li>
-        <li> <a href= <%= new_route_path %> ><i class="small material-icons">directions</i><div class="link_menu">CALCULAR RUTA</div></a> </li>
-        <li> <a href= <%= report_type_path %> ><i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div></a> </li>
-        <li> <a href= <%= view_all_path %> ><i class="small material-icons">visibility</i><div class="link_menu">VER REPORTES</div></a> </li>
-        <li> <a href="#!"><i class="small material-icons">filter_list</i><div class="link_menu">FILTRAR</div></a> </li>
+        
+        <% if current_page?(:controller => 'user_panel', :action => 'index') %>
+            <li>
+            <%= link_to  new_route_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal1'}  do %> 
+                <i class="small material-icons">directions</i><div class="link_menu">CALCULAR RUTA</div>
+            <% end %>
+            </li>
+        <% else %>
+            <li> <a href= <%= new_route_path %> ><i class="small material-icons">directions</i><div class="link_menu">CALCULAR RUTA</div></a> </li>
+        <% end %>
+        <% if current_page?(:controller => 'user_panel', :action => 'index') %>
+            <li>
+            <%= link_to report_type_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => "#modal1"} do %>
+                <i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div>
+            <% end %>
+        <% else %>
+            <li> <a href= <%= report_type_path %> ><i class="small material-icons">note_add</i><div class="link_menu">REPORTAR</div></a> </li>
+        <% end %>
+        
+        <li> <a href= <%= view_all_path %> ><i class="small material-icons">visibility</i><div class="link_menu">MI ACTIVIDAD</div></a> </li>
+        <li> <a href= <%= status_path %> ><i class="small material-icons">filter_list</i><div class="link_menu">FILTRAR</div></a> </li>
         <li> <a href= <%= statistics_path %> ><i class="small material-icons">trending_up</i><div class="link_menu">ESTADISTICAS</div></a> </li>
         <li> <a href=<%= user_path(current_user.id)  %>><i class="small material-icons">tune</i><div class="link_menu">AJUSTES</div></a> </li>
         <% if current_user.is_police %>
@@ -17,5 +34,9 @@
 </div>
  
 
-          
+    <%else%>
+        <%= render "layouts/admin-panel" %>
+    <%end%>
+
+
 <%end%>

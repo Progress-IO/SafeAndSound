@@ -7,6 +7,15 @@ class Report < ApplicationRecord
     validates :latitude, presence: true
     validates :longitude, presence: { message: "Please add a marker"}
 
+    rails_admin do 
+        list do
+            field :id
+            field :route
+            field :date
+            field :mode
+        end
+    end
+
     def self.alsdaoskdad
         @reports = {}
         @report_freq = {}
@@ -30,6 +39,54 @@ class Report < ApplicationRecord
         @suspect_freq = @suspect_freq.to_json.html_safe
 
         return @suspect_freq
+    end
+
+    def self.crime_n_suspect
+        all = []
+        ra = Report.all
+        rs = Suspect.all
+
+        ra.each do |x|
+            all.push(x)
+        end
+
+        rs.each do |x|
+            all.push(x)
+        end
+
+        all = all.sort_by{ |k|  k[:fecha]}
+
+        return all
+    end
+
+    def self.search_keyword_with_suspect(keyword, sort_by, reverse, address)
+        all = []
+        ra = Report.where("details LIKE '%#{keyword}%' AND address LIKE '%#{address}%'").order(:fecha)
+        rs = Suspect.where("details LIKE '%#{keyword}%' AND address LIKE '%#{address}%'").order(:fecha)
+
+        ra.each do |x|
+            all.push(x)
+        end
+
+        rs.each do |x|
+            all.push(x)
+        end
+
+        if sort_by == "tipo"
+            if reverse == "true" then return all.reverse else return all end
+        end
+
+        if reverse == "true" then return  all.sort_by{ |k|  k[sort_by]}.reverse else return  all.sort_by{ |k|  k[sort_by]} end
+
+    end
+
+    def self.search_keyword(keyword, sort_by, reverse, address)
+        all = Report.where("details LIKE '%#{keyword}%' AND address LIKE '%#{address}%'").order(:fecha)
+        if reverse == "true" then 
+            return  all.sort_by{ |k|  k[sort_by]}.reverse 
+        else 
+            return  all.sort_by{ |k|  k[sort_by]} 
+        end
     end
 
     def self.reportSuspect_freq
@@ -60,5 +117,13 @@ class Report < ApplicationRecord
     def self.show_all
         return Report.all
     end
+
+    def self.user_reports
+        return User.current_user.reports
+        # return Report.where(" user_id ==  "+User.current_user.id.to_s)
+    end
        
+
+
+
 end

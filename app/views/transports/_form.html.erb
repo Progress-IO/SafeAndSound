@@ -1,8 +1,13 @@
-<%= javascript_include_tag "materialize_init.js" %>
+<%= javascript_include_tag "materialize_init" %>
 <%= form_with(model: transport, local: true) do |form| %>
- 
-
- 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<%= javascript_include_tag "autocomplete/autocompletar" %>
+ <script>
+     $(document).ready(function(){
+      var extract =  window.location.hash.substring(1);
+       document.getElementById("tipo_t").setAttribute('value', extract);
+  });
+ </script>
 
   <div class="field">
     <%= form.label :tipo %>
@@ -42,8 +47,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :tipo_transp , style: "display:none"%>
-    <%= form.text_field :tipo_transp, id: :transport_tipo_transp , style: "display:none"%>
+   
+    <%= form.text_field :tipo_transp, id: :tipo_t , style: "display:none"%>
   </div>
 
   <!-- <div class="field">
@@ -52,11 +57,11 @@
   </div> -->
 
   <div class="field">
-    <%= form.label "Numero de ruta" %>
-    <%= form.text_field :id_route, id: :transport_id_route %>
+    <%= form.label "Numero de ruta", id: "label_auto" %>
+    <%= form.text_field :id_route, id: "autocomplete-input", class: "autocomplete" %>
   </div>
 
-
+  
   
 
   <div class="field">
@@ -73,7 +78,7 @@
   </div>
 
   <div class="actions">
-      <%= form.submit class: "btn"%>
+      <%= form.submit class: "btn", id: 'submit'%>
     </div>
 
   <% if transport.errors.any? %>

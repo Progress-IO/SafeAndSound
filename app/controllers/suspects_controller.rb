@@ -10,6 +10,18 @@ class SuspectsController < ApplicationController
     # GET /suspects/1
     # GET /suspects/1.json
     def show
+        respond_to do |format|
+            format.html
+            format.js
+            format.pdf do
+                render  pdf: "show",
+                :footer => {
+                    :html => {
+                        :template => 'layouts/pdf-footer.html'
+                    }
+                }
+            end
+        end
         set_suspect
         @commentable = @suspect
         @comments = @commentable.comments
@@ -19,6 +31,10 @@ class SuspectsController < ApplicationController
     # GET /suspects/new
     def new
         @suspect = Suspect.new
+        respond_to do |format|
+            format.html
+            format.js
+        end
     end
 
     # GET /suspects/1/edit

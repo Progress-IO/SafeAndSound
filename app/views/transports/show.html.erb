@@ -1,3 +1,4 @@
+<%= render "layouts/user-panel" %>
 <div class="main content">
   <div class="container">
 
@@ -15,6 +16,7 @@
       <%= @transport.tipo %>
     </p>
 
+
      <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=@transport.latitude%>,<%=@transport.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
         <%if (@transport.user!= nil) then%>
         <div>
@@ -26,27 +28,31 @@
          <%end %>       
   
 
+
+
     <p>
       <strong>Detalles:</strong>
       <%= @transport.detalles %>
     </p>
 
-   
+    <p>
+      <strong>Tipo Transporte:</strong>
+      <%= @transport.tipo_transp %>
+    </p>
+
+
 
     <p>
       <strong>Address:</strong>
       <%= @transport.address %>
     </p>
 
-    <p>
-      <strong>Tipo transp:</strong>
-      <%= @transport.tipo_transp %>
-    </p>
 
     <p>
       <strong>Images:</strong>
       <%= @transport.images %>
     </p>
+
 
     <% if @transport.user!= nil  && current_user?(@transport.user) %>
     <%= link_to 'Edit', edit_transport_path(@transport), class: "btn custom_margin" %> |
@@ -56,6 +62,7 @@
        <%= render "comments/comment" %>
        <%= render  "comments/form" %>
       
+
 
   </div>
 </div>

@@ -5,7 +5,8 @@ class ReportsController < ApplicationController
     # GET /reports
     # GET /reports.json
     def index
-        @reports = Report.all
+        redirect_to view_all_path
+        # @reports = Report.user_reports
     end
 
     # GET /reports/1
@@ -15,6 +16,17 @@ class ReportsController < ApplicationController
         @commentable = @report
         @comments = @commentable.comments
         @comment = Comment.new
+        respond_to do |format|
+            format.html
+            format.pdf do
+                render  pdf: "show",
+                :footer => {
+                    :html => {
+                        :template => 'layouts/pdf-footer.html'
+                    }
+                }
+            end
+        end
     end
 
     # GET /reports/new
@@ -84,6 +96,7 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-        params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []},:dia ,:hora)
+        params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []},:dia ,:hora, :tipo_transp)
     end
+
 end

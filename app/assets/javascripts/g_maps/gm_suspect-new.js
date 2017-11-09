@@ -18,7 +18,7 @@ function addMarker(location, image) {
 }
 
 function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
+      map = new google.maps.Map(document.querySelector('.map_report_suspect#map'), {
       zoom: 14,
       center: bogota,
       title: "crime",

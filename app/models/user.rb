@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :routes
   has_many :reports
   has_many :suspects
+
+  cattr_accessor :current_user
   has_many :transports
 
   def login=(login)
@@ -20,11 +22,11 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
-    validates :username,
-  :presence => true,
-  :uniqueness => {
-    :case_sensitive => false
-  } # etc.
+  validates :username,
+            :presence => true,
+            :uniqueness => {
+                :case_sensitive => false
+            } # etc.
 
 # Only allow letter, number, underscore and punctuation.
 validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
@@ -45,6 +47,20 @@ validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
     end
   end
 
+  def self.regular_users
+      return User.where(Isadmin: [nil, "false"], Ispolice: [nil, "false"])
+  end
+
+  def self.cops_users
+      return User.where.not( Ispolice: [nil, "false"])
+  end
+
+  def self.admin_users
+      return User.where.not( Isadmin: [nil, "false"])
+  end
+
+
+
   after_create :send_welcome
 
   def send_welcome
@@ -60,6 +76,6 @@ validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
         where(conditions.to_hash).first
       end
   end
-     mount_uploader :avatar, ImageUploader
-    serialize :avatar, JSON # If you use SQLite, add this line.
+  mount_uploader :avatar, ImageUploader
+  serialize :avatar, JSON # If you use SQLite, add this line.
 end

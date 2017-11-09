@@ -1,6 +1,7 @@
 var map;
 var route_markers = [];
 var response_routes = [];
+var response_transit = [];
 
 window.extractRoute;
 var bogota = {
@@ -21,7 +22,7 @@ function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var geocoder = new google.maps.Geocoder();
 
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.querySelector('.map_report#map'), {
         zoom: 14,
         center: bogota,
         title: "Calculate route"
@@ -138,7 +139,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
 
 
             if (mode == "TRANSIT") {
-                //Se sacan los valores de las rutas que sugiere de la API de google maps 
+                //Se sacan los valores de las rutas que sugiere de la API de google maps
                 var apiRoutes = {}; //Diccionario para almacenar los valores de las rutas
                 var rutas = response.routes;
                 //console.log(response);
@@ -161,31 +162,20 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
 
                 }
 
-                console.log("apiRoutes", apiRoutes);
 
 
                 var insecureRoutes = securityTransportRoutes(apiRoutes);
 
-                console.log("nost", insecureRoutes);
+                // console.log("nost", insecureRoutes);
                 // directionsDisplay.setDirections(response);
-                for (var i = 0, len = response.routes.length; i < len; i++) {
-                    new google.maps.DirectionsRenderer({
-                        map: map,
-                        directions: response,
-                        routeIndex: i,
-                        suppressMarkers: true,
-                        polylineOptions: {
-                            strokeColor: i == insecureRoutes[0][0] ? "green" : "red",
-                            strokeOpacity: 0.7,
-                            strokeWeight: 5
-                        },
-                    });
-                }
 
-            } else {
-                generate_selectors(response.routes.length);
-                var idx_safestRoute = safestRoute(response);
-                console.log("Calculated safest: " + (idx_safestRoute + 1));
+
+                if (response_transit.length != 0) {
+                    for (var i = 0; i < response_transit.length; i++) {
+                        response_transit[i].setMap(null);
+                    }
+                    response_transit = [];
+                }
 
                 if (response_routes.length != 0) {
                     for (var i = 0; i < response_routes.length; i++) {
@@ -194,7 +184,88 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                     response_routes = [];
                 }
 
+                if (route_markers.length != 0) {
+                    for (let i = 0; i < route_markers.length; i++) {
+                        route_markers[i].setMap(null);
+                    }
+                }
 
+                for (var i = 0, len = response.routes.length; i < len; i++) {
+                    response_transit.push(
+                        new google.maps.DirectionsRenderer({
+                            map: map,
+                            directions: response,
+                            routeIndex: i,
+                            suppressMarkers: true,
+                            polylineOptions: {
+                                strokeColor: i == insecureRoutes[0][0] ? "green" : "red",
+                                strokeOpacity: 0.7,
+                                strokeWeight: 5
+                            },
+                        })
+
+                    );
+                }
+
+
+                if($("#only_safe").is(":checked")){
+                    for (var i = 0; i < response_transit.length; i++) {
+                        if(response_transit[i].routeIndex != insecureRoutes[0][0]){
+                            response_transit[i].setMap(null);
+                        }
+                    }
+                }
+
+
+                var idx_s = insecureRoutes[0][0];
+                var transport_order = [];
+
+                // console.log("Safest: " + idx_s);
+                for (var i = 0; i < response.routes[idx_s].legs.length; i++) {
+                    for (var j = 0; j < response.routes[idx_s].legs[i].steps.length; j++) {
+                        // console.log("Length routes steps " + response.routes[idx_s].legs[i].steps.length);
+                        if(response.routes[idx_s].legs[i].steps[j].transit !== undefined){
+                            // console.log("Ruta >>>: " + response.routes[idx_s].legs[i].steps[j].transit.line["short_name"]);
+                            transport_order.push(response.routes[idx_s].legs[i].steps[j].transit.line["short_name"]);
+                        }
+                    }
+                }
+
+                // console.log(response.routes[idx_s]);
+
+                $(".transport_order").empty();
+                $(".transport_order").append("<label style='display:block; margin: 5px'> Order of safest lines </label>");
+                for (var i = 0; i < transport_order.length; i++) {
+                    // transport_order[i]
+                    $(".transport_order").append("<div class='show_route'>"+"<strong>" + transport_order[i] + "</strong><br>"+"</div>");
+                    if(transport_order.length > 1 && i >= 0 && i != transport_order.length - 1){
+                        $(".transport_order").append("<div class='show_route_divisor'>" + ">" + "</div>");
+                    }
+                }
+
+                // console.log(response);
+                // response.routes.transit.line["short_name"]
+
+            } else {
+                generate_selectors(response.routes.length);
+                var idx_safestRoute = safestRoute(response);
+                // console.log("Calculated safest: " + (idx_safestRoute + 1));
+
+                if (response_routes.length != 0) {
+                    for (var i = 0; i < response_routes.length; i++) {
+                        response_routes[i].setMap(null);
+                    }
+                    response_routes = [];
+                }
+
+                if (response_transit.length != 0) {
+                    for (var i = 0; i < response_transit.length; i++) {
+                        response_transit[i].setMap(null);
+                    }
+                    response_transit = [];
+                }
+
+                $(".transport_order").empty();
                 for (var i = 0, len = response.routes.length; i < len; i++) {
                     response_routes.push(
                         new google.maps.DirectionsRenderer({
@@ -210,6 +281,24 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                         })
                     )
 
+                }
+
+
+
+                if($("#only_safe").is(":checked")){
+                    for (var i = 0; i < response_routes.length; i++) {
+                        if(response_routes[i].routeIndex != idx_safestRoute){
+                            response_routes[i].setMap(null);
+                        }
+                    }
+
+                    if (route_markers.length != 0) {
+                        for (let i = 0; i < route_markers.length; i++) {
+                            if(route_markers[i].label != idx_safestRoute + 1){
+                                route_markers[i].setMap(null);
+                            }
+                        }
+                    }
                 }
 
                 $("#response").val(JSON.stringify(response.routes[idx_safestRoute]));
@@ -324,51 +413,49 @@ function geocodeAddress(geocoder, resultsMap, address, first, callback) {
 }
 
 function generate_selectors(n, best){
-    
-        console.log("over here");
-    
-        var $selectDropdown =
-          $("#mySelect")
-            .empty()
-            .html(' ');
-    
-        // add new value
-    
-        for(var i = 0; i < n; i++){
-            $selectDropdown.append(
-              $("<option></option>")
-                .attr("value",(i))
-                .text((i + 1))
-            );    var $selectDropdown =
-          $("#mySelect")
-            .empty()
-            .html(' ');
-    
-        }
-    
-        $('#mySelect option[value="' + best + '"]').prop('selected', true);
-    
-        // $selectDropdown.trigger('contentChanged');
-        $('select').material_select();
-        // console.log("After...");
+
+    var $selectDropdown =
+    $("#mySelect")
+    .empty()
+    .html(' ');
+
+    // add new value
+
+    for(var i = 0; i < n; i++){
+        $selectDropdown.append(
+            $("<option></option>")
+            .attr("value",(i))
+            .text((i + 1))
+        );    var $selectDropdown =
+        $("#mySelect")
+        .empty()
+        .html(' ');
+
     }
-    
-    $('select').on('contentChanged', function() {
-        console.log("Another...");
-        // re-initialize (update)
-        $(this).material_select();
+
+    $('#mySelect option[value="' + best + '"]').prop('selected', true);
+
+    // $selectDropdown.trigger('contentChanged');
+    $('select').material_select();
+    // console.log("After...");
+}
+
+$('select').on('contentChanged', function() {
+    console.log("Another...");
+    // re-initialize (update)
+    $(this).material_select();
+});
+
+$("#calc_route").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#map").offset().top},
+        'slow');
     });
-    
-    $("#calc_route").click(function() {
-        $('html,body').animate({
-            scrollTop: $("#map").offset().top},
-'slow');
-        });
-    
+
     // $(function(){
     //     $('select').materlize_select();
     // });
-    
+
     $("#mySelect").on("change", function(){
         console.log("Cambio a: ", $("mySelect").value());
         $("#route_index").val($("mySelect").value());

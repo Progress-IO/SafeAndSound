@@ -2,46 +2,45 @@
 
 <div class="main content">
     <div class="container">
-        <p id="notice"><%= notice %></p>
 
-        <p>
-          <strong>Nombre:</strong>
-          <%= @suspect.nombre %>
-        </p>
+        <table class="striped table_data">
+            <p id="notice"><%= notice %></p>
 
-        <p>
-          <strong>Fecha:</strong>
-          <%= @suspect.fecha %>
-        </p>
+            <tr>
+                <th>Fecha</th>
+                <td><%= @suspect.fecha.to_date %></td>
+            </tr>
+            <tr>
+                <th>Dirección</th>
+                <td><%= @suspect.address %></td>
+            </tr>
+            <tr>
+                <th>Detalles</th>
+                <td><%= @suspect.details %></td>
+            </tr>
+            <tr>
+                <th>Latitud</th>
+                <td><%= @suspect.latitude %></td>
+            </tr>
+            <tr>
+                <th>Longitud</th>
+                <td><%= @suspect.longitude %></td>
+            </tr>
+        </table>
 
-       <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=@suspect.latitude%>,<%=@suspect.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
-         <div>
-                                   <div >
-                                     <%= avatar_for(@suspect.user,size: 35)%>
-                                   </div> 
-                                <%=link_to "@"+@suspect.user.username, user_path(@suspect.user.id)%>
-                                
-                              </div>
+        <div class="img_container">
+            <% @suspect.images.each do |image|%>
+                <% if !image.nil? %>
+                <%= image_tag( image.medium,  class: "img_prev materialboxed")%>
+                <% end %>
+            <% end %>
+        </div>
 
-        <p>
-          <strong>Address:</strong>
-          <%= @suspect.address %>
-        </p>
-
-        <p>
-          <strong>Details:</strong>
-          <%= @suspect.details %>
-        </p>
-        <% if @suspect.user!= nil  && current_user?(@suspect.user) %>
-         <%= link_to 'Edit', edit_suspect_path(@suspect) , class: "btn custom_margin" %> |
-         <%end%>
-        <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
-        <!--, locals: {commentable: @suspect}-->
+        <%= link_to 'Editar', edit_suspect_path(@suspect), class: "btn custom_margin" %> |
+        <%= link_to 'Volver', suspects_path, class: "btn custom_margin" %> |
+        <%= link_to 'Convertir a PDF', suspect_path(@suspect, format: 'pdf'), class: "btn custom_margin" %>
         
-         <%= render  "comments/comment" %>
+        <%= render  "comments/comment" %>
          <%= render  "comments/form" %>
-       </div>
-       
-
     </div>
 </div>

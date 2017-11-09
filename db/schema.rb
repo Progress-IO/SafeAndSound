@@ -73,10 +73,15 @@ ActiveRecord::Schema.define(version: 20171107003837) do
     t.string "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.string "images"
     t.date "dia"
     t.time "hora"
     t.integer "user_id"
+    t.string "tipo_transp"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
@@ -133,10 +138,11 @@ ActiveRecord::Schema.define(version: 20171107003837) do
     t.string "last_sign_in_ip"
     t.string "provider"
     t.string "uid"
+    t.boolean "Ispolice"
     t.string "username"
     t.string "avatar"
     t.text "description"
-    t.boolean "Ispolice"
+    t.boolean "Isadmin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
