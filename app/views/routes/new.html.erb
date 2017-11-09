@@ -1,17 +1,22 @@
 <script> var report_positions = <%= @reports_position %>; </script>
 <%= javascript_include_tag "g_maps/gm_route" %>
 <script>
-    var transportRoutes = <%= @transport_routes %> ;
+var transportRoutes = <%= @transport_routes %> ;
 </script>
 <%= render 'layouts/user-panel' %>
 <div class="main content">
     <div class="container">
 
-        <h1>New route</h1>
+        <h1>Nueva ruta</h1>
         <div id="map" class="map_report"></div>
         <div class="transport_order"></div>
 
         <div class="route_error" id="abc"></div>
+
+        <div class="chk right">
+            <input type="checkbox" id="only_safe" />
+            <label for="only_safe">Ruta más segura</label>
+        </div>
 
         <!-- <label for="" class="selector_routes">Select route</label> -->
         <!-- <select name="" id="mySelect" class="selector_routes"></select> -->

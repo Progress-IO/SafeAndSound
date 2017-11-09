@@ -13,12 +13,12 @@
 
 
    <div class="field">
-     <%= form.label :"Route name" %>
+     <%= form.label :"Nombre" %>
      <%= form.text_field :route, id: :route_route%>
    </div>
 
   <div class="field">
-    <%= form.label :mode %>
+    <%= form.label "Modo" %>
     <%= form.select(:mode, ([["CAR", "DRIVING"], ["BUS", "TRANSIT"], ["BIKE", "BICYCLING"], ["WALKING", "WALKING"]]), {}, { :id => 'route_mode' }) %>
   </div>
 
@@ -27,18 +27,18 @@
       <div class="btn-container">
 
         <div class="c2">
-            <div id="start_marker" class="btn-f btn orange">Start marker</div>
+            <div id="start_marker" class="btn-f btn orange">Inicio</div>
             <!-- <div id="mk_start" class="s_green"></div> -->
         </div>
 
         <div class="c2">
-            <div id="finish_marker" class="btn-f btn orange">Finish marker</div>
+            <div id="finish_marker" class="btn-f btn orange">Llegada</div>
             <!-- <div id="mk_finish" class="s_green"></div> -->
         </div>
 
 
         <div class="c2">
-            <div id="calc_route_1" class="btn btn-f red" style="margin-top:20%">Calculate</div>
+            <div id="calc_route_1" class="btn btn-f red" style="margin-top:20%">Calcular</div>
         </div>
 
       </div>
@@ -49,15 +49,15 @@
       </div>
       <div class="btn-container">
         <div class="input-field">
-            <label for="origin_address">Origin adress</label>
+            <label for="origin_address">Dirección de origen</label>
             <input id="origin_address" type="text">
         </div>
 
         <div class="input-field">
-            <label for="destination_address">Destination adress</label>
+            <label for="destination_address">Dirección de llegada</label>
             <input id="destination_address" type="text">
         </div>
-        <div id="calc_route_2" class="btn-f btn red">Calculate route</div>
+        <div id="calc_route_2" class="btn-f btn red">Calcular ruta</div>
 
       </div>
   </div>
@@ -104,8 +104,8 @@
   </div> -->
 
   <div class="actions">
-    <%= link_to 'My routes', routes_path, class: "btn"%> |
-    <%= form.submit class: "btn" %>
+    <%= link_to 'Mis rutas', routes_path, class: "btn"%> |
+    <%= form.submit "Crear ruta", class: "btn" %>
 
   </div>
 <% end %>

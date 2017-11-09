@@ -16,4 +16,13 @@ class Route < ApplicationRecord
         return info
 
     end
+
+    def self.search_keyword(keyword, sort_by, reverse, address)
+        all = Route.where("mode LIKE '%#{keyword}%' AND route LIKE '%#{address}%'").order(:date)
+        if reverse == "true" then 
+            return  all.sort_by{ |k|  k[sort_by]}.reverse 
+        else 
+            return  all.sort_by{ |k|  k[sort_by]} 
+        end
+    end
 end

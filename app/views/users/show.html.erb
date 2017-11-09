@@ -16,9 +16,12 @@
           <%end%>
 
 
-         <% if user_signed_in? && current_user?(@user) %>
-        <%= link_to 'Edit', edit_user_path, class: "btn" %> |
+         <% if user_signed_in? && current_user?(@user)  %>
+            <%= link_to 'Editar', edit_user_path, class: "btn" %> 
+         <%elsif  current_user.Isadmin? %>
+            <%= link_to 'Editar', edit_admin_admin_path, class: "btn" %> 
+            hola
          <%end%>
-        <%= link_to 'Back', root_url, class: "btn" %>
+        <%= link_to 'Volver', root_url, class: "btn" %>
     </div>
 </div>

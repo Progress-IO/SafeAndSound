@@ -10,6 +10,17 @@ class SuspectsController < ApplicationController
     # GET /suspects/1
     # GET /suspects/1.json
     def show
+        respond_to do |format|
+            format.html
+            format.pdf do
+                render  pdf: "show",
+                :footer => {
+                    :html => {
+                        :template => 'layouts/pdf-footer.html'
+                    }
+                }
+            end
+        end
     end
 
     # GET /suspects/new

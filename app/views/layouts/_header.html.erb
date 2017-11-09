@@ -11,12 +11,9 @@
     <%= stylesheet_link_tag    'application' %>
     <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag "style.css" %>
-
-
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=9ac0mdnqxuqpqytz9z8d3sp1f0lktus2kqmhpvvy03ned8jg"></script>
+    <!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
   </head>
   <body>
     <%= csrf_meta_tag %>
@@ -24,65 +21,60 @@
     <p class="alert"><%= alert %></p> -->
     <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-
-
-            
-             <%= link_to  root_path do %>
-         <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">
-         
-         
-        sudo apt-get update
-        sudo apt-get install imagemagick --fix-missing
-         
-         -->
-           <img src="<%= asset_path('logo.png') %>" class="mylogo">
-           </a>
-                                    <% end %>
-            
-            
-           
-      
-         
-
-
-        <ul class="right hide-on-med-and-down">
-
+    <%= link_to  root_path do %>
+        <img src="<%= asset_path('logo.png') %>" class="mylogo">
+    <% end %>
+                                 <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">
+                                sudo apt-get update
+                                sudo apt-get install imagemagick --fix-missing
+                                 -->
+    <% if user_signed_in? %>
+      <% if current_user.Isadmin? %>
+        <ul class="left hide-on-med-and-down">
+          <li class = "right " >
+             <label><b>ADMINISTRADOR</b></label>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+    <ul class="right hide-on-med-and-down">
         <% if user_signed_in? %>
-          <li class = "right "><%= link_to "Log Out", auth_sign_out_path, method: :delete ,class:"" %></li>
+          <li class = "right "><%= link_to "Salir", auth_sign_out_path, method: :delete ,class:"" %></li>
         <% else %>
-          <li class = "right"><%= link_to "Log in", login_path, class: ""  %></li>
-          <li class = "right"><%= link_to "Sign up", register_path, class: "" %></li>
+          <li class = "right"><%= link_to "Ingresar", login_path, class: ""  %></li>
+          <li class = "right"><%= link_to "Registrarse", register_path, class: "" %></li>
         <% end %>
-
         <% if user_signed_in? %>
-            <li class = "left " ><%= link_to "Forum", discussions_path, class: ""  %></li>
+            <li class = "left " ><%= link_to "Foro", discussions_path, class: ""  %></li>
         <% end %>
-        <li class = "left"><%= link_to "Contact us", contact_path, class: ""  %></li>
+        <% if user_signed_in? %>
+          <% if !current_user.Isadmin? %>
+        	 <li class = "left"><%= link_to "Contactenos", contact_path, class: ""  %></li>
+          <% end %>
+        <% end %>
 
         <% if user_signed_in? %>
         <li><%= avatar_for(current_user,size: 35)%></li>
         <li style="color: #5db6fc">  <%= link_to  current_user.username, current_user, class:"userprofile" %></li>
         <% end %>
-      </ul>
+    </ul>
 
-      <ul id="nav-mobile" class="side-nav">
-       
+    <ul id="nav-mobile" class="side-nav">
         <% if user_signed_in? %>
-          <li class = " "><%= link_to "Log Out", auth_sign_out_path, method: :delete ,class:"" %></li>
-        <% else %>
-          <li class = ""><%= link_to "Log in", login_path, class: ""  %></li>
-          <li class = ""><%= link_to "Sign up", register_path, class: "" %></li>
-        <% end %>
-
-        <% if user_signed_in? %>
-            <li class = " " ><%= link_to "Forum", discussions_path, class: ""  %></li>
             <li style="color: #5db6fc"> <%= avatar_for(current_user,size: 35) %> <%= link_to current_user.username, current_user, class:"userprofile" %></li>
         <% end %>
-        <li class = ""><%= link_to "Contact us", contact_path, class: ""  %></li>
+        <% if user_signed_in? %>
+            <li class = " " ><%= link_to "Foro", discussions_path, class: ""  %></li>
+        <% end %>
+        <li class = ""><%= link_to "Contactenos", contact_path, class: ""  %></li>
 
-       
-
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+        <% if user_signed_in? %>
+          <li class = " "><%= link_to "Salir", auth_sign_out_path, method: :delete ,class:"" %></li>
+        <% else %>
+          <li class = ""><%= link_to "Ingresar", login_path, class: ""  %></li>
+          <li class = ""><%= link_to "Registrarse", register_path, class: "" %></li>
+        <% end %>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
