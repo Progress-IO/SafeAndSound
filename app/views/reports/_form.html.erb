@@ -26,22 +26,22 @@
 </div>
 
 <div class="field">
-    <%= form.label :latitude, style: "display:none" %>
+    <%= form.label :latitud, style: "display:none" %>
     <%= form.text_field :latitude, id: :report_latitude, readonly: true, style: "display:none"%>
 </div>
 
 <div class="field">
-    <%= form.label :longitude, style: "display:none" %>
+    <%= form.label :longitud, style: "display:none" %>
     <%= form.text_field :longitude, id: :report_longitude, readonly: true, style: "display:none"%>
 </div>
 
 <div class="field">
-    <%= form.label :address %>
+    <%= form.label "Dirección" %>
     <%= form.text_field :address, id: :report_address %>
 </div>
 
 <div class="field">
-    <%= form.label :details %>
+    <%= form.label "Detalles" %>
     <%= form.text_field :details, id: :report_details %>
 </div>
 
@@ -52,7 +52,7 @@
 
 
 <div class="field">
-    <%= form.label :images %>
+    <%= form.label "Imágenes" %>
     <div class="file-field input-field">
         <div class="btn green">
             <span>Adjuntar archivo</span>
@@ -67,7 +67,7 @@
 
 
 <div class="actions">
-    <%= form.submit class: 'btn', id: 'submit' %>
+    <%= form.submit "Crear reporte", class: 'btn', id: 'submit' %>
 </div>
 <% end %>
 <!-- Manejo de errores -->

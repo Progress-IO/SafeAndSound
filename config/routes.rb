@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :security_news
+  mount RailsAdmin::Engine => '/s_admin', as: 'rails_admin'
     # devise_for :admins
     # resources :admins, :except => [:delete]
     # resources :users, :except => [:delete]
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
         get 'reports/index'
         get "/user_panel" => 'user_panel#index', as: :user_root
         get '/users_panel/statistics' =>'user_panel#statistics', :as => :statistics
+        get '/users_panel/status' =>'user_panel#status', :as => :status
+        get '/users_panel/busqueda' =>'user_panel#busqueda', :as => :busqueda
         get '/users_panel/view_all' =>'user_panel#view_all', :as => :view_all
         get '/users_panel/report/select_report' => 'user_panel#select_type', :as => :report_mode
         post '/routes/transport_routes' => 'routes#transport_routes' , :as => :get_routes
@@ -44,4 +47,9 @@ Rails.application.routes.draw do
     get "auth/login" => "users/sessions#new", as: "login"
     get "auth/registration" => "user/registrations#new", as: "register"
 
+    namespace :admin do
+        resources :reports, :except => [:delete] , :as => :reports
+        resources :users, :except => [:delete]   , :as => :admins
+        get '/cops'  => 'users#cops', :as => :show_cops
+    end
 end

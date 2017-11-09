@@ -1,73 +1,72 @@
 <!doctype html>
 <html>
 <head>
-<%= javascript_include_tag "https://d3js.org/d3.v4.min.js" %>
+    <%= javascript_include_tag "https://d3js.org/d3.v4.min.js" %>
 </head>
 <body>
-<div class="main content">
-<div class="container">
-    <h1>Statistics</h1>
+    <div class="main content">
+        <div class="container">
+            <h1>Statistics</h1>
 
-    <h5>Crime reports</h5>
-    <svg width="500" height="300" style="border: 1px solid">
-    </svg>
-</div>
-</div>
-<script>
-var reports = <%= @reports %>;
-var report_c = <%= @report_c %>;
-var suspect_c = <%= @suspect_c %>;
+            <h5>Crime reports</h5>
+            <svg width="500" height="300" style="border: 1px solid">
+            </svg>
+        </div>
+    </div>
+    <script>
+    var reports = <%= @reports %>;
+    var report_c = <%= @report_c %>;
+    var suspect_c = <%= @suspect_c %>;
 
-var data = d3.values(reports);
-var keys = d3.keys(reports);
+    var data = d3.values(reports);
+    var keys = d3.keys(reports);
 
+    
+    var color = d3.scaleOrdinal()
+    .range(d3.schemeCategory20);
 
-var color = d3.scaleOrdinal()
-.range(d3.schemeCategory20);
-
-var svg = d3.select("svg"),
+    var svg = d3.select("svg"),
     margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
-var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+    var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
     y = d3.scaleLinear().rangeRound([height, 0]);
 
-var g = svg.append("g")
+    var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var min = d3.min(data);
-var max = d3.max(data);
+    var min = d3.min(data);
+    var max = d3.max(data);
 
-x.domain(keys);
-y.domain([0, max])
+    x.domain(keys);
+    y.domain([0, max])
 
 
-g.append("g")
-.attr("class", "axis axis--x")
-.attr("transform", "translate(0," + height + ")")
-.call(d3.axisBottom(x));
+    g.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
 
-g.append("g")
-.attr("class", "axis axis--y")
-.call(d3.axisLeft(y).ticks(10))
-.append("text")
-.attr("transform", "rotate(-90)")
-.attr("y", 6)
-.attr("dy", "0.71em")
-.attr("text-anchor", "end");
+    g.append("g")
+    .attr("class", "axis axis--y")
+    .call(d3.axisLeft(y).ticks(10))
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", "0.71em")
+    .attr("text-anchor", "end");
 
-g.selectAll(".bar")
+    g.selectAll(".bar")
     .data(data)
     .enter().append("rect")
-        .attr("class", "bar")
-        .attr("fill", function(d, i) { return color(i); })
-        .attr("opacity", 0.8)
-        .attr("x", function(d, i) { return x(keys[i]); })
-        .attr("y", function(d) { return y(d); })
-        .attr("width", x.bandwidth())
-        .attr("height", function(d) { return height - y(d); });
-</script>
+    .attr("class", "bar")
+    .attr("fill", function(d, i) { return color(i); })
+    .attr("opacity", 0.8)
+    .attr("x", function(d, i) { return x(keys[i]); })
+    .attr("y", function(d) { return y(d); })
+    .attr("width", x.bandwidth())
+    .attr("height", function(d) { return height - y(d); });
+    </script>
 </body>
 </html>
-

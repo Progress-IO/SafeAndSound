@@ -1,46 +1,44 @@
 <%= render "layouts/user-panel" %>
 <div class="main content">
     <div class="container">
+    <table class="striped">
         <p id="notice"><%= notice %></p>
 
-       
-          <strong>Fecha:</strong>
-          <%= @report.fecha %>
-        </p>
+        <tr>
+            <th>Fecha</th>
+            <td><%= @report.fecha.to_date %></td>
+        </tr>
+        <tr>
+            <th>Tipo</th>
+            <td><%= @report.tipo %></td>
+        </tr>
+        <tr>
+            <th>Dirección</th>
+            <td><%= @report.address %></td>
+        </tr>
+        <tr>
+            <th>Detalles</th>
+            <td><%= @report.details %></td>
+        </tr>
+        <tr>
+            <th>Tipo de transporte</th>
+            <td><%= @report.tipo_transp %></td>
+        </tr>
+    </table>
 
-        <p>
-          <strong>Tipo:</strong>
-          <%= @report.tipo %>
-        </p>
-
-        <p>
-          <strong>Latitude:</strong>
-          <%= @report.latitude %>
-        </p>
-
-        <p>
-          <strong>Longitude:</strong>
-          <%= @report.longitude %>
-        </p>
-
-        <p>
-          <strong>Address:</strong>
-          <%= @report.address %>
-        </p>
-
-        <p>
-          <strong>Details:</strong>
-          <%= @report.details %>
-        </p>
-
-        <p>
-          <strong>Details:</strong>
-          <%= @report.tipo_transp %>
-        </p>
-
-        <%= link_to 'Edit', edit_report_path(@report), class: "btn custom_margin" %> |
-        <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
-
+    <div class="img_container">
+        <% @report.images.each do |image|%>
+        <% if !image.nil? %>
+        <img src="<%=asset_path( image.large )%>" class="img_prev materialboxed">
+        <% end %>
+        <% end %>
     </div>
+    <%= link_to 'Editar', edit_report_path(@report), class: "btn custom_margin" %> |
+    <%= link_to 'Volver', user_panel_path, class: "btn custom_margin" %> |
+
+    <%= link_to 'Convertir a PDF', report_path(@report, :format => 'pdf'), class: "btn custom_margin" %>
+
+
+</div>
 
 </div>
