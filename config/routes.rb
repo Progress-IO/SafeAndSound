@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
     get 'comments/new'
 
- resources :security_news
+ 
   
     mount RailsAdmin::Engine => '/s_admin', as: 'rails_admin'
       # devise_for :admins
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   
   
       authenticate :user do
+        resources :security_news, :except => [:delete]
           resources :routes, :except => [:delete]
           resources :suspects, :except => [:delete] do
               resources :comments
