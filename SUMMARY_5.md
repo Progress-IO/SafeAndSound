@@ -19,6 +19,10 @@ Funcionalidades y trabajos hechos por cada desarrollador
 
  
  ### Daniel Rodríguez Meza
-
+    -Se ñadio nueva grafica a las estadisticas
+    -Se añadio la funcionalidad de pdf para reportes de crimenes y sospechosos
+    -Se añadio una funcionalidad de busqueda y filtrado en los reportes de crimenes y sospechosos
+    -Se hicieron cambios a las funciones del modelo de rutas
+    - Se hizo la funcionalidad de filtrado de rutas de la mas segura a las otras
    
-    
+ ##Link de heroku: safeandsound.herokuapp.com
