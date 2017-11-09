@@ -22,7 +22,15 @@ Funcionalidades y trabajos hechos por cada desarrollador
     -Se unio el tipo de crimen con el reporte respectivo
  
  ### Oscar Fabián Mendez
-
+    -Creación modulo Administrador
+    -Control de acceso a los usuarios normales para el módulo administrador y correcciones de .js innecesarios que bloqueaban la aplicacion
+    -Re-Organización del header, añadidos controles de acceso a los adminisradores hacia la vista de usuario normal, 
+    -agregado panel usuarios al modulo administrador.
+    -agregado panel policias al modulo administrador.
+    -agregado panel administradores al modulo administrador.
+    - organizaciónes generales
+    -Implementación de los tests de unidad
+    
  
  ### Daniel Rodríguez Meza
     -Se ñadio nueva grafica a las estadisticas
