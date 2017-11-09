@@ -50,6 +50,7 @@ gem "mini_magick"
 gem 'carrierwave-aws'
 #gema para fechas
  gem 'time_splitter'
+ 
 #Gema para ayudar a ocultar llaves secretillas
 gem 'figaro'
 #Gema para generar datos aleatorios
@@ -61,7 +62,11 @@ gem 'chart-js-rails'
 # Pdf generator plugin
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
+#Añadir autocomplete
+gem 'jquery-ui-rails'
+#Añadir delayed job
+gem 'delayed_job_active_record'
+gem "daemons"
 group :production do
   gem 'pg'
   gem 'rails_12factor'

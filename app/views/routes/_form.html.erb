@@ -98,10 +98,16 @@
     <%= form.text_field :date, id: :route_date, class: "timepicker", value: Time.now %>
   </div> -->
 
-  <!-- <div class="field">
-    <%= form.label :"Route name" %>
+  <div class="field">
+    <%= form.label "Nombre de la ruta" %>
     <%= form.text_field :route, id: :route_route %>
-  </div> -->
+  </div>
+
+  <div class="field">
+    <%= form.label "Modo de transporte" %>
+    <%= form.select(:mode, options_for_select([["DRIVING","DRIVING"],["BICYCLING","BICYCLING"],["TRANSIT","TRANSIT"],["WALKING","WALKING"]]) ) %>
+
+  </div>
 
   <div class="actions">
     <%= link_to 'Mis rutas', routes_path, class: "btn"%> |

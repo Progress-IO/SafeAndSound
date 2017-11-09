@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107003837) do
+ActiveRecord::Schema.define(version: 20171109174550) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -37,6 +37,21 @@ ActiveRecord::Schema.define(version: 20171107003837) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "discussions", force: :cascade do |t|
@@ -72,6 +87,17 @@ ActiveRecord::Schema.define(version: 20171107003837) do
 
 # Could not dump table "routes" because of following StandardError
 #   Unknown type 'json' for column 'response'
+
+  create_table "security_news", force: :cascade do |t|
+    t.string "tipo"
+    t.date "dia"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.string "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "suspects", force: :cascade do |t|
     t.string "nombre"

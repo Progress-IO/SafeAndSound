@@ -53,17 +53,21 @@
             <% end %>
             <% end %>
 
-            <% if user_signed_in? %>
-            <li><%= avatar_for(current_user,size: 35)%></li>
-            <li style="color: #5db6fc">  <%= link_to  current_user.username, current_user, class:"userprofile" %></li>
-            <% end %>
-        </ul>
+        <% if user_signed_in? %>
+        <li>  <%= avatar_for(current_user,size: 35)%></li>
+        <li style="color: #5db6fc">  <%= link_to  current_user.username, current_user, class:"userprofile" %></li>
+        <% end %>
+    </ul>
 
-        <ul id="nav-mobile" class="side-nav">
-            <% if user_signed_in? %>
-            <li style="color: #5db6fc"> <%= avatar_for(current_user,size: 35) %> <%= link_to current_user.username, current_user, class:"userprofile" %></li>
-            <% end %>
-            <% if user_signed_in? %>
+    <ul id="nav-mobile" class="side-nav">
+        <% if user_signed_in? %>
+          <li class = " "><%= link_to "Salir", auth_sign_out_path, method: :delete ,class:"" %></li>
+        <% else %>
+          <li class = ""><%= link_to "Ingreso", login_path, class: ""  %></li>
+          <li class = ""><%= link_to "Registrarse", register_path, class: "" %></li>
+           
+        <% end %>
+        <% if user_signed_in? %>
             <li class = " " ><%= link_to "Foro", discussions_path, class: ""  %></li>
             <% end %>
             <li class = ""><%= link_to "Contacto", contact_path, class: ""  %></li>

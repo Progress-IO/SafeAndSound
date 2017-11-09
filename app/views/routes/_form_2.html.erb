@@ -13,13 +13,13 @@
 
 
    <div class="field">
-     <%= form.label :"Nombre" %>
+     <%= form.label :"Nombre de la ruta" %>
      <%= form.text_field :route, id: :route_route%>
    </div>
 
   <div class="field">
-    <%= form.label "Modo" %>
-    <%= form.select(:mode, ([["CAR", "DRIVING"], ["BUS", "TRANSIT"], ["BIKE", "BICYCLING"], ["WALKING", "WALKING"]]), {}, { :id => 'route_mode' }) %>
+    <%= form.label "Modo de transporte" %>
+    <%= form.select(:mode, ([["CARRO", "DRIVING"], ["SITP/TRANSMILENIO", "TRANSIT"], ["BICICLETA", "BICYCLING"], ["CAMINANDO", "WALKING"]]), {}, { :id => 'route_mode' }) %>
   </div>
 
   <div class="general">
@@ -27,18 +27,18 @@
       <div class="btn-container">
 
         <div class="c2">
-            <div id="start_marker" class="btn-f btn orange">Inicio</div>
+            <div id="start_marker" class="btn-f btn orange">Destino Inicial</div>
             <!-- <div id="mk_start" class="s_green"></div> -->
         </div>
 
         <div class="c2">
-            <div id="finish_marker" class="btn-f btn orange">Llegada</div>
+            <div id="finish_marker" class="btn-f btn orange">Destino Final</div>
             <!-- <div id="mk_finish" class="s_green"></div> -->
         </div>
 
 
         <div class="c2">
-            <div id="calc_route_1" class="btn btn-f red" style="margin-top:20%">Calcular</div>
+            <div id="calc_route_1" class="btn btn-f red" style="margin-top:20%">Calcular ruta</div>
         </div>
 
       </div>

@@ -28,7 +28,7 @@
         <li> <a href= <%= statistics_path %> ><i class="small material-icons">trending_up</i><div class="link_menu">ESTADISTICAS</div></a> </li>
         <li> <a href=<%= user_path(current_user.id)  %>><i class="small material-icons">tune</i><div class="link_menu">AJUSTES</div></a> </li>
         <% if current_user.is_police %>
-            <li> <a href= <%= novelties_path %> ><i class="small material-icons">security</i><div class="link_menu">ADD NOVELTY</div></a> </li>
+            <li> <a href= <%= novelties_path %> ><i class="small material-icons">security</i><div class="link_menu">NOVEDADES</div></a> </li>
         <% end %>
     </ul>
 </div>
