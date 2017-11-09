@@ -22,6 +22,10 @@ class SuspectsController < ApplicationController
                 }
             end
         end
+        set_suspect
+        @commentable = @suspect
+        @comments = @commentable.comments
+        @comment = Comment.new
     end
 
     # GET /suspects/new

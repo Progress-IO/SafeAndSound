@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104182932) do
+ActiveRecord::Schema.define(version: 20171107003837) do
 
   create_table "admins", force: :cascade do |t|
     t.string "Name"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20171104182932) do
     t.string "last_sign_in_ip"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.integer "user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "discussions", force: :cascade do |t|
@@ -98,6 +107,8 @@ ActiveRecord::Schema.define(version: 20171104182932) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "id_route"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_transports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,10 +127,10 @@ ActiveRecord::Schema.define(version: 20171104182932) do
     t.string "last_sign_in_ip"
     t.string "provider"
     t.string "uid"
-    t.boolean "Ispolice"
     t.string "username"
     t.string "avatar"
     t.text "description"
+    t.boolean "Ispolice"
     t.boolean "Isadmin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

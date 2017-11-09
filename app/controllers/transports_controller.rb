@@ -10,6 +10,10 @@ class TransportsController < ApplicationController
   # GET /transports/1
   # GET /transports/1.json
   def show
+        set_transport
+        @commentable = @transport
+        @comments = @commentable.comments
+        @comment = Comment.new
   end
 
   # GET /transports/new
@@ -24,7 +28,7 @@ class TransportsController < ApplicationController
   # POST /transports
   # POST /transports.json
   def create
-    @transport = Transport.new(transport_params)
+    @transport = current_user.transports.new(transport_params)
     s_dia = transport_params[:dia].split(' ')
     s_hora = transport_params[:hora].split(':')
     @fecha_aux = DateTime.new(s_dia[2].to_i, Date::MONTHNAMES.index(s_dia[1].delete(',')), s_dia[0].to_i, s_hora[0].to_i, s_hora[1].to_i, 0, Time.zone.name)

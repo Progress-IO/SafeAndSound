@@ -1,0 +1,39 @@
+     <div class="card horizontal hoverable">
+                              <div class="card-image">
+                                   <div class = "report-time">
+                                    <%=report.created_at.strftime("%b %e, %l:%M %p")%>
+                                   </div>
+                                 <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=report.latitude%>,<%=report.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
+                                 <span class="card-title"></span>
+                                 
+                                  
+                                   <div>
+                                       <strong> <%=report.tipo%> </strong>   
+                                   </div>
+                                     
+                                   
+                                    <div class = "location">
+                                      <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
+                                      <span class="latitude"><%=report.latitude%></span>
+                                      <span class="longitude"><%=report.longitude%></span>
+                                    </div>
+                              </div>
+                              
+                              <div class="card-stacked">
+                                    <div class="card-content">
+                                <div>
+                                   <div >
+                                     <%= avatar_for(report.user,size: 35)%>
+                                   </div> 
+                                <%=link_to "@"+report.user.username, user_path(report.user.id)%>
+                                
+                              </div>
+                                      <p> <%=report.details.split.first(7).join(' ')%>
+                                            ...</p>
+                                    </div>
+                                   <div class="card-action">
+                                      <a  href="<%=report_path(report.id)%>">Ver Reporte</a>
+                                    </div>
+                              </div>
+                              
+                           </div>
