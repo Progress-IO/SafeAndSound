@@ -42,12 +42,12 @@
   </div> -->
 
   <div class="field">
-    <%= form.label :route %>
+    <%= form.label "Nombre de la ruta" %>
     <%= form.text_field :route, id: :route_route %>
   </div>
 
   <div class="field">
-    <%= form.label :mode %>
+    <%= form.label "Modo de transporte" %>
     <%= form.select(:mode, options_for_select([["DRIVING","DRIVING"],["BICYCLING","BICYCLING"],["TRANSIT","TRANSIT"],["WALKING","WALKING"]]) ) %>
 
   </div>
