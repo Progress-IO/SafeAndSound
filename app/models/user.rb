@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :routes
   has_many :reports
   has_many :suspects
-
+  has_many :transports
 
   def login=(login)
     @login = login

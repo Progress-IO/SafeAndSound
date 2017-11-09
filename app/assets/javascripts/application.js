@@ -18,12 +18,6 @@
 //= require Chart.min
 
 
-document.addEventListener("turbolinks:load", function() {
-    tinymce.remove();
-    tinymce.init({ selector:'#owntext' });
-  // ...
-})
-
 $(function(){
 
     $(".xdetails_content").each(function(){

@@ -1,16 +1,20 @@
 <div id="comments">
-    
+    <h4>Comentarios</h4>
      <% @comments.each do |comment|%>
      <div class="divider"></div>
       <div class="section">
-          <strong> <%=comment.user.username %></strong>
+        <div>
+           <div >
+                <%= avatar_for(comment.user,size: 35)%>
+           </div> 
+           <%=link_to "@"+comment.user.username, user_path(comment.user.id)%>
+             <span class = "report-time">
+                                <%=comment.created_at.strftime("%b %e, %l:%M %p")%>
+                              </span>               
+        </div>                             
         <p class="comment">
             <%= simple_format comment.body%>
         </p>
       </div>
-    
-       
-        
-        
-        <%end%>
+     <%end%>
 </div>

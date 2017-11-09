@@ -32,13 +32,14 @@
           <strong>Details:</strong>
           <%= @suspect.details %>
         </p>
-
+        <% if @suspect.user!= nil  && current_user?(@suspect.user) %>
          <%= link_to 'Edit', edit_suspect_path(@suspect) , class: "btn custom_margin" %> |
+         <%end%>
         <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
         <!--, locals: {commentable: @suspect}-->
         
-         <%= render partial: "comments/comment" %>
-         <%= render partial: "comments/form" %>
+         <%= render  "comments/comment" %>
+         <%= render  "comments/form" %>
        </div>
        
 

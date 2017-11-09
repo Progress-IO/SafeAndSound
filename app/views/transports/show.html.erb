@@ -16,14 +16,14 @@
     </p>
 
      <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=@transport.latitude%>,<%=@transport.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
-         <div>
-                                   <div >
-                                     <%= avatar_for(@transport.user,size: 35)%>
-                                   </div> 
-                                <%=link_to "@"+@transport.user.username, user_path(@transport.user.id)%>
-                                
-                              </div>
-
+        <%if (@transport.user!= nil) then%>
+        <div>
+                 <div >
+                       <%= avatar_for(@transport.user,size: 35)%>
+                 </div> 
+                  <%=link_to "@"+@transport.user.username, user_path(@transport.user.id)%>
+         </div>
+         <%end %>       
   
 
     <p>
@@ -48,12 +48,13 @@
       <%= @transport.images %>
     </p>
 
-
-    <%= link_to 'Edit', edit_transport_path(@transport, class: "btn custom_margin" %> |
-        <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
+    <% if @transport.user!= nil  && current_user?(@transport.user) %>
+    <%= link_to 'Edit', edit_transport_path(@transport), class: "btn custom_margin" %> |
+    <% end %>
+   <%= link_to 'Back', user_panel_path, class: "btn custom_margin" %>
       
-       <%= render partial: "comments/comment" %>
-       <%= render partial: "comments/form" %>
+       <%= render "comments/comment" %>
+       <%= render  "comments/form" %>
       
 
   </div>
