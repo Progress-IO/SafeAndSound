@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -14,44 +14,44 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
-  </head>
-  <body>
+</head>
+<body>
     <%= csrf_meta_tag %>
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
     <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-    <%= link_to  root_path do %>
-        <img src="<%= asset_path('logo.png') %>" class="mylogo">
-    <% end %>
-                                 <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">
-                                sudo apt-get update
-                                sudo apt-get install imagemagick --fix-missing
-                                 -->
-    <% if user_signed_in? %>
-      <% if current_user.Isadmin? %>
+        <div class="nav-wrapper container">
+            <%= link_to  root_path do %>
+            <img src="<%= asset_path('logo.png') %>" class="mylogo">
+            <% end %>
+            <!--<img src="../../assets/images/Logo.png" alt="" class="mylogo">
+            sudo apt-get update
+            sudo apt-get install imagemagick --fix-missing
+        -->
+        <% if user_signed_in? %>
+        <% if current_user.Isadmin? %>
         <ul class="left hide-on-med-and-down">
-          <li class = "right " >
-             <label><b>ADMINISTRADOR</b></label>
-          </li>
+            <li class = "right " >
+                <label><b>ADMINISTRADOR</b></label>
+            </li>
         </ul>
-      <% end %>
-    <% end %>
-    <ul class="right hide-on-med-and-down">
-        <% if user_signed_in? %>
-          <li class = "right "><%= link_to "Salir", auth_sign_out_path, method: :delete ,class:"" %></li>
-        <% else %>
-          <li class = "right"><%= link_to "Ingresar", login_path, class: ""  %></li>
-          <li class = "right"><%= link_to "Registrarse", register_path, class: "" %></li>
         <% end %>
-        <% if user_signed_in? %>
+        <% end %>
+        <ul class="right hide-on-med-and-down">
+            <% if user_signed_in? %>
+            <li class = "right "><%= link_to "Salir", auth_sign_out_path, method: :delete ,class:"" %></li>
+            <% else %>
+            <li class = "right"><%= link_to "Ingresar", login_path, class: ""  %></li>
+            <li class = "right"><%= link_to "Registrarse", register_path, class: "" %></li>
+            <% end %>
+            <% if user_signed_in? %>
             <li class = "left " ><%= link_to "Foro", discussions_path, class: ""  %></li>
-        <% end %>
-        <% if user_signed_in? %>
-          <% if !current_user.Isadmin? %>
-        	 <li class = "left"><%= link_to "Contactenos", contact_path, class: ""  %></li>
-          <% end %>
-        <% end %>
+            <% end %>
+            <% if user_signed_in? %>
+            <% if !current_user.Isadmin? %>
+            <li class = "left"><%= link_to "Contactenos", contact_path, class: ""  %></li>
+            <% end %>
+            <% end %>
 
         <% if user_signed_in? %>
         <li>  <%= avatar_for(current_user,size: 35)%></li>
@@ -69,16 +69,16 @@
         <% end %>
         <% if user_signed_in? %>
             <li class = " " ><%= link_to "Foro", discussions_path, class: ""  %></li>
-        <% end %>
-        <li class = ""><%= link_to "Contactenos", contact_path, class: ""  %></li>
+            <% end %>
+            <li class = ""><%= link_to "Contacto", contact_path, class: ""  %></li>
 
-        <% if user_signed_in? %>
-          <li class = " "><%= link_to "Salir", auth_sign_out_path, method: :delete ,class:"" %></li>
-        <% else %>
-          <li class = ""><%= link_to "Ingresar", login_path, class: ""  %></li>
-          <li class = ""><%= link_to "Registrarse", register_path, class: "" %></li>
-        <% end %>
-    </ul>
-    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-  </div>
+            <% if user_signed_in? %>
+            <li class = " "><%= link_to "Salir", auth_sign_out_path, method: :delete ,class:"" %></li>
+            <% else %>
+            <li class = ""><%= link_to "Ingresar", login_path, class: ""  %></li>
+            <li class = ""><%= link_to "Registrarse", register_path, class: "" %></li>
+            <% end %>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
 </nav>

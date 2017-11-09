@@ -3,29 +3,33 @@ var heatmap;
 var bogota = {lat: 4.624335, lng: -74.063644};
 var infowindow;
 
-function addMarker(location, image, details) {
+
+function addMarker(location, image, details,report_url) {
     var crime_marker;
     crime_marker = new google.maps.Marker({
         position: location,
         map: map,
         icon: image,
     });
-
+    
+      
     infowindow = new google.maps.InfoWindow();
 
     google.maps.event.addListener(crime_marker, 'click', function() {
        map.setCenter(crime_marker.getPosition());
 
-       var pdetails = "<strong> Details: </strong>" + details;
-
+       var pdetails = "<strong> Detalles: </strong>" + details;
+       var purl = "<br><a href=" + report_url+"><strong> Ver Reporte </strong></a>";
+       var windowcontent = pdetails + purl;
        if( details.length == 1 ){
            console.log("In!");
            pdetails = pdetails + "   <i> No info available </i>   ";
        }
 
-       infowindow.setContent(pdetails);
+       infowindow.setContent(windowcontent);
        infowindow.open(map, crime_marker);
     });
+  
 }
 
 function initMap() {
@@ -74,7 +78,7 @@ function changeGradient() {
 function showMarkers(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_robbery, data[i][2]);
+        addMarker(loc_crime, img_marker_robbery, data[i][2] , data[i][3]);
     }
 }
 
@@ -95,13 +99,13 @@ function toggleHeatmap() {
 function showMarkers_susp(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_suspect, data[i][2]);
+        addMarker(loc_crime, img_marker_suspect, data[i][2], data[i][3]);
     }
 }
 
 function showMarkers_transp(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_bus, data[i][2]);
+        addMarker(loc_crime, img_marker_bus, data[i][2], data[i][3]);
     }
 }

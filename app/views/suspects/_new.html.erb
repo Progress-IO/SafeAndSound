@@ -1,0 +1,14 @@
+
+<%= javascript_include_tag "g_maps/gm_suspect-new" %>
+<div class="container">
+<h1>Nuevo sospechoso</h1>
+
+<button class="btn custom_margin" id="btnaddmarker"> Agregar marcador </button>
+
+<div id="map" class="map_report map_report_suspect" class="custom_margin"></div>
+
+<button id="btn-location" class="btn custom_margin" style="float: right; display:block;" >Agregar localización</button>
+
+<%= render 'form-remote', suspect: @suspect %>
+<%= link_to 'Volver', report_type_path, :remote => true, 'data-toggle' => "modal", 'data-target' => "#modal1", class: "btn btn-small" %>
+</div>

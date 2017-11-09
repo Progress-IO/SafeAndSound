@@ -1,6 +1,5 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_user!, only:[:show, :edit, :update, :destroy]
-  before_action :check_authorization, only: [:edit, :update]
   before_action :set_user, only: [ :show,:edit, :update]
   before_action :is_admin?
 
@@ -9,13 +8,13 @@ class Admin::UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.regular_users
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @user= User.find(params[:id])
+    render "users/show"
   end
   
 
@@ -27,10 +26,15 @@ class Admin::UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    render "users/edit"
   end
 
   def cops
-    @users = User.all
+    @cops = User.cops_users
+  end
+
+  def admins
+    @admins = User.admin_users
   end
 
   # POST /users

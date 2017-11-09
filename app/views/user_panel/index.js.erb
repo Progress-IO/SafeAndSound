@@ -1,0 +1,23 @@
+$('#suspects').append('<%= j render @suspects %>');
+<% if @suspects.next_page %>  
+  $('.pagination').replaceWith('<%= j will_paginate @suspects%>');
+<% else %>  
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %> 
+
+$('#reports').append('<%= j render @reports %>');
+<% if @reports.next_page %>  
+  $('.pagination').replaceWith('<%= j will_paginate @reports%>');
+<% else %>  
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %> 
+
+$('#transports').append('<%= j render @transports %>');
+<% if @transports.next_page %>  
+  $('.pagination').replaceWith('<%= j will_paginate @transports%>');
+<% else %>  
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %> 

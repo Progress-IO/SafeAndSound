@@ -92,6 +92,6 @@ class UsersController < ApplicationController
     end
 
     def view_admin?
-      redirect_to admin_admin_path unless !current_user.Isadmin? 
+      redirect_to admin_admin_path if current_user.Isadmin? 
     end
 end

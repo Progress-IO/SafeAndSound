@@ -14,6 +14,10 @@ class RoutesController < ApplicationController
   # GET /routes/1
   # GET /routes/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /routes/new
@@ -23,7 +27,10 @@ class RoutesController < ApplicationController
 
     puts "My reports: ", @reports_position
     @transport_routes = Transport.all.to_json.html_safe
-  
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /routes/1/edit
@@ -84,7 +91,7 @@ class RoutesController < ApplicationController
     end
 
     def view_admin?
-      redirect_to admin_admins_path unless !current_user.Isadmin? 
+      redirect_to admin_admins_path if current_user.Isadmin? 
     end
    
 

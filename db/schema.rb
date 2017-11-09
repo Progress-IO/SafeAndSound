@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20171109174550) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.integer "user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "discussions", force: :cascade do |t|
@@ -120,6 +127,8 @@ ActiveRecord::Schema.define(version: 20171109174550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "id_route"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_transports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

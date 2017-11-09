@@ -22,7 +22,7 @@ function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var geocoder = new google.maps.Geocoder();
 
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.querySelector('.map_report#map'), {
         zoom: 14,
         center: bogota,
         title: "Calculate route"
@@ -208,14 +208,23 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                 }
 
 
-                if($("#only_safe").is(":checked")){
-                    for (var i = 0; i < response_transit.length; i++) {
-                        if(response_transit[i].routeIndex != insecureRoutes[0][0]){
-                            response_transit[i].setMap(null);
+
+
+                $("#only_safe").change(function(){
+                    if($("#only_safe").is(":checked")){
+                        for (var i = 0; i < response_transit.length; i++) {
+                            if(response_transit[i].routeIndex != insecureRoutes[0][0]){
+                                response_transit[i].setMap(null);
+                            }
+                        }
+                    }else{
+                        for (var i = 0; i < response_transit.length; i++) {
+                            if(response_transit[i].routeIndex != insecureRoutes[0][0]){
+                                response_transit[i].setMap(map);
+                            }
                         }
                     }
-                }
-
+                });
 
                 var idx_s = insecureRoutes[0][0];
                 var transport_order = [];
@@ -284,22 +293,39 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                 }
 
 
-
-                if($("#only_safe").is(":checked")){
-                    for (var i = 0; i < response_routes.length; i++) {
-                        if(response_routes[i].routeIndex != idx_safestRoute){
-                            response_routes[i].setMap(null);
-                        }
-                    }
-
-                    if (route_markers.length != 0) {
-                        for (let i = 0; i < route_markers.length; i++) {
-                            if(route_markers[i].label != idx_safestRoute + 1){
-                                route_markers[i].setMap(null);
+                $("#only_safe").change(function(){
+                    if($("#only_safe").is(":checked")){
+                        for (var i = 0; i < response_routes.length; i++) {
+                            if(response_routes[i].routeIndex != idx_safestRoute){
+                                response_routes[i].setMap(null);
                             }
                         }
+
+                        if (route_markers.length != 0) {
+                            for (let i = 0; i < route_markers.length; i++) {
+                                if(route_markers[i].label != idx_safestRoute + 1){
+                                    route_markers[i].setMap(null);
+                                }
+                            }
+                        }
+                    }else{
+                        for (var i = 0; i < response_routes.length; i++) {
+                            if(response_routes[i].routeIndex != idx_safestRoute){
+                                response_routes[i].setMap(map);
+                            }
+                        }
+
+                        if (route_markers.length != 0) {
+                            for (let i = 0; i < route_markers.length; i++) {
+                                if(route_markers[i].label != idx_safestRoute + 1){
+                                    route_markers[i].setMap(map);
+                                }
+                            }
+                        }
+
                     }
-                }
+                });
+
 
                 $("#response").val(JSON.stringify(response.routes[idx_safestRoute]));
                 $("#route_index").val(idx_safestRoute);

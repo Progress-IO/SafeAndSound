@@ -1,4 +1,4 @@
-<%= render "layouts/admin-panel" %>
+<%= render "layouts/user-panel" %>
 <div class="main content">
     <div class="container">
 
@@ -9,7 +9,13 @@
     <table>
       <thead>
         <tr>
-          <th>Name</th>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>@</th>
+          <th>Correo</th>
+          <th>Creación</th>
+          <th>Modificación</th>
+          <th>Imagen</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -17,9 +23,14 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
+            <td><%= user.id %></td>
             <td><%= user.name %></td>
-            <td><%= link_to 'Show', user %></td>
-            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.created_at.strftime("%b %d /%y %H:%M") %></td>
+            <td><%= user.updated_at.strftime("%b %d /%y %H:%M") %></td>
+            <td><%= user.avatar %></td>
+            <td><%= link_to 'Edit', edit_admin_admin_path(user) %></td>
             <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

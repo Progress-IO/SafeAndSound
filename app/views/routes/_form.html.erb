@@ -1,4 +1,4 @@
-<%= form_with(model: route, local: true) do |form| %>
+<%= form_with(model: route, data: { toggle: "modal", target: "#modal1"}) do |form| %>
   <% if route.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
@@ -11,30 +11,87 @@
     </div>
   <% end %>
 
+
+   <div class="field">
+     <%= form.label :"Nombre" %>
+     <%= form.text_field :route, id: :route_route%>
+   </div>
+
   <div class="field">
-    <%= form.label :origin_latitude %>
-    <%= form.text_field :origin_latitude, id: :route_origin_latitude %>
+    <%= form.label "Modo" %>
+    <%= form.select(:mode, ([["CAR", "DRIVING"], ["BUS", "TRANSIT"], ["BIKE", "BICYCLING"], ["WALKING", "WALKING"]]), {}, { :id => 'route_mode' }) %>
+  </div>
+
+  <div class="general">
+
+      <div class="btn-container">
+
+        <div class="c2">
+            <div id="start_marker" class="btn-f btn orange">Inicio</div>
+            <!-- <div id="mk_start" class="s_green"></div> -->
+        </div>
+
+        <div class="c2">
+            <div id="finish_marker" class="btn-f btn orange">Llegada</div>
+            <!-- <div id="mk_finish" class="s_green"></div> -->
+        </div>
+
+
+        <div class="c2">
+            <div id="calc_route_1" class="btn btn-f red" style="margin-top:20%">Calcular</div>
+        </div>
+
+      </div>
+
+      <div class="field">
+          <%= form.label :route_index, style: "display: none;"%>
+          <%= form.text_field :route_index, id: :route_index, style: "display: none"%>
+      </div>
+      <div class="btn-container">
+        <div class="input-field">
+            <label for="origin_address">Dirección de origen</label>
+            <input id="origin_address" type="text">
+        </div>
+
+        <div class="input-field">
+            <label for="destination_address">Dirección de llegada</label>
+            <input id="destination_address" type="text">
+        </div>
+        <div id="calc_route_2" class="btn-f btn red">Calcular ruta</div>
+
+      </div>
   </div>
 
   <div class="field">
-    <%= form.label :origin_longitude %>
-    <%= form.text_field :origin_longitude, id: :route_origin_longitude %>
+    <%= form.label :origin_latitude, style: "display: none;" %>
+    <%= form.text_field :origin_latitude, id: :route_origin_latitude, style: "display: none;" %>
   </div>
 
   <div class="field">
-    <%= form.label :destination_latitude %>
-    <%= form.text_field :destination_latitude, id: :route_destination_latitude %>
+    <%= form.label :origin_longitude, style: "display: none;" %>
+    <%= form.text_field :origin_longitude, id: :route_origin_longitude, style: "display: none;" %>
   </div>
 
   <div class="field">
-    <%= form.label :destination_longitude %>
-    <%= form.text_field :destination_longitude, id: :route_destination_longitude %>
+    <%= form.label :destination_latitude, style: "display: none;" %>
+    <%= form.text_field :destination_latitude, id: :route_destination_latitude, style: "display: none;" %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date, id: :route_date, class: "datepicker", value: Date.current %>
+    <%= form.label :destination_longitude, style: "display: none;" %>
+    <%= form.text_field :destination_longitude, id: :route_destination_longitude, style: "display: none;" %>
   </div>
+
+  <div class="field">
+    <%= form.label :date, style: "display: none;" %>
+    <%= form.text_field :date, id: :route_date, class: "datepicker", value: Date.current, style: "display: none;" %>
+  </div>
+
+<div class="field">
+    <%= form.label :response, style: "display: none;"%>
+    <%= form.text_field :response, id: :response, style: "display: none;"%>
+</div>
+
 
   <!-- <div class="field">
     <%= form.label :hour %>
@@ -53,6 +110,8 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class: "btn" %>
+    <%= link_to 'Mis rutas', routes_path, class: "btn"%> |
+    <%= form.submit "Crear ruta", class: "btn", onclick: "setTimeout(function(){ initMap(); }, 1000)" %>
+
   </div>
 <% end %>

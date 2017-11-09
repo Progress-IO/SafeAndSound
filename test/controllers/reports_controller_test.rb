@@ -5,44 +5,44 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
     @report = reports(:one)
   end
 
-  test "should get index" do
-    get reports_url
-    assert_response :success
-  end
+  # test "should get index" do
+  #   get reports_url
+  #   assert_response :success
+  # end
 
-  test "should get new" do
-    get new_report_url
-    assert_response :success
-  end
+  # test "should get new" do
+  #   get new_report_url
+  #   assert_response :success
+  # end
 
-  test "should create report" do
-    assert_difference('Report.count') do
-      post reports_url, params: { report: { address: @report.address, details: @report.details, fecha: @report.fecha, latitude: @report.latitude, longitude: @report.longitude, tipo: @report.tipo } }
-    end
+  # test "should create report" do
+  #   assert_difference('Report.count') do
+  #     post reports_url, params: { report: { address: @report.address, details: @report.details, fecha: @report.fecha, latitude: @report.latitude, longitude: @report.longitude, tipo: @report.tipo } }
+  #   end
 
-    assert_redirected_to report_url(Report.last)
-  end
+  #   assert_redirected_to report_url(Report.last)
+  # end
 
-  test "should show report" do
-    get report_url(@report)
-    assert_response :success
-  end
+  # test "should show report" do
+  #   get report_url(@report)
+  #   assert_response :success
+  # end
 
-  test "should get edit" do
-    get edit_report_url(@report)
-    assert_response :success
-  end
+  # test "should get edit" do
+  #   get edit_report_url(@report)
+  #   assert_response :success
+  # end
 
-  test "should update report" do
-    patch report_url(@report), params: { report: { address: @report.address, details: @report.details, fecha: @report.fecha, latitude: @report.latitude, longitude: @report.longitude, tipo: @report.tipo } }
-    assert_redirected_to report_url(@report)
-  end
+  # test "should update report" do
+  #   patch report_url(@report), params: { report: { address: @report.address, details: @report.details, fecha: @report.fecha, latitude: @report.latitude, longitude: @report.longitude, tipo: @report.tipo } }
+  #   assert_redirected_to report_url(@report)
+  # end
 
-  test "should destroy report" do
-    assert_difference('Report.count', -1) do
-      delete report_url(@report)
-    end
+  # test "should destroy report" do
+  #   assert_difference('Report.count', -1) do
+  #     delete report_url(@report)
+  #   end
 
-    assert_redirected_to reports_url
-  end
+  #   assert_redirected_to reports_url
+  # end
 end

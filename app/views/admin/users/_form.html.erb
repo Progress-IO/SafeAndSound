@@ -11,22 +11,22 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :username %>
+    <%= form.label "Nombre de usuario" %>
     <%= form.text_field :username %><!--, id: :user_name-->
   </div>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label "Nombre" %>
     <%= form.text_field :name %><!--, id: :user_name-->
   </div>
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label "Descripción" %>
     <%= form.text_area :description,placeholder:"Tell us something about you!...",  class:"materialize-textarea" %>
   </div>
   
   <div class="field">
       <label class="btn btn-primary">
-    Change your avatar!
+    Cambia tu imagen
     <span style="display:none;">
       <%= form.file_field :avatar, :class=> "green"%>
     </span>
@@ -35,6 +35,6 @@
   <br></br>
    <!--, id: :user_name-->
   <div class="actions">
-    <%= form.submit class: "btn", style: "margin-top: 10px" %>
+    <%= form.submit "Actualizar usuario", class: "btn", style: "margin-top: 10px" %>
   </div>
 <% end %>
