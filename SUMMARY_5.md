@@ -5,10 +5,16 @@
 Funcionalidades y trabajos hechos por cada desarrollador
 
  ### Juan David Valencia
-    
+    - Se paso todo a español, para futura implementación de i18n.
+    - Se instaló la gema de rails_admin. Posible panel.
+    - Se paso el flujo de creacion de rutas a modals de materialize.
+    - Se paso flujo de creación de sospechoso a modals de materialize.
+    - Se extendió algoritmo de busqueda a actividades para filtrar.
  
  ### Luis Guzmán Avellaneda
- 
+    - Se creó panel de reportes en panel de usuario.
+    - Se añadió comentarios a los 3 tipos de reportes.
+    
  
  
  ###  Santiago Peña Sanabria
@@ -25,4 +31,8 @@ Funcionalidades y trabajos hechos por cada desarrollador
     -Se hicieron cambios a las funciones del modelo de rutas
     - Se hizo la funcionalidad de filtrado de rutas de la mas segura a las otras
    
+<<<<<<< HEAD
  ##Link de heroku: safeandsound.herokuapp.com
+=======
+    
+>>>>>>> 74a56ca957e72b6207208d6e8cdd9abc326eb671

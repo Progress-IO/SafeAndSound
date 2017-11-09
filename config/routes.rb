@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+
+  get 'comments/new'
+
   mount RailsAdmin::Engine => '/s_admin', as: 'rails_admin'
     # devise_for :admins
     # resources :admins, :except => [:delete]
@@ -16,10 +20,16 @@ Rails.application.routes.draw do
 
     authenticate :user do
         resources :routes, :except => [:delete]
-        resources :suspects, :except => [:delete]
-        resources :reports, :except => [:delete]
+        resources :suspects, :except => [:delete] do
+            resources :comments
+        end
+        resources :reports, :except => [:delete]do
+            resources :comments
+        end
         resources :discussions, :except => [:delete]
-        resources :transports, :except => [:delete]
+        resources :transports, :except => [:delete]do
+            resources :comments
+        end
         get '/users_panel' =>'user_panel#index', :as => :user_panel
         get 'reports/index'
         get "/user_panel" => 'user_panel#index', as: :user_root

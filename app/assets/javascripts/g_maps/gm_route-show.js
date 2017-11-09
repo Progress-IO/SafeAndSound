@@ -9,7 +9,7 @@ function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var geocoder = new google.maps.Geocoder();
 
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.querySelector('.map_report_show#map'), {
         zoom: 14,
         center: bogota,
         title: "Show route"

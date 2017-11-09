@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :suspects
 
   cattr_accessor :current_user
+  has_many :transports
 
   def login=(login)
     @login = login

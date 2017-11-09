@@ -6,7 +6,7 @@
         <p id="notice" style="color:green"><%= notice %></p>
 
         <h1><%= @route.route%></h1>
-        <div id="map" class="map_report" class="custom_margin"></div>
+        <div id="map" class="map_report map_report_show" class="custom_margin"></div>
 
         <!-- <p>
           <strong>Origin latitude:</strong>
@@ -38,7 +38,7 @@
           <%= @route.mode %>
         </p>
 
-        <!-- <%= link_to 'Edit', edit_route_path(@route), class: "btn"%> | -->
+        <!-- <%= link_to 'Editar', edit_route_path(@route), class: "btn"%> | -->
         <%= link_to 'Mis rutas', routes_path, class: "btn" %>
 
     </div>

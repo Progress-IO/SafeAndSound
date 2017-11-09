@@ -1,6 +1,15 @@
+<%= render "activity" %>
 <%= render "layouts/user-panel" %>
 
+<head>
+<style>
+.modal { width: 85% !important ; max-height: 80% !important ; }
+
+</style>
+</head>
+
 <div class="main">
+    
     <div id="floating-panel">
         <button class="btn activation" id="#heatMap_report" onclick="toggleHeatmap()">Mapa de calor</button>
         <button class="btn activation" id="#heatMap_radius" onclick="changeRadius()">Aumentar radio</button>
@@ -18,14 +27,16 @@
     var data = [];
     var data_susp = [];
     var data_transp = [];
+    var report_url;
 
     <% @temp.each do | report | %>
           xlat = "<%= report.latitude %>" ;
           xlng = "<%= report.longitude %> ";
           details = "<%= report.details %> ";
+          report_url = "<%=report_path(report.id)%>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details];
+          tuple = [xlat, xlng, details, report_url];
           data.push(tuple);
     <% end %>
 
@@ -33,9 +44,10 @@
           xlat = "<%= suspect.latitude %>" ;
           xlng = "<%= suspect.longitude %> ";
           details = "<%= suspect.details %> ";
+          report_url = "<%=suspect_path(suspect.id)%>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details];
+          tuple = [xlat, xlng, details,report_url];
           data_susp.push(tuple);
     <% end %>
 
@@ -43,14 +55,28 @@
           xlat = "<%= transport.latitude %>" ;
           xlng = "<%= transport.longitude %> ";
           details = "<%= transport.detalles %> ";
+          report_url = "<%=transport_path(transport.id)%>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details];
+          tuple = [xlat, xlng, details,report_url];
           data_transp.push(tuple);
     <% end %>
 
 </script>
 
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+</script>
 
 <%= render "layouts/map-actions" %>
 <%= javascript_include_tag "g_maps/gm_user-panel" %>
+
