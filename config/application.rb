@@ -22,5 +22,8 @@ module SafeAndSound
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     config.assets.precompile = %w(*.js *.coffee *.scss *.png *.jpg *.jpeg *.gif *.ico *.eot *.svg *.ttf *.woff)
+
+    #Delayed job
+    config.active_job.queue_adapter = :delayed_job
   end
 end

@@ -78,17 +78,16 @@ class SecurityNewsController < ApplicationController
         if result <= 2.5
           users_chosen.push(report.user_id)
         end
-        # id_novelty = @SecurityNews.id
+        
       end
 
       users_chosen.each do |chosen|
         user_temp = User.find_username(chosen)
         email_temp = User.find_email(chosen)
-        puts user_temp + " lñdfjifigf " + email_temp
-        NoveltyMailer.novelty_mailer(email_temp,user_temp ).deliver_now
+        NoveltyMailer.delay(run_at: 1.minute.from_now).novelty_mailer(email_temp,user_temp)
       end
   end
-
+ 
 
   
 
