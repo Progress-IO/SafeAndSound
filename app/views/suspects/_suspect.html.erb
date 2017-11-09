@@ -22,7 +22,13 @@
                                    <div >
                                      <%= avatar_for(suspect.user,size: 35)%>
                                    </div> 
+
+
+                                 <% if !suspect.user.username.nil? %>
                                 <%=link_to "@"+suspect.user.username, user_path(suspect.user.id)%>
+                                <% else %>
+                                <%=link_to "@user: "+suspect.user.id.to_s, user_path(suspect.user.id)%>
+                                <% end %>
                                 
                               </div>
                               <p> <%= suspect.details.split.first(7).join(' ')%>...</p>
