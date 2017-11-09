@@ -12,6 +12,10 @@ class ReportsController < ApplicationController
     # GET /reports/1
     # GET /reports/1.json
     def show
+         set_report
+        @commentable = @report
+        @comments = @commentable.comments
+        @comment = Comment.new
         respond_to do |format|
             format.html
             format.pdf do

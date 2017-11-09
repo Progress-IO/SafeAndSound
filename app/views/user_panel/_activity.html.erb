@@ -1,0 +1,79 @@
+<div class="side-nav-report">
+    <button id="expand_icon2"class="" >
+        
+    <i class="small material-icons" id = "closeicon">close</i>
+    </button>
+    <div class="row">
+        
+         
+            
+         
+       
+        <div class="col s12">
+              <ul class="tabs ">
+                <li class="tab col s4 "><a class = "tabreport"  href="#test1"> <img class ="tabicon"src = <%=asset_path('sospechoso.png')%>></a></a></li>
+                <li  class="tab col s4"><a class = "tabreport"  href="#test2"><img class ="tabicon"src = <%=asset_path('crimen.png')%>></a></a></li>
+               <li  class="tab col s4"><a class = "tabreport"  href="#test3"><img class ="tabicon"src = <%=asset_path('transport.png')%>></a></a></li>
+              </ul>
+            </div>
+    </div>
+     
+ <div id ="listapanel">
+        
+         
+         
+           
+            
+          <div class="cont_elements">     
+              <div id="test1" class="col s12">
+                 <div class = "suspect_list">
+                     <div id="suspects">
+                          <%= render @suspects %>
+                     </div>
+                   
+                          
+                  <div id="infinite-scrolling-suspects">
+                              <%= will_paginate @suspects%>
+                       </div>
+                
+                 </div>
+             </div>
+            
+            
+            <div id="test2" class="col s12">
+              <div class = "report_list">
+                   <div id="reports">
+                  <%= render @reports %>
+             </div>
+           
+                  
+          <div id="infinite-scrolling-reports">
+                      <%= will_paginate @reports%>
+               </div>
+                </div>
+            </div>
+            
+            
+              <div id="test3" class="col s12">
+              <div class = "transport_list">
+                   <div id="transports">
+                  <%= render @transports %>
+             </div>
+           
+                  
+          <div id="infinite-scrolling-transports">
+                      <%= will_paginate @transports%>
+               </div>
+                </div>
+            </div>
+            
+            
+          </div>  
+         
+         
+        
+        
+     
+    
+     </div>
+ </div>

@@ -2,7 +2,7 @@ class Report < ApplicationRecord
     mount_uploaders :images, ImageUploader
     serialize :images, JSON # If you use SQLite, add this line.
     belongs_to :user
-
+    has_many :comments, as: :commentable
     # Validating marker
     validates :latitude, presence: true
     validates :longitude, presence: { message: "Please add a marker"}
