@@ -25,7 +25,12 @@
                                    <div >
                                      <%= avatar_for(report.user,size: 35)%>
                                    </div> 
+
+                                <% if !report.user.username.nil? %>
                                 <%=link_to "@"+report.user.username, user_path(report.user.id)%>
+                                <% else %>
+                                <%=link_to "@user: "+report.user.id.to_s, user_path(report.user.id)%>
+                                <% end %>
                                 
                               </div>
                                       <p> <%=report.details.split.first(7).join(' ')%>

@@ -13,6 +13,6 @@ class ReportTest < ActiveSupport::TestCase
 		report.latitude = 3.945867
 		assert_not report.save
 		report.tipo = "dfkjghdf"
-		assert_not report.save|
+		assert_not report.save
 	end
 end
