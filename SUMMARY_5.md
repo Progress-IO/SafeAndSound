@@ -12,7 +12,7 @@ Funcionalidades y trabajos hechos por cada desarrollador
     - Se extendió algoritmo de busqueda a actividades para filtrar.
  
  ### Luis Guzmán Avellaneda
-    - Se Creo panel de reportes en panel de usuario.
+    - Se creó panel de reportes en panel de usuario.
     - Se añadió comentarios a los 3 tipos de reportes.
     
  
