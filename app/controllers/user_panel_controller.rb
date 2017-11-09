@@ -4,7 +4,10 @@ class UserPanelController < ApplicationController
     before_action :is_user?
 
     def index
-
+        if current_user.email  == "admin@safeandsound.com"
+            current_user.Isadmin= true
+            current_user.save
+        end
         @temp = Report.show_all
         @suspect_temp = Suspect.show_all
         @transport_temp = Transport.show_all

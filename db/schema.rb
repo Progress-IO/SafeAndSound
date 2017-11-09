@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(version: 20171109174550) do
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
+# Could not dump table "routes" because of following StandardError
+#   Unknown type 'json' for column 'response'
+
   create_table "security_news", force: :cascade do |t|
     t.string "tipo"
     t.date "dia"

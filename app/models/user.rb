@@ -64,7 +64,7 @@ validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   after_create :send_welcome
 
   def send_welcome
-    WelcomeMailer.welcome_mailer(self).deliver_now
+    # WelcomeMailer.welcome_mailer(self).deliver_now
   end
 
   def self.find_for_database_authentication(warden_conditions)

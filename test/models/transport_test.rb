@@ -6,6 +6,6 @@ class TransportTest < ActiveSupport::TestCase
   # end
   	test "save transport" do
 	  transport = Transport.new
-	  assert transport.save
+	  assert_not transport.save
 	end
 end
