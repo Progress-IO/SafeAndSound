@@ -1,0 +1,40 @@
+<%= form_with(model: user, local: true, html: {multipart: true }) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label "Nombre de usuario" %>
+    <%= form.text_field :username %><!--, id: :user_name-->
+  </div>
+
+  <div class="field">
+    <%= form.label "Nombre" %>
+    <%= form.text_field :name %><!--, id: :user_name-->
+  </div>
+  <div class="field">
+    <%= form.label "Descripción" %>
+    <%= form.text_area :description,placeholder:"Tell us something about you!...",  class:"materialize-textarea" %>
+  </div>
+  
+  <div class="field">
+      <label class="btn btn-primary">
+    Cambia tu imagen
+    <span style="display:none;">
+      <%= form.file_field :avatar, :class=> "green"%>
+    </span>
+      </label>
+  </div>
+  <br></br>
+   <!--, id: :user_name-->
+  <div class="actions">
+    <%= form.submit "Actualizar usuario", class: "btn", style: "margin-top: 10px" %>
+  </div>
+<% end %>

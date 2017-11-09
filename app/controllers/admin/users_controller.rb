@@ -1,21 +1,20 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :authenticate_user!, only:[:show, :edit, :update, :destroy]
-  before_action :check_authorization, only: [:edit, :update]
   before_action :set_user, only: [ :show,:edit, :update]
-  before_action :view_admin?
+  before_action :is_admin?
 
 
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.regular_users
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @user= User.find(params[:id])
+    render "users/show"
   end
   
 
@@ -27,6 +26,15 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    render "users/edit"
+  end
+
+  def cops
+    @cops = User.cops_users
+  end
+
+  def admins
+    @admins = User.admin_users
   end
 
   # POST /users
@@ -89,9 +97,5 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username,:name, :avatar,:description)
-    end
-
-    def view_admin?
-      redirect_to admin_admin_path if current_user.Isadmin? 
     end
 end

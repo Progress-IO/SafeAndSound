@@ -1,6 +1,6 @@
 <%if user_signed_in?%>
-
-<div class="side_bar">
+    <%unless current_user.Isadmin?%>
+        <div class="side_bar">
     <ul>
         <li id="expand"><i class="small material-icons" id="expand_icon">navigate_next</i></I></li>
         <li> <a href= <%= user_panel_path %> ><i class="small material-icons">home</i><div class="link_menu">INICIO</div></a> </li>
@@ -32,5 +32,10 @@
         <% end %>
     </ul>
 </div>
+
+    <%else%>
+        <%= render "layouts/admin-panel" %>
+    <%end%>
+
 
 <%end%>

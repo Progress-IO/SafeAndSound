@@ -119,7 +119,8 @@ class Report < ApplicationRecord
     end
 
     def self.user_reports
-        return Report.where(" user_id ==  "+User.current_user.id.to_s)
+        return User.current_user.reports
+        # return Report.where(" user_id ==  "+User.current_user.id.to_s)
     end
        
 
