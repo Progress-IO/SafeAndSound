@@ -1,5 +1,11 @@
 <%= render "layouts/user-panel" %>
 
+<head>
+<style>
+.modal { width: 85% !important ; max-height: 80% !important ; }
+</style>
+</head>
+
 <div class="main">
     <div id="floating-panel">
         <button class="btn activation" id="#heatMap_report" onclick="toggleHeatmap()">Mapa de calor</button>
@@ -51,6 +57,20 @@
 
 </script>
 
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+          
+</script>
 
 <%= render "layouts/map-actions" %>
 <%= javascript_include_tag "g_maps/gm_user-panel" %>
+

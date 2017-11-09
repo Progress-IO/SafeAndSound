@@ -1,8 +1,19 @@
-<%= render 'layouts/user-panel' %>
+<script>
+var og_lat = <%= @route.origin_latitude %>;
+var og_lng = <%= @route.origin_longitude %>;
+
+var fn_lat = <%= @route.destination_latitude %>;
+var fn_lng = <%= @route.destination_longitude %>;
+
+var mode = "<%= @route.mode %>";
+//
+console.log(x);
+
+</script>
 <%= javascript_include_tag "g_maps/gm_route-show" %>
 
-<div class="main content">
-    <div class="container">
+<div class="container">
+
         <p id="notice" style="color:green"><%= notice %></p>
 
         <h1><%= @route.route%></h1>
@@ -41,19 +52,7 @@
         <!-- <%= link_to 'Editar', edit_route_path(@route), class: "btn"%> | -->
         <%= link_to 'Mis rutas', routes_path, class: "btn" %>
 
-    </div>
 </div>
 
-<script>
-    var og_lat = <%= @route.origin_latitude %>;
-    var og_lng = <%= @route.origin_longitude %>;
+<input id="loaded" type="hidden" />
 
-    var fn_lat = <%= @route.destination_latitude %>;
-    var fn_lng = <%= @route.destination_longitude %>;
-
-    var mode = "<%= @route.mode %>";
-    //
-    console.log(x);
-</script>
-
-<%= render "layouts/map-actions" %>
