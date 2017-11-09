@@ -2,13 +2,16 @@
 <html>
 <head>
     <%= javascript_include_tag "https://d3js.org/d3.v4.min.js" %>
+    
 </head>
+<%= wicked_pdf_stylesheet_link_tag "pdf/tables"%>
 <body>
     <div class="main content">
         <div class="container">
-            <h1>Statistics</h1>
-
-            <h5>Crime reports</h5>
+            <h1>Estadisticas</h1>
+            <p>Resumen estadistico de los datos ingresado en la aplicacion S&S.</p>
+            <h5>Reportes de crimen</h5>
+            <p>Cantindad de crimenes reportados por cada tipo de crimen posible.</p>
             <svg width="500" height="300" style="border: 1px solid">
             </svg>
         </div>
@@ -68,5 +71,7 @@
     .attr("width", x.bandwidth())
     .attr("height", function(d) { return height - y(d); });
     </script>
+    
+    
 </body>
 </html>
