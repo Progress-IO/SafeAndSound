@@ -31,8 +31,5 @@ Funcionalidades y trabajos hechos por cada desarrollador
     -Se hicieron cambios a las funciones del modelo de rutas
     - Se hizo la funcionalidad de filtrado de rutas de la mas segura a las otras
    
-<<<<<<< HEAD
  ##Link de heroku: safeandsound.herokuapp.com
-=======
     
->>>>>>> 74a56ca957e72b6207208d6e8cdd9abc326eb671
