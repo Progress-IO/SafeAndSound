@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+users = [1,2,3,4]
 
 100.times do
     Discussion.create([{
         headline: Faker::Lorem.word,
         content:  Faker::Lorem.paragraph,
         created_at: Faker::Time.between(2.days.ago, Date.today, :all),
-        user_id: 1
+        user_id: users[rand(users.size)]
 
     }])
 end
@@ -29,7 +29,7 @@ types = ["Robo violento", "Asesinato", "Estafa", "Raponazo"]
         longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,
         details: Faker::Lorem.paragraphs,
-        user_id: 1
+        user_id: users[rand(users.size)]
 
     }])
 
@@ -44,7 +44,9 @@ rutas =  ["Z4","Z7","J72","J70","320","18-3","C37", "T11", "399", "T163", "B13",
         longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,
         detalles: Faker::Lorem.paragraphs,
-        id_route: rutas[rand(rutas.size)]
+        id_route: rutas[rand(rutas.size)],
+        user_id: users[rand(users.size)]
+
 
     }])
 end
@@ -57,7 +59,7 @@ end
         longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,
         details: Faker::Lorem.paragraphs,
-        user_id: 1
+        user_id: users[rand(users.size)]
 
     }])
 
