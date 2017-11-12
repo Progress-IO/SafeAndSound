@@ -27,6 +27,7 @@
     var data = [];
     var data_susp = [];
     var data_transp = [];
+    var data_security = [];
     var report_url;
 
     <% @temp.each do | report | %>
@@ -60,6 +61,17 @@
           xlng = parseFloat(xlng);
           tuple = [xlat, xlng, details,report_url];
           data_transp.push(tuple);
+    <% end %>
+
+    <% @security.each do | security | %>
+          xlat = "<%= security.latitude %>" ;
+          xlng = "<%= security.longitude %> ";
+          details = "<%= security.details %> ";
+          report_url = "<%=security_news_path(security.id)%>";
+          xlat = parseFloat(xlat);
+          xlng = parseFloat(xlng);
+          tuple = [xlat, xlng, details,report_url];
+          data_security.push(tuple);
     <% end %>
 
 </script>

@@ -25,4 +25,8 @@ class Route < ApplicationRecord
             return  all.sort_by{ |k|  k[sort_by]} 
         end
     end
+
+    def self.show_all
+        return Route.all
+    end
 end

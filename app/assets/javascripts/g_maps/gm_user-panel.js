@@ -42,6 +42,7 @@ function initMap() {
     showMarkers(data);
     showMarkers_susp(data_susp);
     showMarkers_transp(data_transp);
+    showMarkers_security(data_security);
 
     heatmap = new google.maps.visualization.HeatmapLayer({
         data: getPoints(data),
@@ -107,5 +108,12 @@ function showMarkers_transp(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
         addMarker(loc_crime, img_marker_bus, data[i][2], data[i][3]);
+    }
+}
+
+function showMarkers_security(data){
+    for(var i = 0; i < data.length; i++){
+        loc_crime = {lat: data[i][0], lng: data[i][1]};
+        addMarker(loc_crime, img_marker_shield, data[i][2], data[i][3]);
     }
 }
