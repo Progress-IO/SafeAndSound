@@ -70,11 +70,49 @@
   </div>
 </div>
 
+<div id="second-step" class="tap-target" data-activates="home_link">
+<div class="tap-target-content">
+  <h5>Bienvenido</h5>
+  <div>
+  Parece que vamos a empezar con el tutorial. 
+  Siempre puedes volver a verlo
+  o puedes ir a nuestro documento para 
+  una explicación más exhaustiva de la aplicación.
+  </div>
+  <button class="btn activation" onclick="$('#first-step').tapTarget('open');">Siguiente</button>
+</div>
+</div>
+
+<div id="first-step" class="tap-target" data-activates="expand_icon">
+<div class="tap-target-content">
+  <h5>Bienvenido</h5>
+  <div>
+  Parece que vamos a empezar con el tutorial. 
+  Siempre puedes volver a verlo
+  o puedes ir a nuestro documento para 
+  una explicación más exhaustiva de la aplicación.
+  </div>
+  <button class="btn activation" onclick="a();">Siguiente</button>
+</div>
+</div>
+
+
+
+
 <script>
 $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
   });
+
+
+  $('#first-step').tapTarget('open');
+
+  var a = function(){
+        
+        $("#first-step").tapTarget('close');
+        $("#second-step").tapTarget("open"); 
+  }
 </script>
 
 <%= render "layouts/map-actions" %>
