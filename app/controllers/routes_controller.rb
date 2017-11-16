@@ -30,6 +30,16 @@ class RoutesController < ApplicationController
     respond_to do |format|
       format.html
       format.js
+      format.pdf do
+        render pdf: "new",
+        # javascript_delay: 5000,
+        :footer => {
+          :html => {
+            :template => 'layouts/pdf-footer.html'
+          }
+
+        }
+      end
     end
   end
 
