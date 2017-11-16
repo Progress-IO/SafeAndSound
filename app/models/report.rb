@@ -101,6 +101,22 @@ class Report < ApplicationRecord
     end
        
 
+    def self.only_transport
+        reports1 = Report.where(tipo_transp: "transmilenio") 
+        reports2 = Report.where(tipo_transp: "sitp")
+        return (reports1 + reports2)
+    end
 
+
+    def self.lines_freq
+        lines_freq = {}
+        lines = Report.select(:id_route).distinct
+
+        lines.each do | line |
+            lines_freq[ line[:id_route] ] = Report.where(id_route: line[:id_route]).count
+        end
+
+        return lines_freq
+    end
 
 end

@@ -17,6 +17,10 @@ include Math
         return earthRad * c
 
     end
+
+    def self.show_all
+        return SecurityNews.all
+    end
     
 
 end

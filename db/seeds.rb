@@ -38,19 +38,20 @@ end
 rutas =  ["Z4","Z7","J72","J70","320","18-3","C37", "T11", "399", "T163", "B13","H13","G12","192","SE14","K23","L18","B28","F28","108","107","731","C11","Z12","593"]
 
 50.times do
-    Transport.create([{
+    Report.create([{
         fecha: Faker::Date.between(70.days.ago, Date.today),
         latitude: Faker::Number.between(4.5091, 4.8091),
         longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,
-        detalles: Faker::Lorem.paragraphs,
+        details: Faker::Lorem.paragraphs,
+        tipo_transp: "sitp",
         id_route: rutas[rand(rutas.size)],
         user_id: users[rand(users.size)]
 
 
     }])
 end
-
+tipo_t = ["bicicleta","carro","peaton","taxi"]
 50.times do
     Report.create([{
         fecha: Faker::Date.between(100.days.ago, Date.today),
@@ -59,7 +60,23 @@ end
         longitude: Faker::Number.between(-74.077, -74.377),
         address: Faker::Address.street_name,
         details: Faker::Lorem.paragraphs,
+        tipo_transp: tipo_t[rand(tipo_t.size)],
         user_id: users[rand(users.size)]
+
+    }])
+
+
+
+end
+
+50.times do
+    SecurityNews.create([{
+        dia: Faker::Date.between(100.days.ago, Date.today),
+        latitude: Faker::Number.between(4.5091, 4.8091),
+        longitude: Faker::Number.between(-74.077, -74.377),
+        address: Faker::Address.street_name,
+        details: Faker::Lorem.paragraphs,
+       
 
     }])
 

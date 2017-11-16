@@ -31,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
 		user2.Ispolice = false
 		assert user.save
 		cops2 = User.cops_users
-		assert_not  cops.include? user2
+		assert  cops.include? user2
 
 	end
 

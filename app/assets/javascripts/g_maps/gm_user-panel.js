@@ -42,6 +42,7 @@ function initMap() {
     showMarkers(data);
     showMarkers_susp(data_susp);
     showMarkers_transp(data_transp);
+    showMarkers_security(data_security);
 
     heatmap = new google.maps.visualization.HeatmapLayer({
         data: getPoints(data),
@@ -77,8 +78,25 @@ function changeGradient() {
 
 function showMarkers(data){
     for(var i = 0; i < data.length; i++){
+        var modo = data[i][4];
+        var details = data[i][2];
+        console.log(modo);
+        var image_report
+        if (modo == "carro") {
+            image_report = img_marker_car;
+        } else if (modo == "peaton") {
+            image_report = img_marker_peaton;
+        } else if (modo == "sitp" || modo == "transmilenio") {
+            console.log("hoi" + data[i][5]);
+            details = "Numero de ruta: " + data[i][5] + " " +  data[i][2];
+            image_report = img_marker_bus;
+        } else if (modo == "taxi") {
+            image_report = img_marker_taxi;
+        } else if (modo == "bicicleta") {
+            image_report = img_marker_bici;
+        }
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_robbery, data[i][2] , data[i][3]);
+        addMarker(loc_crime, image_report, details , data[i][3]);
     }
 }
 
@@ -105,7 +123,16 @@ function showMarkers_susp(data){
 
 function showMarkers_transp(data){
     for(var i = 0; i < data.length; i++){
+        var num_route = data[i][5];
+        var details = "Numero de ruta = " + num_route + " " + data[i][2];
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_bus, data[i][2], data[i][3]);
+        addMarker(loc_crime, img_marker_bus, details , data[i][3]);
+    }
+}
+
+function showMarkers_security(data){
+    for(var i = 0; i < data.length; i++){
+        loc_crime = {lat: data[i][0], lng: data[i][1]};
+        addMarker(loc_crime, img_marker_shield, data[i][2], data[i][3]);
     }
 }

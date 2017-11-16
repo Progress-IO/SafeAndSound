@@ -26,10 +26,20 @@ class RoutesController < ApplicationController
     @reports_position = Route.Reports_position.to_json.html_safe
 
     puts "My reports: ", @reports_position
-    @transport_routes = Transport.all.to_json.html_safe
+    @transport_routes = Report.only_transport.to_json.html_safe
     respond_to do |format|
       format.html
       format.js
+      format.pdf do
+        render pdf: "new",
+         javascript_delay: 5000,
+        :footer => {
+          :html => {
+            :template => 'layouts/pdf-footer.html'
+          }
+
+        }
+      end
     end
   end
 

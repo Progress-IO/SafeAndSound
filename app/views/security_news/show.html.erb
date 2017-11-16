@@ -1,39 +1,41 @@
 <%= render "layouts/user-panel" %>
 
-<div class="main content">
-  <div class="container">
-      <p id="notice"><%= notice %></p>
-<p>
-  <strong>Tipo:</strong>
-  <%= @security_news.tipo %>
-</p>
+  <div class="main content">
+    <div class="container">
+      <table class="striped">
+        <p id="notice">
+          <%= notice %>
+        </p>
 
-<p>
-  <strong>Dia:</strong>
-  <%= @security_news.dia %>
-</p>
+        <tr>
+          <th>Tipo:</th>
+          <td>
+          <%= @security_news.tipo %>
+            </td>
+        </tr>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @security_news.latitude %>
-</p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @security_news.longitude %>
-</p>
+        <tr>
+          <th>Dia:</th>
+          <td>
+          <%= @security_news.dia %>
+            </td>
+        </tr>
 
-<p>
-  <strong>Address:</strong>
-  <%= @security_news.address %>
-</p>
+        <tr>
+          <th>Direccion:</th>
+          <td>
+          <%= @security_news.address %>
+            </td>
+        </tr>
 
-<p>
-  <strong>Details:</strong>
-  <%= @security_news.details %>
-</p>
+        <tr>
+          <th>Detalles:</th>
+          <td><%= @security_news.details %></td>
+        </tr>
 
-<%= link_to 'Edit', edit_security_news_path(@security_news) %> |
-<%= link_to 'Back', security_news_index_path %>
+      </table>
+      <%= link_to 'Edit', edit_security_news_path(@security_news) %> |
+        <%= link_to 'Back', security_news_index_path %>
+    </div>
   </div>
-</div>
