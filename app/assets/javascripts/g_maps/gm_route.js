@@ -3,6 +3,8 @@ var route_markers = [];
 var response_routes = [];
 var response_transit = [];
 
+var safest_of_all;
+
 window.extractRoute;
 var bogota = {
     lat: 4.624335,
@@ -207,9 +209,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                     );
                 }
 
+                safest_of_all = response.routes[insecureRoutes[0][0]];
 
-
-
+                console.log("+ segura" , safest_of_all);
                 $("#only_safe").change(function(){
                     if($("#only_safe").is(":checked")){
                         for (var i = 0; i < response_transit.length; i++) {
@@ -259,6 +261,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, start, e
                 generate_selectors(response.routes.length);
                 var idx_safestRoute = safestRoute(response);
                 // console.log("Calculated safest: " + (idx_safestRoute + 1));
+                safest_of_all = response.routes[idx_safestRoute];
+                console.log("+ segura" , safest_of_all);
 
                 if (response_routes.length != 0) {
                     for (var i = 0; i < response_routes.length; i++) {
@@ -486,3 +490,9 @@ $("#calc_route").click(function() {
         console.log("Cambio a: ", $("mySelect").value());
         $("#route_index").val($("mySelect").value());
     });
+
+$("#pdf_btn").click(function(){
+
+
+
+});

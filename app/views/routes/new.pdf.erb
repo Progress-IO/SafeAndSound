@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Ruta de Safe and Sound</title>
-    <%= javascript_include_tag "http://code.jquery.com/jquery-1.10.0.min.js" %>
-    <%= stylesheet_link_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" %>
-    <%= javascript_include_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" %>
-
-
+    <!-- <%= javascript_include_tag "http://code.jquery.com/jquery-1.10.0.min.js" %> -->
+    <!-- <%= stylesheet_link_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" %>
+    <%= javascript_include_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" %> -->
 </head>
+<%= wicked_pdf_javascript_include_tag "pdf/jquery" %>
+<%= wicked_pdf_stylesheet_link_tag "pdf/leaflet" %>
+<%= wicked_pdf_javascript_include_tag "pdf/leaflet" %>
 <%= wicked_pdf_javascript_include_tag "pdf/open-map" %>
 
         <body>

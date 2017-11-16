@@ -1,5 +1,7 @@
 <%= javascript_include_tag "materialize_init" %>
 <%= form_with(model: report, local: true) do |form| %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<%= javascript_include_tag "autocomplete/autocompletar" %>
 
 
 <script>
@@ -49,6 +51,10 @@
     <%= form.text_field :tipo_transp, readonly: true, style: "display:none", id: "tipo_t"  %>
 </div>
 
+<div class="field">
+    <%= form.label "Numero de ruta", id: "label_auto" %>
+    <%= form.text_field :id_route, id: "autocomplete-input", class: "autocomplete" , autocomplete: "off"%>
+  </div>
 
 
 <div class="field">

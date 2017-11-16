@@ -33,7 +33,7 @@ Rails.application.routes.draw do
           resources :transports, :except => [:delete]do
               resources :comments
           end
-       
+          
           get '/users_panel' =>'user_panel#index', :as => :user_panel
           get 'reports/index'
           get "/user_panel" => 'user_panel#index', as: :user_root

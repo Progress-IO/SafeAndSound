@@ -35,6 +35,8 @@ class ReportsController < ApplicationController
         @report = Report.new
     end
 
+    
+
     # GET /reports/1/edit
     def edit
     end
@@ -96,7 +98,7 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-        params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []},:dia ,:hora, :tipo_transp)
+        params.require(:report).permit(:fecha, :tipo, :latitude, :longitude, :address, :details, {images: []},:dia ,:hora, :tipo_transp, :id_route)
     end
 
 end

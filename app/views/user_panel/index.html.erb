@@ -35,9 +35,11 @@
           xlng = "<%= report.longitude %> ";
           details = "<%= report.details %> ";
           report_url = "<%=report_path(report.id)%>";
+          tipo = "<%= report.tipo_transp %>";
+          num_ruta = "<%= report.id_route %>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details, report_url];
+          tuple = [xlat, xlng, details, report_url, tipo, num_ruta];
           data.push(tuple);
     <% end %>
 
@@ -52,16 +54,7 @@
           data_susp.push(tuple);
     <% end %>
 
-    <% @transport_temp.each do | transport | %>
-          xlat = "<%= transport.latitude %>" ;
-          xlng = "<%= transport.longitude %> ";
-          details = "<%= transport.detalles %> ";
-          report_url = "<%=transport_path(transport.id)%>";
-          xlat = parseFloat(xlat);
-          xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details,report_url];
-          data_transp.push(tuple);
-    <% end %>
+
 
     <% @security.each do | security | %>
           xlat = "<%= security.latitude %>" ;

@@ -110,6 +110,6 @@
         <%= link_to 'Mis rutas', routes_path, class: "btn"%> |
           <%= form.submit "Crear ruta", class: "btn" %>
 
-            <%= link_to 'Convertir a PDF', new_route_path(@route, :format => 'pdf'), class: "btn custom_margin" %>
+            <%= link_to 'Convertir a PDF', new_route_path(@route, :format => 'pdf'), class: "btn custom_margin", id: "pdf_btn" %>
       </div>
       <% end %>
