@@ -3,17 +3,28 @@
 
 <head>
 <style>
-.modal { width: 85% !important ; max-height: 80% !important ; }
+.modal { width: 40% !important ; max-height: 75% !important ; }
 
+.tap-target  {
+  background-color: rgba(7, 10, 20, 0.72) !important ;
+  border-radius: 50%  !important;
+  color: white !important;
+  
+}
+
+
+.section_title {
+  
+}
 </style>
 </head>
 
 <div class="main">
     
     <div id="floating-panel">
-        <button class="btn activation" id="#heatMap_report" onclick="toggleHeatmap()">Mapa de calor</button>
-        <button class="btn activation" id="#heatMap_radius" onclick="changeRadius()">Aumentar radio</button>
-        <button class="btn activation" id="#heatMap_gradient" onclick="changeGradient()">Cambio de color</button>
+        <button class="btn activation" id="heatMap_report" onclick="toggleHeatmap()">Mapa de calor</button>
+        <button class="btn activation" id="heatMap_radius" onclick="changeRadius()">Aumentar radio</button>
+        <button class="btn activation" id="heatMap_gradient" onclick="changeGradient()">Cambio de color</button>
     </div>
     <div id="map" class="map_user-panel"></div>
 </div>
@@ -72,7 +83,204 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
   <div class="modal-content">
+    <div class="">
+      <img src="<%= asset_path('logo.png') %>" class="mylogo" style="width: 40%;">
+      <p>
+      Safe&Sound es una aplicación web que advierte a las personas sobre
+      diferentes crimenes. Centrada en la ciudad de Bogotá la tecnologia puede 
+      ser utilizada en cualquier parte. Esta aplicación fue creada por el grupo
+      Progress-IO.
+      </p>
+      <a href="https://github.com/Progress-IO/SafeAndSound"><button class="btn activation">Ver en Github</button></a>
+      <button class="btn activation" onclick="$('#modal1').modal('close');zero();">Tomar tour</button>
   </div>
+  </div>
+</div>
+
+<!-- Tutorial -->
+
+<div id="first-step" class="tap-target" data-activates="expand_icon">
+<div class="tap-target-content">
+  <h5 class="section_title">Bienvenido</h5>
+  <div>
+  Parece que vamos a empezar con el tutorial. 
+  Siempre puedes volver a verlo
+  o asi que no te preocupes si te pierdes algo.
+  ¡Vamos a empezar!
+  </div>
+  <button class="btn activation" onclick="first();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="second-step" class="tap-target" data-activates="home_link">
+  <div class="tap-target-content">
+    <h5  class="section_title">Inicio</h5>
+    <div>
+    Donde estamos en este momento es la
+    pagina de inicio de Safe&Sound. Puedes volver aqui desde cualquier
+    parte presionando este icono.
+    </div>
+    <br />
+    <div>
+    Aqui puedes ver todos los reportes que otras personas han realizado
+    y el panel a la derecha te puede ayudar a ubicarte de una mejor manera.
+    </div>
+    <button class="btn activation" onclick="zero_map();">Ver mapa</button>
+    <button class="btn activation" onclick="second();"><i class="material-icons">navigate_next</i></button>
+  </div>
+</div>
+
+
+<div id="third-step" class="tap-target" data-activates="routes_link">
+  <div class="tap-target-content">
+    <h5 class="section_title" >Rutas</h5>
+    <div>
+    En esta sección puedes calcular una ruta segura, a partir
+    de lo que ha sido reportado por los otros usuarios.
+    </div>
+    <button class="btn activation" onclick="third();"><i class="material-icons">navigate_next</i></button>
+  </div>
+</div>
+
+
+
+<div id="fourth-step" class="tap-target" data-activates="reports_link">
+<div class="tap-target-content">
+  <h5 class="section_title">Reportes</h5>
+  <div>
+  ¿Viste alguna clase de crimen?, ¿Quieres que otras personas se enteren?.
+  Debes comenzar aqui e ingresar toda la información que puedas para advertir
+  a otros del posible peligro.
+  </div>
+  <br />
+  <div>
+    Puedes ver en la sección izquierda un panel que resume toda esa información. Podemos
+    desviarnos y explicar este panel o seguir con el tour principal.
+    
+  </div>
+  <button class="btn activation" onclick="zero_panel();">Ver panel</button>
+  <button class="btn activation" onclick="fourth();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="fifth-step" class="tap-target" data-activates="view_link">
+<div class="tap-target-content">
+  <h5 class="section_title">Actividad</h5>
+  <div>
+  Toda esta información a veces es dificil de digerir. Esta sección
+  ayuda a filtrar todos estos datos para que puedas encontrar lo que 
+  te interesa.
+  </div>
+  <button class="btn activation" onclick="fifth();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="sixth-step" class="tap-target" data-activates="status_link">
+<div class="tap-target-content">
+  <h5 class="section_title">Estatus</h5>
+  <div>
+  A veces queremos saber lo que ha pasado recientemente pero no sabemos exactamente
+  que es lo que buscamos. Aqui puedes buscar en toda la información que publican los 
+  otros usuarios y la tuya para encontrar lo que estas buscando.
+  </div>
+  <button class="btn activation" onclick="sixth();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="seventh-step" class="tap-target" data-activates="statistics_link">
+<div class="tap-target-content">
+  <h5 class="section_title">Estadisticas</h5>
+  <div>
+  Prefieres las graficas y las imagenes. Con estadisticas puedes de ver información
+  relevante en este formato, y analizar que es lo que esta sucediendo.
+  </div>
+  <button class="btn activation" onclick="seventh();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="eighth-step" class="tap-target" data-activates="user_link">
+<div class="tap-target-content">
+  <h5 class="section_title">Configuración</h5>
+  <div>
+  Personaliza tu perfil y hablanos de ti
+  </div>
+  <button class="btn activation" onclick="eighth();">¡Finalizar!</button>
+</div>
+</div>
+
+<!-- Tutorial Mapa -->
+<div id="first-map-step" class="tap-target" data-activates="heatMap_report">
+<div class="tap-target-content">
+  <h5 class="section_title">Mapa de calor</h5>
+  <div>
+  Puedes ver un área alrededor del reporte que representa el peligro posible.
+  </div>
+  <button class="btn activation" onclick="first_map();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="second-map-step" class="tap-target" data-activates="heatMap_radius">
+<div class="tap-target-content">
+  <h5 class="section_title">Aumentar radio</h5>
+  <div>
+  Tal vez pienses que el peligro debe de ser más extenso. Esta caracteristica
+  puede ayudarte a ver lo que piensas. 
+  </div>
+  <button class="btn activation" onclick="second_map();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="third-map-step" class="tap-target" data-activates="heatMap_gradient">
+<div class="tap-target-content">
+  <h5 class="section_title">Cambio de calor</h5>
+  <div>
+  A veces lo mismo aburre. ¡Puedes cambiar el color del mapa de calor aqui!
+  </div>
+  <button class="btn activation" onclick="first();">Volver al tutorial</button>
+</div>
+</div>
+
+
+<!-- Tutorial Panel de crimenes -->
+
+<div id="first-panel-step" class="tap-target" data-activates="expand_icon2">
+<div class="tap-target-content">
+  <h5 class="section_title">Panel de reportes</h5>
+  <div>
+  Aqui observaras los ultimos reportes que han realizado otros usuarios, sin tener que salir del mapa
+  </div>
+  <button class="btn activation" onclick="first_panel();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="second-panel-step" class="tap-target" data-activates="suspects_panel_icon">
+<div class="tap-target-content">
+  <h5 class="section_title">Sospechososs</h5>
+  <div>
+  Puedes filtrar para encontrar los últimos sospechosos que se han reportado
+  </div>
+  <button class="btn activation" onclick="second_panel();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="third-panel-step" class="tap-target" data-activates="crimes_panel_icon">
+<div class="tap-target-content">
+  <h5 class="section_title">Crimenes</h5>
+  <div>
+  Puedes ver los ultimos crimenes que han sucedido en la ciudad
+  </div>
+  <button class="btn activation" onclick="third_panel();"><i class="material-icons">navigate_next</i></button>
+</div>
+</div>
+
+<div id="fourth-panel-step" class="tap-target" data-activates="public_transport_panel_icon">
+<div class="tap-target-content">
+  <h5 class="section_title">Crimenes en transporte público</h5>
+  <div>
+  Tambien puedes ver los ultimos reportes que se han publicado, relacionados con el transporte público
+  </div>
+  <button class="btn activation" onclick="third();">Volver al tutorial</button>
+</div>
 </div>
 
 <script>
@@ -80,6 +288,70 @@ $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
   });
+
+
+  // Tutorial
+  
+  var zero = function(){
+    $("#first-step").tapTarget("open");
+  }
+  var first = function(){    
+        $("#second-step").tapTarget("open"); 
+  }
+  var second = function(){    
+    $("#third-step").tapTarget("open"); 
+  }
+  var third = function(){    
+    $("#fourth-step").tapTarget("open"); 
+  }
+  var fourth = function(){    
+    $("#fifth-step").tapTarget("open"); 
+  }
+  var fifth = function(){    
+    $("#sixth-step").tapTarget("open"); 
+  }
+  var sixth = function(){    
+    $("#seventh-step").tapTarget("open"); 
+  }
+  var seventh = function(){    
+    $("#eighth-step").tapTarget("open"); 
+  }
+
+  // Map Tutorial
+  var zero_map = function(){
+    $("#first-map-step").tapTarget('open');
+  }
+
+  var first_map = function(){
+    $("#second-map-step").tapTarget('open');
+  } 
+  
+  var second_map = function(){
+    $("#third-map-step").tapTarget('open');
+  }
+
+  var third_map = function(){
+    $("#fourth-map-step").tapTarget('open');
+  }
+
+  // Panel Tutorial
+  var zero_panel = function(){
+    $("#first-panel-step").tapTarget('open');
+  }
+
+  var first_panel = function(){
+    $("#second-panel-step").tapTarget('open');
+  } 
+  
+  var second_panel = function(){
+    $("#third-panel-step").tapTarget('open');
+  }
+
+  var third_panel = function(){
+    $("#fourth-panel-step").tapTarget('open');
+  }
+
+
 </script>
 
 <%= render "layouts/map-actions" %>
