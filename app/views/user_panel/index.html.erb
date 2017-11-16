@@ -3,7 +3,7 @@
 
 <head>
 <style>
-.modal { width: 85% !important ; max-height: 80% !important ; }
+.modal { width: 40% !important ; max-height: 70% !important ; }
 
 </style>
 </head>
@@ -67,6 +67,17 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
   <div class="modal-content">
+    <div class="">
+      <img src="<%= asset_path('logo.png') %>" class="mylogo" style="width: 40%;">
+      <p>
+      Safe&Sound es una aplicación web que advierte a las personas sobre
+      diferentes crimenes. Centrada en la ciudad de Bogotá la tecnologia puede 
+      ser utilizada en cualquier parte. Esta aplicación fue creada por el grupo
+      Progress-IO.
+      </p>
+      <a href="https://github.com/Progress-IO/SafeAndSound"><button class="btn activation">Ver en Github</button></a>
+      <button class="btn activation" onclick="$('#modal1').modal('close');first();">Tomar tour</button>
+  </div>
   </div>
 </div>
 
@@ -213,8 +224,8 @@ $(document).ready(function(){
     $('.modal').modal();
   });
 
+
   // Tutorial
-  $('#first-step').tapTarget('open');
   var first = function(){    
         $("#second-step").tapTarget("open"); 
   }

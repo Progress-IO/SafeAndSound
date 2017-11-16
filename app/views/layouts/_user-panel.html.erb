@@ -30,6 +30,9 @@
         <% if current_user.is_police %>
             <li> <a href= <%= novelties_path %> ><i class="small material-icons">security</i><div class="link_menu">NOVEDADES</div></a> </li>
         <% end %>
+        <% if current_page?(:controller => "user_panel", :action => "index")%>
+        <li><a class="modal-trigger" href="#modal1"> <i class="small material-icons">help</i><div class="link_menu">AYUDA</div> </a></li>
+        <% end %>
     </ul>
 </div>
  
