@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  rating_weight 0.4
+
+ 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -83,6 +86,14 @@ validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
   def self.find_username(id)
     return User.find(id).username
+  end
+  
+  def description
+    "The film #{film.title} has #{film.number_of_swear_words} and was rated at #{rating}"
+  end
+
+  def rating
+    # calculate rating somehow
   end
      mount_uploader :avatar, ImageUploader
     serialize :avatar, JSON # If you use SQLite, add this line.
