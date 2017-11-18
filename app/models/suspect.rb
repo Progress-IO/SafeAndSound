@@ -3,6 +3,7 @@ class Suspect < ApplicationRecord
     serialize :images, JSON # If you use SQLite, add this line.
     belongs_to :user
     has_many :comments, as: :commentable
+    ratyrate_rateable "calificacion"
     # Validation of marker
     validates :latitude, presence: true
     validates :longitude, presence: { message: "Marker must be added" }

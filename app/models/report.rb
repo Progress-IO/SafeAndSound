@@ -6,7 +6,7 @@ class Report < ApplicationRecord
     # Validating marker
     validates :latitude, presence: true
     validates :longitude, presence: { message: "Please add a marker"}
-
+    ratyrate_rateable "calificacion"
     rails_admin do 
         list do
             field :id

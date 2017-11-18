@@ -292,10 +292,10 @@
           cancel = $('<' + this.opt.starType + ' />', { title: this.opt.cancelHint, 'class': this.opt.cancelClass });
 
       if (this.opt.starType === 'img') {
-        cancel.attr({ src: icon, alt: 'x' });
+        cancel.attr({ src: icon, alt: '' });
       } else {
         // TODO: use $.data
-        cancel.attr('data-alt', 'x').addClass(icon);
+        cancel.attr('data-alt', '').addClass(icon);
       }
 
       if (this.opt.cancelPlace === 'left') {
@@ -730,11 +730,11 @@
     click        : undefined,
     half         : false,
     halfShow     : true,
-    hints        : ['bad', 'poor', 'regular', 'good', 'gorgeous'],
+    hints        : ['Malo', 'Pobre', 'Regular', 'Bueno', 'Excelente'],
     iconRange    : undefined,
     mouseout     : undefined,
     mouseover    : undefined,
-    noRatedMsg   : 'Not rated yet!',
+    noRatedMsg   : 'Sin calificar!',
     number       : 5,
     numberMax    : 20,
     path         : undefined,
