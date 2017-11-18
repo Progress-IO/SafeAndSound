@@ -29,7 +29,9 @@ Rails.application.routes.draw do
           resources :reports, :except => [:delete]do
               resources :comments
           end
-          resources :discussions, :except => [:delete]
+          resources :discussions, :except => [:delete]do
+              resources :comments
+          end
           resources :transports, :except => [:delete]do
               resources :comments
           end

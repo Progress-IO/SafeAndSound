@@ -12,9 +12,26 @@
       </p>
   </div>
   <p><i><%= @discussion.created_at.strftime("%e %b %Y %H:%M:%S%p")%></i></p>
+  
+  <div class="rating" data-score = "<%=@discussion.rating%>"</div></div>
+  
   <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
   <%= link_to 'Back', discussions_path %>
-  <%=render 'disqus'%>
+  
+   <%= render  "comments/comment" %>
+  <%= render  "comments/form" %>
   
   
   </div>
+<script>
+  /*$('.rating').raty({
+    readOnly: true,
+    score: function:(){
+      return $(this).attr('data-score');
+      },
+      path: 'assets/images/'
+    
+  });*/
+  $('.rating').raty({  readOnly: true, path: '/assets/'});
+ 
+</script>
