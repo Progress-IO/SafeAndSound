@@ -13,11 +13,3 @@ $('#reports').append('<%= j render @reports %>');
   $(window).off('scroll');
   $('.pagination').remove();
 <% end %> 
-
-$('#transports').append('<%= j render @transports %>');
-<% if @transports.next_page %>  
-  $('.pagination').replaceWith('<%= j will_paginate @transports%>');
-<% else %>  
-  $(window).off('scroll');
-  $('.pagination').remove();
-<% end %> 
