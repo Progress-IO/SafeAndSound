@@ -9,7 +9,7 @@
             <ul class="tabs">
                 <li class="tab col s4"><a class = "tabreport"  href="#test1"><i class="material-icons small tab_icons">record_voice_over</i> </a></a></li>
                 <li class="tab col s4"><a class = "tabreport"  href="#test2"><i class="material-icons small tab_icons">error</i></a></a></li>
-                <li class="tab col s4"><a class = "tabreport"  href="#test3"><i class="material-icons small tab_icons">directions_bus
+                <li class="tab col s4"><a class = "tabreport"  href="#test3"><i class="material-icons small tab_icons">map
                 </i></a></a></li>
             </ul>
         </div>
@@ -49,7 +49,28 @@
 
             <div id="test3" class="col s12">
                 <div class = "transport_list">
-                   
+                   <!--   <select id="type" onchange="filterMarkers(this.value);">
+                        <option value="">Filtrar reportes</option>
+                        <option value="Raponazo">Raponazo</option>
+                        <option value="Robo violento">Robo violento</option>
+                        <option value="Asesinato">Asesinato</option>
+                        <option value="Estafa">Estafa</option>
+                        <option value="Sospechoso">Sospechoso</option>
+                    </select>                                                    -->
+                      <div class="filtros">
+                          <div><p><b>Filtrar por tipo de crimen:</b></p></div>
+                        <input type="checkbox" id="sospechoso"value="Sospechoso" checked="checked" />
+                        <label for="sospechoso">Sospechoso</label>
+                        <input type="checkbox" id="Raponazo"value="Raponazo" checked="checked"  />
+                        <label for="Raponazo">Raponazo</label>
+                        <input type="checkbox" id="Robo violento"value="Robo violento"  checked="checked"  />
+                        <label for="Robo violento">Robo violento</label>
+                        <input type="checkbox" id="Asesinato"value="Asesinato"  checked="checked" />
+                        <label for="Asesinato">Asesinato</label>
+                        <input type="checkbox" id="Estafa"value="Estafa"  checked="checked"  />
+                        <label for="Estafa">Estafa</label>
+                    
+                    </div>
                 </div>
             </div>
 

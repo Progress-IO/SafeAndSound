@@ -2,17 +2,18 @@ var map;
 var heatmap;
 var bogota = {lat: 4.624335, lng: -74.063644};
 var infowindow;
+var reportes = []
 
-
-function addMarker(location, image, details,report_url) {
+function addMarker(location, image, details,report_url,report_type,transport_type) {
     var crime_marker;
     crime_marker = new google.maps.Marker({
         position: location,
         map: map,
+        category: report_type,
         icon: image,
     });
     
-      
+    reportes.push(crime_marker);  
     infowindow = new google.maps.InfoWindow();
 
     google.maps.event.addListener(crime_marker, 'click', function() {
@@ -48,6 +49,9 @@ function initMap() {
         map: map,
         radius: 50
     });
+    $('.filtros input').click(function () {
+    boxclick(this, this.value);
+  }); 
 
 }
 
@@ -78,7 +82,7 @@ function changeGradient() {
 function showMarkers(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_robbery, data[i][2] , data[i][3]);
+        addMarker(loc_crime, img_marker_robbery, data[i][2] , data[i][3],data[i][4],data[i][5]);
     }
 }
 
@@ -99,13 +103,58 @@ function toggleHeatmap() {
 function showMarkers_susp(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_suspect, data[i][2], data[i][3]);
+        addMarker(loc_crime, img_marker_suspect, data[i][2], data[i][3],data[i][4],data[i][5]);
     }
 }
 
 function showMarkers_transp(data){
     for(var i = 0; i < data.length; i++){
         loc_crime = {lat: data[i][0], lng: data[i][1]};
-        addMarker(loc_crime, img_marker_bus, data[i][2], data[i][3]);
+        addMarker(loc_crime, img_marker_bus, data[i][2], data[i][3],data[i][4],data[i][5]);
     }
 }
+/**
+ * Function to filter markers by category
+
+
+filterMarkers = function (category) {
+    for (i = 0; i < data.length+ data_susp.length; i++) {
+        marker = reportes[i];
+        // If is same category or category not picked
+        if (marker.category == category || category.length === 0 ) {
+            marker.setVisible(true);
+        }
+        // Categories don't match 
+        else {
+            marker.setVisible(false);
+        }
+    }
+}
+ */
+    function show(category) {
+      for (var i=0; i<reportes.length; i++) {
+        if (reportes[i].category == category) {
+          reportes[i].setVisible(true);
+        }
+      }
+      document.getElementById(category+"box").checked = true;
+    }
+
+    function hide(category) {
+      for (var i=0; i<reportes.length; i++) {
+        if (reportes[i].category == category) {
+          reportes[i].setVisible(false);
+        }
+      }
+      document.getElementById(category+"box").checked = false;
+      infowindow.close();
+    }
+
+    function boxclick(box,category) {
+      if (box.checked) {
+        show(category);
+      } else {
+        hide(category);
+      }
+    }
+
