@@ -10,6 +10,7 @@ function addMarker(location, image, details,report_url,report_type,transport_typ
         position: location,
         map: map,
         category: report_type,
+        transp: transport_type,
         icon: image,
     });
     
@@ -133,7 +134,7 @@ filterMarkers = function (category) {
  */
     function show(category) {
       for (var i=0; i<reportes.length; i++) {
-        if (reportes[i].category == category) {
+        if (reportes[i].category == category || reportes[i].transp == category) {
           reportes[i].setVisible(true);
         }
       }
@@ -142,7 +143,7 @@ filterMarkers = function (category) {
 
     function hide(category) {
       for (var i=0; i<reportes.length; i++) {
-        if (reportes[i].category == category) {
+        if (reportes[i].category == category|| reportes[i].transp == category) {
           reportes[i].setVisible(false);
         }
       }
