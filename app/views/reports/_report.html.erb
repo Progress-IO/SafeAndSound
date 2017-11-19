@@ -13,13 +13,13 @@
                                      
                                    <br></br>
                                     <div class="botones">  
-                            <div class = "location">
-                              <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
-                              <span class="latitude"><%=report.latitude%></span>
-                              <span class="longitude"><%=report.longitude%></span>
-                            </div>
-                            <div class= "comentarios ">   <i class="tiny material-icons report-time " >comment</i><span class = "report-time"><%= report.comments.count%></span> </div>
-                            </div>
+                                        <div class = "location">
+                                          <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
+                                          <span class="latitude"><%=report.latitude%></span>
+                                          <span class="longitude"><%=report.longitude%></span>
+                                        </div>
+                                        <div class= "comentarios ">   <i class="tiny material-icons report-time " >question_answer</i><span class = "report-time"><%= report.comments.count%></span> </div>
+                                    </div>
                           
                         <div class="rating"><%= rating_for report, 'calificacion' , enable_half: true , readonly: true %></div>
                               </div>
