@@ -10,6 +10,7 @@ function addMarker(location, image, details,report_url,report_type,transport_typ
         position: location,
         map: map,
         category: report_type,
+        animation: null,
         transp: transport_type,
         icon: image,
     });
@@ -53,6 +54,13 @@ function initMap() {
     $('.filtros input').click(function () {
     boxclick(this, this.value);
   }); 
+  
+  
+  
+  
+  /*****************/
+    
+  /**************/
 
 }
 
@@ -158,4 +166,5 @@ filterMarkers = function (category) {
         hide(category);
       }
     }
+
 
