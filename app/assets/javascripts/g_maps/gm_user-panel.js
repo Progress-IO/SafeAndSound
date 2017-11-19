@@ -16,7 +16,7 @@ function addMarker(location, image, details,report_url) {
     infowindow = new google.maps.InfoWindow();
 
     google.maps.event.addListener(crime_marker, 'click', function() {
-       map.setCenter(crime_marker.getPosition());
+       map.panTo(crime_marker.getPosition());
 
        var pdetails = "<strong> Detalles: </strong>" + details;
        var purl = "<br><a href=" + report_url+"><strong> Ver Reporte </strong></a>";
