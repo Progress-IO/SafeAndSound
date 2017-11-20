@@ -1,11 +1,16 @@
 $(document).ready(function() {
 var mymap = L.map('mapid').setView([4.7110, -74.0721], 13);
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1Ijoic3BlbmFzIiwiYSI6ImNqYTE4MzdrNDkyZWMyeWxndG91anp4MWcifQ.F0fyB0gB2ivsaHcX-t-FbQ'
+// L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+//     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+//     maxZoom: 18,
+//     id: 'mapbox.streets',
+//     accessToken: 'pk.eyJ1Ijoic3BlbmFzIiwiYSI6ImNqYTE4MzdrNDkyZWMyeWxndG91anp4MWcifQ.F0fyB0gB2ivsaHcX-t-FbQ'
+// }).addTo(mymap);
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributor',    
+    //other attributes.
 }).addTo(mymap);
 
 var marker = L.marker([4.7110, -74.0721]).addTo(mymap);
