@@ -6,11 +6,11 @@ $(document).ready(function(){
     var margin_left_side = $(".side_bar").width();
     
     var nav_width = 200;
-
+    var activity_width = $(".side-nav-report").width();
     $(".main").css("margin-top", margin_top_header);
     $(".main").css("margin-left", margin_left_side);
     
-    if($(".side-nav-report").length > 0){$(".main").css("margin-right", 300)};
+    if($(".side-nav-report").length > 0){$(".main").css("margin-right", activity_width)};
     
     
     $(".link_menu").css("display", "none");
@@ -56,13 +56,13 @@ $(document).ready(function(){
         if(!$(".side-nav-report").hasClass(".side-nav-report-toggle")){
             console.log("going in");
             margin_left_side = nav_width;
-
+            
             
             setTimeout(function() {
                 $("#closeicon").text("close");
-            $(".side-nav-report").css("width", 300);
+            $(".side-nav-report").css("width", activity_width);
                 $("#listapanel,.side-nav-report .row ").css("opacity","");
-                 $(".main").css("margin-right", 300);
+                 $(".main").css("margin-right", activity_width);
                 
             }, 300);
              

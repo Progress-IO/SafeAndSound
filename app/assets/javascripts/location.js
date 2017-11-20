@@ -10,8 +10,9 @@ $(function(){
         if (myLatlng.equals(reportes[i].getPosition())) {
             
           reportes[i].setAnimation(google.maps.Animation.BOUNCE);
-            setTimeout(function(){ reportes[i].setAnimation(null); }, 750);
+            setTimeout(function(){ reportes[i].setAnimation(null); }, 1400);
             map.panTo(latLng); // setCenter takes a LatLng object
+            reportes[i].setVisible(true);
             break;
         }
          

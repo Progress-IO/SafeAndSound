@@ -10,7 +10,6 @@ function addMarker(location, image, details,report_url,report_type,transport_typ
         position: location,
         map: map,
         category: report_type,
-        animation: null,
         transp: transport_type,
         icon: image,
     });
