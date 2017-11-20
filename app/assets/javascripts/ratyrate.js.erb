@@ -1,15 +1,4 @@
-$('#suspects').append('<%= j render @suspects %>');
-<% if @suspects.next_page %>  
-  $('.pagination').replaceWith('<%= j will_paginate @suspects%>');
-<% else %>  
-  $(window).off('scroll');
-  $('.pagination').remove();
-<% end %> 
-
-$('#reports').append('<%= j render @reports %>');
-<% if @reports.next_page %>  
-  $('.pagination').replaceWith('<%= j will_paginate @reports%>');
-  $.fn.raty.defaults.half = false;
+$.fn.raty.defaults.half = false;
 $.fn.raty.defaults.halfShow = true;
 $.fn.raty.defaults.path = "/assets";
 $.fn.raty.defaults.cancel = false;
@@ -71,8 +60,3 @@ $(function(){
     });
   });
 });
-
-<% else %>  
-  $(window).off('scroll');
-  $('.pagination').remove();
-<% end %> 

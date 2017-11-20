@@ -35,7 +35,7 @@
                 <% end %>
             <% end %>
         </div>
-
+    <b>Calificación  :</b>     <%= rating_for @suspect, 'calificacion' , enable_half: true  %>
         <%= link_to 'Editar', edit_suspect_path(@suspect), class: "btn custom_margin" %> |
         <%= link_to 'Volver', suspects_path, class: "btn custom_margin" %> |
         <%= link_to 'Convertir a PDF', suspect_path(@suspect, format: 'pdf'), class: "btn custom_margin" %>

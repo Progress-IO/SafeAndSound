@@ -12,9 +12,14 @@
       </p>
   </div>
   <p><i><%= @discussion.created_at.strftime("%e %b %Y %H:%M:%S%p")%></i></p>
-  <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-  <%= link_to 'Back', discussions_path %>
-  <%=render 'disqus'%>
+  
+  Calificación  : <%= rating_for @discussion, 'calificacion' , enable_half: true  %>
+  
+  <%= link_to 'Editar', edit_discussion_path(@discussion) , class: "btn custom_margin" %> |
+  <%= link_to 'Volver', discussions_path , class: "btn custom_margin" %>
+  
+   <%= render  "comments/comment" %>
+   <%= render  "comments/form" %>
   
   
   </div>

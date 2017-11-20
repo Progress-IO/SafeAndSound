@@ -5,16 +5,21 @@
                                 <%=suspect.created_at.strftime("%b %e, %l:%M %p")%>
                               </div>
                            <!--  <img src="assets/sospechoso.png">  -->
-                             <img async defer src = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=suspect.latitude%>,<%=suspect.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
+                             <img class = "streetview"async defer src  = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=suspect.latitude%>,<%=suspect.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
                              
                              
-                                    
-                                    
+                                   <br></br> 
+                            <div class="botones">  
                             <div class = "location">
                               <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
                               <span class="latitude"><%=suspect.latitude%></span>
                               <span class="longitude"><%=suspect.longitude%></span>
                             </div>
+                            <div class= "comentarios ">   <i class="tiny material-icons report-time" >comment</i><span class = "report-time"><%= suspect.comments.count%></span> </div>
+                            </div>
+                          
+                        <div class="rating"><%= rating_for suspect, 'calificacion' , enable_half: true , readonly: true  %></div>
+                                
                           </div>
                       <div class="card-stacked">
                             <div class="card-content">

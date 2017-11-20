@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
     get 'comments/index'
   
     get 'comments/new'
@@ -29,7 +30,9 @@ Rails.application.routes.draw do
           resources :reports, :except => [:delete]do
               resources :comments
           end
-          resources :discussions, :except => [:delete]
+          resources :discussions, :except => [:delete]do
+              resources :comments
+          end
           resources :transports, :except => [:delete]do
               resources :comments
           end
