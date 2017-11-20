@@ -47,11 +47,12 @@
           xlng = "<%= report.longitude %> ";
           details = "<%= report.details %> ";
           report_url = "<%=report_path(report.id)%>";
-          tipo = "<%= report.tipo_transp %>";
+          tipo_t = "<%= report.tipo_transp %>";
           num_ruta = "<%= report.id_route %>";
+          tipo = "<%= report.tipo %>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details, report_url, tipo, num_ruta];
+          tuple = [xlat, xlng, details, report_url, tipo_t, num_ruta,tipo];
           data.push(tuple);
     <% end %>
 
