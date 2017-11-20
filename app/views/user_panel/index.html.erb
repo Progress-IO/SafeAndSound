@@ -27,6 +27,7 @@
         <button class="btn activation" id="heatMap_gradient" onclick="changeGradient()">Cambio de color</button>
     </div>
     <div id="map" class="map_user-panel"></div>
+   
 </div>
 
 
@@ -59,9 +60,10 @@
           xlng = "<%= suspect.longitude %> ";
           details = "<%= suspect.details %> ";
           report_url = "<%=suspect_path(suspect.id)%>";
+          report_type = "Sospechoso";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details,report_url];
+          tuple = [xlat, xlng, details,report_url,report_type,report_type];
           data_susp.push(tuple);
     <% end %>
 
