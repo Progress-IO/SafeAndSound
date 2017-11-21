@@ -77,7 +77,8 @@
           report_url = "<%=security_news_path(security.id)%>";
           xlat = parseFloat(xlat);
           xlng = parseFloat(xlng);
-          tuple = [xlat, xlng, details,report_url];
+          report_type = "Seguridad";
+          tuple = [xlat, xlng, details,report_url,report_type,report_type];
           data_security.push(tuple);
     <% end %>
 

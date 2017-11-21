@@ -154,7 +154,7 @@ function showMarkers_security(data) {
             lat: data[i][0],
             lng: data[i][1]
         };
-        addMarker(loc_crime, img_marker_shield, data[i][2], data[i][3]);
+        addMarker(loc_crime, img_marker_shield, data[i][2], data[i][3], data[i][4], data[i][5]);
     }
 }
 
@@ -163,6 +163,7 @@ function show(category) {
         if (reportes[i].category == category || reportes[i].transp == category) {
             reportes[i].setVisible(true);
         }
+        
     }
     document.getElementById(category + "box").checked = true;
 }
@@ -174,6 +175,12 @@ function hide(category) {
     for (var i = 0; i < reportes.length; i++) {
         if (reportes[i].category == category || reportes[i].transp == category) {
             reportes[i].setVisible(false);
+            
+      /*      if(i< data.length){
+                heatmap.data[i].setVisible()=false;
+            }/**/
+            
+            
         } else {
             showable[aux] = reportes[i];
             showable_points[aux] = reportes[i].position;

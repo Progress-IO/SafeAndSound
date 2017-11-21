@@ -33,8 +33,9 @@
           <th>Detalles:</th>
           <td><%= @security_news.details %></td>
         </tr>
-
+  
       </table>
+      Calificación  : <%= rating_for @security_news, 'calificacion' , enable_half: true  %>
       <%= link_to 'Edit', edit_security_news_path(@security_news) %> |
         <%= link_to 'Back', security_news_index_path %>
     </div>
