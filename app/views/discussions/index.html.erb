@@ -1,3 +1,16 @@
+<style>
+  .card {
+    background-color: rgba(0, 0, 0, 0.09) !important;
+    
+    
+  }
+  
+  .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: rgb(214, 127, 17) !important;
+  }
+  
+</style>
+
 
 <script>jQuery(document).ready(function($) {
   $(".clickable-row").click(function() {
@@ -14,43 +27,36 @@
 <%= link_to 'New Discussion', new_discussion_path, class:"waves-effect waves-light btn" %>
   <% end %>
 </div>
-<table class="highlight">
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Usuario</th>
-      <th>Fecha</th>
-      <th>Respuestas</th>
-      <th>Puntuación</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+    <div class="row">
     <% @discussions.each do |discussion| %>
-     
-      <tr >
-        <td><%= discussion.headline%></td>
-        <td><%= discussion.user.username %></td>
+
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content black-text">
+              <span class="card-title"><%= discussion.headline %></span>
+              <p><i><%= discussion.created_at.strftime ("%A, %d %b %Y %l:%M %p") %></i>
+              </p>
+              <p class="truncate"><%= discussion.content  %></p>
+              <div class="report-time"><%= discussion.comments.count%></div>
+              <%= rating_for discussion, 'calificacion' , enable_half: true , readonly: true %>
+            </div>
+            <div class="card-action">
+              <%= link_to 'Ver', discussion %>
+              <% if user_signed_in?  && current_user?(discussion.user) %>
+              <%= link_to 'Editar', edit_discussion_path(discussion) %>
+              <%= link_to 'Eliminar', discussion, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
         
-        <td><i><%= discussion.created_at.strftime ("%A, %d %b %Y %l:%M %p") %></i></td>
-        <td class ="report-time"><%= discussion.comments.count%></td>
-        <td><%= rating_for discussion, 'calificacion' , enable_half: true , readonly: true %></td>
-      <!--  <td></td>-->
-        <td><%= link_to 'Ver', discussion, class: "bontonnormal"%></td>
-        <% if user_signed_in?  && current_user?(discussion.user) %>
-        <td><%= link_to 'Editar', edit_discussion_path(discussion), class: "bontonnormal" %></td>
-        <td><%= link_to 'Eliminar', discussion, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
-        <% end %>
-      </tr>
- 
+       
+        
+        
+       
     <% end %>
-  </tbody>
-</table>
-
-
-
-
+  </div>
 <br></br>
 <div><%= will_paginate @discussions ,previous_label: "Back", next_label: "Next", inner_window:2, outer_window:1 %></div>
 </div>
