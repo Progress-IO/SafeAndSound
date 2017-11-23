@@ -1,0 +1,22 @@
+<%= javascript_include_tag "g_maps/gm_zones" %>
+<%= render "layouts/user-panel" %>
+
+<div class="main content">
+    <div class="container">
+        <h1>Crear zona</h1>
+
+
+        <div id="color_palette"></div>
+        <div id="map" class="map_report" class="custom_margin"></div>
+
+
+        <div class="btn" id="insert_marker">Insertar marcador</div>
+        <div class="btn" id="fix_marker">Fijar ubicacion</div>
+
+        <%= render 'form', my_zone: @my_zone %>
+        <%= link_to 'Back', my_zones_path, class: "bontonnormal" %>
+
+    </div>
+</div>
+
+<%= render "layouts/map-actions"%>
