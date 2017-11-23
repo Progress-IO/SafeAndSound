@@ -1,0 +1,144 @@
+/* line 3, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.dropdown-content li a {
+  color: #125e88 !important;
+}
+/* line 5, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.dropdown-content li span {
+  color: #125e88 !important;
+}
+
+/* line 8, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.no_display {
+  display: none;
+}
+
+/* line 11, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.general {
+  display: flex;
+}
+
+/* line 14, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.btn-container {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+}
+/* line 22, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.btn-container:first-of-type {
+  border-right: solid 1px #737373;
+}
+
+/* line 25, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.btn-f {
+  max-width: 50%;
+  overflow: hidden;
+  margin: 5px;
+  flex: 3;
+}
+
+/* line 31, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.route_error {
+  width: 30%;
+  margin: 10px;
+  border-radius: 7px;
+  border: solid 2px #fc3b4b;
+  background-color: #fa6d78;
+  display: none;
+  color: white;
+}
+
+/* line 40, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c2 {
+  display: flex;
+}
+/* line 42, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c2 .status, .c2 .s_red, .c2 .s_green {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  margin-top: 13px;
+  cursor: pointer;
+}
+/* line 48, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c2 .s_red {
+  background-color: #c41818;
+}
+/* line 51, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c2 .s_red:hover {
+  background-color: #c12f2f;
+  box-shadow: 1px 3px 10px #5c5a53;
+}
+/* line 54, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c2 .s_green {
+  background-color: #20c418;
+}
+/* line 57, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c2 .s_green:hover {
+  background-color: #36c32f;
+  box-shadow: 1px 3px 10px #5c5a53;
+}
+
+/* line 61, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c3 {
+  display: flex;
+}
+/* line 63, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c3 .status, .c3 .s_red, .c3 .s_green {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  margin-top: 28px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+/* line 70, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c3 .s_red {
+  background-color: #c41818;
+}
+/* line 73, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c3 .s_red:hover {
+  background-color: #c12f2f;
+  box-shadow: 1px 3px 10px #5c5a53;
+}
+/* line 76, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c3 .s_green {
+  background-color: #20c418;
+}
+/* line 79, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.c3 .s_green:hover {
+  background-color: #36c32f;
+  box-shadow: 1px 3px 10px #5c5a53;
+}
+
+/* line 84, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.selector_routes {
+  width: 80px;
+  float: right;
+  clear: both;
+}
+
+/* line 89, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.show_route, .show_route_divisor {
+  background-color: #312ac2;
+  color: white;
+  border: solid 2px #d5d5d5;
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+/* line 98, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.show_route_divisor {
+  background-color: #6e6e6e;
+  border-radius: 3px;
+  border: 0;
+}
+
+/* line 104, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/routes.sass */
+.transport_order {
+  padding: 0 20px;
+  margin: auto;
+}

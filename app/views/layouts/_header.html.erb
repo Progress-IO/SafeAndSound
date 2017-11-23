@@ -12,7 +12,7 @@
     <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag "style.css" %>
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
 </head>
@@ -55,7 +55,7 @@
             <% end %>
 
         <% if user_signed_in? %>
-        <li>  <%= avatar_for(current_user,size: 35)%></li>
+        <li>  <%= avatar_for(current_user, size: 35, class: "avatar")%></li>
         <li style="color: #5db6fc">  <%= link_to  current_user.username, current_user, class:"userprofile" %></li>
         <% end %>
     </ul>
@@ -66,7 +66,7 @@
         <% else %>
           <li class = ""><%= link_to "Ingreso", login_path, class: ""  %></li>
           <li class = ""><%= link_to "Registrarse", register_path, class: "" %></li>
-           
+
         <% end %>
         <% if user_signed_in? %>
             <li class = " " ><%= link_to "Foro", discussions_path, class: ""  %></li>

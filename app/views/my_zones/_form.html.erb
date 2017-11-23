@@ -1,0 +1,47 @@
+<%= form_with(model: my_zone, local: true) do |form| %>
+  <% if my_zone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(my_zone.errors.count, "error") %> prohibited this my_zone from being saved:</h2>
+
+      <ul>
+      <% my_zone.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Nombre" %>
+    <%= form.text_field :name, id: :my_zone_name %>
+  </div>
+
+  <label for="">Radio</label>
+  <p class="range-field custom_text" id="radius">
+      <input type="range" min="1" max="10" />
+  </p>
+
+  <div class="field">
+    <%= form.label :latitude, style: "display: none"%>
+    <%= form.text_field :latitude, id: :my_zone_latitude, style: "display: none" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude, style: "display: none" %>
+    <%= form.text_field :longitude, id: :my_zone_longitude, style: "display: none" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Radio", style: "display: none"%>
+    <%= form.text_field :radius, id: :my_zone_radius, style: "display: none"%>
+  </div>
+
+  <div class="field">
+    <%= form.label "Color", style: "display: none"%>
+    <%= form.text_field :color, id: :my_zone_color, style: "display: none" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Crear", class: "btn", id: "send_zone" %>
+  </div>
+<% end %>
