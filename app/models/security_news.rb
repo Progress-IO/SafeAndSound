@@ -1,5 +1,7 @@
 class SecurityNews < ApplicationRecord
 include Math
+    
+    ratyrate_rateable "calificacion"
     def self.degreesToRad(degrees)
         return degrees * 3.1415169235 /180  
     end
