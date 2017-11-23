@@ -1,0 +1,39 @@
+/* line 1, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/status.sass */
+.status_type, .status_type_report, .status_type_suspect {
+  border: solid 2px;
+  border-radius: 10px;
+  padding: 5px 5px;
+  color: white;
+  text-align: center;
+}
+/* line 7, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/status.sass */
+.status_type:hover, .status_type_report:hover, .status_type_suspect:hover {
+  box-shadow: 0px 3px 10px rgba(186, 186, 186, 0.63);
+  cursor: pointer;
+}
+
+/* line 11, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/status.sass */
+.status_type_report {
+  border: #911f1f;
+  background-color: #bd4545;
+}
+
+/* line 17, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/status.sass */
+.status_type_suspect {
+  border: #935400;
+  background-color: #cf9a24;
+}
+
+/* line 23, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/status.sass */
+.simple_button {
+  padding: 3px 7px;
+  border-radius: 7px;
+  background-color: #29bbc4;
+  color: white;
+  display: inline-block;
+}
+/* line 29, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/status.sass */
+.simple_button:hover {
+  box-shadow: 0px 3px 6px rgba(194, 194, 194, 0.83);
+  cursor: pointer;
+}

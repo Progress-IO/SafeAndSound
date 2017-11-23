@@ -1,0 +1,45 @@
+/* line 5, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/my_zones.sass */
+#color_palette {
+  position: relative;
+  top: 10px;
+  margin: 5px;
+  z-index: 5;
+  display: inline-block;
+}
+/* line 12, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/my_zones.sass */
+#color_palette .c_elem {
+  width: 20px;
+  float: left;
+  height: 20px;
+  margin: 3px;
+  border-radius: 20px;
+  z-index: 5;
+}
+/* line 20, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/my_zones.sass */
+#color_palette .c_elem:hover {
+  width: 23px;
+  height: 23px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+
+/* line 27, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/my_zones.sass */
+p .custom_text {
+  font-size: 32px;
+}
+
+/* line 31, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/my_zones.sass */
+#fix_marker {
+  margin-left: 20px;
+  background-color: #45aed0;
+}
+
+/* line 36, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/my_zones.sass */
+.table_reports {
+  background-color: #ffe2e2;
+  margin-bottom: 100px;
+}
+/* line 37, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/my_zones.sass */
+.table_reports th {
+  background-color: #f9a3a3;
+}

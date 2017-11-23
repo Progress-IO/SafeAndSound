@@ -1,0 +1,18 @@
+/* line 1, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/reports.sass */
+.img_prev {
+  width: 150px;
+  height: 70px;
+  border-radius: 8px;
+  border: solid 2px rgba(64, 64, 64, 0.6);
+  display: inline-block !important;
+  float: left !important;
+}
+
+/* line 9, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/reports.sass */
+.img_container {
+  display: table-row !important;
+}
+/* line 11, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/reports.sass */
+.img_container .img_prev {
+  margin: 5px 8px;
+}

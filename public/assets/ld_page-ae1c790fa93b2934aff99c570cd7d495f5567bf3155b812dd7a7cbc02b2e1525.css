@@ -1,0 +1,243 @@
+/* line 10, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.link_menu {
+  padding-left: 10px;
+  padding-top: 4px;
+  vertical-align: top;
+  display: none;
+}
+
+/* line 16, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "Ubuntu";
+  height: 100%;
+}
+
+/* line 24, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+* {
+  box-sizing: border-box !important;
+}
+
+/* line 28, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar {
+  position: fixed;
+  background-color: #070a14;
+  height: 100vh;
+  width: 80px;
+  border-right: 2px solid #b5b4be;
+  transition: 0.5s ease;
+}
+/* line 37, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar a {
+  color: white;
+}
+/* line 40, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar ul {
+  box-sizing: border-box;
+  float: left;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+/* line 46, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar ul li {
+  position: relative;
+  list-style: none;
+  height: 50px;
+  color: white;
+  padding: 10px 0 0 20px;
+}
+/* line 57, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar ul li:hover {
+  background-color: #13161f;
+  border-left: 4px #628fff solid;
+  padding-left: 16px;
+  cursor: pointer;
+}
+
+/* line 64, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.li_active {
+  background-color: #13161f;
+  border-left: 4px #628fff solid;
+  padding-left: 16px;
+  cursor: pointer;
+}
+
+/* line 70, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side_bar_toggle {
+  width: 200px;
+}
+
+/* line 73, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.main {
+  margin-top: 3px;
+  overflow: hidden;
+  margin-left: 80px;
+  transition: 0.5s;
+  height: 90vh;
+}
+
+/* line 82, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.content {
+  overflow: scroll;
+}
+
+/* line 85, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.link_menu_toggle {
+  display: none;
+}
+
+/* line 88, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.test {
+  background-color: green;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 93, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.img_card {
+  max-width: 80% !important;
+  opacity: 1;
+}
+/* line 96, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.img_card:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* line 101, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.chart_canvas {
+  max-height: 60vh;
+}
+
+/* line 105, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side-nav-report {
+  background: #f1f1f1;
+  position: absolute;
+  height: 90%;
+  width: 300px;
+  right: 0px;
+  transition: 0.5s ease;
+}
+
+/* line 115, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+#listapanel {
+  height: 79%;
+}
+
+/* line 118, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.side-nav-report-toggle {
+  width: 30px;
+}
+
+/* line 121, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.suspect_list {
+  height: 80%;
+}
+
+/* line 125, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+#tabsdiv {
+  max-height: 20%;
+  /* scrolling out of view :-( */
+}
+
+/* line 129, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.cont_elements, #test1, #test2, #test3 {
+  margin: 2px;
+  height: 100%;
+}
+
+/* line 133, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.suspect_list, .report_list, .transport_list {
+  height: 100%;
+  overflow: auto;
+  margin: 0px;
+}
+
+/* line 137, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.card {
+  margin: 5px, 10px !important;
+}
+
+/* line 139, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.card-image {
+  margin: 5px;
+}
+
+/* line 142, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.card-image .streetview {
+  max-height: 70% !important;
+  width: 100%;
+}
+
+/* line 147, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.card-action {
+  width: 100%;
+}
+
+/* line 149, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.tabicon {
+  width: 100%;
+}
+
+/* line 151, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.location, .comentarios {
+  width: 30%;
+  display: inline;
+}
+
+/* line 154, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.comentarios {
+  vertical-align: middle;
+}
+
+/* line 157, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.location span {
+  display: none;
+}
+
+/* line 159, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.rating .star {
+  display: inline;
+  max-height: 20%;
+}
+
+/* line 162, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.card .card-image img {
+  display: inline !important;
+}
+
+/* line 165, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.filtros label {
+  width: 80% !important;
+}
+
+/* line 169, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.report-time {
+  color: #999;
+  font-style: oblique;
+}
+
+/* line 172, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+#expand_icon2 {
+  border: 0px;
+  margin: 0px;
+  background: none;
+}
+
+/* line 177, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.table_data {
+  margin-bottom: 30px;
+}
+
+/* line 181, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.tab_icons {
+  color: #2f72a2 !important;
+}
+
+/* line 185, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/ld_page.sass */
+.tabs .indicator {
+  color: #34737c !important;
+}

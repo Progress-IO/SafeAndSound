@@ -1,0 +1,6 @@
+/* line 1, /home/ubuntu/workspace/SafeAndSound/app/assets/stylesheets/avatar.scss */
+.avatar-image {
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 3px;
+}
