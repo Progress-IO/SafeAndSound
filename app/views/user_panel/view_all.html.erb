@@ -61,7 +61,11 @@
                                         <img src="<%=asset_path( report.images[0] )%>" class="img_prev">
                                         <%end %>
                                     </td>
-                                    <td><%= link_to 'Mostrar', report, class: "bontonnormal" %></td>
+                                    <td>
+                                    <%= link_to report, class: "btn-floating waves-effect waves-light blue" do %>
+                                         <i class="material-icons">remove_red_eye</i>
+                                    <% end %>
+                                    </td>
                                 </tr>
                                 <% end %>
                             </tbody>
@@ -125,7 +129,11 @@
                                         <img src="<%=asset_path( suspect.images[0] )%>" class="<img_prev></img_prev>">
                                         <%end %>
                                     </td>
-                                    <td><%= link_to 'Mostrar', suspect, class: "bontonnormal" %></td>
+                                    <td>
+                                    <%= link_to suspect, class: "btn-floating waves-effect waves-light blue" do %>
+                                         <i class="material-icons">remove_red_eye</i>
+                                    <% end %>
+                                    </td>
                                 </tr>
                                 <% end %>
                             </tbody>
@@ -190,7 +198,11 @@
                                     <td><%= route.date.to_date %></td>
                                     <td><%= route.route %></td>
                                     <td><%= route.mode %></td>
-                                    <td><%= link_to 'Mostrar', route, class: "bontonnormal" %></td>
+                                    <td>
+                                    <%= link_to route, class: "btn-floating waves-effect waves-light blue" do %>
+                                         <i class="material-icons">remove_red_eye</i>
+                                    <% end %>
+                                    </td>
                                 </tr>
                                 <% end %>
                             </tbody>

@@ -36,9 +36,20 @@
             <% end %>
         </div>
     <b>Calificación  :</b>     <%= rating_for @suspect, 'calificacion' , enable_half: true  %>
-        <%= link_to 'Editar', edit_suspect_path(@suspect), class: "btn custom_margin" %> |
-        <%= link_to 'Volver', suspects_path, class: "btn custom_margin" %> |
-        <%= link_to 'Convertir a PDF', suspect_path(@suspect, format: 'pdf'), class: "btn custom_margin" %>
+        <%= link_to user_panel_path, class: "btn-floating btn-large waves-effect waves-light dark-grey" do %>
+            <i class="material-icons">arrow_back</i>
+        <% end %>
+        
+        |
+        <%= link_to edit_suspect_path(@suspect), class: "btn-floating btn-large waves-effect waves-light green" do %>
+            <i class="material-icons">create</i>
+        <% end %>
+        |
+        
+
+        <%= link_to  suspect_path(@suspect, format: 'pdf'), class: "btn-floating btn-large waves-effect waves-light red" do %>
+            <i class="material-icons">picture_as_pdf</i>
+        <% end %>
         
         <%= render  "comments/comment" %>
          <%= render  "comments/form" %>

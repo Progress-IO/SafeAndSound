@@ -34,10 +34,20 @@
             <% end %>
         </div>
        <b> Calificación  :</b> <%= rating_for @report, 'calificacion' , enable_half: true  %>
-        <%= link_to 'Editar', edit_report_path(@report), class: "btn custom_margin" %> |
-        <%= link_to 'Volver', user_panel_path, class: "btn custom_margin" %> |
+       <%= link_to user_panel_path, class: "btn-floating btn-large waves-effect waves-light dark-grey" do %>
+            <i class="material-icons">arrow_back</i>
+        <% end %>
+        
+        |
+        <%= link_to edit_report_path(@report), class: "btn-floating btn-large waves-effect waves-light green" do %>
+            <i class="material-icons">create</i>
+        <% end %>
+        |
+        
 
-        <%= link_to 'Convertir a PDF', report_path(@report, :format => 'pdf'), class: "btn custom_margin" %>
+        <%= link_to  report_path(@report, :format => 'pdf'), class: "btn-floating btn-large waves-effect waves-light red" do %>
+            <i class="material-icons">picture_as_pdf</i>
+        <% end %>
 
         <%= render  "comments/comment"%>
         <%= render  "comments/form" %>
