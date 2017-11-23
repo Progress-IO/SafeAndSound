@@ -9,25 +9,25 @@
   background-color: rgba(7, 10, 20, 0.72) !important ;
   border-radius: 50%  !important;
   color: white !important;
-  
+
 }
 
 
 .section_title {
-  
+
 }
 </style>
 </head>
 
 <div class="main">
-    
+
     <div id="floating-panel">
         <button class="btn activation" id="heatMap_report" onclick="toggleHeatmap()">Mapa de calor</button>
         <button class="btn activation" id="heatMap_radius" onclick="changeRadius()">Aumentar radio</button>
         <button class="btn activation" id="heatMap_gradient" onclick="changeGradient()">Cambio de color</button>
     </div>
     <div id="map" class="map_user-panel"></div>
-   
+
 </div>
 
 
@@ -91,7 +91,7 @@
       <img src="<%= asset_path('logo.png') %>" class="mylogo" style="width: 40%;">
       <p>
       Safe&Sound es una aplicación web que advierte a las personas sobre
-      diferentes crimenes. Centrada en la ciudad de Bogotá la tecnologia puede 
+      diferentes crimenes. Centrada en la ciudad de Bogotá la tecnologia puede
       ser utilizada en cualquier parte. Esta aplicación fue creada por el grupo
       Progress-IO.
       </p>
@@ -107,7 +107,7 @@
 <div class="tap-target-content">
   <h5 class="section_title">Bienvenido</h5>
   <div>
-  Parece que vamos a empezar con el tutorial. 
+  Parece que vamos a empezar con el tutorial.
   Siempre puedes volver a verlo
   o asi que no te preocupes si te pierdes algo.
   ¡Vamos a empezar!
@@ -160,7 +160,7 @@
   <div>
     Puedes ver en la sección izquierda un panel que resume toda esa información. Podemos
     desviarnos y explicar este panel o seguir con el tour principal.
-    
+
   </div>
   <button class="btn activation" onclick="zero_panel();">Ver panel</button>
   <button class="btn activation" onclick="fourth();"><i class="material-icons">navigate_next</i></button>
@@ -172,7 +172,7 @@
   <h5 class="section_title">Actividad</h5>
   <div>
   Toda esta información a veces es dificil de digerir. Esta sección
-  ayuda a filtrar todos estos datos para que puedas encontrar lo que 
+  ayuda a filtrar todos estos datos para que puedas encontrar lo que
   te interesa.
   </div>
   <button class="btn activation" onclick="fifth();"><i class="material-icons">navigate_next</i></button>
@@ -184,7 +184,7 @@
   <h5 class="section_title">Estatus</h5>
   <div>
   A veces queremos saber lo que ha pasado recientemente pero no sabemos exactamente
-  que es lo que buscamos. Aqui puedes buscar en toda la información que publican los 
+  que es lo que buscamos. Aqui puedes buscar en toda la información que publican los
   otros usuarios y la tuya para encontrar lo que estas buscando.
   </div>
   <button class="btn activation" onclick="sixth();"><i class="material-icons">navigate_next</i></button>
@@ -228,7 +228,7 @@
   <h5 class="section_title">Aumentar radio</h5>
   <div>
   Tal vez pienses que el peligro debe de ser más extenso. Esta caracteristica
-  puede ayudarte a ver lo que piensas. 
+  puede ayudarte a ver lo que piensas.
   </div>
   <button class="btn activation" onclick="second_map();"><i class="material-icons">navigate_next</i></button>
 </div>
@@ -295,30 +295,30 @@ $(document).ready(function(){
 
 
   // Tutorial
-  
+
   var zero = function(){
     $("#first-step").tapTarget("open");
   }
-  var first = function(){    
-        $("#second-step").tapTarget("open"); 
+  var first = function(){
+        $("#second-step").tapTarget("open");
   }
-  var second = function(){    
-    $("#third-step").tapTarget("open"); 
+  var second = function(){
+    $("#third-step").tapTarget("open");
   }
-  var third = function(){    
-    $("#fourth-step").tapTarget("open"); 
+  var third = function(){
+    $("#fourth-step").tapTarget("open");
   }
-  var fourth = function(){    
-    $("#fifth-step").tapTarget("open"); 
+  var fourth = function(){
+    $("#fifth-step").tapTarget("open");
   }
-  var fifth = function(){    
-    $("#sixth-step").tapTarget("open"); 
+  var fifth = function(){
+    $("#sixth-step").tapTarget("open");
   }
-  var sixth = function(){    
-    $("#seventh-step").tapTarget("open"); 
+  var sixth = function(){
+    $("#seventh-step").tapTarget("open");
   }
-  var seventh = function(){    
-    $("#eighth-step").tapTarget("open"); 
+  var seventh = function(){
+    $("#eighth-step").tapTarget("open");
   }
 
   // Map Tutorial
@@ -328,8 +328,8 @@ $(document).ready(function(){
 
   var first_map = function(){
     $("#second-map-step").tapTarget('open');
-  } 
-  
+  }
+
   var second_map = function(){
     $("#third-map-step").tapTarget('open');
   }
@@ -345,8 +345,8 @@ $(document).ready(function(){
 
   var first_panel = function(){
     $("#second-panel-step").tapTarget('open');
-  } 
-  
+  }
+
   var second_panel = function(){
     $("#third-panel-step").tapTarget('open');
   }
@@ -360,4 +360,3 @@ $(document).ready(function(){
 
 <%= render "layouts/map-actions" %>
 <%= javascript_include_tag "g_maps/gm_user-panel" %>
-
