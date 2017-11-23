@@ -22,16 +22,16 @@
 <div class = "container">
 
 <div>
-  <h1>Discussions</h1>
+  <h1>Discusiones</h1>
   <% if user_signed_in?%>
-<%= link_to 'New Discussion', new_discussion_path, class:"waves-effect waves-light btn" %>
+<%= link_to 'Nueva discusión', new_discussion_path, class:"waves-effect waves-light btn" %>
   <% end %>
 </div>
 
     <div class="row">
     <% @discussions.each do |discussion| %>
 
-        <div class="col s12 m6">
+        <div class="col s12 m6 l3">
           <div class="card">
             <div class="card-content black-text">
               <span class="card-title"><%= discussion.headline %></span>
@@ -58,5 +58,5 @@
     <% end %>
   </div>
 <br></br>
-<div><%= will_paginate @discussions ,previous_label: "Back", next_label: "Next", inner_window:2, outer_window:1 %></div>
+<div><%= will_paginate @discussions ,previous_label: "Volver", next_label: "Siguiente", inner_window:2, outer_window:1 %></div>
 </div>
