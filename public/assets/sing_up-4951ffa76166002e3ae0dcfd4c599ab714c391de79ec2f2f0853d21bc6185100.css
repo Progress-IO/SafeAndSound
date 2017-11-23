@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* line 1, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/sing_up.sass */
+.error_explain {
+  padding: 10px;
+  background-color: rgba(249, 46, 46, 0.14);
+  border-radius: 10px;
+  border: solid 1px;
+  margin-bottom: 25px;
+}
+
+/* line 8, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/sing_up.sass */
+.btn_social {
+  width: 50% !important;
+  display: block !important;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+}

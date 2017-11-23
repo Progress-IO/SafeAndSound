@@ -1,5 +1,7 @@
 class SecurityNews < ApplicationRecord
 include Math
+    
+    ratyrate_rateable "calificacion"
     def self.degreesToRad(degrees)
         return degrees * 3.1415169235 /180  
     end
@@ -16,6 +18,10 @@ include Math
         c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
         return earthRad * c
 
+    end
+
+    def self.show_all
+        return SecurityNews.all
     end
     
 

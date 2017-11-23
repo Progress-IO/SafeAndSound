@@ -7,9 +7,9 @@
 
         <div class="col s12">
             <ul class="tabs">
-                <li  class="tab col s4"><a id="suspects_panel_icon" class = "tabreport"  href="#test1"><i class="material-icons small tab_icons">whatshot</i> </a></a></li>
-                <li  class="tab col s4"><a id="crimes_panel_icon" class = "tabreport"  href="#test2"><i class="material-icons small tab_icons">error</i></a></a></li>
-                <li  class="tab col s4"><a id="public_transport_panel_icon" class = "tabreport"  href="#test3"><i class="material-icons small tab_icons">directions_bus
+                <li class="tab col s4"><a id="suspects_panel_icon" class = "tabreport"  href="#test1"><i class="material-icons small tab_icons">record_voice_over</i> </a></a></li>
+                <li class="tab col s4"><a id="crimes_panel_icon" class = "tabreport"  href="#test2"><i class="material-icons small tab_icons">error</i></a></a></li>
+                <li class="tab col s4"><a id="public_transport_panel_icon" class = "tabreport"  href="#test3"><i class="material-icons small tab_icons">map
                 </i></a></a></li>
             </ul>
         </div>
@@ -49,13 +49,44 @@
 
             <div id="test3" class="col s12">
                 <div class = "transport_list">
-                    <div id="transports">
-                        <%= render @transports %>
-                    </div>
+                   <!--   <select id="type" onchange="filterMarkers(this.value);">
+                        <option value="">Filtrar reportes</option>
+                        <option value="Raponazo">Raponazo</option>
+                        <option value="Robo violento">Robo violento</option>
+                        <option value="Asesinato">Asesinato</option>
+                        <option value="Estafa">Estafa</option>
+                        <option value="Sospechoso">Sospechoso</option>
+                    </select>                                                    -->
+                      <div class="filtros">
+                          <div><p><b>Filtrar por tipo de crimen:</b></p></div>
+                           <input type="checkbox" id="seguridad"value="Seguridad" checked="checked" />
+                        <label for="seguridad">Seguridad</label>
+                        <input type="checkbox" id="sospechoso"value="Sospechoso" checked="checked" />
+                        <label for="sospechoso">Sospechoso</label>
+                        <input type="checkbox" id="Raponazo"value="Raponazo" checked="checked"  />
+                        <label for="Raponazo">Raponazo</label>
+                        <input type="checkbox" id="Robo violento"value="Robo violento"  checked="checked"  />
+                        <label for="Robo violento">Robo violento</label>
+                        <input type="checkbox" id="Asesinato"value="Asesinato"  checked="checked" />
+                        <label for="Asesinato">Asesinato</label>
+                        <input type="checkbox" id="Estafa"value="Estafa"  checked="checked"  />
+                        <label for="Estafa">Estafa</label>
+                        <br></br>
+                         <div><p><b>Filtrar por modo en que se produjo el crimen:</b></p></div>
+                         <input type="checkbox" id="carro"value="carro"  checked="checked"  />
+                        <label for="carro">Conduciendo</label>
+                         <input type="checkbox" id="bicicleta"value="bicicleta"  checked="checked"  />
+                        <label for="bicicleta">Andando en bicicleta</label>
+                         <input type="checkbox" id="peaton"value="peaton"  checked="checked"  />
+                        <label for="peaton">Caminando</label>
+                         <input type="checkbox" id="sitp"value="sitp"  checked="checked"  />
+                        <label for="sitp">En un SITP</label>
+                         <input type="checkbox" id="transmilenio"value="transmilenio"  checked="checked"  />
+                        <label for="transmilenio">En un Transmilenio</label>
+                         <input type="checkbox" id="taxi"value="taxi"  checked="checked"  />
+                        <label for="taxi">En un Taxi</label>
 
 
-                    <div id="infinite-scrolling-transports">
-                        <%= will_paginate @transports%>
                     </div>
                 </div>
             </div>

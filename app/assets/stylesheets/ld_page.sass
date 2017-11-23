@@ -127,29 +127,45 @@ body
     /* scrolling out of view :-( */
 
 .cont_elements,#test1,#test2,#test3
-
+    margin: 2px
     height: 100%
 
 .suspect_list,.report_list,.transport_list
     height: 100%
     overflow: auto
+    margin: 0px
+.card
+    margin: 5px, 10px !important
+.card-image
+    margin: 5px
 
-
-
-.card-image img
+.card-image .streetview
     max-height: 70% !important
     width: 100%
 
-.card-image
-    margin: 10px
+
 .card-action
     width: 100%
 .tabicon
     width: 100%
-.location
-    width: 100%
+.location,.comentarios
+    width: 30%
+    display: inline
+.comentarios
+
+    vertical-align: middle
 .location span
     display: none
+.rating .star
+    display: inline
+    max-height: 20%
+.card .card-image img
+    display: inline !important
+
+.filtros label
+    width: 80% !important
+
+
 .report-time
     color: #999
     font-style: oblique

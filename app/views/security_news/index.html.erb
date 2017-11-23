@@ -5,15 +5,13 @@
 
 <h1>Novedades de seguridad</h1>
 
-<table>
+<table class="striped">
   <thead>
     <tr>
       <th>Tipo</th>
       <th>Dia</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Address</th>
-      <th>Details</th>
+      <th>Direccion</th>
+      <th>Detalles</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,13 +21,11 @@
       <tr>
         <td><%= security_news.tipo %></td>
         <td><%= security_news.dia %></td>
-        <td><%= security_news.latitude %></td>
-        <td><%= security_news.longitude %></td>
         <td><%= security_news.address %></td>
         <td><%= security_news.details %></td>
-        <td><%= link_to 'Show', security_news %></td>
-        <td><%= link_to 'Edit', edit_security_news_path(security_news) %></td>
-        <td><%= link_to 'Destroy', security_news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', security_news ,class: "btn" %></td>
+        <td><%= link_to 'Editar', edit_security_news_path(security_news), class: "btn" %></td>
+        
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,43 @@
+<%= render "layouts/user-panel" %>
+<div class="main content">
+    <div class="container">
+        <p id="notice"><%= notice %></p>
+
+        <h1>Mis zonas</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Radio</th>
+                    <th>Color</th>
+                    <th>Reportes</th>
+                    <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @my_zones.each do |my_zone| %>
+                <tr>
+                    <td><%= my_zone.name %></td>
+                    <td><%= my_zone.radius %></td>
+                    <td>
+                        <div id="color_palette">
+                            <div class="c_elem" style="background-color: <%= my_zone.color %>"></div>
+                        </div>
+                    </td>
+                    <td>(<%= MyZone.near_crimes(my_zone).count%>)</td>
+                    <td><%= link_to 'Ver', my_zone, class: "bontonnormal" %></td>
+                    <td><%= link_to 'Editar', edit_my_zone_path(my_zone), class: "bontonnormal"  %></td>
+                    <td><%= link_to 'Eliminar', my_zone, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal"  %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'Crear zona', new_my_zone_path, class: "btn"%>
+
+    </div>
+</div>

@@ -10,10 +10,11 @@ class User < ApplicationRecord
   has_many :routes
   has_many :reports
   has_many :suspects
+  has_many :my_zones
 
   cattr_accessor :current_user
   has_many :transports
-
+  ratyrate_rater
   def login=(login)
     @login = login
   end
@@ -64,7 +65,7 @@ validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   after_create :send_welcome
 
   def send_welcome
-    # WelcomeMailer.welcome_mailer(self).deliver_now
+    #  WelcomeMailer.welcome_mailer(self).deliver_now
   end
 
   def self.find_for_database_authentication(warden_conditions)

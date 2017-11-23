@@ -16,7 +16,8 @@
 //= require materialize-sprockets
 //= require underscore
 //= require Chart.min
-
+//= require jquery.raty
+//= require ratyrate
 
 $(function(){
 

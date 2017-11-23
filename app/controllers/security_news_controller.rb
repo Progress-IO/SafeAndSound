@@ -84,7 +84,8 @@ class SecurityNewsController < ApplicationController
       users_chosen.each do |chosen|
         user_temp = User.find_username(chosen)
         email_temp = User.find_email(chosen)
-        NoveltyMailer.delay(run_at: 4.hours.from_now).novelty_mailer(email_temp,user_temp)
+        # NoveltyMailer.delay(run_at: 4.hours.from_now).novelty_mailer(email_temp,user_temp)
+        NoveltyMailer.novelty_mailer(email_temp,user_temp).deliver_now
       end
   end
  

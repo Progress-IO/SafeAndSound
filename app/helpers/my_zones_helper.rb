@@ -1,0 +1,2 @@
+module MyZonesHelper
+end

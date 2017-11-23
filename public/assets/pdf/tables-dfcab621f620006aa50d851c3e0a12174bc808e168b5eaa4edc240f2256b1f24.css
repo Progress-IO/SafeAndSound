@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* line 1, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/pdf/tables.sass */
+body, html {
+  font-family: "Ubuntu";
+  font-weight: lighter;
+}
+
+/* line 5, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/pdf/tables.sass */
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 3px;
+}
+/* line 10, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/pdf/tables.sass */
+table tr:nth-child(odd), th tr:nth-child(odd), td tr:nth-child(odd) {
+  background-color: #e0e0e0;
+}
+
+/* line 13, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/pdf/tables.sass */
+.footer {
+  bottom: 0px;
+  position: absolute;
+  height: 100px;
+  width: auto;
+  background-color: red;
+}
+
+/* line 20, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/pdf/tables.sass */
+.content {
+  padding: 50px 0;
+}
+
+/* line 23, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/pdf/tables.sass */
+.img_container {
+  margin-top: 30px;
+}
+/* line 25, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/pdf/tables.sass */
+.img_container img {
+  margin: 15px;
+  display: block;
+}

@@ -1,5 +1,8 @@
 <script> var report_positions = <%= @reports_position %>; </script>
 <%= javascript_include_tag "g_maps/gm_route" %>
+
+<%= stylesheet_link_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" %>
+
 <script>
 var transportRoutes = <%= @transport_routes %> ;
 </script>
@@ -21,7 +24,27 @@ var transportRoutes = <%= @transport_routes %> ;
         <!-- <label for="" class="selector_routes">Select route</label> -->
         <!-- <select name="" id="mySelect" class="selector_routes"></select> -->
         <%= render 'form_2', route: @route %>
+
+        <style>
+                #mapid {
+                    height: 500px;
+                }
+            </style>
+   
+         
+            <div id="mapid" style="display: none"></div> 
+
+       
+
+  
     </div>
 
 </div>
+
+
+<script>L_PREFER_CANVAS = true</script>
+<%= javascript_include_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" %>
+<script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-image/v0.0.4/leaflet-image.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js"></script>
+<%= javascript_include_tag "pdf/open-map" %>
 <%= render "layouts/map-actions"%>
