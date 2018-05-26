@@ -1,0 +1,43 @@
+<%= render "layouts/user-panel" %>
+<div class="main content">
+    <div class="container">
+        <p id="notice"><%= notice %></p>
+
+        <h1>Suspects</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Address</th>
+                    <th>Details</th>
+                    <th>Image</th>
+                    <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @suspects.each do |suspect| %>
+                <tr>
+                    <td><%= suspect.fecha.to_date %></td>
+                    <td><%= suspect.address %></td>
+                    <td class="xdetails_content"><%= suspect.details %></td>
+                    <td>
+                        <% if !suspect.images[0].nil? %>
+                        <img src="<%=asset_path( suspect.images[0] )%>">
+                        <%end %>
+                    </td>
+                    <td><%= link_to 'Show', suspect, class: "bontonnormal" %></td>
+                    <td><%= link_to 'Edit', edit_suspect_path(suspect), class: "bontonnormal" %></td>
+                    <td><%= link_to 'Destroy', suspect, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'New Suspect', new_suspect_path, class: "btn" %>
+
+    </div>
+</div>

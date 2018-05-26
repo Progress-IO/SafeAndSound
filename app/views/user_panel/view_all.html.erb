@@ -1,0 +1,205 @@
+<%= render "layouts/user-panel" %>
+<%= javascript_include_tag "ajax/view_all" %>
+<div class="main content">
+    <div class="container">
+        <h4>Mi actividad</h4>
+
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header active"><i class="material-icons">whatshot</i>Reportes de crimenes</div>
+                <div class="collapsible-body">
+                    <span>
+                        <div class="row">
+                        <input id="type" type="hidden" value="reports" />
+                        <div class="col s4">
+                        <label for="first_name">Buscar en dirección</label>
+                        <input id="address_keyword" class="address_keyword" type="text">
+                    </div>
+                        <div class="col s4">
+                            <label for="first_name">Buscar en detalles</label>
+                            <input id="search_keyword" class="search_keyword" type="text">
+                        </div>
+                        
+                        <div class="col s2">
+                            <label for="">Ordenar por</label>
+                            <select name="" id="sort_by" class="sort_by">
+                                <option value="fecha">Date</option>
+                                <option value="address">Address</option>
+                            </select>
+                        </div>
+                        <div class="col s2">
+                            <label for="">Orden</label>
+                            <div class="switch" style="display: inline-block; padding-top: 12px">
+                                <label>
+                                    Asc
+                                    <input type="checkbox" id="reverse" class="reverse">
+                                    <span class="lever"></span>
+                                    Des
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                        <table class="tablesorter">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Dirección</th>
+                                    <th>Detalles</th>
+                                    <th>Imagen</th>
+                                    <th colspan= "3"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="status_body">
+                                <% @reports.each do |report| %>
+                                <tr>
+                                    <td><%= report.fecha.to_date %></td>
+                                    <td  class="dates"><%= report.address %></td>
+                                    <td class="xdetails_content"><%= report.details %></td>
+                                    <td>
+                                        <% if !report.images[0].nil? %>
+                                        <img src="<%=asset_path( report.images[0] )%>" class="img_prev">
+                                        <%end %>
+                                    </td>
+                                    <td><%= link_to 'Mostrar', report, class: "bontonnormal" %></td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">person_pin</i>Reportes de sospechosos</div>
+                <div class="collapsible-body">
+                    <span>
+                    <div class="row suspect_field">
+                    <input id="type" type="hidden" value="suspects" />
+                    <div class="col s4">
+                    <label for="first_name">Buscar en dirección</label>
+                    <input id="address_keyword" class="address_keyword" type="text">
+                </div>
+                    <div class="col s4">
+                        <label for="first_name">Buscar en detalles</label>
+                        <input id="search_keyword" class="search_keyword" type="text">
+                    </div>
+                    
+                    <div class="col s2">
+                        <label for="">Ordenar por</label>
+                        <select name="" id="sort_by" class="sort_by">
+                            <option value="fecha">Date</option>
+                            <option value="address">Address</option>
+                        </select>
+                    </div>
+                    <div class="col s2">
+                        <label for="">Orden</label>
+                        <div class="switch" style="display: inline-block; padding-top: 12px">
+                            <label>
+                                Asc
+                                <input type="checkbox" id="reverse" class="reverse">
+                                <span class="lever"></span>
+                                Des
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Dirección</th>
+                                    <th>Detalles</th>
+                                    <th>Imagen</th>
+                                    <th colspan="3"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="status_body">
+                                <% @suspects.each do |suspect| %>
+                                <tr>
+                                    <td><%= suspect.fecha.to_date %></td>
+                                    <td><%= suspect.address %></td>
+                                    <td class="xdetails_content"><%= suspect.details %></td>
+                                    <td>
+                                        <% if !suspect.images[0].nil? %>
+                                        <img src="<%=asset_path( suspect.images[0] )%>" class="<img_prev></img_prev>">
+                                        <%end %>
+                                    </td>
+                                    <td><%= link_to 'Mostrar', suspect, class: "bontonnormal" %></td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">directions</i>Rutas</div>
+                <div class="collapsible-body">
+                    <span>
+                    <div class="row">
+                    <input id="type" type="hidden" value="routes" />
+                    <div class="col s4">
+                    <label for="first_name">Buscar nombre</label>
+                    <input id="address_keyword" class="address_keyword" type="text">
+                </div>
+                    <div class="col s4">
+                        <label for="first_name">Buscar por modos</label>
+                        <select name="" id="search_keyword" class="search_keyword">
+                        <option value="" selected>ALL</option>
+                        <% @routes_modes.each do |mode| %>
+                            <option value="<%= mode %>"><%= mode %></option>
+                        <% end %>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="col s2">
+                        <label for="">Ordenar por</label>
+                        <select name="" id="sort_by" class="sort_by">
+                            <option value="date">Fecha</option>
+                            <option value="route">Nombre</option>
+                            <option value="mode">Modo</option>
+                        </select>
+                    </div>
+                    <div class="col s2">
+                        <label for="">Orden</label>
+                        <div class="switch" style="display: inline-block; padding-top: 12px">
+                            <label>
+                                Asc
+                                <input type="checkbox" id="reverse" class="reverse">
+                                <span class="lever"></span>
+                                Des
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Ruta</th>
+                                    <th>Modo</th>
+                                    <th colspan="2"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="status_body">
+                                <% @routes.each do |route| %>
+                                <tr>
+                                    <td><%= route.date.to_date %></td>
+                                    <td><%= route.route %></td>
+                                    <td><%= route.mode %></td>
+                                    <td><%= link_to 'Mostrar', route, class: "bontonnormal" %></td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </span>
+                </div>
+            </li>
+        </ul>
+
+
+    </div>
+</div>

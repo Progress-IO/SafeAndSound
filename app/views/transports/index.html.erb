@@ -1,0 +1,45 @@
+<%= render "layouts/user-panel" %>
+<div class="main content">
+    <div class="container">
+        <p id="notice"><%= notice %></p>
+
+        <h1>Transports</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Detalles</th>
+                    <th>Address</th>
+                    <th>Tipo transp</th>
+                    <th>Ruta</th>
+                    <th>Images</th>
+                    <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @transports.each do |transport| %>
+                <tr>
+                    <td><%= transport.fecha %></td>
+                    <td><%= transport.tipo %></td>
+                    <td class="xdetails_content"><%= transport.detalles %></td>
+                    <td><%= transport.address %></td>
+                    <td><%= transport.tipo_transp %></td>
+                    <td><%= transport.id_route %></td>
+                    <td><%= transport.images %></td>
+                    <td><%= link_to 'Show', transport, class: "bontonnormal" %></td>
+                    <td><%= link_to 'Edit', edit_transport_path(transport), class: "bontonnormal" %></td>
+                    <td><%= link_to 'Destroy', transport, method: :delete, data: { confirm: 'Are you sure?' }, class: "bontonnormal" %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'New Transport', new_transport_path, class: "btn" %>
+
+    </div>
+</div>

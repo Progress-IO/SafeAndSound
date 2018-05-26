@@ -1,0 +1,65 @@
+<script>
+    var lat = "<%= @my_zone.latitude %>";
+    var lng = "<%= @my_zone.longitude %>";
+    var color_base = "<%= @my_zone.color %>";
+</script>
+
+<%= javascript_include_tag "g_maps/gm_zones_show" %>
+<%= render "layouts/user-panel" %>
+<style>
+    .c_elem{
+        background-color: <%= @my_zone.color %>;
+    }
+</style>
+
+<div class="main content">
+    <div class="container">
+
+        <div id="map" class="map_report" class="custom_margin"></div>
+
+        <table class="striped">
+            <p id="notice"><%= notice %></p>
+
+            <tr>
+                <th>Nombre</th>
+                <td><%= @my_zone.name %></td>
+            </tr>
+            <tr>
+                <th>Radio</th>
+                <td><%= @my_zone.radius %> m</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <!-- <td><%= @my_zone.color %></td> -->
+                <td>
+                    <div id="color_palette">
+                        <div class="c_elem"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <h5>Reportes en rango (<%= @reports.count %>)</h5>
+        <table class="table_reports">
+            <tr>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th></th>
+            </tr>
+            <% @reports.each do | r | %>
+            <tr>
+                <td> <%= r.tipo %> </td>
+                <td> <%= r.fecha.to_date %> </td>
+                <td> <%= link_to 'Ver', r, class: "bontonnormal" %> </td>
+            </tr>
+            <% end %>
+        </table>
+
+
+
+        <%= link_to 'Editar', edit_my_zone_path(@my_zone), class: "btn" %>
+        <%= link_to 'Regresar', my_zones_path, class: "bontonnormal" %>
+    </div>
+</div>
+
+<%= render "layouts/map-actions"%>

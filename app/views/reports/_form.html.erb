@@ -1,0 +1,93 @@
+<%= javascript_include_tag "materialize_init" %>
+<%= form_with(model: report, local: true) do |form| %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<%= javascript_include_tag "autocomplete/autocompletar" %>
+
+
+<script>
+  $(document).ready(function(){
+        var extract =  window.location.hash.substring(1);
+         document.getElementById("tipo_t").setAttribute('value', extract);
+    });
+</script>
+
+
+<div class="input">
+    <%= form.label :tipo %>
+    <%= form.select(:tipo, options_for_select([["Robo violento","Robo violento"],["Asesinato","Asesinato"],["Raponazo","Raponazo"],["Estafa","Estafa"]]) ) %>
+</div>
+
+<div class="field">
+    <%= form.label "Dia" %>
+    <%= form.text_field :dia, class: "datepicker"%>
+</div>
+
+<div class="field">
+    <%= form.label "Hora" %>
+    <%= form.text_field :hora, class: "timepicker"%>
+</div>
+
+<div class="field">
+    <%= form.label :latitud, style: "display:none" %>
+    <%= form.text_field :latitude, id: :report_latitude, readonly: true, style: "display:none"%>
+</div>
+
+<div class="field">
+    <%= form.label :longitud, style: "display:none" %>
+    <%= form.text_field :longitude, id: :report_longitude, readonly: true, style: "display:none"%>
+</div>
+
+<div class="field">
+    <%= form.label "Dirección" %>
+    <%= form.text_field :address, id: :report_address %>
+</div>
+
+<div class="field">
+    <%= form.label "Detalles" %>
+    <%= form.text_field :details, id: :report_details %>
+</div>
+
+<div class="field">
+    <%= form.text_field :tipo_transp, readonly: true, style: "display:none", id: "tipo_t"  %>
+</div>
+
+<div class="field">
+    <%= form.label "Numero de ruta", id: "label_auto" %>
+    <%= form.text_field :id_route, id: "autocomplete-input", class: "autocomplete" , autocomplete: "off"%>
+  </div>
+
+
+<div class="field">
+    <%= form.label "Imágenes" %>
+    <div class="file-field input-field">
+        <div class="btn green">
+            <span>Adjuntar archivo</span>
+            <%= form.file_field :images, multiple: true %>
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="actions">
+    <%= form.submit "Crear reporte", class: 'btn', id: 'submit' %>
+</div>
+<% end %>
+<!-- Manejo de errores -->
+<% if report.errors.any? %>
+<div id="error_explanation">
+    <p>
+        Hubo un error en el creacion del reporte:</p>
+
+        <ul>
+            <% report.errors.full_messages.each do |message| %>
+            <li>
+                <%= message %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

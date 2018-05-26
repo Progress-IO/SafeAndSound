@@ -1,0 +1,17 @@
+<!-- Importar HTML del panel -->
+<%= render "layouts/user-panel" %>
+<!-- Genera el espacio disponible -->
+<div class="main content">
+    <!-- Opcional: Genera margen en el contenido -->
+    
+
+<div class="container">
+    <h1>Editing Discussion</h1>
+    
+    <%= render 'form', discussion: @discussion %>
+    
+    <%= link_to 'Show', @discussion %> |
+    <%= link_to 'Back', discussions_path %>
+
+</div>
+</div>

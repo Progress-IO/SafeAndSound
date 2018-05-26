@@ -1,0 +1,59 @@
+<%= render 'layouts/user-panel' %>
+<%= javascript_include_tag "g_maps/gm_route-show" %>
+
+<div class="main content">
+    <div class="container">
+        <p id="notice" style="color:green"><%= notice %></p>
+
+        <h1><%= @route.route%></h1>
+        <div id="map" class="map_report map_report_show" class="custom_margin"></div>
+
+        <!-- <p>
+          <strong>Origin latitude:</strong>
+          <%= @route.origin_latitude %>
+        </p>
+
+        <p>
+          <strong>Origin longitude:</strong>
+          <%= @route.origin_longitude %>
+        </p>
+
+        <p>
+          <strong>Destination latitude:</strong>
+          <%= @route.destination_latitude %>
+        </p>
+
+        <p>
+          <strong>Destination longitude:</strong>
+          <%= @route.destination_longitude %>
+        </p> -->
+
+        <p>
+          <strong>Fecha:</strong>
+          <%= @route.date.to_date %>
+        </p>
+
+        <p>
+          <strong>Modo:</strong>
+          <%= @route.mode %>
+        </p>
+
+        <!-- <%= link_to 'Editar', edit_route_path(@route), class: "btn"%> | -->
+        <%= link_to 'Mis rutas', routes_path, class: "btn" %>
+
+    </div>
+</div>
+
+<script>
+    var og_lat = <%= @route.origin_latitude %>;
+    var og_lng = <%= @route.origin_longitude %>;
+
+    var fn_lat = <%= @route.destination_latitude %>;
+    var fn_lng = <%= @route.destination_longitude %>;
+
+    var mode = "<%= @route.mode %>";
+    //
+    console.log(x);
+</script>
+
+<%= render "layouts/map-actions" %>

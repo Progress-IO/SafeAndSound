@@ -1,0 +1,25 @@
+<div class="container">
+
+<div class="container">
+  <h4 class="bordered"><%= @discussion.headline %></h4>
+
+  <h6>Escrito por: <b><%=@discussion.user.username %></b>  </h6>
+
+  <div class="card-panel teal lighten-5">
+      <p >
+        <%= @discussion.content.html_safe  %>
+        
+      </p>
+  </div>
+  <p><i><%= @discussion.created_at.strftime("%e %b %Y %H:%M:%S%p")%></i></p>
+  
+  Calificación  : <%= rating_for @discussion, 'calificacion' , enable_half: true  %>
+  
+  <%= link_to 'Editar', edit_discussion_path(@discussion) , class: "btn custom_margin" %> |
+  <%= link_to 'Volver', discussions_path , class: "btn custom_margin" %>
+  
+   <%= render  "comments/comment" %>
+   <%= render  "comments/form" %>
+  
+  
+  </div>

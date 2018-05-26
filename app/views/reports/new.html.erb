@@ -1,0 +1,24 @@
+<%= javascript_include_tag "g_maps/gm_report-new" %>
+
+<%= render "layouts/user-panel" %>
+
+<div class="main content">
+    <div class="container">
+        <h1>Crear reporte</h1>
+
+
+        <button class="btn custom_margin" id="btnaddmarker"> Agregar marcador </button>
+
+        <div id="map" class="map_report" class="custom_margin"></div>
+
+        <button id="btn-location" class="btn custom_margin" style="float: right; display:block;" >Agregar localización</button>
+        
+        <%= render 'form', report: @report %>
+        <%= link_to 'Volver', user_panel_path, class: "btn btn-small" %>
+
+
+    </div>
+</div>
+
+
+<%= render "layouts/map-actions"%>

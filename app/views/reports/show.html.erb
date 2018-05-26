@@ -1,0 +1,46 @@
+<%= render "layouts/user-panel" %>
+<div class="main content">
+    <div class="container">
+        <table class="striped">
+            <p id="notice"><%= notice %></p>
+
+            <tr>
+                <th>Fecha</th>
+                <td><%= @report.fecha.to_date %></td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td><%= @report.tipo %></td>
+            </tr>
+            <tr>
+                <th>Dirección</th>
+                <td><%= @report.address %></td>
+            </tr>
+            <tr>
+                <th>Detalles</th>
+                <td><%= @report.details %></td>
+            </tr>
+            <tr>
+                <th>Tipo de transporte</th>
+                <td><%= @report.tipo_transp %></td>
+            </tr>
+        </table>
+
+        <div class="img_container">
+            <% @report.images.each do |image|%>
+            <% if !image.nil? %>
+            <img src="<%=asset_path( image.large )%>" class="img_prev materialboxed">
+            <% end %>
+            <% end %>
+        </div>
+       <b> Calificación  :</b> <%= rating_for @report, 'calificacion' , enable_half: true  %>
+        <%= link_to 'Editar', edit_report_path(@report), class: "btn custom_margin" %> |
+        <%= link_to 'Volver', user_panel_path, class: "btn custom_margin" %> |
+
+        <%= link_to 'Convertir a PDF', report_path(@report, :format => 'pdf'), class: "btn custom_margin" %>
+
+        <%= render  "comments/comment"%>
+        <%= render  "comments/form" %>
+    </div>
+
+</div>

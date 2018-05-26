@@ -1,0 +1,62 @@
+<style>
+  .card {
+    background-color: rgba(0, 0, 0, 0.09) !important;
+    
+    
+  }
+  
+  .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: rgb(214, 127, 17) !important;
+  }
+  
+</style>
+
+
+<script>jQuery(document).ready(function($) {
+  $(".clickable-row").click(function() {
+  window.location = $(this).data("href");
+  });
+}); </script>
+
+
+<div class = "container">
+
+<div>
+  <h1>Discusiones</h1>
+  <% if user_signed_in?%>
+<%= link_to 'Nueva discusión', new_discussion_path, class:"waves-effect waves-light btn" %>
+  <% end %>
+</div>
+
+    <div class="row">
+    <% @discussions.each do |discussion| %>
+
+        <div class="col s12 m6 l3">
+          <div class="card">
+            <div class="card-content black-text">
+              <span class="card-title"><%= discussion.headline %></span>
+              <p><i><%= discussion.created_at.strftime ("%A, %d %b %Y %l:%M %p") %></i>
+              </p>
+              <p class="truncate"><%= discussion.content  %></p>
+              <div class="report-time"><%= discussion.comments.count%></div>
+              <%= rating_for discussion, 'calificacion' , enable_half: true , readonly: true %>
+            </div>
+            <div class="card-action">
+              <%= link_to 'Ver', discussion %>
+              <% if user_signed_in?  && current_user?(discussion.user) %>
+              <%= link_to 'Editar', edit_discussion_path(discussion) %>
+              <%= link_to 'Eliminar', discussion, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        
+       
+        
+        
+       
+    <% end %>
+  </div>
+<br></br>
+<div><%= will_paginate @discussions ,previous_label: "Volver", next_label: "Siguiente", inner_window:2, outer_window:1 %></div>
+</div>

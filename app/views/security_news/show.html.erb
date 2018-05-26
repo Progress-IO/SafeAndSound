@@ -1,0 +1,42 @@
+<%= render "layouts/user-panel" %>
+
+  <div class="main content">
+    <div class="container">
+      <table class="striped">
+        <p id="notice">
+          <%= notice %>
+        </p>
+
+        <tr>
+          <th>Tipo:</th>
+          <td>
+          <%= @security_news.tipo %>
+            </td>
+        </tr>
+
+
+        <tr>
+          <th>Dia:</th>
+          <td>
+          <%= @security_news.dia %>
+            </td>
+        </tr>
+
+        <tr>
+          <th>Direccion:</th>
+          <td>
+          <%= @security_news.address %>
+            </td>
+        </tr>
+
+        <tr>
+          <th>Detalles:</th>
+          <td><%= @security_news.details %></td>
+        </tr>
+  
+      </table>
+      Calificación  : <%= rating_for @security_news, 'calificacion' , enable_half: true  %>
+      <%= link_to 'Edit', edit_security_news_path(@security_news) %> |
+        <%= link_to 'Back', security_news_index_path %>
+    </div>
+  </div>

@@ -1,0 +1,39 @@
+<%= render "layouts/user-panel" %>
+
+<div class="main content">
+    <div class="container">
+
+<h1>Novedades de seguridad</h1>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Dia</th>
+      <th>Direccion</th>
+      <th>Detalles</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @security_news.each do |security_news| %>
+      <tr>
+        <td><%= security_news.tipo %></td>
+        <td><%= security_news.dia %></td>
+        <td><%= security_news.address %></td>
+        <td><%= security_news.details %></td>
+        <td><%= link_to 'Mostrar', security_news ,class: "btn" %></td>
+        <td><%= link_to 'Editar', edit_security_news_path(security_news), class: "btn" %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo', new_security_news_path , class: "btn" %>
+
+    </div>
+</div>

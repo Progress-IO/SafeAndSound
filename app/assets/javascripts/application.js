@@ -10,6 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
+//= require_directory .
+//= require materialize-sprockets
+//= require underscore
+//= require Chart.min
+//= require jquery.raty
+//= require ratyrate
+
+$(function(){
+
+    $(".xdetails_content").each(function(){
+        $(this).text($(this).text().substring(0, 130) + "...");
+    });
+});

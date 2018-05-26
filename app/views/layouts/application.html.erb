@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>SafeAndSound</title>
-    <%= csrf_meta_tags %>
+<%= render "layouts/header" %>
+<%= render "layouts/load-assets" %>
+<!-- Importar HTML del panel -->
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
+        <%= yield %>
+
+    
+
+    <%= javascript_include_tag "init.js" %>
+
   </body>
 </html>

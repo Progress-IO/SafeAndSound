@@ -1,0 +1,49 @@
+
+                     <div class="card horizontal hoverable">
+                          <div class="card-image">
+                              <div class = "report-time">
+                                <%=suspect.created_at.strftime("%b %e, %l:%M %p")%>
+                              </div>
+                           <!--  <img src="assets/sospechoso.png">  -->
+                             <img class = "streetview"async defer src  = "https://maps.googleapis.com/maps/api/streetview?size=300x300&location=<%=suspect.latitude%>,<%=suspect.longitude%>&heading=151.78&pitch=-0.76&key=AIzaSyBSx0bimXEZW2pCJQwXposaNJJll96JQ4g"></img>
+                             
+                              <br></br>
+                                   <div class="chip">
+                                       <strong> Sospechoso </strong>   
+                                   </div>
+                                   <br></br> 
+                            <div class="botones">  
+                            <div class = "location">
+                              <a class="btn-floating blue"><i class="small material-icons" >location_on</i> </a>
+                              <span class="latitude"><%=suspect.latitude%></span>
+                              <span class="longitude"><%=suspect.longitude%></span>
+                            </div>
+                            <div class= "comentarios ">   <i class="tiny material-icons report-time" >question_answer</i><span class = "report-time"><%= suspect.comments.count%></span> </div>
+                            </div>
+                          
+                        <div class="rating"><%= rating_for suspect, 'calificacion' , enable_half: true , readonly: true  %></div>
+                                
+                          </div>
+                      <div class="card-stacked">
+                            <div class="card-content">
+                                 <div>
+                                   <div >
+                                     <%= avatar_for(suspect.user,size: 35)%>
+                                   </div> 
+
+
+                                 <% if !suspect.user.username.nil? %>
+                                <%=link_to "@"+suspect.user.username, user_path(suspect.user.id)%>
+                                <% else %>
+                                <%=link_to "@user: "+suspect.user.id.to_s, user_path(suspect.user.id)%>
+                                <% end %>
+                                
+                              </div>
+                              <p> <%= suspect.details.split.first(7).join(' ')%>...</p>
+                            </div>
+                            <div class="card-action">
+                              <a  href="<%=suspect_path(suspect.id)%>">Ver Reporte</a>
+                            </div>
+                      </div>
+                      
+                  </div>

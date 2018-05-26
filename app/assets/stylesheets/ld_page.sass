@@ -1,0 +1,186 @@
+$my_font: "Ubuntu"
+$button_color: #5b64bb
+$bar_c: #070a14
+
+=skew-box($value)
+    -webkit-transform: skew($value)
+    -moz-transform: skew($value)
+    -o-transform: skew($value)
+
+.link_menu
+    padding-left: 10px
+    padding-top: 4px
+    vertical-align: top
+    display: none
+
+html,
+body
+    margin: 0 !important
+    padding: 0 !important
+    font-family: $my_font
+    height: 100%
+
+
+*
+    box-sizing: border-box !important
+
+
+.side_bar
+    position: absolute
+    background-color: $bar_c
+    height: 90.5vh
+    width: 80px
+    border-right: 2px solid #b5b4be
+    transition: 0.5s ease
+    // padding-top: 71px
+
+    a
+        color: white
+
+    ul
+        box-sizing: border-box
+        float: left
+        padding: 0
+        display: block
+        width: 100%
+        li
+            position: relative
+            list-style: none
+            height: 50px
+            // background-color: #070a14
+            color: white
+            padding: 10px 0 0 20px
+
+            // border-bottom: 1px solid #2a2b3b
+            // &:last-of-type
+
+            &:hover
+                background-color: #13161f
+                border-left: 4px #628fff solid
+                padding-left: 16px
+                cursor: pointer
+
+
+.li_active
+    background-color: #13161f
+    border-left: 4px #628fff solid
+    padding-left: 16px
+    cursor: pointer
+
+.side_bar_toggle
+    width: 200px
+
+.main
+    margin-top: 3px
+    overflow: hidden
+    // position: absolute
+    margin-left: 80px
+    transition: 0.5s
+    // width: 100%
+    height: 90vh
+
+.content
+    overflow: scroll
+
+.link_menu_toggle
+    display: none
+
+.test
+    background-color: green
+    width: 100%
+    height: 100%
+
+.img_card
+    max-width: 80% !important
+    opacity: 1
+    &:hover
+        opacity: 0.8
+        cursor: pointer
+
+
+.chart_canvas
+    max-height: 60vh
+
+
+.side-nav-report
+    background: #f1f1f1
+    position: absolute
+
+    height: 90%
+    width: 300px
+    right: 0px
+    transition: 0.5s ease
+
+
+#listapanel
+    height: 79%
+
+.side-nav-report-toggle
+    width: 30px
+
+.suspect_list
+
+    height: 80%
+
+#tabsdiv
+    max-height: 20%
+    /* scrolling out of view :-( */
+
+.cont_elements,#test1,#test2,#test3
+    margin: 2px
+    height: 100%
+
+.suspect_list,.report_list,.transport_list
+    height: 100%
+    overflow: auto
+    margin: 0px
+.card
+    margin: 5px, 10px !important
+.card-image
+    margin: 5px
+
+.card-image .streetview
+    max-height: 70% !important
+    width: 100%
+
+
+.card-action
+    width: 100%
+.tabicon
+    width: 100%
+.location,.comentarios
+    width: 30%
+    display: inline
+.comentarios
+
+    vertical-align: middle
+.location span
+    display: none
+.rating .star
+    display: inline
+    max-height: 20%
+.card .card-image img
+    display: inline !important
+
+.filtros label
+    width: 80% !important
+
+
+.report-time
+    color: #999
+    font-style: oblique
+#expand_icon2
+    border: 0px
+    margin: 0px
+    background: none
+
+.table_data
+    margin-bottom: 30px
+
+
+.tab_icons
+    color: #2f72a2 !important
+
+.tabs
+    .indicator
+        color: #34737c !important

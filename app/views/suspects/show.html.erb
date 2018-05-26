@@ -1,0 +1,46 @@
+<%= render "layouts/user-panel" %>
+
+<div class="main content">
+    <div class="container">
+
+        <table class="striped table_data">
+            <p id="notice"><%= notice %></p>
+
+            <tr>
+                <th>Fecha</th>
+                <td><%= @suspect.fecha.to_date %></td>
+            </tr>
+            <tr>
+                <th>Dirección</th>
+                <td><%= @suspect.address %></td>
+            </tr>
+            <tr>
+                <th>Detalles</th>
+                <td><%= @suspect.details %></td>
+            </tr>
+            <tr>
+                <th>Latitud</th>
+                <td><%= @suspect.latitude %></td>
+            </tr>
+            <tr>
+                <th>Longitud</th>
+                <td><%= @suspect.longitude %></td>
+            </tr>
+        </table>
+
+        <div class="img_container">
+            <% @suspect.images.each do |image|%>
+                <% if !image.nil? %>
+                <%= image_tag( image.medium,  class: "img_prev materialboxed")%>
+                <% end %>
+            <% end %>
+        </div>
+    <b>Calificación  :</b>     <%= rating_for @suspect, 'calificacion' , enable_half: true  %>
+        <%= link_to 'Editar', edit_suspect_path(@suspect), class: "btn custom_margin" %> |
+        <%= link_to 'Volver', suspects_path, class: "btn custom_margin" %> |
+        <%= link_to 'Convertir a PDF', suspect_path(@suspect, format: 'pdf'), class: "btn custom_margin" %>
+        
+        <%= render  "comments/comment" %>
+         <%= render  "comments/form" %>
+    </div>
+</div>

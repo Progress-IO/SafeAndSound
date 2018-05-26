@@ -4,12 +4,12 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
-
+gem 'will_paginate-materialize', '~> 0.1.0'
+gem 'will_paginate', '~> 3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
-
+gem 'ratyrate'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -22,18 +22,54 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'omniauth-facebook'
+#añadido materialize
+gem 'materialize-sass'
+#añadidio jquery
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+#gema para poder subir archivos
+
+gem 'carrierwave', '~> 1.0'
+#gema para manejar errores de carrierwave
+gem 'carrierwave-i18n'
+#Minimagick para carriwerwave
+gem "mini_magick"
+#Gema para almacenar uploads en la nube
+gem 'carrierwave-aws'
+#gema para fechas
+ gem 'time_splitter'
+ 
+#Gema para ayudar a ocultar llaves secretillas
+gem 'figaro'
+#Gema para generar datos aleatorios
+gem 'faker'
+gem 'material_icons'
+# Para representacion de datos
+gem 'chart-js-rails'
+
+# Pdf generator plugin
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+#Añadir autocomplete
+gem 'jquery-ui-rails'
+#Añadir delayed job
+gem 'delayed_job_active_record'
+gem "daemons"
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
@@ -56,3 +92,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'rails_admin', '~> 1.2'

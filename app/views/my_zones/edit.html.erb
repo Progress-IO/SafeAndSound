@@ -1,0 +1,12 @@
+<%= render "layouts/user-panel" %>
+<div class="main content">
+    <div class="container">
+        <h1>Modificar zona</h1>
+
+        <%= render 'form', my_zone: @my_zone %>
+
+        <%= link_to 'Ver', @my_zone, class: "bontonnormal" %> |
+        <%= link_to 'Volver', my_zones_path, class: "bontonnormal" %>
+
+    </div>
+</div>

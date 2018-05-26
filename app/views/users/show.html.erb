@@ -1,0 +1,27 @@
+<%= render "layouts/user-panel" %>
+
+<div class="main content">
+    <div class="container">
+        <p id="notice"><%= notice %></p>
+
+          <h1>  <%= @user.username %>  </h1>
+
+          <%=  avatar_for(@user, size: 150)%>
+          <div><%= @user.name %></div>
+          <div style="color: #5db6fc"><%= @user.email %></div>
+          <%if @user.description?%>
+           <div><i><%= @user.description %></i></div>
+           <%else %>
+             <div> <i>Hola, estoy usando SafeAndSound!</i></div>
+          <%end%>
+
+
+         <% if user_signed_in? && current_user?(@user)  %>
+            <%= link_to 'Editar', edit_user_path, class: "btn" %> 
+         <%elsif  current_user.Isadmin? %>
+            <%= link_to 'Editar', edit_admin_admin_path, class: "btn" %> 
+            hola
+         <%end%>
+        <%= link_to 'Volver', root_url, class: "btn" %>
+    </div>
+</div>

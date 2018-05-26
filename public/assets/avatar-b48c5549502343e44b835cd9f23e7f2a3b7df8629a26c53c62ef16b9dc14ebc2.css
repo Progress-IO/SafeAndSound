@@ -1,0 +1,7 @@
+@charset "UTF-8";
+/* line 1, /home/dandar/Documents/UN/Ingeniería de Software 2/Progressio/Safe & Sound/Proyecto/SafeAndSound/app/assets/stylesheets/avatar.scss */
+.avatar-image {
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 3px;
+}

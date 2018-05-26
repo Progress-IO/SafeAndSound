@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF</title>
+</head>
+<%= wicked_pdf_stylesheet_link_tag "pdf/tables"%>
+
+<style>
+table, td, th {
+
+}
+</style>
+
+<body>
+    <div class="content">
+        <h2>Suspect Report</h2>
+        <table>
+            <p id="notice"><%= notice %></p>
+            <tr>
+                <th>Date</th>
+                <td><%= @suspect.fecha.to_date %></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><%= @suspect.address %></td>
+            </tr>
+            <tr>
+                <th>Details</th>
+                <td><%= @suspect.details %></td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td><%= @suspect.latitude %></td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td><%= @suspect.longitude %></td>
+            </tr>
+        </table>
+
+        <div class="img_container">
+            <% @suspect.images.each do |image|%>
+                <% if !image.nil? %>
+                <%= wicked_pdf_image_tag( image.medium )%>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</body>
+</html>

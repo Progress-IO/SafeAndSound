@@ -1,0 +1,12 @@
+<%= render "layouts/user-panel" %>
+<div class="main content">
+    <div class="container">
+        <h1>Editing Transport</h1>
+
+        <%= render 'form', transport: @transport %>
+
+        <%= link_to 'Show', @transport %> |
+        <%= link_to 'Back', transports_path %>
+
+    </div>
+</div>
